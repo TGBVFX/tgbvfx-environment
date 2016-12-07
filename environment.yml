@@ -1,7 +1,23 @@
 name: tgbvfx-core
+channels:
+- menpo
 dependencies:
 - python=2.7
+- ffmpeg
+- pip
+- pip:
+  - PySide
+  - clique
+  - pyperclip
 - git:
+  - https://github.com/tokejepsen/pyblish-tgbvfx.git
+  - https://bitbucket.org/ftrack/ftrack-connect.git
+  - https://bitbucket.org/ftrack/ftrack-connect-maya.git
+  - https://github.com/pyblish/pyblish-base.git
+  - https://github.com/pyblish/pyblish-lite.git
+  - https://github.com/pyblish/pyblish-maya.git
+  - https://github.com/pyblish/pyblish-ftrack.git
+  - https://github.com/Bumpybox/pyblish-bumpybox.git
   - https://github.com/tokejepsen/tgbvfx-core.git:
     - python $REPO_PATH/environment.py
   - https://github.com/Bumpybox/bumpybox-core.git:
