@@ -23,7 +23,7 @@ dependencies:
   - https://github.com/pyblish/pyblish-lite.git
   - https://github.com/pyblish/pyblish-maya.git
   - https://github.com/tokejepsen/pyblish-tgbvfx.git
-  - https://github.com/tokejepsen/tgbvfx-core.git:
+  - https://github.com/tokejepsen/tgbvfx-environment.git:
     - python $REPO_PATH/environment.py
-  - https://github.com/Bumpybox/bumpybox-core.git:
+  - https://github.com/Bumpybox/bumpybox-environment.git:
     - python $REPO_PATH/startup.py
