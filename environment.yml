@@ -1,4 +1,4 @@
-name: tgbvfx-core
+name: tgbvfx-environment
 channels:
 - menpo
 dependencies:
