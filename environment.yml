@@ -8,17 +8,21 @@ dependencies:
 - pip:
   - PySide
   - clique
+  - lucidity
   - pyperclip
 - git:
-  - https://github.com/tokejepsen/pyblish-tgbvfx.git
-  - https://github.com/tokejepsen/ftrack-hooks.git
   - https://bitbucket.org/ftrack/ftrack-connect.git
-  - https://bitbucket.org/ftrack/ftrack-connect-maya.git
+  - https://bitbucket.org/tokejepsen/ftrack-connect-maya.git
+  - https://github.com/tokejepsen/ftrack-hooks.git
+  - https://github.com/tokejepsen/ftrack-locations.git
+  - https://github.com/tokejepsen/ftrack-template.git
   - https://github.com/pyblish/pyblish-base.git
+  - https://github.com/Bumpybox/pyblish-bumpybox.git
+  - https://github.com/tokejepsen/pyblish-ftrack.git
+  - https://github.com/pyblish/pyblish-houdini.git
   - https://github.com/pyblish/pyblish-lite.git
   - https://github.com/pyblish/pyblish-maya.git
-  - https://github.com/tokejepsen/pyblish-ftrack.git
-  - https://github.com/Bumpybox/pyblish-bumpybox.git
+  - https://github.com/tokejepsen/pyblish-tgbvfx.git
   - https://github.com/tokejepsen/tgbvfx-core.git:
     - python $REPO_PATH/environment.py
   - https://github.com/Bumpybox/bumpybox-core.git:
