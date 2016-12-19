@@ -15,11 +15,4 @@ path = os.path.join(
 
 environment["FTRACK_TEMPLATES_PATH"] = path
 
-# PYBLISHPLUGINPATH
-path = os.path.join(
-    os.environ["CONDA_GIT_REPOSITORY"], "pyblish-tgbvfx", "plugins", "maya"
-)
-
-environment["PYBLISHPLUGINPATH"] = path
-
 utils.write_environment(environment)
