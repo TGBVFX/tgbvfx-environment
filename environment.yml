@@ -11,19 +11,22 @@ dependencies:
   - lucidity
   - pyperclip
 - git:
+  - https://bitbucket.org/tokejepsen/QtExt.git
   - https://bitbucket.org/ftrack/ftrack-connect.git
   - https://bitbucket.org/tokejepsen/ftrack-connect-maya.git
+  - https://bitbucket.org/ftrack/ftrack-connect-nuke.git
   - https://github.com/tokejepsen/ftrack-hooks.git
   - https://github.com/tokejepsen/ftrack-locations.git
   - https://github.com/tokejepsen/ftrack-template.git
   - https://github.com/pyblish/pyblish-base.git
   - https://github.com/bumpybox/pyblish-bumpybox.git
-  - https://github.com/tokejepsen/pyblish-ftrack.git
+  - https://github.com/tokejepsen/pyblish-ftrack.git@f9d5c7b02607ed86ded0532136b4c743581534bf
   - https://github.com/pyblish/pyblish-houdini.git
-  - https://github.com/pyblish/pyblish-lite.git
+  - https://github.com/tokejepsen/pyblish-lite.git
   - https://github.com/pyblish/pyblish-maya.git
   - https://github.com/tokejepsen/pyblish-tgbvfx.git
+  - https://github.com/bumpybox/bumpybox-environment.git:
+    - python $REPO_PATH/environment.py
   - https://github.com/tokejepsen/tgbvfx-environment.git:
     - python $REPO_PATH/environment.py
-  - https://github.com/bumpybox/bumpybox-environment.git:
-    - python $REPO_PATH/startup.py
+    - python -m ftrack_connect
