@@ -11,21 +11,20 @@ dependencies:
   - lucidity
   - pyperclip
 - git:
-  - https://bitbucket.org/tokejepsen/QtExt.git
-  - https://bitbucket.org/ftrack/ftrack-connect.git
-  - https://bitbucket.org/tokejepsen/ftrack-connect-maya.git
-  - https://bitbucket.org/ftrack/ftrack-connect-nuke.git
-  - https://github.com/tokejepsen/ftrack-hooks.git
-  - https://github.com/tokejepsen/ftrack-locations.git
-  - https://github.com/tokejepsen/ftrack-template.git
-  - https://github.com/pyblish/pyblish-base.git
-  - https://github.com/bumpybox/pyblish-bumpybox.git
+  - https://bitbucket.org/tokejepsen/QtExt.git@d51ecf13780430c3e8c9f564976a3bdac359c619
+  - https://bitbucket.org/ftrack/ftrack-connect.git@64b062c0b6b86ba45225878f154f0e04180cbfe1
+  - https://bitbucket.org/tokejepsen/ftrack-connect-maya.git@4487fa733768a90d3a831d4570a8606c4a3d1556
+  - https://github.com/tokejepsen/ftrack-hooks.git@948acce2a69b6759d90e5143d616537b0d084ba7
+  - https://github.com/tokejepsen/ftrack-locations.git@2f371920328ee9b75036f61d3772cc7f43e8d7cb
+  - https://github.com/tokejepsen/ftrack-template.git@42f5e40cd634fb8a50998afaedc4f2cea229139b
+  - https://github.com/pyblish/pyblish-base.git@6dc5781d6bb7b97fb7bc9df268f59e24a477c272
+  - https://github.com/bumpybox/pyblish-bumpybox.git@4d3e41dcbf4b5aed72d1ae7eceb1704e9d108cad
   - https://github.com/tokejepsen/pyblish-ftrack.git@f9d5c7b02607ed86ded0532136b4c743581534bf
-  - https://github.com/pyblish/pyblish-houdini.git
-  - https://github.com/tokejepsen/pyblish-lite.git
-  - https://github.com/pyblish/pyblish-maya.git
-  - https://github.com/tokejepsen/pyblish-tgbvfx.git
-  - https://github.com/bumpybox/bumpybox-environment.git:
+  - https://github.com/pyblish/pyblish-houdini.git@88b189a82fd6b757aa7557c1c490b97e740154a5
+  - https://github.com/tokejepsen/pyblish-lite.git@543a64d4d6f6d6ce425a52b9eba8969b8e896366
+  - https://github.com/pyblish/pyblish-maya.git@93651557bb62d3f367d3ec753b7b832398373888
+  - https://github.com/tokejepsen/pyblish-tgbvfx.git@6732984f60d7d9d6061d883838a115a73a4d72ff
+  - https://github.com/bumpybox/bumpybox-environment.git@7243baad000437ad195b13b4262550fe6cfbe859:
     - python $REPO_PATH/environment.py
   - https://github.com/tokejepsen/tgbvfx-environment.git:
     - python $REPO_PATH/environment.py
