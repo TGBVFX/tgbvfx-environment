@@ -4,19 +4,28 @@ import platform
 import ftrack_template
 
 
-def dictionary_to_paths(dictionary, path="", results=[]):
+def dictionary_to_paths(data, path="", results=[]):
 
-    for key, value in dictionary.iteritems():
+    for key, value in data.iteritems():
 
         parent_path = (path + os.sep + key)
         if not path:
             parent_path = key
 
-        if value:
-            results.append(parent_path)
-            dictionary_to_paths(value, path=parent_path, results=results)
-        else:
-            results.append(parent_path)
+        if isinstance(value, dict):
+            if "isfile" in value:
+                temp = ftrack_template.Template("template", parent_path)
+                temp.isfile = value["isfile"]
+                temp.source = value["source"]
+                results.append(temp)
+            else:
+                temp = ftrack_template.Template("template", parent_path)
+                temp.isfile = False
+                results.append(temp)
+                if value:
+                    dictionary_to_paths(
+                        value, path=parent_path, results=results
+                    )
 
     return results
 
@@ -47,141 +56,69 @@ def register():
     episode = "{#episode.name}"
     episodes = "Episodes/" + episode
 
-    structure = {
-        mount: {
-            "work": {
-                tasks: {
-                    assetversion: {
-                        file_component: {},
-                        sequence_component: {}
-                    }
-                },
-                assets: {
-                    task: {
-                        assetversion: {
-                            file_component: {},
-                            sequence_component: {}
-                        }
-                    }
-                },
-                shots: {
-                    task: {
-                        assetversion: {
-                            file_component: {},
-                            sequence_component: {}
-                        }
-                    },
-                    assets: {
-                        task: {
-                            assetversion: {
-                                file_component: {},
-                                sequence_component: {}
-                            }
-                        }
-                    },
-                },
-                sequences: {
-                    task: {
-                        assetversion: {
-                            file_component: {},
-                            sequence_component: {}
-                        }
-                    },
-                    assets: {
-                        task: {
-                            assetversion: {
-                                file_component: {},
-                                sequence_component: {}
-                            }
-                        }
-                    },
-                    shot: {
-                        task: {
-                            assetversion: {
-                                file_component: {},
-                                sequence_component: {}
-                            }
-                        },
-                        assets: {
-                            task: {
-                                assetversion: {
-                                    file_component: {},
-                                    sequence_component: {}
-                                }
-                            }
-                        }
-                    }
-                },
-                episodes: {
-                    task: {
-                        assetversion: {
-                            file_component: {},
-                            sequence_component: {}
-                        }
-                    },
-                    assets: {
-                        task: {
-                            assetversion: {
-                                file_component: {},
-                                sequence_component: {}
-                            }
-                        }
-                    },
-                    shot: {
-                        task: {
-                            assetversion: {
-                                file_component: {},
-                                sequence_component: {}
-                            }
-                        },
-                        assets: {
-                            task: {
-                                assetversion: {
-                                    file_component: {},
-                                    sequence_component: {}
-                                }
-                            }
-                        }
-                    },
-                    sequence: {
-                        task: {
-                            assetversion: {
-                                file_component: {},
-                                sequence_component: {}
-                            }
-                        },
-                        assets: {
-                            task: {
-                                assetversion: {
-                                    file_component: {},
-                                    sequence_component: {}
-                                }
-                            }
-                        },
-                        shot: {
-                            task: {
-                                assetversion: {
-                                    file_component: {},
-                                    sequence_component: {}
-                                }
-                            },
-                            assets: {
-                                task: {
-                                    assetversion: {
-                                        file_component: {},
-                                        sequence_component: {}
-                                    }
-                                }
-                            }
-                        }
-                    },
-                }
+    task_structure = {
+        "work": {
+            "{maya}": {
+                "maya_v{padded_version}.mb": {}
+            }
+        },
+        "publish": {
+            assetversion: {
+                file_component: {},
+                sequence_component: {}
             }
         }
     }
 
-    templates = []
-    for path in dictionary_to_paths(structure):
-        templates.append(ftrack_template.Template("template", path))
+    project_structure = {
+        mount: {
+            tasks: task_structure,
+            assets: {
+                task: task_structure
+            },
+            shots: {
+                task: task_structure,
+                assets: {
+                    task: task_structure
+                },
+            },
+            sequences: {
+                task: task_structure,
+                assets: {
+                    task: task_structure
+                },
+                shot: {
+                    task: task_structure,
+                    assets: {
+                        task: task_structure
+                    }
+                }
+            },
+            episodes: {
+                task: task_structure,
+                assets: {
+                    task: task_structure
+                },
+                shot: {
+                    task: task_structure,
+                    assets: {
+                        task: task_structure
+                    }
+                },
+                sequence: {
+                    task: task_structure,
+                    assets: {
+                        task: task_structure
+                    },
+                    shot: {
+                        task: task_structure,
+                        assets: {
+                            task: task_structure
+                        }
+                    }
+                },
+            }
+        }
+    }
 
-    return templates
+    return dictionary_to_paths(project_structure)
