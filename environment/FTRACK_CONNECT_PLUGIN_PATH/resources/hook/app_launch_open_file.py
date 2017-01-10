@@ -1,5 +1,6 @@
 import os
 import re
+import shutil
 
 import ftrack
 import ftrack_api
@@ -34,25 +35,32 @@ def get_task_data(event):
         app_id = "nuke"
 
     templates = ftrack_template.discover_templates()
-    work_file = ftrack_template.format(
+    work_file, template = ftrack_template.format(
         {app_id: app_id, "padded_version": "001"}, templates, entity=task
-    )[0]
+    )
     work_area = os.path.dirname(work_file)
 
-    max_version = 0
-    launch_file = None
-    for f in os.listdir(work_area):
-        try:
-            version = version_get(f, "v")[1]
-            if version > max_version:
-                max_version = version
-                launch_file = os.path.join(work_area, f)
-        except:
-            pass
+    # Finding existing work files
+    if os.path.exists(work_area):
+        max_version = 0
+        for f in os.listdir(work_area):
+            try:
+                version = version_get(f, "v")[1]
+                if version > max_version:
+                    max_version = version
+                    work_file = os.path.join(work_area, f)
+            except:
+                pass
 
-    if launch_file:
-        data["command"].append(launch_file)
+    # If no work file exists, copy a default work file
+    if not os.path.exists(work_file):
 
+        if not os.path.exists(os.path.dirname(work_file)):
+            os.makedirs(os.path.dirname(work_file))
+
+        shutil.copy(template.source, work_file)
+
+    data["command"].append(work_file)
     return data
 
 

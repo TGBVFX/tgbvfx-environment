@@ -59,7 +59,12 @@ def register():
     task_structure = {
         "work": {
             "{maya}": {
-                "maya_v{padded_version}.mb": {}
+                "maya_v{padded_version}.mb": {
+                    "isfile": True,
+                    "source": os.path.join(
+                        os.path.dirname(__file__), "maya.mb"
+                    )
+                }
             }
         },
         "publish": {
