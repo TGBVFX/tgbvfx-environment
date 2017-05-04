@@ -38,7 +38,7 @@ def register():
         system_name = "unix"
 
     mount = (
-        "{#project.disk." + system_name + "}/{#project.root}/{#project.name}"
+        "{#project.disk." + system_name + "}/{#project.root}"
     )
     task = "{#task.name}"
     tasks = "Tasks/" + task
@@ -63,6 +63,14 @@ def register():
                     "isfile": True,
                     "source": os.path.join(
                         os.path.dirname(__file__), "maya.mb"
+                    )
+                }
+            },
+            "{nuke}": {
+                "nuke_v{padded_version}.nk": {
+                    "isfile": True,
+                    "source": os.path.join(
+                        os.path.dirname(__file__), "nuke.nk"
                     )
                 }
             }
