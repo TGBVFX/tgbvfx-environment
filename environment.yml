@@ -1,4 +1,3 @@
-name: tgbvfx-environment
 channels:
 - menpo
 dependencies:
@@ -13,16 +12,25 @@ dependencies:
   - arrow
   - riffle
 - git:
-  - https://bitbucket.org/ftrack/QtExt.git
-  - https://bitbucket.org/ftrack/ftrack-connect.git
-  - https://bitbucket.org/tokejepsen/ftrack-connect-maya.git
-  - https://bitbucket.org/ftrack/ftrack-connect-nuke.git
-  - https://bitbucket.org/ftrack/ftrack-connect-foundry.git
-  - https://github.com/tokejepsen/ftrack-hooks.git
-  - https://github.com/tokejepsen/ftrack-locations.git
-  - https://github.com/tokejepsen/ftrack-template.git
-  - https://github.com/tokejepsen/ftrack-connect-environment.git:
+  - https://github.com/pyblish/pyblish-base.git@9a3d78772f73e5905c131f9431cc3a266b23cbf7
+  - https://github.com/pyblish/pyblish-lite.git@b1737db3242d485a0377dc52265ebae805268a97
+  - https://github.com/pyblish/pyblish-standalone.git@0f279c0e08f4c99bd6e5ef954452835e01e2ee61
+  - https://github.com/pyblish/pyblish-maya.git@b81e6edd67e9969348a133c8a6e630ab92fd6c3f
+  - https://github.com/pyblish/pyblish-nuke.git@061de849f501063ad92c532b764847c8883061d7
+  - https://github.com/pyblish/pyblish-ftrack.git@577900a3d18a1e82778e92d974d59087b0c45b47
+  - https://github.com/bumpybox/pyblish-bumpybox.git@87d9981b76b1e6a6c935a41fc371a6bdf243c3cf
+  - https://github.com/abstractfactory/maya-capture.git@bdea21ad0cfa008b70d3419438687faf535e85b7
+  - https://bitbucket.org/ftrack/QtExt.git@f88d1db8d5b7a0f5162f29a0701166d3be24fd19
+  - https://bitbucket.org/ftrack/ftrack-connect.git@ec06d2626c7dac4d1107ac3954332ffc06f2e425
+  - https://bitbucket.org/tokejepsen/ftrack-connect-maya.git@a3357544ab4986f7fcab45b05b74e669d987ea1f
+  - https://bitbucket.org/ftrack/ftrack-connect-nuke.git@74ea5d8ba0589256b035a375152641ed9c6c9376
+  - https://bitbucket.org/ftrack/ftrack-connect-foundry.git@4a5323c453855ff909b7ba6b7ce8ac43617977a2
+  - https://github.com/tokejepsen/ftrack-hooks.git@95a4c20c42c069831fe4a2429daca07fd13a5d51
+  - https://github.com/tokejepsen/ftrack-locations.git@eccb7fca95db6d039906aa6f2da0c65f012c4838
+  - https://github.com/tokejepsen/ftrack-template.git@825e29b1a81a65a38fc56f4e5b744b23a79e72df
+  - https://github.com/tokejepsen/ftrack-connect-environment.git@3c71b345f1732979364b27b714f898a43ddc20a6:
     - python $REPO_PATH/environment.py
   - https://github.com/tokejepsen/tgbvfx-environment.git:
     - python $REPO_PATH/environment.py
     - python -m ftrack_connect
+name: tgbvfx-environment

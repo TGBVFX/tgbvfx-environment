@@ -10,6 +10,36 @@ environment = {}
 environment["PYTHONPATH"] = [
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "ftrack-template"),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "ftrack-locations"),
+    os.path.join(
+        os.environ["CONDA_GIT_REPOSITORY"],
+        "pyblish-maya",
+        "pyblish_maya",
+        "pythonpath"
+    ),
+    os.path.join(
+        os.environ["CONDA_GIT_REPOSITORY"],
+        "pyblish-bumpybox",
+        "pyblish_bumpybox",
+        "environment_variables",
+        "pythonpath"
+    ),
+]
+
+# NUKE_PATH
+environment["NUKE_PATH"] = [
+    os.path.join(
+        os.environ["CONDA_GIT_REPOSITORY"],
+        "pyblish-nuke",
+        "pyblish_nuke",
+        "nuke_path"
+    ),
+    os.path.join(
+        os.environ["CONDA_GIT_REPOSITORY"],
+        "pyblish-bumpybox",
+        "pyblish_bumpybox",
+        "environment_variables",
+        "nuke_path"
+    ),
 ]
 
 # FTRACK_TEMPLATES_PATH
@@ -31,6 +61,7 @@ environment["FTRACK_CONNECT_PLUGIN_PATH"] = [
     os.path.join(
         os.environ["CONDA_GIT_REPOSITORY"], "ftrack-hooks", "pipeline_plugins"
     ),
+    os.path.join(root, "environment", "FTRACK_CONNECT_PLUGIN_PATH"),
 ]
 
 # FTRACK_LOCATION_PLUGIN_PATH
