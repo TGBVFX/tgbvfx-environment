@@ -27,6 +27,7 @@ environment["PYTHONPATH"] = [
 
 # NUKE_PATH
 environment["NUKE_PATH"] = [
+    os.path.join(root, "environment", "NUKE_PATH"),
     os.path.join(
         os.environ["CONDA_GIT_REPOSITORY"],
         "pyblish-nuke",
@@ -39,7 +40,7 @@ environment["NUKE_PATH"] = [
         "pyblish_bumpybox",
         "environment_variables",
         "nuke_path"
-    ),
+    )
 ]
 
 # FTRACK_TEMPLATES_PATH
