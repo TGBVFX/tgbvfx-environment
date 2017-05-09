@@ -27,7 +27,6 @@ environment["PYTHONPATH"] = [
 
 # NUKE_PATH
 environment["NUKE_PATH"] = [
-    os.path.join(root, "environment", "NUKE_PATH"),
     os.path.join(
         os.environ["CONDA_GIT_REPOSITORY"],
         "pyblish-nuke",
