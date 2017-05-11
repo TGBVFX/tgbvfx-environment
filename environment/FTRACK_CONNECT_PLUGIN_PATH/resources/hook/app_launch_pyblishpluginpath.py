@@ -66,6 +66,7 @@ def modify_application_launch(event):
         os.path.join(bumpybox_plugins_dir, app_id.split("_")[0]),
         os.path.join(bumpybox_plugins_dir, app_id.split("_")[0], task_type),
         os.path.join(bumpybox_plugins_dir, "ftrack"),
+        os.path.join(bumpybox_plugins_dir, "royalrender"),
         os.path.join(
             os.environ["CONDA_GIT_REPOSITORY"],
             "pyblish-ftrack",
