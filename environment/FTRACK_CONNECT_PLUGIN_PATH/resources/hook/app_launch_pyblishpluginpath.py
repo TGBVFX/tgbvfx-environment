@@ -73,6 +73,12 @@ def modify_application_launch(event):
             "pyblish_ftrack",
             "plugins"
         ),
+        os.path.join(
+            os.environ["CONDA_GIT_REPOSITORY"],
+            "pyblish-royalrender",
+            "pyblish_royalrender",
+            "plugins"
+        )
     ]
 
     # adding variables
