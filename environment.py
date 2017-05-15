@@ -62,6 +62,11 @@ environment["FTRACK_CONNECT_PLUGIN_PATH"] = [
         os.environ["CONDA_GIT_REPOSITORY"], "ftrack-hooks", "pipeline_plugins"
     ),
     os.path.join(root, "environment", "FTRACK_CONNECT_PLUGIN_PATH"),
+    os.path.join(
+        os.environ["CONDA_GIT_REPOSITORY"],
+        "pyblish-ftrack",
+        "pyblish_ftrack"
+    ),
 ]
 
 # FTRACK_LOCATION_PLUGIN_PATH
