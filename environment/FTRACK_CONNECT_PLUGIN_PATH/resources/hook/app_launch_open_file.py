@@ -54,7 +54,7 @@ def get_task_data(event):
         task_area, template = ftrack_template.format(
             {}, templates, entity=task
         )
-        data["command"].append(task_area)
+        data["command"].extend(["--path", task_area])
         return data
 
     # Check to see if the expected work file is a file template.
