@@ -62,6 +62,8 @@ def modify_application_launch(event):
     )
     environment["PYBLISHPLUGINPATH"] = [
         os.path.join(environment_plugins_dir, "ftrack"),
+        os.path.join(environment_plugins_dir, "maya"),
+        os.path.join(environment_plugins_dir, "royalrender"),
         bumpybox_plugins_dir,
         os.path.join(bumpybox_plugins_dir, app_id.split("_")[0]),
         os.path.join(bumpybox_plugins_dir, app_id.split("_")[0], task_type),

@@ -23,6 +23,7 @@ environment["PYTHONPATH"] = [
         "environment_variables",
         "pythonpath"
     ),
+    os.path.join(root, "environment", "PYTHONPATH"),
 ]
 
 # NUKE_PATH
