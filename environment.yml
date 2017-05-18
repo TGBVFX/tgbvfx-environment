@@ -18,7 +18,7 @@ dependencies:
   - https://github.com/pyblish/pyblish-maya.git@b81e6edd67e9969348a133c8a6e630ab92fd6c3f
   - https://github.com/pyblish/pyblish-nuke.git@061de849f501063ad92c532b764847c8883061d7
   - https://github.com/tokejepsen/pyblish-ftrack.git@6b23abb02d3c41093ab4dc5dc7b440abd1706b45
-  - https://github.com/bumpybox/pyblish-bumpybox.git@22a10f9f243e68535794e03338d82b2626cc60c2
+  - https://github.com/bumpybox/pyblish-bumpybox.git@e64041b5a2fb70a06129add7cd38ad493eb05d05
   - https://github.com/tokejepsen/pyblish-royalrender.git@a9e08d4fcedc1d2ea87284797c69d130d0ab8dc5
   - https://bitbucket.org/ftrack/QtExt.git@f88d1db8d5b7a0f5162f29a0701166d3be24fd19
   - https://bitbucket.org/ftrack/ftrack-connect.git@0354ecb0d32e6cd6ad54d9787d16549606d7d6e1
