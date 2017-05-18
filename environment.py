@@ -16,6 +16,7 @@ environment["PYTHONPATH"] = [
         "pyblish_maya",
         "pythonpath"
     ),
+    os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "pyblish-bumpybox"),
     os.path.join(
         os.environ["CONDA_GIT_REPOSITORY"],
         "pyblish-bumpybox",
