@@ -43,15 +43,6 @@ class TGBVFXEnvironmentRoyalRenderExtractEventScript(api.InstancePlugin):
         data["CustomLOGNAME"] = os.environ["LOGNAME"]
         data["CustomFTRACK_TASKID"] = os.environ["FTRACK_TASKID"]
 
-        # SubmitterParameter
-        submit_params = data.get("SubmitterParameter", [])
-        submit_params.append("PPevent-script-pre=0 ~ 1 ~ 0 ~ 0")
-        submit_params.append("PPevent-script-post=1 ~ 1 ~ 0 ~ 0")
-        data["SubmitterParameter"] = submit_params
-
-        # Setting data
-        instance.data["royalrenderData"] = data
-
         # Copy required files
         directory = os.path.join(
             os.path.dirname(instance.context.data["currentFile"]),
@@ -68,3 +59,8 @@ class TGBVFXEnvironmentRoyalRenderExtractEventScript(api.InstancePlugin):
             purge=True,
             modtime=True
         )
+
+        data["CustomPYTHONPATH"] = directory
+
+        # Setting data
+        instance.data["royalrenderData"] = data
