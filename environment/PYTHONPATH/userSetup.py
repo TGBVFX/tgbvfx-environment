@@ -21,4 +21,4 @@ def tgbvfxSetRenderer():
 pc.evalDeferred("tgbvfxSetRenderer()")
 
 # Setting pyblish_lite window size bigger
-ps.WindowSize = (600, 600)
+ps.WindowSize = (700, 600)
