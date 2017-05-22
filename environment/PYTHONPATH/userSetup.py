@@ -1,6 +1,8 @@
 import pymel.core as pc
 import maya.mel as mm
 
+import pyblish_lite.settings as ps
+
 
 def tgbvfxSetRenderer():
 
@@ -17,3 +19,6 @@ def tgbvfxSetRenderer():
 
 
 pc.evalDeferred("tgbvfxSetRenderer()")
+
+# Setting pyblish_lite window size bigger
+ps.WindowSize = (600, 600)

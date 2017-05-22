@@ -41,7 +41,8 @@ environment["NUKE_PATH"] = [
         "pyblish_bumpybox",
         "environment_variables",
         "nuke_path"
-    )
+    ),
+    os.path.join(root, "environment", "NUKE_PATH"),
 ]
 
 # FTRACK_TEMPLATES_PATH
