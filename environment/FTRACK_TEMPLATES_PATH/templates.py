@@ -59,20 +59,13 @@ def register():
     task_structure = {
         "work": {
             "{maya}": {
-                "maya_v{padded_version}.mb": {
-                    "isfile": True,
-                    "source": os.path.join(
-                        os.path.dirname(__file__), "maya.mb"
-                    )
-                }
+                "maya_v{padded_version}.mb": {}
             },
             "{nuke}": {
-                "nuke_v{padded_version}.nk": {
-                    "isfile": True,
-                    "source": os.path.join(
-                        os.path.dirname(__file__), "nuke.nk"
-                    )
-                }
+                "nuke_v{padded_version}.nk": {}
+            },
+            "{houdini}": {
+                "houdini_v{padded_version}.nk": {}
             }
         },
         "publish": {

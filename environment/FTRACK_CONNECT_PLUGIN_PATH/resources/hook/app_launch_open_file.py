@@ -3,6 +3,7 @@ import re
 import shutil
 import logging
 import operator
+import subprocess
 
 import ftrack
 import ftrack_api
@@ -56,10 +57,6 @@ def get_task_data(event):
         )
         data["command"].extend(["--path", task_area])
         return data
-
-    # Check to see if the expected work file is a file template.
-    if not template.isfile:
-        raise ValueError("Could not find an expected work file.")
 
     # Finding existing work files
     if os.path.exists(work_area):
@@ -117,8 +114,55 @@ def get_task_data(event):
         if publish_file:
             shutil.copy(publish_file, work_file)
         else:
-            shutil.copy(template.source, work_file)
+            # Create parent directory if it doesn't exist
+            if not os.path.exists(os.path.dirname(work_file)):
+                os.makedirs(os.path.dirname(work_file))
 
+            # Call Nuke terminal to create an empty work file
+            if app_id == "nuke":
+                subprocess.call([
+                    event["data"]["application"]["path"],
+                    "-i",
+                    "-t",
+                    os.path.abspath(
+                        os.path.join(
+                            os.path.dirname(__file__), "..", "nuke_save.py"
+                        )
+                    ),
+                    work_file
+                ])
+            # Call Mayapy terminal to create an empty work file
+            if app_id == "maya":
+                subprocess.call(
+                    [
+                        os.path.join(
+                            os.path.dirname(
+                                event["data"]["application"]["path"]
+                            ),
+                            "mayapy.exe"
+                        ),
+                        os.path.abspath(
+                            os.path.join(
+                                os.path.dirname(__file__), "..", "maya_save.py"
+                            )
+                        ),
+                        work_file
+                    ]
+                )
+            # Call hypthon terminal to create an empty work file
+            if app_id == "houdini":
+                subprocess.call([
+                    os.path.join(
+                        os.path.dirname(event["data"]["application"]["path"]),
+                        "hython2.7.exe"
+                    ),
+                    os.path.abspath(
+                        os.path.join(
+                            os.path.dirname(__file__), "..", "houdini_save.py"
+                        )
+                    ),
+                    work_file
+                ])
     else:  # If work file exists check to see if it needs to be versioned up
         old_api_task = ftrack.Task(data["context"]["selection"][0]["entityId"])
         asset = old_api_task.getParent().createAsset(
