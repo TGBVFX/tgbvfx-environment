@@ -77,6 +77,11 @@ environment["FTRACK_LOCATION_PLUGIN_PATH"] = [
     os.path.join(root, "environment", "FTRACK_LOCATION_PLUGIN_PATH"),
 ]
 
+# FTRACK_EVENT_PLUGIN_PATH
+environment["FTRACK_EVENT_PLUGIN_PATH"] = [
+    os.path.join(root, "environment", "FTRACK_EVENT_PLUGIN_PATH"),
+]
+
 # FTRACK_LOCATIONS_MODULE
 environment["FTRACK_LOCATIONS_MODULE"] = [
     os.environ.get("FTRACK_LOCATIONS_MODULE", "ftrack_template_disk")
