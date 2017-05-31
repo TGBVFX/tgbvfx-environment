@@ -58,6 +58,10 @@ def get_task_data(event):
         data["command"].extend(["--path", task_area])
         return data
 
+    # RV
+    if app_id == "rv":
+        return
+
     # Finding existing work files
     if os.path.exists(work_area):
         max_version = 0

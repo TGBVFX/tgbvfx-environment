@@ -15,7 +15,7 @@ def modify_application_launch(event):
             "environment",
             "FTRACK_EVENT_PLUGIN_PATH"
         ) + os.pathsep +
-        data["options"]["env"]["FTRACK_EVENT_PLUGIN_PATH"]
+        data["options"]["env"].get("FTRACK_EVENT_PLUGIN_PATH", "")
     )
 
     return data
