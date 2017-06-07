@@ -8,7 +8,7 @@ job = rr.getJob()
 
 # Setup environment
 value = job.custom_Str("FTRACK_SERVER")
-# Temp workaround of RR converting / to \
+# Workaround of RR converting / to \
 os.environ["FTRACK_SERVER"] = value.replace("\\", "/")
 os.environ["FTRACK_APIKEY"] = job.custom_Str("FTRACK_APIKEY")
 os.environ["LOGNAME"] = job.custom_Str("LOGNAME")
