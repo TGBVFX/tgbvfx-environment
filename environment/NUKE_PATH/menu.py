@@ -1,5 +1,5 @@
-import pyblish_lite.settings as ps
+import pyblish_qml.settings as ps
 
 
-# Setting pyblish_lite window size bigger
+# Setting pyblish_qml window size bigger
 ps.WindowSize = (700, 600)
