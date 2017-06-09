@@ -19,13 +19,6 @@ environment["PYTHONPATH"] = [
         "pythonpath"
     ),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "pyblish-bumpybox"),
-    os.path.join(
-        os.environ["CONDA_GIT_REPOSITORY"],
-        "pyblish-bumpybox",
-        "pyblish_bumpybox",
-        "environment_variables",
-        "pythonpath"
-    ),
     os.path.join(root, "environment", "PYTHONPATH"),
 ]
 
@@ -35,13 +28,6 @@ environment["NUKE_PATH"] = [
         os.environ["CONDA_GIT_REPOSITORY"],
         "pyblish-nuke",
         "pyblish_nuke",
-        "nuke_path"
-    ),
-    os.path.join(
-        os.environ["CONDA_GIT_REPOSITORY"],
-        "pyblish-bumpybox",
-        "pyblish_bumpybox",
-        "environment_variables",
         "nuke_path"
     ),
     os.path.join(root, "environment", "NUKE_PATH"),

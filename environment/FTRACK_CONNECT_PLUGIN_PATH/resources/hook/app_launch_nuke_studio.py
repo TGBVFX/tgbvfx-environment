@@ -4,19 +4,17 @@ import ftrack
 
 
 def modify_application_launch(event):
-    """Modify the application environment to include new api location."""
+    """Modify the NukeStudio launch"""
 
     data = event["data"]
 
-    data["options"]["env"]["FTRACK_EVENT_PLUGIN_PATH"] = (
-        os.path.join(
-            os.environ["CONDA_GIT_REPOSITORY"],
-            "tgbvfx-environment",
-            "environment",
-            "FTRACK_EVENT_PLUGIN_PATH"
-        ) + os.pathsep +
-        data["options"]["env"].get("FTRACK_EVENT_PLUGIN_PATH", "")
-    )
+    env = ""
+    for path in os.environ["FTRACK_EVENT_PLUGIN_PATH"].split(os.pathsep):
+        if "ftrack-connect-nuke-studio" in path and "processor" in path:
+            continue
+        env += path + os.pathsep
+
+    data["options"]["env"]["FTRACK_EVENT_PLUGIN_PATH"] = env
 
     return data
 
@@ -31,7 +29,9 @@ def register(registry, **kw):
         # Exit to avoid registering this plugin again.
         return
 
+    subscription = "topic=ftrack.connect.application.launch and "
+    subscription += "data.application.identifier=nuke_studio*"
     ftrack.EVENT_HUB.subscribe(
-        "topic=ftrack.connect.application.launch",
+        subscription,
         modify_application_launch
     )
