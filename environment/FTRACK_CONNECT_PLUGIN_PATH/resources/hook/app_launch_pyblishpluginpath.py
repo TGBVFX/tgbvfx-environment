@@ -93,8 +93,6 @@ def modify_application_launch(event):
 
 
 def register(registry, **kw):
-    """Register location plugin."""
-
     # Validate that registry is the correct ftrack.Registry. If not,
     # assume that register is being called with another purpose or from a
     # new or incompatible API and return without doing anything.
@@ -102,7 +100,5 @@ def register(registry, **kw):
         # Exit to avoid registering this plugin again.
         return
 
-    ftrack.EVENT_HUB.subscribe(
-        "topic=ftrack.connect.application.launch",
-        modify_application_launch
-    )
+    subscription = "topic=ftrack.connect.application.launch"
+    ftrack.EVENT_HUB.subscribe(subscription, modify_application_launch)

@@ -6,7 +6,7 @@ log = logging.getLogger(__name__)
 
 
 def modify_launch(event):
-    """Modify the application launch command with potential files to open"""
+    """Returns all components for the DJV launch"""
 
     # Collect non-latest components
     data = {}
@@ -58,8 +58,6 @@ def modify_launch(event):
 
 
 def register(registry, **kw):
-    """Register location plugin."""
-
     # Validate that registry is the correct ftrack.Registry. If not,
     # assume that register is being called with another purpose or from a
     # new or incompatible API and return without doing anything.
@@ -67,7 +65,4 @@ def register(registry, **kw):
         # Exit to avoid registering this plugin again.
         return
 
-    ftrack.EVENT_HUB.subscribe(
-        "topic=djvview.launch",
-        modify_launch
-    )
+    ftrack.EVENT_HUB.subscribe("topic=djvview.launch", modify_launch)
