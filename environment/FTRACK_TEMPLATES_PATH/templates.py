@@ -64,6 +64,9 @@ def register():
             "{nuke}": {
                 "nuke_v{padded_version}.nk": {}
             },
+            "{nukestudio}": {
+                "nuke_v{padded_version}.hrox": {}
+            },
             "{houdini}": {
                 "houdini_v{padded_version}.nk": {}
             }
