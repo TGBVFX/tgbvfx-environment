@@ -25,11 +25,6 @@ def appendPath(path, key, environment):
 def modify_application_launch(event):
     """Modify the application launch command with potential files to open"""
 
-    selection = event["data"]["context"]["selection"]
-
-    if not selection:
-        return
-
     environment = {}
 
     app_id = event["data"]["application"]["label"].lower()
@@ -37,6 +32,10 @@ def modify_application_launch(event):
     # Nukex = Nuke, no special plugins for NukeX
     if app_id == "nukex":
         app_id = "nuke"
+
+    # NukeStudio = Hiero
+    if app_id == "nuke studio":
+        app_id = "hiero"
 
     # Get task type
     task_type = ""
