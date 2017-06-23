@@ -3,7 +3,7 @@ import ftrack_locations
 
 
 class TGBFtrackExtractSceneComponent(pyblish.api.InstancePlugin):
-    """ Appending output files from local extraction as components. """
+    """Appending output files from local extraction as components."""
 
     order = pyblish.api.ExtractorOrder
     label = "Scene Component"
@@ -11,7 +11,10 @@ class TGBFtrackExtractSceneComponent(pyblish.api.InstancePlugin):
 
     def process(self, instance):
 
-        if "collection" not in instance.data:
+        # There can be multiple scenes to extract,
+        # so comparing current file with instance data.
+        current_file = instance.context.data["currentFile"]
+        if current_file == instance.data.get("path", ""):
 
             # Add ftrack family
             families = instance.data.get("families", [])
