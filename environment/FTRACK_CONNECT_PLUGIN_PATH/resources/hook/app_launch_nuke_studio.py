@@ -49,16 +49,6 @@ def ftrack_event_plugin_path(event):
     """Modify the nuke studio environment to include studio processors"""
     data = event["data"]
 
-    # Add custom processors
-    data["options"]["env"]["FTRACK_EVENT_PLUGIN_PATH"] = (
-        os.path.join(
-            os.environ["CONDA_GIT_REPOSITORY"],
-            "tgbvfx-environment",
-            "nuke_studio_processors"
-        ) + os.pathsep +
-        data["options"]["env"].get("FTRACK_EVENT_PLUGIN_PATH", "")
-    )
-
     # Open work file
     work_file = get_work_file(event)
     if work_file and os.path.exists(work_file):
