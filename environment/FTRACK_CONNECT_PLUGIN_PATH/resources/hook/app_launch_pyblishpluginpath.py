@@ -33,10 +33,6 @@ def modify_application_launch(event):
     if app_id == "nukex":
         app_id = "nuke"
 
-    # NukeStudio = Hiero
-    if app_id == "nuke studio":
-        app_id = "hiero"
-
     # Get task type
     task_type = ""
     try:
@@ -81,6 +77,17 @@ def modify_application_launch(event):
             "plugins"
         )
     ]
+
+    # NukeStudio
+    if app_id == "nuke studio":
+        environment["PYBLISHPLUGINPATH"].extend(
+            [
+                os.path.join(bumpybox_plugins_dir, "nukestudio"),
+                os.path.join(
+                    bumpybox_plugins_dir, "nukestudio", task_type
+                )
+            ]
+        )
 
     # adding variables
     data = event["data"]
