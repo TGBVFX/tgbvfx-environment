@@ -107,6 +107,33 @@ def get_task_data(event):
                 if publish_file:
                     break
 
+    # If no published file were found, try search for shot scenes.
+    if not publish_file and not os.path.exists(work_file):
+        query = (
+            'FileComponent where version.asset.parent.id is "{0}" and '
+            'version.asset.name is "{1}" and file_type is "{2}"'
+        )
+        entities = session.query(
+            query.format(task["parent"]["id"], task["parent"]["name"], ".nk")
+        )
+
+        version = 0
+        component = None
+        for entity in entities:
+            if entity["version"]["version"] > version:
+                component = entity
+                version = entity["version"]["version"]
+
+        if component:
+            location_id = max(
+                component.get_availability().iteritems(),
+                key=operator.itemgetter(1)
+            )[0]
+            location = session.query(
+                "Location where id is \"{0}\"".format(location_id)
+            ).one()
+            publish_file = location.get_resource_identifier(component)
+
     # If no work file exists, create a work file
     if not os.path.exists(work_file):
 
