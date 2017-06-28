@@ -37,95 +37,133 @@ def register():
     if system_name != "windows":
         system_name = "unix"
 
-    mount = (
-        "{#project.disk." + system_name + "}/{#project.root}"
-    )
-    task = "{#task.name}"
-    tasks = "Tasks/" + task
-    assetversion = "{#assetversion.asset.type.short}/v{#assetversion.version}"
-    file_component = "{#component.name}{#component.file_type}"
-    sequence_component = (
-        "{#container.name}/{#container.name}.{#component.name}" +
-        "{#component.file_type}"
-    )
-    assets = "Assets/{#assetbuild.type.name}/{#assetbuild.name}"
-    shot = "{#shot.name}"
-    shots = "Shots/" + shot
-    sequence = "{#sequence.name}"
-    sequences = "Sequences/" + sequence
-    episode = "{#episode.name}"
-    episodes = "Episodes/" + episode
-
-    task_structure = {
-        "work": {
-            "{maya}": {
-                "maya_v{padded_version}.mb": {}
-            },
-            "{nuke}": {
-                "nuke_v{padded_version}.nk": {}
-            },
-            "{nukestudio}": {
-                "nuke_v{padded_version}.hrox": {}
-            },
-            "{houdini}": {
-                "houdini_v{padded_version}.nk": {}
-            }
-        },
-        "publish": {
-            assetversion: {
-                file_component: {},
-                sequence_component: {}
-            }
-        }
-    }
-
     project_structure = {
-        mount: {
-            tasks: task_structure,
-            assets: {
-                task: task_structure
+        "{#project.disk." + system_name + "}/{#project.root}/tgbvfx": {
+            "editorial": {
+                "audio": {},
+                "edl": {},
+                "nukestudio": {},
+                "omf": {},
+                "qt_offline": {},
+                "xml": {},
+                "aaf": {}
             },
-            shots: {
-                task: task_structure,
-                assets: {
-                    task: task_structure
+            "io": {
+                "client": {
+                    "from_client": {},
+                    "to_client": {}
                 },
-            },
-            sequences: {
-                task: task_structure,
-                assets: {
-                    task: task_structure
-                },
-                shot: {
-                    task: task_structure,
-                    assets: {
-                        task: task_structure
-                    }
-                }
-            },
-            episodes: {
-                task: task_structure,
-                assets: {
-                    task: task_structure
-                },
-                shot: {
-                    task: task_structure,
-                    assets: {
-                        task: task_structure
+                "graphics": {},
+                "outsource": {
+                    "company": {
+                        "from_broncos": {},
+                        "to_broncos": {}
                     }
                 },
-                sequence: {
-                    task: task_structure,
-                    assets: {
-                        task: task_structure
-                    },
-                    shot: {
-                        task: task_structure,
-                        assets: {
-                            task: task_structure
+                "references": {},
+                "setdata": {
+                    "grids": {},
+                    "HDRs": {},
+                    "measurements": {},
+                    "references": {}
+                },
+                "sourcefootage": {},
+                "transcodedfootage": {}
+            },
+            "preproduction": {
+                "moodboards": {},
+                "scripts": {},
+                "storyboards": {},
+                "treatments": {}
+            },
+            "vfx": {
+                "_dev": {
+                    "_ASSET_TEMPLATE": {
+                        "_references": {},
+                        "3dsmax": {},
+                        "houdini": {
+                            "_in": {},
+                            "_out": {},
+                            "geo": {},
+                            "render": {},
+                            "temp": {}
+                        },
+                        "mari": {},
+                        "maya": {
+                            "caches": {
+                                "arnold": {},
+                            },
+                            "outputScenes": {
+                                "cacheScenes": {},
+                                "dynamicScenes": {},
+                                "renderScenes": {}
+                            },
+                            "renders": {},
+                            "scenes": {},
+                            "source": {},
+                            "temp": {},
+                            "textures": {},
+                            "workspace.mel": {
+                                "isfile": True,
+                                "source": os.path.join(
+                                    os.path.dirname(__file__), "workspace.mel"
+                                )
+                            },
+                        },
+                        "nuke": {
+                            "renders": {
+                                "comp": {},
+                                "slapcomp": {}
+                            },
+                            "renderScripts": {},
+                            "scripts": {},
+                            "temp": {}
                         }
                     }
                 },
+                "_publish": {},
+                "{#sequence.name}": {
+                    "{#shot.name}": {
+                        "_references": {},
+                        "houdini": {
+                            "_in": {},
+                            "_out": {},
+                            "geo": {},
+                            "render": {},
+                            "temp": {}
+                        },
+                        "maya": {
+                            "caches": {
+                                "arnold": {}
+                            },
+                            "outputScenes": {
+                                "cacheScenes": {},
+                                "dynamicScenes": {},
+                                "renderScenes": {}
+                            },
+                            "renders": {},
+                            "scenes": {},
+                            "source": {},
+                            "temp": {},
+                            "textures": {},
+                            "workspace.mel": {
+                                "isfile": True,
+                                "source": os.path.join(
+                                    os.path.dirname(__file__), "workspace.mel"
+                                )
+                            }
+                        },
+                        "nuke": {
+                            "renders": {
+                                "comp": {},
+                                "slapcomp": {}
+                            },
+                            "renderScripts": {},
+                            "scripts": {},
+                            "temp": {}
+                        }
+                    }
+                }
             }
         }
     }
