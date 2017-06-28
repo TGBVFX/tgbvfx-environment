@@ -85,7 +85,8 @@ def modify_application_launch(event):
                 os.path.join(bumpybox_plugins_dir, "nukestudio"),
                 os.path.join(
                     bumpybox_plugins_dir, "nukestudio", task_type
-                )
+                ),
+                os.path.join(environment_plugins_dir, "nukestudio")
             ]
         )
 
