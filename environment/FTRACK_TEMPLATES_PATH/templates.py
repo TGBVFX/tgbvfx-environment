@@ -37,12 +37,15 @@ def register():
     if system_name != "windows":
         system_name = "unix"
 
+    work_file = "{#sequence.name}_{#shot.name}_{task_name}_v{version}.{ext}"
+
     project_structure = {
         "{#project.disk." + system_name + "}/{#project.root}/tgbvfx": {
             "editorial": {
                 "audio": {},
                 "edl": {},
                 "nukestudio": {},
+                "{nukestudio}/{#project.name}_v{version}.hrox": {},
                 "omf": {},
                 "qt_offline": {},
                 "xml": {},
@@ -124,13 +127,15 @@ def register():
                 "_publish": {},
                 "{#sequence.name}": {
                     "{#shot.name}": {
+                        "_plates": {},
                         "_references": {},
                         "houdini": {
                             "_in": {},
                             "_out": {},
                             "geo": {},
                             "render": {},
-                            "temp": {}
+                            "temp": {},
+                            work_file: {}
                         },
                         "maya": {
                             "caches": {
@@ -142,7 +147,9 @@ def register():
                                 "renderScenes": {}
                             },
                             "renders": {},
-                            "scenes": {},
+                            "scenes": {
+                                work_file: {}
+                            },
                             "source": {},
                             "temp": {},
                             "textures": {},
@@ -159,7 +166,9 @@ def register():
                                 "slapcomp": {}
                             },
                             "renderScripts": {},
-                            "scripts": {},
+                            "scripts": {
+                                work_file: {}
+                            },
                             "temp": {}
                         }
                     }
