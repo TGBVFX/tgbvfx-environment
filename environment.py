@@ -12,27 +12,10 @@ environment = {}
 environment["PYTHONPATH"] = [
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "ftrack-template"),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "ftrack-locations"),
-    os.path.join(
-        os.environ["CONDA_GIT_REPOSITORY"],
-        "pyblish-maya",
-        "pyblish_maya",
-        "pythonpath"
-    ),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "pyblish-bumpybox"),
     os.path.join(root, "environment", "PYTHONPATH"),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "pyblish-nukestudio"),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "ftrack-hooks"),
-]
-
-# NUKE_PATH
-environment["NUKE_PATH"] = [
-    os.path.join(
-        os.environ["CONDA_GIT_REPOSITORY"],
-        "pyblish-nuke",
-        "pyblish_nuke",
-        "nuke_path"
-    ),
-    os.path.join(root, "environment", "NUKE_PATH"),
 ]
 
 # HIERO_PLUGIN_PATH
