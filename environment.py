@@ -18,6 +18,11 @@ environment["PYTHONPATH"] = [
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "ftrack-hooks"),
 ]
 
+# LUCIDITY_TEMPLATE_PATH
+environment["LUCIDITY_TEMPLATE_PATH"] = [
+    os.path.join(root, "environment", "LUCIDITY_TEMPLATE_PATH"),
+]
+
 # HIERO_PLUGIN_PATH
 environment["HIERO_PLUGIN_PATH"] = [
     os.path.join(
