@@ -10,10 +10,7 @@ environment = {}
 
 # PYTHONPATH
 environment["PYTHONPATH"] = [
-    os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "ftrack-template"),
-    os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "ftrack-locations"),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "pyblish-bumpybox"),
-    os.path.join(root, "environment", "PYTHONPATH"),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "pyblish-nukestudio"),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "ftrack-hooks"),
 ]
@@ -31,11 +28,6 @@ environment["HIERO_PLUGIN_PATH"] = [
         "pyblish_nukestudio",
         "hiero_plugin_path"
     )
-]
-
-# FTRACK_TEMPLATES_PATH
-environment["FTRACK_TEMPLATES_PATH"] = [
-    os.path.join(root, "environment", "FTRACK_TEMPLATES_PATH")
 ]
 
 # FTRACK_CONNECT_PLUGIN_PATH
@@ -60,19 +52,9 @@ environment["FTRACK_CONNECT_PLUGIN_PATH"] = [
     ),
 ]
 
-# FTRACK_LOCATION_PLUGIN_PATH
-environment["FTRACK_LOCATION_PLUGIN_PATH"] = [
-    os.path.join(root, "environment", "FTRACK_LOCATION_PLUGIN_PATH"),
-]
-
 # FTRACK_EVENT_PLUGIN_PATH
 environment["FTRACK_EVENT_PLUGIN_PATH"] = [
     os.path.join(root, "environment", "FTRACK_EVENT_PLUGIN_PATH"),
-]
-
-# FTRACK_LOCATIONS_MODULE
-environment["FTRACK_LOCATIONS_MODULE"] = [
-    os.environ.get("FTRACK_LOCATIONS_MODULE", "ftrack_template_disk")
 ]
 
 # Install python-qt5 qt conf

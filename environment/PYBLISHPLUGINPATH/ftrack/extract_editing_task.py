@@ -9,7 +9,7 @@ class TGBFtrackExtractEditingTask(pyblish.api.ContextPlugin):
 
     order = pyblish.api.ExtractorOrder + 0.1
     label = "Editing Task"
-    hosts = ["hiero", "nukestudio"]
+    hosts = ["nukestudio"]
 
     def process(self, context):
 
