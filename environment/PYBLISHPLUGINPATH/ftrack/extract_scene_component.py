@@ -17,9 +17,6 @@ class TGBFtrackExtractSceneComponent(pyblish.api.InstancePlugin):
         # Add component
         components = instance.data.get("ftrackComponentsList", [])
 
-        location = instance.context.data["ftrackSession"].query(
-            'Location where name is "lucidity"'
-        ).first()
         components.append({
             "assettype_data": {"short": "scene"},
             "assetversion_data": {
@@ -29,8 +26,7 @@ class TGBFtrackExtractSceneComponent(pyblish.api.InstancePlugin):
                 "name": pyblish.api.current_host(),
             },
             "component_path": instance.context.data["currentFile"],
-            "component_overwrite": True,
-            "component_location": location
+            "component_overwrite": True
         })
 
         instance.data["ftrackComponentsList"] = components
