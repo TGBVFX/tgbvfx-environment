@@ -165,45 +165,46 @@ def register():
     # NukeStudio scene
     templates.append(
         Template(
-            "FileComponent",
-            mount + "/editorial/{nukestudio}/"
-            "{entity.version.task.project.name}_v{version}{extension}"
+            ".hrox",
+            mount + "/editorial/nukestudio/"
+            "{entity.version.task.project.name}_v{entity.version.version}"
+            "{entity.file_type}"
         )
     )
 
     # Nuke scene
     templates.append(
         Template(
-            "FileComponent",
+            ".nk",
             mount + "/vfx/{entity.version.asset.parent.parent.name}/"
-            "{entity.version.asset.parent.name}/{nuke}/scripts/"
+            "{entity.version.asset.parent.name}/nuke/scripts/"
             "{entity.version.asset.parent.parent.name}_"
             "{entity.version.asset.parent.name}_{entity.version.task.name}_"
-            "v{version}{extension}"
+            "v{entity.version.version}{entity.file_type}"
         )
     )
 
     # Maya scene
     templates.append(
         Template(
-            "FileComponent",
+            ".mb",
             mount + "/vfx/{entity.version.asset.parent.parent.name}/"
-            "{entity.version.asset.parent.name}/{maya}/scenes/"
+            "{entity.version.asset.parent.name}/maya/scenes/"
             "{entity.version.asset.parent.parent.name}_"
             "{entity.version.asset.parent.name}_{entity.version.task.name}_"
-            "v{version}{extension}"
+            "v{entity.version.version}{entity.file_type}"
         )
     )
 
     # Houdini scene
     templates.append(
         Template(
-            "FileComponent",
+            ".hip",
             mount + "/vfx/{entity.version.asset.parent.parent.name}/"
-            "{entity.version.asset.parent.name}/{houdini}/"
+            "{entity.version.asset.parent.name}/houdini/"
             "{entity.version.asset.parent.parent.name}_"
             "{entity.version.asset.parent.name}_{entity.version.task.name}_"
-            "v{version}{extension}"
+            "v{entity.version.version}{entity.file_type}"
         )
     )
 

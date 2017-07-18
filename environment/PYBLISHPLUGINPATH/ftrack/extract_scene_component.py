@@ -1,5 +1,4 @@
 import pyblish.api
-import ftrack_locations
 
 
 class TGBFtrackExtractSceneComponent(pyblish.api.InstancePlugin):
@@ -7,35 +6,31 @@ class TGBFtrackExtractSceneComponent(pyblish.api.InstancePlugin):
 
     order = pyblish.api.ExtractorOrder
     label = "Scene Component"
-    families = ["scene"]
+    families = ["source"]
 
     def process(self, instance):
 
-        # There can be multiple scenes to extract,
-        # so comparing current file with instance data.
-        current_file = instance.context.data["currentFile"]
-        if current_file == instance.data.get("path", ""):
+        # Add ftrack family
+        families = instance.data.get("families", [])
+        instance.data["families"] = families + ["ftrack"]
 
-            # Add ftrack family
-            families = instance.data.get("families", [])
-            instance.data["families"] = families + ["ftrack"]
+        # Add component
+        components = instance.data.get("ftrackComponentsList", [])
 
-            # Get location
-            session = instance.context.data["ftrackSession"]
-            location = ftrack_locations.get_new_location(session)
+        location = instance.context.data["ftrackSession"].query(
+            'Location where name is "lucidity"'
+        ).first()
+        components.append({
+            "assettype_data": {"short": "scene"},
+            "assetversion_data": {
+                "version": instance.context.data["version"]
+            },
+            "component_data": {
+                "name": pyblish.api.current_host(),
+            },
+            "component_path": instance.context.data["currentFile"],
+            "component_overwrite": True,
+            "component_location": location
+        })
 
-            # Add component
-            components = instance.data.get("ftrackComponentsList", [])
-            components.append({
-                "assettype_data": {"short": "scene"},
-                "assetversion_data": {
-                    "version": instance.context.data["version"]
-                },
-                "component_data": {
-                    "name": pyblish.api.current_host(),
-                },
-                "component_path": instance.context.data["currentFile"],
-                "component_overwrite": True,
-                "component_location": location,
-            })
-            instance.data["ftrackComponentsList"] = components
+        instance.data["ftrackComponentsList"] = components
