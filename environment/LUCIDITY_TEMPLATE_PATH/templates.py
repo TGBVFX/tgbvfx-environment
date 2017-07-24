@@ -1,11 +1,122 @@
 import os
 import platform
 
-from lucidity import Template
+import lucidity
+
+
+class Template(lucidity.Template):
+
+    def get_parents(self, entity, parents):
+        """Recursive iterate to find all parents.
+
+        For AssetVersion where no parent is present, the asset is assumed as
+        parent.
+        For SequenceComponent and FileComponent where no parent is present, the
+        asset version is assumed as parent.
+        """
+
+        try:
+            parent = entity["parent"]
+            if parent:
+                parents.append(parent)
+                return self.get_parents(parent, parents)
+        except KeyError:
+            # Assuming its either an AssetVersion or Component.
+            valid_types = [
+                "SequenceComponent", "FileComponent", "AssetVersion"
+            ]
+            if entity.entity_type not in valid_types:
+                raise ValueError(
+                    "Unrecognized entity type: {0}".format(entity.entity_type)
+                )
+
+            if entity.entity_type == "AssetVersion":
+                parents.append(entity["asset"])
+                return self.get_parents(entity["asset"], parents)
+
+            if (entity.entity_type == "FileComponent" or
+               entity.entity_type == "SequenceComponent"):
+                parents.append(entity["version"])
+                return self.get_parents(entity["version"], parents)
+
+        return parents
+
+    def get_entity_type_path(self, entities):
+        """Get the entity type path from a list of entities
+
+        The returned path is a list of entity types separated by a path
+        separator:
+            "[entity_type]/[entity_type]/[entity_type]"
+            "Project/Asset/AssetVersion"
+
+        For further uniqueness the file_type data member (extension) is used
+        for components. This results in paths like this:
+            "Project/Asset/AssetVersion/FileComponent/[file_type]"
+            "Project/Asset/AssetVersion/FileComponent/.txt"
+        """
+
+        entity_types = []
+        for entity in entities:
+            entity_types.append(entity.entity_type)
+
+            try:
+                entity_types.append(entity["file_type"])
+            except KeyError:
+                pass
+
+        return "/".join(entity_types)
+
+    def get_template_name(self, entity):
+
+        entities = list(reversed(self.get_parents(entity, [])))
+        entities.append(entity)
+        return self.get_entity_type_path(entities)
+
+    def ftrack_format(self, entity):
+        """Formats the template with the supplied entity's data.
+
+        The templates access the entity's data through "entity":
+           Template("Project", "{entity.name}")
+        """
+
+        # Validate the entity's template name.
+        template_name = self.get_template_name(entity)
+        if template_name != self.name:
+            raise lucidity.error.FormatError(
+                'Template name "{0}" does not match entity path "{1}"'.format(
+                    template_name, self.name
+                )
+            )
+
+        # Inject the entity into the format data.
+        data = {"entity": entity}
+
+        # Format data can only be strings/unicode, so the asset version integer
+        # needs to be converted.
+        try:
+            data["entity"]["version"]["version"] = str(
+                entity["version"]["version"]
+            ).zfill(3)
+        except KeyError:
+            pass
+
+        return self.format(data)
 
 
 def register():
-    '''Register templates.'''
+    '''Register templates.
+
+    Templates are named according to the entity in the hierarchy,
+    they aim to solve paths for.
+    For example a template named "Project" is only for paths for the project.
+    Nested entity types are specified with a path separator, for example
+    "Project/Shot" deals with paths for shots under the project.
+    To specify dealing with certain file types, the file types extension is
+    added. For example a template named "Project/.nk" deals with Nuke script
+    paths under the project.
+    It is assumed that asset versions are children of the asset, resulting in a
+    path "Project/Asset/AssetVersion".
+    '''
 
     system_name = platform.system().lower()
     if system_name != "windows":
@@ -113,11 +224,12 @@ def register():
     templates.append(template)
 
     # Shot level templates
+    shot_templates = []
     mount = (
         "{entity.project.disk." + system_name + "}/{entity.project.root}/"
         "tgbvfx/vfx/{entity.parent.name}/{entity.name}"
     )
-    templates.extend([
+    shot_templates.extend([
         Template("Shot", mount + "/_plates"),
         Template("Shot", mount + "/_references"),
         Template("Shot", mount + "/houdini"),
@@ -154,7 +266,13 @@ def register():
     template.source = os.path.join(
         os.path.dirname(__file__), "workspace.mel"
     )
-    templates.append(template)
+    shot_templates.append(template)
+
+    # Shot level template assignment
+    varients = ["Project/Sequence/Shot"]
+    for varient in varients:
+        for template in shot_templates:
+            templates.append(Template(varient, template.pattern))
 
     # FileComponent templates
     mount = (
@@ -165,7 +283,7 @@ def register():
     # NukeStudio scene
     templates.append(
         Template(
-            ".hrox",
+            "Project/Asset/AssetVersion/FileComponent/.hrox",
             mount + "/editorial/nukestudio/"
             "{entity.version.task.project.name}_v{entity.version.version}"
             "{entity.file_type}"
@@ -175,7 +293,15 @@ def register():
     # Nuke scene
     templates.append(
         Template(
-            ".nk",
+            "Project/Asset/AssetVersion/FileComponent/.nk",
+            mount + "/vfx/{entity.version.task.name}/nuke/scripts/"
+            "{entity.version.task.name}_v{entity.version.version}"
+            "{entity.file_type}"
+        )
+    )
+    templates.append(
+        Template(
+            "Project/Sequence/Shot/Asset/AssetVersion/FileComponent/.nk",
             mount + "/vfx/{entity.version.asset.parent.parent.name}/"
             "{entity.version.asset.parent.name}/nuke/scripts/"
             "{entity.version.asset.parent.parent.name}_"
@@ -187,7 +313,7 @@ def register():
     # Maya scene
     templates.append(
         Template(
-            ".mb",
+            "Project/Sequence/Shot/Asset/AssetVersion/FileComponent/.mb",
             mount + "/vfx/{entity.version.asset.parent.parent.name}/"
             "{entity.version.asset.parent.name}/maya/scenes/"
             "{entity.version.asset.parent.parent.name}_"
@@ -199,7 +325,7 @@ def register():
     # Houdini scene
     templates.append(
         Template(
-            ".hip",
+            "Project/Sequence/Shot/Asset/AssetVersion/FileComponent/.hip",
             mount + "/vfx/{entity.version.asset.parent.parent.name}/"
             "{entity.version.asset.parent.name}/houdini/"
             "{entity.version.asset.parent.parent.name}_"
