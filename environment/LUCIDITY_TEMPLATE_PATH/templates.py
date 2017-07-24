@@ -269,10 +269,13 @@ def register():
     shot_templates.append(template)
 
     # Shot level template assignment
-    varients = ["Project/Sequence/Shot"]
+    varients = ["Project/Task", "Project/Sequence/Shot"]
     for varient in varients:
         for template in shot_templates:
-            templates.append(Template(varient, template.pattern))
+            temp = Template(varient, template.pattern)
+            if hasattr(template, "source"):
+                temp.source = template.source
+            templates.append(temp)
 
     # FileComponent templates
     mount = (
@@ -313,6 +316,14 @@ def register():
     # Maya scene
     templates.append(
         Template(
+            "Project/Asset/AssetVersion/FileComponent/.mb",
+            mount + "/vfx/{entity.version.task.name}/maya/scenes/"
+            "{entity.version.task.name}_v{entity.version.version}"
+            "{entity.file_type}"
+        )
+    )
+    templates.append(
+        Template(
             "Project/Sequence/Shot/Asset/AssetVersion/FileComponent/.mb",
             mount + "/vfx/{entity.version.asset.parent.parent.name}/"
             "{entity.version.asset.parent.name}/maya/scenes/"
@@ -323,6 +334,14 @@ def register():
     )
 
     # Houdini scene
+    templates.append(
+        Template(
+            "Project/Asset/AssetVersion/FileComponent/.hip",
+            mount + "/vfx/{entity.version.task.name}/houdini/"
+            "{entity.version.task.name}_v{entity.version.version}"
+            "{entity.file_type}"
+        )
+    )
     templates.append(
         Template(
             "Project/Sequence/Shot/Asset/AssetVersion/FileComponent/.hip",
