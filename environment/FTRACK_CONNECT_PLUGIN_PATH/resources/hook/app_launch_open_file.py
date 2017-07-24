@@ -25,6 +25,21 @@ def version_get(string, prefix, suffix=None):
     return (matches[-1:][0][1], re.search("\d+", matches[-1:][0]).group())
 
 
+class mock_entity(dict):
+    """Mock entity for faking Ftrack entities
+
+    Requires keyword argument "entity_type" on creation.
+    """
+
+    def __init__(self, *args, **kwargs):
+        dict.__init__(self, args)
+
+        if "entity_type" not in kwargs.keys():
+            raise ValueError('Need the keyword argument "entity_type"')
+
+        self.__dict__ = kwargs
+
+
 def get_task_data(event):
 
     data = event["data"]
@@ -47,6 +62,10 @@ def get_task_data(event):
         app_id = "nuke"
     if identifier.startswith("nuke_studio"):
         app_id = "nukestudio"
+
+    # Maya
+    if identifier.startswith("maya"):
+        app_id = "maya"
 
     # Return if application is not recognized.
     if not app_id:
@@ -81,36 +100,44 @@ def get_task_data(event):
         if value == app_id:
             extension = key
     if not component:
-        component = {
-            "version": {
-                "version": 1, "task": task, "asset": {"parent": task["parent"]}
-            },
-            "file_type": extension
-        }
+        # Faking an Ftrack component for the location structure.
+        asset = mock_entity(("parent", task["parent"]), entity_type="Asset")
+        version = mock_entity(
+            ("version", 1),
+            ("task", task),
+            ("asset", asset),
+            entity_type="AssetVersion"
+        )
+        component = mock_entity(
+            ("version", version),
+            ("file_type", extension),
+            entity_type="FileComponent"
+        )
 
     location = session.pick_location()
     work_file = location.structure.get_resource_identifier(component)
 
     # Find all work files and categorize by version.
     files = {}
-    for f in os.listdir(os.path.dirname(work_file)):
+    if os.path.exists(os.path.dirname(work_file)):
+        for f in os.listdir(os.path.dirname(work_file)):
 
-        # If the file extension doesn't match, we'll ignore the file.
-        if os.path.splitext(f)[1] != os.path.splitext(work_file)[1]:
-            continue
+            # If the file extension doesn't match, we'll ignore the file.
+            if os.path.splitext(f)[1] != os.path.splitext(work_file)[1]:
+                continue
 
-        try:
-            version = version_get(f, "v")[1]
-            value = files.get(version, [])
-            value.append(os.path.join(os.path.dirname(work_file), f))
-            files[version] = value
-        except ValueError:
-            pass
+            try:
+                version = version_get(f, "v")[1]
+                value = files.get(version, [])
+                value.append(os.path.join(os.path.dirname(work_file), f))
+                files[version] = value
+            except ValueError:
+                pass
 
     # Determine highest version files
     if files:
         work_file = max(files[max(files.keys())], key=os.path.getctime)
-    print work_file
+
     # If no work file exists, create a work file
     if not os.path.exists(work_file):
 
@@ -126,6 +153,19 @@ def get_task_data(event):
                 os.path.abspath(
                     os.path.join(
                         os.path.dirname(__file__), "..", "nuke_save.py"
+                    )
+                ),
+                work_file
+            ])
+        if app_id == "nukestudio":
+            subprocess.call([
+                event["data"]["application"]["path"],
+                "--studio"
+                "-i",
+                "-t",
+                os.path.abspath(
+                    os.path.join(
+                        os.path.dirname(__file__), "..", "nukestudio_save.py"
                     )
                 ),
                 work_file
