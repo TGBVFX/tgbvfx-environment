@@ -14,18 +14,13 @@ def modify_launch(event):
         entity = session.get(item[0], item[1])
         for link in entity["link"]:
 
-            data = {}
-            data["entity"] = session.get(link["type"], link["id"])
-            entity_type = session.get(link["type"], link["id"]).entity_type
+            entity = session.get(link["type"], link["id"])
 
             for template in templates:
 
-                if entity_type != template.name:
-                    continue
-
                 try:
                     path = os.path.abspath(
-                        template.format(data)
+                        template.ftrack_format(entity)
                     ).replace("\\", "/")
                 except lucidity.error.FormatError:
                     continue
