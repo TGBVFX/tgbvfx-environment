@@ -38,15 +38,6 @@ environment["HIERO_PLUGIN_PATH"] = [
 # FTRACK_CONNECT_PLUGIN_PATH
 environment["FTRACK_CONNECT_PLUGIN_PATH"] = [
     os.path.join(
-        os.environ["CONDA_GIT_REPOSITORY"], "ftrack-hooks", "djv_plugin"
-    ),
-    os.path.join(
-        os.environ["CONDA_GIT_REPOSITORY"], "ftrack-hooks", "pending_changes"
-    ),
-    os.path.join(
-        os.environ["CONDA_GIT_REPOSITORY"], "ftrack-hooks", "status_assign"
-    ),
-    os.path.join(
         os.environ["CONDA_GIT_REPOSITORY"], "ftrack-hooks", "houdini"
     ),
     os.path.join(
