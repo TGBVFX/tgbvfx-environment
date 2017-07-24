@@ -9,18 +9,14 @@ class Structure(ftrack_api.structure.base.Structure):
     def get_resource_identifier(self, entity, context=None):
 
         templates = lucidity.discover_templates()
-        data = {}
-
-        data["entity"] = entity
-
-        # Convert the integer version to string.
-        data["entity"]["version"]["version"] = str(
-            entity["version"]["version"]
-        ).zfill(3)
 
         for template in templates:
-            if template.name == entity["file_type"]:
-                return os.path.abspath(template.format(data))
+            try:
+                path = os.path.abspath(template.ftrack_format(entity))
+            except lucidity.error.FormatError:
+                continue
+            else:
+                return path
 
         raise ValueError("Could not find any templates for {0}".format(entity))
 
