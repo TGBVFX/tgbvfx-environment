@@ -160,7 +160,7 @@ def get_task_data(event):
         if app_id == "nukestudio":
             subprocess.call([
                 event["data"]["application"]["path"],
-                "--studio"
+                "--studio",
                 "-i",
                 "-t",
                 os.path.abspath(
