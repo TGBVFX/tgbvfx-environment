@@ -67,6 +67,11 @@ class Template(lucidity.Template):
         return "/".join(entity_types)
 
     def get_template_name(self, entity):
+        """Convenience method for getting the template name
+
+        The template name is generated from the entity's parents, and their
+        entity type.
+        """
 
         entities = list(reversed(self.get_parents(entity, [])))
         entities.append(entity)
