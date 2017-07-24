@@ -8,6 +8,11 @@ from conda_git_deployment import utils
 root = os.path.dirname(__file__)
 environment = {}
 
+# PATH
+# Need to manually add Quicktime for Nuke, cause conda-git-deployment removes
+# it from the environment.
+environment["PATH"] = ["C:/Program Files (x86)/QuickTime/QTSystem/"]
+
 # PYTHONPATH
 environment["PYTHONPATH"] = [
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "pyblish-bumpybox"),
@@ -48,11 +53,6 @@ environment["FTRACK_CONNECT_PLUGIN_PATH"] = [
         os.environ["CONDA_GIT_REPOSITORY"], "ftrack-hooks", "create_structure"
     ),
     os.path.join(root, "environment", "FTRACK_CONNECT_PLUGIN_PATH"),
-    os.path.join(
-        os.environ["CONDA_GIT_REPOSITORY"],
-        "pyblish-ftrack",
-        "pyblish_ftrack"
-    ),
 ]
 
 # FTRACK_EVENT_PLUGIN_PATH
