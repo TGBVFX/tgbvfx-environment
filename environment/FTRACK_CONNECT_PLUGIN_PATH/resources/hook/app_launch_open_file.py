@@ -1,13 +1,10 @@
 import os
 import re
-import shutil
 import logging
-import operator
 import subprocess
 
 import ftrack
 import ftrack_api
-import ftrack_template
 
 log = logging.getLogger(__name__)
 
@@ -28,44 +25,102 @@ def version_get(string, prefix, suffix=None):
     return (matches[-1:][0][1], re.search("\d+", matches[-1:][0]).group())
 
 
+class mock_entity(dict):
+    """Mock entity for faking Ftrack entities
+
+    Requires keyword argument "entity_type" on creation.
+    """
+
+    def __init__(self, *args, **kwargs):
+        dict.__init__(self, args)
+
+        if "entity_type" not in kwargs.keys():
+            raise ValueError('Need the keyword argument "entity_type"')
+
+        self.__dict__ = kwargs
+
+
 def get_task_data(event):
 
     data = event["data"]
-    app_id = event["data"]["application"]["identifier"].split("_")[0]
-
-    session = ftrack_api.Session()
-    task = session.get("Task", data["context"]["selection"][0]["entityId"])
-
-    # No difference between nuke and nukex files.
-    if app_id == "nukex":
-        app_id = "nuke"
-
-    templates = ftrack_template.discover_templates()
-    work_file, template = ftrack_template.format(
-        {app_id: app_id, "padded_version": "001"}, templates, entity=task
-    )
-    work_area = os.path.dirname(work_file)
+    identifier = event["data"]["application"]["identifier"]
 
     # DJV View, files get selected by the user.
-    if app_id == "djvview":
+    if identifier.startswith("djvview"):
         return
-
-    # Pyblish
-    if app_id == "pyblish":
-        task_area, template = ftrack_template.format(
-            {}, templates, entity=task
-        )
-        data["command"].extend(["--path", task_area])
-        return data
 
     # RV
-    if app_id == "rv":
+    if identifier.startswith("rv"):
         return
 
-    # Finding existing work files
-    if os.path.exists(work_area):
-        max_version = 0
-        for f in os.listdir(work_area):
+    app_id = None
+
+    # Nuke applications.
+    if identifier.startswith("nuke"):
+        app_id = "nuke"
+    if identifier.startswith("nukex"):
+        app_id = "nuke"
+    if identifier.startswith("nuke_studio"):
+        app_id = "nukestudio"
+
+    # Maya
+    if identifier.startswith("maya"):
+        app_id = "maya"
+
+    # Return if application is not recognized.
+    if not app_id:
+        print 'Application is not recognized to open a file: "{0}"'.format(
+            identifier
+        )
+        return
+
+    session = ftrack_api.Session()
+    task = session.get(
+        "Task", event["data"]["context"]["selection"][0]["entityId"]
+    )
+    components = session.query(
+        'Component where version.task_id is "{0}" and '
+        'version.asset.name is "{1}" and name is "{2}"'.format(
+            task["id"], task["name"], app_id
+        )
+    )
+
+    component = None
+    version = 0
+    for entity in components:
+        if entity["version"]["version"] > version:
+            version = entity["version"]["version"]
+            component = entity
+
+    extension_mapping = {
+        ".hrox": "nukestudio", ".nk": "nuke", ".mb": "maya", ".hip": "houdini"
+    }
+    extension = None
+    for key, value in extension_mapping.iteritems():
+        if value == app_id:
+            extension = key
+    if not component:
+        # Faking an Ftrack component for the location structure.
+        asset = mock_entity(("parent", task["parent"]), entity_type="Asset")
+        version = mock_entity(
+            ("version", 1),
+            ("task", task),
+            ("asset", asset),
+            entity_type="AssetVersion"
+        )
+        component = mock_entity(
+            ("version", version),
+            ("file_type", extension),
+            entity_type="FileComponent"
+        )
+
+    location = session.pick_location()
+    work_file = location.structure.get_resource_identifier(component)
+
+    # Find all work files and categorize by version.
+    files = {}
+    if os.path.exists(os.path.dirname(work_file)):
+        for f in os.listdir(os.path.dirname(work_file)):
 
             # If the file extension doesn't match, we'll ignore the file.
             if os.path.splitext(f)[1] != os.path.splitext(work_file)[1]:
@@ -73,66 +128,15 @@ def get_task_data(event):
 
             try:
                 version = version_get(f, "v")[1]
-                if version > max_version:
-                    max_version = version
-                    work_file = os.path.join(work_area, f)
-            except:
+                value = files.get(version, [])
+                value.append(os.path.join(os.path.dirname(work_file), f))
+                files[version] = value
+            except ValueError:
                 pass
 
-    # If no work file exists, copy an existing publish
-    publish_file = None
-    if not os.path.exists(work_file):
-        query = "Asset where parent.id is \"{0}\" and type.short is \"scene\""
-        query += " and name is \"{1}\""
-        asset = session.query(
-            query.format(task["parent"]["id"], task["name"])
-        ).first()
-
-        # Skip if no assets are found
-        if asset:
-            for version in reversed(asset["versions"]):
-                for component in version["components"]:
-                    if component["name"] == app_id:
-                        location_id = max(
-                            component.get_availability().iteritems(),
-                            key=operator.itemgetter(1)
-                        )[0]
-                        location = session.query(
-                            "Location where id is \"{0}\"".format(location_id)
-                        ).one()
-                        publish_file = location.get_resource_identifier(
-                            component
-                        )
-
-                if publish_file:
-                    break
-
-    # If no published file were found, try search for shot scenes.
-    if not publish_file and not os.path.exists(work_file):
-        query = (
-            'FileComponent where version.asset.parent.id is "{0}" and '
-            'version.asset.name is "{1}" and file_type is "{2}"'
-        )
-        entities = session.query(
-            query.format(task["parent"]["id"], task["parent"]["name"], ".nk")
-        )
-
-        version = 0
-        component = None
-        for entity in entities:
-            if entity["version"]["version"] > version:
-                component = entity
-                version = entity["version"]["version"]
-
-        if component:
-            location_id = max(
-                component.get_availability().iteritems(),
-                key=operator.itemgetter(1)
-            )[0]
-            location = session.query(
-                "Location where id is \"{0}\"".format(location_id)
-            ).one()
-            publish_file = location.get_resource_identifier(component)
+    # Determine highest version files
+    if files:
+        work_file = max(files[max(files.keys())], key=os.path.getctime)
 
     # If no work file exists, create a work file
     if not os.path.exists(work_file):
@@ -140,85 +144,76 @@ def get_task_data(event):
         if not os.path.exists(os.path.dirname(work_file)):
             os.makedirs(os.path.dirname(work_file))
 
-        # Copy the publish file if any exists,
-        # else copy the default file from the template
-        if publish_file:
-            shutil.copy(publish_file, work_file)
-        else:
-            # Create parent directory if it doesn't exist
-            if not os.path.exists(os.path.dirname(work_file)):
-                os.makedirs(os.path.dirname(work_file))
-
-            # Call Nuke terminal to create an empty work file
-            if app_id == "nuke":
-                subprocess.call([
-                    event["data"]["application"]["path"],
-                    "-i",
-                    "-t",
-                    os.path.abspath(
-                        os.path.join(
-                            os.path.dirname(__file__), "..", "nuke_save.py"
-                        )
-                    ),
-                    work_file
-                ])
-            # Call Mayapy terminal to create an empty work file
-            if app_id == "maya":
-                subprocess.call(
-                    [
-                        os.path.join(
-                            os.path.dirname(
-                                event["data"]["application"]["path"]
-                            ),
-                            "mayapy.exe"
-                        ),
-                        os.path.abspath(
-                            os.path.join(
-                                os.path.dirname(__file__), "..", "maya_save.py"
-                            )
-                        ),
-                        work_file
-                    ]
-                )
-            # Call hypthon terminal to create an empty work file
-            if app_id == "houdini":
-                subprocess.call([
+        # Call Nuke terminal to create an empty work file
+        if app_id == "nuke":
+            subprocess.call([
+                event["data"]["application"]["path"],
+                "-i",
+                "-t",
+                os.path.abspath(
                     os.path.join(
-                        os.path.dirname(event["data"]["application"]["path"]),
-                        "hython2.7.exe"
+                        os.path.dirname(__file__), "..", "nuke_save.py"
+                    )
+                ),
+                work_file
+            ])
+        if app_id == "nukestudio":
+            subprocess.call([
+                event["data"]["application"]["path"],
+                "--studio",
+                "-i",
+                "-t",
+                os.path.abspath(
+                    os.path.join(
+                        os.path.dirname(__file__), "..", "nukestudio_save.py"
+                    )
+                ),
+                work_file
+            ])
+        # Call Mayapy terminal to create an empty work file
+        if app_id == "maya":
+            subprocess.call(
+                [
+                    os.path.join(
+                        os.path.dirname(
+                            event["data"]["application"]["path"]
+                        ),
+                        "mayapy.exe"
                     ),
                     os.path.abspath(
                         os.path.join(
-                            os.path.dirname(__file__), "..", "houdini_save.py"
+                            os.path.dirname(__file__), "..", "maya_save.py"
                         )
                     ),
                     work_file
-                ])
-    else:  # If work file exists check to see if it needs to be versioned up
-        old_api_task = ftrack.Task(data["context"]["selection"][0]["entityId"])
-        asset = old_api_task.getParent().createAsset(
-            old_api_task.getName(),
-            "scene",
-            task=old_api_task
-        )
+                ]
+            )
+        # Call hypthon terminal to create an empty work file
+        if app_id == "houdini":
+            subprocess.call([
+                os.path.join(
+                    os.path.dirname(event["data"]["application"]["path"]),
+                    "hython2.7.exe"
+                ),
+                os.path.abspath(
+                    os.path.join(
+                        os.path.dirname(__file__), "..", "houdini_save.py"
+                    )
+                ),
+                work_file
+            ])
 
-        version = 1
-        versions = asset.getVersions()
-        if versions:
-            version = versions[-1].getVersion()
+    output = subprocess.check_output([
+        "python",
+        os.path.abspath(
+            os.path.join(
+                os.path.dirname(__file__), "..", "open_work_file.py"
+            )
+        ),
+        work_file
+    ])
 
-        if version > int(version_get(work_file, "v")[1]):
-
-            new_work_file = ftrack_template.format(
-                {app_id: app_id, "padded_version": str(version).zfill(3)},
-                templates,
-                entity=task
-            )[0]
-
-            shutil.copy(work_file, new_work_file)
-            work_file = new_work_file
-
-    data["command"].append(work_file)
+    data["command"].append(output.replace("\\", "/").splitlines()[0])
     return data
 
 

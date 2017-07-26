@@ -1,5 +1,23 @@
+import os
+
 import ftrack_api
-import ftrack_locations
+import lucidity
+
+
+class Structure(ftrack_api.structure.base.Structure):
+
+    def get_resource_identifier(self, entity, context=None):
+
+        templates = lucidity.discover_templates()
+
+        template_name = templates[0].get_template_name(entity)
+        for template in templates:
+            if template_name == template.name:
+                path = os.path.abspath(template.ftrack_format(entity))
+                return path
+
+        msg = 'Could not find any templates for {0} with template name "{1}"'
+        raise ValueError(msg.format(entity, template_name))
 
 
 def configure_locations(event):
@@ -7,10 +25,10 @@ def configure_locations(event):
     session = event['data']['session']
 
     location = session.query(
-        "Location where name is \"project.disk.root\""
+        "Location where name is \"lucidity\""
     ).one()
     location.accessor = ftrack_api.accessor.disk.DiskAccessor(prefix="")
-    location.structure = ftrack_locations.get_new_structure()
+    location.structure = Structure()
     location.priority = 50
 
 

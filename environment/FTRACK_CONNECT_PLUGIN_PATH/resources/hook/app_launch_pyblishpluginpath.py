@@ -27,11 +27,28 @@ def modify_application_launch(event):
 
     environment = {}
 
-    app_id = event["data"]["application"]["label"].lower()
+    identifier = event["data"]["application"]["identifier"]
+    app_id = None
 
-    # Nukex = Nuke, no special plugins for NukeX
-    if app_id == "nukex":
+    # Nuke applications.
+    if identifier.startswith("nuke"):
         app_id = "nuke"
+    if identifier.startswith("nukex"):
+        app_id = "nuke"
+    if identifier.startswith("nuke_studio"):
+        app_id = "nukestudio"
+
+    # Maya
+    if identifier.startswith("maya"):
+        app_id = "maya"
+
+    # Return if application is not recognized.
+    if not app_id:
+        msg = 'Application is not recognized to setup PYBLISHPLUGINPATH: "{0}"'
+        print msg.format(
+            identifier
+        )
+        return
 
     # Get task type
     task_type = ""
@@ -55,15 +72,11 @@ def modify_application_launch(event):
         "environment",
         "PYBLISHPLUGINPATH"
     )
+
     environment["PYBLISHPLUGINPATH"] = [
         os.path.join(environment_plugins_dir, "ftrack"),
-        os.path.join(environment_plugins_dir, "maya"),
         os.path.join(environment_plugins_dir, "royalrender"),
-        bumpybox_plugins_dir,
-        os.path.join(bumpybox_plugins_dir, app_id.split("_")[0]),
-        os.path.join(bumpybox_plugins_dir, app_id.split("_")[0], task_type),
-        os.path.join(bumpybox_plugins_dir, "ftrack"),
-        os.path.join(bumpybox_plugins_dir, "royalrender"),
+        os.path.join(environment_plugins_dir, app_id),
         os.path.join(
             os.environ["CONDA_GIT_REPOSITORY"],
             "pyblish-ftrack",
@@ -75,20 +88,19 @@ def modify_application_launch(event):
             "pyblish-royalrender",
             "pyblish_royalrender",
             "plugins"
-        )
+        ),
+        os.path.join(
+            os.environ["CONDA_GIT_REPOSITORY"],
+            "pyblish-" + app_id,
+            "pyblish_" + app_id,
+            "plugins"
+        ),
+        bumpybox_plugins_dir,
+        os.path.join(bumpybox_plugins_dir, "ftrack"),
+        os.path.join(bumpybox_plugins_dir, "royalrender"),
+        os.path.join(bumpybox_plugins_dir, app_id),
+        os.path.join(bumpybox_plugins_dir, app_id, task_type),
     ]
-
-    # NukeStudio
-    if app_id == "nuke studio":
-        environment["PYBLISHPLUGINPATH"].extend(
-            [
-                os.path.join(bumpybox_plugins_dir, "nukestudio"),
-                os.path.join(
-                    bumpybox_plugins_dir, "nukestudio", task_type
-                ),
-                os.path.join(environment_plugins_dir, "nukestudio")
-            ]
-        )
 
     # adding variables
     data = event["data"]
