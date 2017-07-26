@@ -10,15 +10,14 @@ class Structure(ftrack_api.structure.base.Structure):
 
         templates = lucidity.discover_templates()
 
+        template_name = templates[0].get_template_name(entity)
         for template in templates:
-            try:
+            if template_name == template.name:
                 path = os.path.abspath(template.ftrack_format(entity))
-            except lucidity.error.FormatError:
-                continue
-            else:
                 return path
 
-        raise ValueError("Could not find any templates for {0}".format(entity))
+        msg = 'Could not find any templates for {0} with template name "{1}"'
+        raise ValueError(msg.format(entity, template_name))
 
 
 def configure_locations(event):
