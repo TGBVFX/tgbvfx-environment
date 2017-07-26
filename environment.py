@@ -18,11 +18,75 @@ environment["PYTHONPATH"] = [
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "pyblish-bumpybox"),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "pyblish-nukestudio"),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "ftrack-hooks"),
+    os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "tgbvfx-pipeline"),
+    os.path.join(
+        os.environ["CONDA_GIT_REPOSITORY"], "tgbvfx-pipeline", "maya"
+    ),
 ]
 
 # LUCIDITY_TEMPLATE_PATH
 environment["LUCIDITY_TEMPLATE_PATH"] = [
     os.path.join(root, "environment", "LUCIDITY_TEMPLATE_PATH"),
+]
+
+# solidangle_LICENSE
+environment["solidangle_LICENSE"] = ["5053@10.11.0.110"]
+
+# peregrinel_LICENSE
+environment["peregrinel_LICENSE"] = ["5053@10.11.0.110"]
+
+# MAYA_VP2_DEVICE_OVERRIDE
+environment["MAYA_VP2_DEVICE_OVERRIDE"] = ["VirtualDeviceDx11"]
+
+# MAYA_FORCE_DX_WARP
+environment["MAYA_FORCE_DX_WARP"] = ["1"]
+
+# MAYA_MODULE_PATH
+environment["MAYA_MODULE_PATH"] = [
+    r"\\10.11.0.184\_tgbvfx\_bin\maya\mtoa\1.4.2.2_2017",
+    r"\\10.11.0.184\_tgbvfx\_bin\maya\yeti\2.1.14_2017",
+    os.path.join(
+        os.environ["CONDA_GIT_REPOSITORY"],
+        "tgbvfx-pipeline",
+        "pipeline",
+        "maya",
+        "modules",
+        "assetSystem"
+    ),
+    os.path.join(
+        os.environ["CONDA_GIT_REPOSITORY"],
+        "tgbvfx-pipeline",
+        "pipeline",
+        "maya",
+        "modules",
+        "sceneGraph"
+    ),
+]
+
+# XBMLANGPATH
+environment["XBMLANGPATH"] = [
+    os.path.join(
+        os.environ["CONDA_GIT_REPOSITORY"],
+        "tgbvfx-pipeline",
+        "pipeline",
+        "maya",
+        "icons"
+    )
+]
+
+# ARNOLD_PLUGIN_PATH
+environment["ARNOLD_PLUGIN_PATH"] = [
+    r"\\10.11.0.184\_tgbvfx\_bin\alshaders\1.0.0rc19-ai4.2.12.2\bin"
+]
+
+# MTOA_TEMPLATES_PATH
+environment["MTOA_TEMPLATES_PATH"] = [
+    r"\\10.11.0.184\_tgbvfx\_bin\alshaders\1.0.0rc19-ai4.2.12.2\ae"
+]
+
+# MAYA_CUSTOM_TEMPLATE_PATH
+environment["MAYA_CUSTOM_TEMPLATE_PATH"] = [
+    r"\\10.11.0.184\_tgbvfx\_bin\alshaders\1.0.0rc19-ai4.2.12.2\aexml"
 ]
 
 # HIERO_PLUGIN_PATH
