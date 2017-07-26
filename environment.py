@@ -1,6 +1,4 @@
 import os
-import sys
-import subprocess
 
 from conda_git_deployment import utils
 
@@ -117,15 +115,5 @@ environment["FTRACK_CONNECT_PLUGIN_PATH"] = [
 environment["FTRACK_EVENT_PLUGIN_PATH"] = [
     os.path.join(root, "environment", "FTRACK_EVENT_PLUGIN_PATH"),
 ]
-
-# Install python-qt5 qt conf
-path = os.path.join(os.path.dirname(sys.executable), "qt.conf")
-if not os.path.exists(path):
-    subprocess.call(
-        ["python", "-c", "import util;util.createqtconf()"],
-        cwd=os.path.join(
-            os.environ["CONDA_GIT_REPOSITORY"], "python-qt5"
-        )
-    )
 
 utils.write_environment(environment)
