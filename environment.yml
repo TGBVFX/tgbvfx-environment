@@ -11,14 +11,14 @@ dependencies:
   - pyperclip
   - arrow
   - riffle
+  - git+https://github.com/pyqt/python-qt5.git#egg=python-qt5
 - git:
   - https://bitbucket.org/thegentlemenbroncos/tgbvfx-pipeline.git@0af96a4890f298a3100b53d30deb58e5b73a394e
-  - https://github.com/pyqt/python-qt5.git@b1462e30293add6ad1992a174d84fd23b4d44808
   - https://github.com/pyblish/pyblish-base.git@437234e6bb59b50763a388f8d411b558f9203701
   - https://github.com/pyblish/pyblish-qml.git@80562ac9f3507bc09fed9b00e78f13dbe715fba1
-  - https://github.com/pyblish/pyblish-nukestudio.git@edd9b16f483e6d07700a76a7857ac15c1f18e6fa
+  - https://github.com/pyblish/pyblish-nukestudio.git@89a29c734b40fccb8e6518f7619dec7756cb6180
   - https://github.com/pyblish/pyblish-ftrack.git@1f5005a56103ce37049fd7e0f6b76ae9c7c16655
-  - https://github.com/bumpybox/pyblish-bumpybox.git@7409962e4146f41e796dafa701cf4aa57c97a9b4
+  - https://github.com/bumpybox/pyblish-bumpybox.git@302a698181fef59306f084357b119f9cff46ebcb
   - https://bitbucket.org/ftrack/ftrack-python-legacy-api.git@97cb35a6ae98958f95e61a7925701d9e8eea375d
   - https://bitbucket.org/ftrack/ftrack-connect.git@d0c31457b23e41701bcf88d9baeb723de4affbc1
   - https://bitbucket.org/ftrack/ftrack-connect-maya.git@23c7ffa6ee97e8032180246a585428d09c474ea3
