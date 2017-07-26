@@ -20,7 +20,10 @@ environment["PYTHONPATH"] = [
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "ftrack-hooks"),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "tgbvfx-pipeline"),
     os.path.join(
-        os.environ["CONDA_GIT_REPOSITORY"], "tgbvfx-pipeline", "maya"
+        os.environ["CONDA_GIT_REPOSITORY"],
+        "tgbvfx-pipeline",
+        "pipeline",
+        "maya"
     ),
 ]
 
