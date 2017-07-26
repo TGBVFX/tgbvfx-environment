@@ -14,7 +14,10 @@ class Window(QtWidgets.QDialog):
         self.work_file = work_file
 
         # Layout
-        body = QtWidgets.QHBoxLayout(self)
+        body = QtWidgets.QVBoxLayout(self)
+
+        label = QtWidgets.QLabel('Lastet version: "{0}"'.format(work_file))
+        body.addWidget(label)
 
         title = "Open latest version"
         self.latest_version_button = QtWidgets.QPushButton(title)
