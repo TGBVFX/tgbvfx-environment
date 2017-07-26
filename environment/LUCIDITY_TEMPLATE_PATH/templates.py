@@ -34,8 +34,18 @@ class Template(lucidity.Template):
                 parents.append(entity["asset"])
                 return self.get_parents(entity["asset"], parents)
 
-            if (entity.entity_type == "FileComponent" or
-               entity.entity_type == "SequenceComponent"):
+            if entity.entity_type == "FileComponent":
+
+                parent = entity["version"]
+                # Assuming its in a container, if there are no version.
+                if parent:
+                    parents.append(entity["version"])
+                else:
+                    parent = entity["container"]
+                    parents.append(entity["container"])
+                return self.get_parents(parent, parents)
+
+            if entity.entity_type == "SequenceComponent":
                 parents.append(entity["version"])
                 return self.get_parents(entity["version"], parents)
 
@@ -53,6 +63,8 @@ class Template(lucidity.Template):
         for components. This results in paths like this:
             "Project/Asset/AssetVersion/FileComponent/[file_type]"
             "Project/Asset/AssetVersion/FileComponent/.txt"
+            "Project/Sequence/Shot/Asset/AssetVersion/SequenceComponent/.exr
+            /FileComponent/.exr"
         """
 
         entity_types = []
@@ -96,12 +108,26 @@ class Template(lucidity.Template):
         # Inject the entity into the format data.
         data = {"entity": entity}
 
-        # Format data can only be strings/unicode, so the asset version integer
-        # needs to be converted.
+        # Format data can only be strings/unicode, so some data members needs
+        # to be converted.
         try:
-            data["entity"]["version"]["version"] = str(
-                entity["version"]["version"]
-            ).zfill(3)
+            if data["entity"]["version"]:
+                data["entity"]["version"]["version"] = str(
+                    entity["version"]["version"]
+                ).zfill(3)
+        except KeyError:
+            pass
+
+        try:
+            if data["entity"]["container"]:
+                data["entity"]["container"]["version"]["version"] = str(
+                    entity["container"]["version"]["version"]
+                ).zfill(3)
+        except KeyError:
+            pass
+
+        try:
+            data["entity"]["padding"] = str(entity["padding"])
         except KeyError:
             pass
 
@@ -282,10 +308,41 @@ def register():
                 temp.source = template.source
             templates.append(temp)
 
-    # FileComponent templates
+    # SequenceComponent templates.
     mount = (
         "{entity.version.task.project.disk." + system_name + "}/"
         "{entity.version.task.project.root}/tgbvfx"
+    )
+
+    templates.append(
+        Template(
+            "Project/Sequence/Shot/Asset/AssetVersion/SequenceComponent/.exr",
+            mount + "/vfx/_publish/image/"
+            "{entity.version.asset.parent.parent.name}_"
+            "{entity.version.asset.parent.name}/{entity.metadata.video_track}/"
+            "{entity.version.asset.parent.parent.name}_"
+            "{entity.version.asset.parent.name}_{entity.metadata.video_track}_"
+            "v{entity.version.version}.%0{entity.padding}d{entity.file_type}"
+        )
+    )
+
+    # FileComponent templates
+    # Transcode EXR
+    templates.append(
+        Template(
+            "Project/Sequence/Shot/Asset/AssetVersion/SequenceComponent/.exr"
+            "/FileComponent/.exr",
+            "{entity.container.version.task.project.disk." + system_name + "}/"
+            "{entity.container.version.task.project.root}/tgbvfx/vfx/_publish/"
+            "image/{entity.container.version.asset.parent.parent.name}_"
+            "{entity.container.version.asset.parent.name}/"
+            "{entity.container.metadata.video_track}/"
+            "{entity.container.version.asset.parent.parent.name}_"
+            "{entity.container.version.asset.parent.name}_"
+            "{entity.container.metadata.video_track}_"
+            "v{entity.container.version.version}.{entity.name}"
+            "{entity.file_type}"
+        )
     )
 
     # NukeStudio scene

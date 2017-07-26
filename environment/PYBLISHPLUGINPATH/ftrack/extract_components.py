@@ -1,14 +1,15 @@
 import pyblish.api
 
 
-class TGBFtrackExtractComponentsOverwrite(pyblish.api.InstancePlugin):
+class TGBFtrackExtractComponents(pyblish.api.InstancePlugin):
     """Setting all components from NukeStudio to not overwrite."""
 
     order = pyblish.api.ExtractorOrder
-    label = "Components Overwrite"
+    label = "TGBVFX Components"
     families = ["task"]
     hosts = ["nukestudio"]
 
     def process(self, instance):
 
         instance.data["component_overwrite"] = False
+        instance.data["component_metadata"] = {"video_track": "plate001"}
