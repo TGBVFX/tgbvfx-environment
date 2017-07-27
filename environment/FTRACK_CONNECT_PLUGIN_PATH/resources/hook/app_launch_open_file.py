@@ -106,19 +106,6 @@ def get_task_data(event):
                 ),
                 work_file
             ])
-        if app_id == "nukestudio":
-            subprocess.call([
-                event["data"]["application"]["path"],
-                "--studio",
-                "-i",
-                "-t",
-                os.path.abspath(
-                    os.path.join(
-                        os.path.dirname(__file__), "..", "nukestudio_save.py"
-                    )
-                ),
-                work_file
-            ])
         # Call Mayapy terminal to create an empty work file
         if app_id == "maya":
             subprocess.call(
