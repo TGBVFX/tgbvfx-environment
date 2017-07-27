@@ -319,9 +319,11 @@ def register():
             "Project/Sequence/Shot/Asset/AssetVersion/SequenceComponent/.exr",
             mount + "/vfx/_publish/image/"
             "{entity.version.asset.parent.parent.name}_"
-            "{entity.version.asset.parent.name}/{entity.metadata.video_track}/"
+            "{entity.version.asset.parent.name}/"
+            "{entity.version.metadata.video_track}/"
             "{entity.version.asset.parent.parent.name}_"
-            "{entity.version.asset.parent.name}_{entity.metadata.video_track}_"
+            "{entity.version.asset.parent.name}_"
+            "{entity.version.metadata.video_track}_"
             "v{entity.version.version}.%0{entity.padding}d{entity.file_type}"
         )
     )
@@ -336,10 +338,10 @@ def register():
             "{entity.container.version.task.project.root}/tgbvfx/vfx/_publish/"
             "image/{entity.container.version.asset.parent.parent.name}_"
             "{entity.container.version.asset.parent.name}/"
-            "{entity.container.metadata.video_track}/"
+            "{entity.container.version.metadata.video_track}/"
             "{entity.container.version.asset.parent.parent.name}_"
             "{entity.container.version.asset.parent.name}_"
-            "{entity.container.metadata.video_track}_"
+            "{entity.container.version.metadata.video_track}_"
             "v{entity.container.version.version}.{entity.name}"
             "{entity.file_type}"
         )

@@ -11,5 +11,14 @@ class TGBFtrackExtractComponents(pyblish.api.InstancePlugin):
 
     def process(self, instance):
 
-        instance.data["component_overwrite"] = False
-        instance.data["component_metadata"] = {"video_track": "plate001"}
+        if "scene" not in instance.data["families"]:
+            instance.data["component_overwrite"] = True
+
+        data = instance.data.get("assetversion_data", {})
+
+        metadata = data.get("metadata", {})
+        metadata.update({"video_track": instance[0]._track.name()})
+
+        data["metadata"] = metadata
+
+        instance.data["assetversion_data"] = data
