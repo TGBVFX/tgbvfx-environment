@@ -5,6 +5,7 @@ import subprocess
 
 import ftrack
 import ftrack_api
+from tgbvfx_environment import utils
 
 log = logging.getLogger(__name__)
 
@@ -23,21 +24,6 @@ def version_get(string, prefix, suffix=None):
         msg = "No " + prefix + " found in \"" + string + "\""
         raise ValueError(msg)
     return (matches[-1:][0][1], re.search("\d+", matches[-1:][0]).group())
-
-
-class mock_entity(dict):
-    """Mock entity for faking Ftrack entities
-
-    Requires keyword argument "entity_type" on creation.
-    """
-
-    def __init__(self, *args, **kwargs):
-        dict.__init__(self, args)
-
-        if "entity_type" not in kwargs.keys():
-            raise ValueError('Need the keyword argument "entity_type"')
-
-        self.__dict__ = kwargs
 
 
 def get_task_data(event):
@@ -78,44 +64,7 @@ def get_task_data(event):
     task = session.get(
         "Task", event["data"]["context"]["selection"][0]["entityId"]
     )
-    components = session.query(
-        'Component where version.task_id is "{0}" and '
-        'version.asset.name is "{1}" and name is "{2}"'.format(
-            task["id"], task["name"], app_id
-        )
-    )
-
-    component = None
-    version = 0
-    for entity in components:
-        if entity["version"]["version"] > version:
-            version = entity["version"]["version"]
-            component = entity
-
-    extension_mapping = {
-        ".hrox": "nukestudio", ".nk": "nuke", ".mb": "maya", ".hip": "houdini"
-    }
-    extension = None
-    for key, value in extension_mapping.iteritems():
-        if value == app_id:
-            extension = key
-    if not component:
-        # Faking an Ftrack component for the location structure.
-        asset = mock_entity(("parent", task["parent"]), entity_type="Asset")
-        version = mock_entity(
-            ("version", 1),
-            ("task", task),
-            ("asset", asset),
-            entity_type="AssetVersion"
-        )
-        component = mock_entity(
-            ("version", version),
-            ("file_type", extension),
-            entity_type="FileComponent"
-        )
-
-    location = session.pick_location()
-    work_file = location.structure.get_resource_identifier(component)
+    work_file = utils.get_work_file(session, task, app_id)
 
     # Find all work files and categorize by version.
     files = {}

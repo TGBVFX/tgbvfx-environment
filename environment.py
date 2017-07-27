@@ -13,6 +13,7 @@ environment["PATH"] = ["C:/Program Files (x86)/QuickTime/QTSystem/"]
 
 # PYTHONPATH
 environment["PYTHONPATH"] = [
+    os.path.join(root, "environment", "PYTHONPATH"),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "pyblish-bumpybox"),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "pyblish-nukestudio"),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "ftrack-hooks"),
