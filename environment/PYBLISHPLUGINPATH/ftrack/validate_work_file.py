@@ -34,11 +34,12 @@ class TGBFtrackRepairCurrentFile(pyblish.api.Action):
 
 
 class TGBFtrackValidateCurrentFile(pyblish.api.ContextPlugin):
-    """Validate the current file against the studio templates."""
+    """Validate the current file directory against the studio templates."""
 
     order = pyblish.api.ValidatorOrder
     label = "Current File"
     actions = [TGBFtrackRepairCurrentFile]
+    optional = True
 
     def process(self, context):
         import os
@@ -52,7 +53,8 @@ class TGBFtrackValidateCurrentFile(pyblish.api.ContextPlugin):
         work_file = utils.get_work_file(
             context.data["ftrackSession"],
             context.data["ftrackTask"],
-            pyblish.api.current_host()
+            pyblish.api.current_host(),
+            context.data["version"]
         )
         current_file = os.path.abspath(context.data["currentFile"])
 

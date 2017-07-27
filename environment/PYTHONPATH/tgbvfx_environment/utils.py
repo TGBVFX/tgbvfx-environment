@@ -13,7 +13,7 @@ class mock_entity(dict):
         self.__dict__ = kwargs
 
 
-def get_work_file(session, task, application):
+def get_work_file(session, task, application, version):
     """Gets the assumed path to the work file of the application."""
 
     components = session.query(
@@ -24,7 +24,6 @@ def get_work_file(session, task, application):
     )
 
     component = None
-    version = 0
     for entity in components:
         if entity["version"]["version"] > version:
             version = entity["version"]["version"]
@@ -43,14 +42,14 @@ def get_work_file(session, task, application):
     if not component:
         # Faking an Ftrack component for the location structure.
         asset = mock_entity(("parent", task["parent"]), entity_type="Asset")
-        version = mock_entity(
-            ("version", 1),
+        assetversion = mock_entity(
+            ("version", version),
             ("task", task),
             ("asset", asset),
             entity_type="AssetVersion"
         )
         component = mock_entity(
-            ("version", version),
+            ("version", assetversion),
             ("file_type", extension),
             entity_type="FileComponent"
         )
