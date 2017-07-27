@@ -314,6 +314,7 @@ def register():
         "{entity.version.task.project.root}/tgbvfx"
     )
 
+    # Transcode exr
     templates.append(
         Template(
             "Project/Sequence/Shot/Asset/AssetVersion/SequenceComponent/.exr",
@@ -329,7 +330,7 @@ def register():
     )
 
     # FileComponent templates
-    # Transcode EXR
+    # Transcode exr
     templates.append(
         Template(
             "Project/Sequence/Shot/Asset/AssetVersion/SequenceComponent/.exr"
@@ -343,6 +344,23 @@ def register():
             "{entity.container.version.asset.parent.name}_"
             "{entity.container.version.metadata.video_track}_"
             "v{entity.container.version.version}.{entity.name}"
+            "{entity.file_type}"
+        )
+    )
+
+    # Transcode mov
+    templates.append(
+        Template(
+            "Project/Sequence/Shot/Asset/AssetVersion/FileComponent/.mov",
+            "{entity.version.task.project.disk." + system_name + "}/"
+            "{entity.version.task.project.root}/tgbvfx/vfx/_publish/"
+            "movies/{entity.version.asset.parent.parent.name}_"
+            "{entity.version.asset.parent.name}/"
+            "{entity.version.metadata.video_track}/"
+            "{entity.version.asset.parent.parent.name}_"
+            "{entity.version.asset.parent.name}_"
+            "{entity.version.metadata.video_track}_"
+            "v{entity.version.version}"
             "{entity.file_type}"
         )
     )
