@@ -6,7 +6,7 @@ class TGBFtrackExtractComponents(pyblish.api.InstancePlugin):
 
     order = pyblish.api.ExtractorOrder
     label = "TGBVFX Components"
-    families = ["task"]
+    families = ["trackItem.task"]
     hosts = ["nukestudio"]
 
     def process(self, instance):
@@ -14,10 +14,12 @@ class TGBFtrackExtractComponents(pyblish.api.InstancePlugin):
         if "scene" not in instance.data["families"]:
             instance.data["component_overwrite"] = True
 
+        # AssetVersion data
         data = instance.data.get("assetversion_data", {})
 
         metadata = data.get("metadata", {})
-        metadata.update({"video_track": instance[0]._track.name()})
+        video_track = instance.data["parent"].data["item"].parent()
+        metadata.update({"video_track": video_track.name()})
 
         data["metadata"] = metadata
 

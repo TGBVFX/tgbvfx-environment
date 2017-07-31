@@ -16,11 +16,14 @@ class ValidateTrackItemName(pyblish.api.InstancePlugin):
     def process(self, instance):
         import re
 
+        if instance.data["family"] != "trackItem":
+            return
+
         pattern = r"sq[0-9]{3}--sh[0-9]{4}"
 
         failure_message = (
             'The track item "{0}" is not named according to the studios naming'
             ' convention. The naming convention follows "sq%03d--sh%04d", for '
-            'example "sq001--sh0010"'.format(instance[0].name())
+            'example "sq001--sh0010"'.format(instance.data["item"].name())
         )
-        assert re.match(pattern, instance[0].name()), failure_message
+        assert re.match(pattern, instance.data["item"].name()), failure_message
