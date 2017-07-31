@@ -64,7 +64,7 @@ def get_task_data(event):
     task = session.get(
         "Task", event["data"]["context"]["selection"][0]["entityId"]
     )
-    work_file = utils.get_work_file(session, task, app_id, 0)
+    work_file = utils.get_work_file(session, task, app_id, 1)
 
     # Find all work files and categorize by version.
     files = {}
