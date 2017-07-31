@@ -1,44 +1,46 @@
 import pyblish.api
 
 
-class IntegrateCreateStructure(pyblish.api.InstancePlugin):
+class IntegrateCreateStructure(pyblish.api.ContextPlugin):
     """Create project structure."""
 
     order = pyblish.api.IntegratorOrder
-    families = ["ftrack", "trackItem"]
-    match = pyblish.api.Subset
     label = "Create Structure"
     optional = True
     hosts = ["nukestudio"]
 
-    def process(self, instance):
+    def process(self, context):
         import os
         import shutil
 
         import lucidity
 
-        session = instance.context.data["ftrackSession"]
+        session = context.data["ftrackSession"]
         templates = lucidity.discover_templates()
+
+        # Get all entities in context and their parents.
+        entities = []
+        for instance in context:
+            if "ftrackEntity" not in instance.data["families"]:
+                continue
+            for item in instance.data["entity"]["link"]:
+                entities.append(session.get(item["type"], item["id"]))
+
+        # Get all resolved paths and their templates.
         path_templates = []
-        for item in instance.data["ftrackShot"]["link"]:
-
-            data = {}
-            data["entity"] = session.get(item["type"], item["id"])
-            entity_type = session.get(item["type"], item["id"]).entity_type
-
+        for entity in list(set(entities)):
             for template in templates:
-
-                if entity_type != template.name:
-                    continue
-
                 try:
-                    path = os.path.abspath(template.format(data))
+                    path = os.path.abspath(template.ftrack_format(entity))
                 except lucidity.error.FormatError:
                     continue
                 else:
-                    path_templates.append((path.replace("\\", "/"), template))
+                    path_templates.append(
+                        (path.replace("\\", "/"), template)
+                    )
 
         for path, template in path_templates:
+            # Copy source templates.
             if hasattr(template, "source"):
                 if not os.path.exists(os.path.dirname(path)):
                     self.log.debug(
@@ -53,6 +55,7 @@ class IntegrateCreateStructure(pyblish.api.InstancePlugin):
                 )
                 shutil.copy(template.source, path)
             else:
+                # Create directories.
                 if not os.path.exists(path):
                     self.log.debug('Creating directory: "{0}".'.format(path))
                     os.makedirs(path)
