@@ -16,7 +16,7 @@ dependencies:
   - https://bitbucket.org/thegentlemenbroncos/tgbvfx-pipeline.git@0af96a4890f298a3100b53d30deb58e5b73a394e
   - https://github.com/pyblish/pyblish-base.git@437234e6bb59b50763a388f8d411b558f9203701
   - https://github.com/pyblish/pyblish-qml.git@7140f6c4bfc28481e902929d9a39f7ebc8d5a24f
-  - https://github.com/pyblish/pyblish-nukestudio.git@812e945a455a9e13877841436379bcd4f8fa42e3
+  - https://github.com/tokejepsen/pyblish-nukestudio.git@812e945a455a9e13877841436379bcd4f8fa42e3
   - https://github.com/pyblish/pyblish-ftrack.git@ad33c34bf4eea2e776554667502421bc9e5986c6
   - https://github.com/bumpybox/pyblish-bumpybox.git@2e4ee4a4267cafa50b6a5937cc1bd9a9b8ecdeb9
   - https://bitbucket.org/ftrack/ftrack-python-legacy-api.git@97cb35a6ae98958f95e61a7925701d9e8eea375d
@@ -31,7 +31,7 @@ dependencies:
     - python $REPO_PATH/environment.py
   - https://github.com/tokejepsen/pyblish-grill-environment.git@6e8cb1f99f259e4c5e70dff843e3b9ec0c24b088:
     - python $REPO_PATH/environment.py
-  - https://github.com/tokejepsen/tgbvfx-environment.git@71320aa95c499bf1f7e0146143f7fbad66d17984:
+  - https://github.com/tokejepsen/tgbvfx-environment.git@c7bad3c937b0d2344cd9da4b6f10dfdbddf79312:
     - python $REPO_PATH/environment.py
     - python -m ftrack_connect
 name: tgbvfx-environment
