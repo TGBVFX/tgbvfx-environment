@@ -18,7 +18,7 @@ dependencies:
   - https://github.com/pyblish/pyblish-qml.git@7140f6c4bfc28481e902929d9a39f7ebc8d5a24f
   - https://github.com/tokejepsen/pyblish-nukestudio.git@812e945a455a9e13877841436379bcd4f8fa42e3
   - https://github.com/pyblish/pyblish-ftrack.git@ad33c34bf4eea2e776554667502421bc9e5986c6
-  - https://github.com/bumpybox/pyblish-bumpybox.git@2e4ee4a4267cafa50b6a5937cc1bd9a9b8ecdeb9
+  - https://github.com/bumpybox/pyblish-bumpybox.git@d4146ef95850919f3c4224ab283d6dbe756cab71
   - https://bitbucket.org/ftrack/ftrack-python-legacy-api.git@97cb35a6ae98958f95e61a7925701d9e8eea375d
   - https://bitbucket.org/ftrack/ftrack-connect.git@d0c31457b23e41701bcf88d9baeb723de4affbc1
   - https://bitbucket.org/ftrack/ftrack-connect-maya.git@23c7ffa6ee97e8032180246a585428d09c474ea3
@@ -29,9 +29,9 @@ dependencies:
   - https://github.com/tokejepsen/ftrack-hooks.git@7d28fdbba4ab701fbd9c3b50ed6bd179824ea9b9
   - https://github.com/tokejepsen/ftrack-connect-environment.git@fa51c5d0d4cc386dd124cbb6a814087583d07c3f:
     - python $REPO_PATH/environment.py
-  - https://github.com/tokejepsen/pyblish-grill-environment.git@6e8cb1f99f259e4c5e70dff843e3b9ec0c24b088:
+  - https://github.com/tokejepsen/pyblish-grill-environment.git@3488a8aa32a8375c6695cefcc35ee670b2a883e8:
     - python $REPO_PATH/environment.py
-  - https://github.com/tokejepsen/tgbvfx-environment.git@c7bad3c937b0d2344cd9da4b6f10dfdbddf79312:
+  - https://github.com/tokejepsen/tgbvfx-environment.git@734554300a6e245b91afd9f5d77f83141fc9a614:
     - python $REPO_PATH/environment.py
     - python -m ftrack_connect
 name: tgbvfx-environment
