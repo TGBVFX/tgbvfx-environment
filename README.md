@@ -37,3 +37,6 @@ If you want to export Nuke scripts or transcodes, its the same process as normal
 
 - Choose "Pyblish" in the drop-down menu for "Render with:".
 - You will be presented with the Pyblish interface where you'll find a list of the exports under the "trackItem.task" family section.
+
+Once you have exported a Nuke script, you won't be able to overwrite it again by default. If you want to overwrite the Nuke scripts, you can enable the plugin ```TGBVFX Overwrite Nuke Scripts```.
+**NOTE: Overwriting can cause loss of work, so be proceed with caution**
