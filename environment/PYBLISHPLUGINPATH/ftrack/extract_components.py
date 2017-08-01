@@ -2,7 +2,7 @@ import pyblish.api
 
 
 class TGBFtrackExtractComponents(pyblish.api.InstancePlugin):
-    """Setting all components from NukeStudio to not overwrite."""
+    """Setting data for all components from NukeStudio."""
 
     order = pyblish.api.ExtractorOrder
     label = "TGBVFX Components"
@@ -24,3 +24,19 @@ class TGBFtrackExtractComponents(pyblish.api.InstancePlugin):
         data["metadata"] = metadata
 
         instance.data["assetversion_data"] = data
+
+
+class TGBFtrackExtractOverwrite(pyblish.api.InstancePlugin):
+    """Option to overwrite Nuke scripts."""
+
+    order = TGBFtrackExtractComponents.order + 0.01
+    label = "TGBVFX Overwrite Nuke Scripts"
+    families = ["trackItem.task"]
+    hosts = ["nukestudio"]
+    optional = True
+    active = False
+
+    def process(self, instance):
+
+        if "scene" in instance.data["families"]:
+            instance.data["component_overwrite"] = True
