@@ -15,10 +15,10 @@ dependencies:
 - git:
   - https://bitbucket.org/thegentlemenbroncos/tgbvfx-pipeline.git@0af96a4890f298a3100b53d30deb58e5b73a394e
   - https://github.com/pyblish/pyblish-base.git@437234e6bb59b50763a388f8d411b558f9203701
-  - https://github.com/pyblish/pyblish-qml.git@80562ac9f3507bc09fed9b00e78f13dbe715fba1
-  - https://github.com/pyblish/pyblish-nukestudio.git@89a29c734b40fccb8e6518f7619dec7756cb6180
-  - https://github.com/pyblish/pyblish-ftrack.git@1f5005a56103ce37049fd7e0f6b76ae9c7c16655
-  - https://github.com/bumpybox/pyblish-bumpybox.git@302a698181fef59306f084357b119f9cff46ebcb
+  - https://github.com/pyblish/pyblish-qml.git@7140f6c4bfc28481e902929d9a39f7ebc8d5a24f
+  - https://github.com/pyblish/pyblish-nukestudio.git@812e945a455a9e13877841436379bcd4f8fa42e3
+  - https://github.com/pyblish/pyblish-ftrack.git@ad33c34bf4eea2e776554667502421bc9e5986c6
+  - https://github.com/bumpybox/pyblish-bumpybox.git@2e4ee4a4267cafa50b6a5937cc1bd9a9b8ecdeb9
   - https://bitbucket.org/ftrack/ftrack-python-legacy-api.git@97cb35a6ae98958f95e61a7925701d9e8eea375d
   - https://bitbucket.org/ftrack/ftrack-connect.git@d0c31457b23e41701bcf88d9baeb723de4affbc1
   - https://bitbucket.org/ftrack/ftrack-connect-maya.git@23c7ffa6ee97e8032180246a585428d09c474ea3
@@ -26,12 +26,12 @@ dependencies:
   - https://bitbucket.org/ftrack/ftrack-connect-foundry.git@7cf86f01faf983c6f094dd86cda8ecdd7417cf3e
   - https://bitbucket.org/ftrack/ftrack-connect-rv.git@a1810c5309312c3aa4aa7855beeda44ee798c279
   - https://bitbucket.org/ftrack/ftrack-connect-nuke-studio.git@d97733435037c54a7d091df3f4ecafef11d41b03
-  - https://github.com/tokejepsen/ftrack-hooks.git@52bcc76d509b81808281ca4c764cbab54aef26b6
+  - https://github.com/tokejepsen/ftrack-hooks.git@7d28fdbba4ab701fbd9c3b50ed6bd179824ea9b9
   - https://github.com/tokejepsen/ftrack-connect-environment.git@fa51c5d0d4cc386dd124cbb6a814087583d07c3f:
     - python $REPO_PATH/environment.py
   - https://github.com/tokejepsen/pyblish-grill-environment.git@6e8cb1f99f259e4c5e70dff843e3b9ec0c24b088:
     - python $REPO_PATH/environment.py
-  - https://github.com/tokejepsen/tgbvfx-environment.git:
+  - https://github.com/tokejepsen/tgbvfx-environment.git@71320aa95c499bf1f7e0146143f7fbad66d17984:
     - python $REPO_PATH/environment.py
     - python -m ftrack_connect
 name: tgbvfx-environment
