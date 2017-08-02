@@ -1,7 +1,7 @@
 import pyblish.api
 
 
-class ValidateTrackItemName(pyblish.api.InstancePlugin):
+class ValidateStartFrame(pyblish.api.InstancePlugin):
     """Validate start frame to be 1001, per studio preference."""
 
     order = pyblish.api.ValidatorOrder
