@@ -20,7 +20,8 @@ class TGBFtrackRepairCurrentFile(pyblish.api.Action):
         work_file = utils.get_work_file(
             context.data["ftrackSession"],
             context.data["ftrackTask"],
-            pyblish.api.current_host()
+            pyblish.api.current_host(),
+            context.data["version"]
         )
 
         msg = (
