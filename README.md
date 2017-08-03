@@ -10,7 +10,13 @@ Please log into Ftrack at https://tgb.ftrackapp.com. Once logged in input "https
 
 ## NukeStudio
 
-To publish from NukeStudio you'll first have to create the project and a task in Ftrack. Its recommended to having an "Editing" task directly under the project, so you project overview should look something like this:
+To publish from NukeStudio you'll first have to create the project in Ftrack.
+
+Go to ```Projects > Create new project```, enter the name and specify the ```Workflow``` as "VFX".
+
+Once created go to the project's info by selecting the project in the hierarchy and go to ```Info```. Here specify the ```Disk``` as **Root**, and the ```Project folder```. The **Root** disk refers to the storage IP ```\\10.11.0.184``` and the ```Project folder``` refers to the folder at the **Root** disk, so with a ```Project folder``` of **171001_ftrack** will give you a project path **\\\10.11.0.184\171001_ftrack**.
+
+Its recommended to having an "Editing" task directly under the project, so you project overview should look something like this:
 
 ![capture](https://user-images.githubusercontent.com/1860085/28670596-ba4607e0-72d9-11e7-9e02-545ac894daa6.PNG)
 
