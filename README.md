@@ -8,6 +8,25 @@ Once the installation is finished, you should be presented with the Ftrack-conne
 
 Please log into Ftrack at https://tgb.ftrackapp.com. Once logged in input "https://tgb.ftrackapp.com" into the ftrack-connect application and sign in. Now you are ready to launch your applications.
 
+## Application launch
+
+To launch any application you'll need to get a list of the available actions. You can reach the action in multiple ways:
+
+- Right-click menu on an entity > ```Actions```
+
+![capture](https://user-images.githubusercontent.com/1860085/28925020-ed958690-7863-11e7-8884-9cceb3acabf6.PNG)
+- From the **Actions** button in the side of the task.
+
+![capture](https://user-images.githubusercontent.com/1860085/28925075-123bd224-7864-11e7-9573-82e1b1fb6c29.PNG)
+
+- From the **Actions** button on the task in ```My Tasks```
+
+![capture](https://user-images.githubusercontent.com/1860085/28925215-814e4c78-7864-11e7-83ab-5fc0f3651b98.PNG)
+
+You can now choose an application to launch from the available actions.
+
+![capture](https://user-images.githubusercontent.com/1860085/28924918-95c234d6-7863-11e7-9048-4598668f38c0.PNG)
+
 ## NukeStudio
 
 To publish from NukeStudio you'll first have to create the project in Ftrack.
@@ -37,7 +56,7 @@ If you want to export Nuke scripts or transcodes, its the same process as normal
 - Select the shots you want to export.
 - Right-click > "Export...".
 - Choose your exports.
- - It does not matter where the project root is set to, or how your folder structure is setup so you can just put your Nuke scripts and transcodes directory in the preset.
+ - It does not matter where the project root is set to, or how your folder structure is setup so you can just put your Nuke scripts and transcodes directly in the preset.
 
  ![capture](https://user-images.githubusercontent.com/1860085/28813768-033234f0-769b-11e7-9ace-0550f4a3677b.PNG)
 
