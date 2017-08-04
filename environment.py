@@ -95,6 +95,16 @@ environment["MAYA_CUSTOM_TEMPLATE_PATH"] = [
     r"\\10.11.0.184\_tgbvfx\_bin\alshaders\1.0.0rc19-ai4.2.12.2\aexml"
 ]
 
+# MAKETX_PATH
+environment["MAKETX_PATH"] = [
+    r"\\10.11.0.184\_tgbvfx\_bin\maya\mtoa\1.4.2.2_2017\bin\maketx"
+]
+
+# LIBRARY_PATH
+environment["LIBRARY_PATH"] = [
+    r"\\10.11.0.184\_tgbvfx\library"
+]
+
 # HIERO_PLUGIN_PATH
 environment["HIERO_PLUGIN_PATH"] = [
     os.path.join(
