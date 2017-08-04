@@ -41,6 +41,23 @@ def ftrack_event_plugin_path(event):
         )
     )
 
+    paths = []
+    query = (
+        'select disk, root from Project where status is "active" and'
+        ' id is_not "{0}" and root is_not ""'.format(task["project"]["id"])
+    )
+    for project in session.query(query):
+        paths.append(
+            os.path.abspath(
+                os.path.join(
+                    project["disk"][system_name],
+                    project["root"]
+                )
+            )
+        )
+
+    data["options"]["env"]["PROJECT_PATHS"] = str(os.pathsep.join(paths))
+
     return data
 
 
