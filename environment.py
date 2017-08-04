@@ -77,6 +77,9 @@ environment["XBMLANGPATH"] = [
     )
 ]
 
+# YETI_TMP
+environment["YETI_TMP"] = [r"\\10.11.0.184\_tgbvfx\temp"]
+
 # ARNOLD_PLUGIN_PATH
 environment["ARNOLD_PLUGIN_PATH"] = [
     r"\\10.11.0.184\_tgbvfx\_bin\alshaders\1.0.0rc19-ai4.2.12.2\bin"
