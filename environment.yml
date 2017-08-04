@@ -12,6 +12,7 @@ dependencies:
   - arrow
   - riffle
   - git+https://github.com/pyqt/python-qt5.git#egg=python-qt5
+  - psutil
 - git:
   - https://bitbucket.org/thegentlemenbroncos/tgbvfx-pipeline.git@0af96a4890f298a3100b53d30deb58e5b73a394e
   - https://github.com/pyblish/pyblish-base.git@437234e6bb59b50763a388f8d411b558f9203701
@@ -31,7 +32,7 @@ dependencies:
     - python $REPO_PATH/environment.py
   - https://github.com/tokejepsen/pyblish-grill-environment.git@3488a8aa32a8375c6695cefcc35ee670b2a883e8:
     - python $REPO_PATH/environment.py
-  - https://github.com/tokejepsen/tgbvfx-environment.git@0db45ba2709bc4ee226a2b36fd018dab3dcad248:
+  - https://github.com/tokejepsen/tgbvfx-environment.git:
     - python $REPO_PATH/environment.py
     - python -m ftrack_connect
 name: tgbvfx-environment
