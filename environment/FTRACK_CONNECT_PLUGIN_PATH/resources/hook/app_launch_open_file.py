@@ -68,6 +68,7 @@ def get_task_data(event):
 
     # Find all work files and categorize by version.
     files = {}
+    work_file_head = work_file.split("".join(version_get(work_file, "v")))[0]
     if os.path.exists(os.path.dirname(work_file)):
         for f in os.listdir(os.path.dirname(work_file)):
 
@@ -78,8 +79,15 @@ def get_task_data(event):
             try:
                 version = version_get(f, "v")[1]
                 value = files.get(version, [])
-                value.append(os.path.join(os.path.dirname(work_file), f))
-                files[version] = value
+                file_path = os.path.abspath(
+                    os.path.join(os.path.dirname(work_file), f)
+                )
+                f_head = file_path.split("v" + version)[0]
+                # Only compare against the head because user can have notations
+                # after version number.
+                if f_head == work_file_head:
+                    value.append(file_path)
+                    files[version] = value
             except ValueError:
                 pass
 
