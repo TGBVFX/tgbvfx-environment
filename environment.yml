@@ -1,8 +1,5 @@
-channels:
-- menpo
 dependencies:
 - python=2.7
-- ffmpeg
 - pip
 - pip:
   - PySide
@@ -11,17 +8,20 @@ dependencies:
   - pyperclip
   - arrow
   - riffle
-  - git+https://github.com/pyqt/python-qt5.git#egg=python-qt5
+  - git+https://github.com/pyqt/python-qt5.git#python-qt5
   - psutil
 - git:
-  - https://bitbucket.org/thegentlemenbroncos/tgbvfx-pipeline.git@0af96a4890f298a3100b53d30deb58e5b73a394e
+  - https://github.com/tokejepsen/filelink.git@01c782e4ce8043914cc09908392747954f5284b1
+  - https://bitbucket.org/thegentlemenbroncos/tgbvfx-pipeline.git@bbd35be7dcb286e7471e543c1e36f05f14faea96
   - https://github.com/pyblish/pyblish-base.git@437234e6bb59b50763a388f8d411b558f9203701
   - https://github.com/pyblish/pyblish-qml.git@7140f6c4bfc28481e902929d9a39f7ebc8d5a24f
   - https://github.com/tokejepsen/pyblish-nukestudio.git@812e945a455a9e13877841436379bcd4f8fa42e3
   - https://github.com/pyblish/pyblish-ftrack.git@ad33c34bf4eea2e776554667502421bc9e5986c6
+  - https://github.com/pyblish/pyblish-nuke.git@d896c2b6634c571abbbe78c15bf1baf23078d05d
+  - https://github.com/pyblish/pyblish-royalrender.git@00be932cc01eb18b7456c2b54ab4ee9345fe6ebc
   - https://github.com/bumpybox/pyblish-bumpybox.git@d4146ef95850919f3c4224ab283d6dbe756cab71
   - https://bitbucket.org/ftrack/ftrack-python-legacy-api.git@97cb35a6ae98958f95e61a7925701d9e8eea375d
-  - https://bitbucket.org/ftrack/ftrack-connect.git@d0c31457b23e41701bcf88d9baeb723de4affbc1
+  - https://bitbucket.org/ftrack/ftrack-connect.git@aa807ee1d9d8de0378257cb725a28c34202eef08
   - https://bitbucket.org/ftrack/ftrack-connect-maya.git@23c7ffa6ee97e8032180246a585428d09c474ea3
   - https://bitbucket.org/ftrack/ftrack-connect-nuke.git@d1b8a32bfddf71541b8ccd954198b7adda674792
   - https://bitbucket.org/ftrack/ftrack-connect-foundry.git@7cf86f01faf983c6f094dd86cda8ecdd7417cf3e
