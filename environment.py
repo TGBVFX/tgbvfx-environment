@@ -115,6 +115,16 @@ environment["HIERO_PLUGIN_PATH"] = [
     )
 ]
 
+# NUKE_PATH
+environment["NUKE_PATH"] = [
+    os.path.join(
+        os.environ["CONDA_GIT_REPOSITORY"],
+        "pyblish-nuke",
+        "pyblish_nuke",
+        "nuke_path"
+    )
+]
+
 # FTRACK_CONNECT_PLUGIN_PATH
 environment["FTRACK_CONNECT_PLUGIN_PATH"] = [
     os.path.join(
