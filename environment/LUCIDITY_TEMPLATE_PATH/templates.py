@@ -4,7 +4,13 @@ import platform
 import lucidity
 
 
+class HostError(Exception):
+    '''Raise when a host does not match the template.'''
+
+
 class Template(lucidity.Template):
+
+    hosts = ["*"]
 
     def get_parents(self, entity, parents):
         """Recursive iterate to find all parents.
@@ -89,11 +95,13 @@ class Template(lucidity.Template):
         entities.append(entity)
         return self.get_entity_type_path(entities)
 
-    def ftrack_format(self, entity):
+    def ftrack_format(self, entity, host="*"):
         """Formats the template with the supplied entity's data.
 
         The templates access the entity's data through "entity":
            Template("Project", "{entity.name}")
+
+        The optional "host" is to specify a specific DCCs template.
         """
 
         # Validate the entity's template name.
@@ -102,6 +110,13 @@ class Template(lucidity.Template):
             raise lucidity.error.FormatError(
                 'Template name "{0}" does not match entity path "{1}"'.format(
                     template_name, self.name
+                )
+            )
+
+        if host not in self.hosts:
+            raise HostError(
+                'Host "{0}" does not match template hosts "{1}"'.format(
+                    host, self.hosts
                 )
             )
 
@@ -309,97 +324,116 @@ def register():
             templates.append(temp)
 
     # SequenceComponent templates.
-    mount = (
+    # EXR
+    template = Template(
+        "Project/Sequence/Shot/Asset/AssetVersion/SequenceComponent/.exr",
         "{entity.version.task.project.disk." + system_name + "}/"
-        "{entity.version.task.project.root}/tgbvfx"
+        "{entity.version.task.project.root}/tgbvfx/vfx/_publish/image/"
+        "{entity.version.asset.parent.parent.name}_"
+        "{entity.version.asset.parent.name}/"
+        "{entity.version.metadata.instance_name}/"
+        "{entity.version.asset.parent.parent.name}_"
+        "{entity.version.asset.parent.name}_"
+        "{entity.version.metadata.instance_name}_"
+        "v{entity.version.version}.%0{entity.padding}d{entity.file_type}"
     )
-
-    # Transcode exr
-    templates.append(
-        Template(
-            "Project/Sequence/Shot/Asset/AssetVersion/SequenceComponent/.exr",
-            mount + "/vfx/_publish/image/"
-            "{entity.version.asset.parent.parent.name}_"
-            "{entity.version.asset.parent.name}/"
-            "{entity.version.metadata.video_track}/"
-            "{entity.version.asset.parent.parent.name}_"
-            "{entity.version.asset.parent.name}_"
-            "{entity.version.metadata.video_track}_"
-            "v{entity.version.version}.%0{entity.padding}d{entity.file_type}"
-        )
-    )
+    template.hosts = ["nukestudio", "nuke"]
+    templates.append(template)
 
     # FileComponent templates
-    # Transcode exr
-    templates.append(
-        Template(
-            "Project/Sequence/Shot/Asset/AssetVersion/SequenceComponent/.exr"
-            "/FileComponent/.exr",
-            "{entity.container.version.task.project.disk." + system_name + "}/"
-            "{entity.container.version.task.project.root}/tgbvfx/vfx/_publish/"
-            "image/{entity.container.version.asset.parent.parent.name}_"
-            "{entity.container.version.asset.parent.name}/"
-            "{entity.container.version.metadata.video_track}/"
-            "{entity.container.version.asset.parent.parent.name}_"
-            "{entity.container.version.asset.parent.name}_"
-            "{entity.container.version.metadata.video_track}_"
-            "v{entity.container.version.version}.{entity.name}"
-            "{entity.file_type}"
-        )
+    # EXR
+    template = Template(
+        "Project/Sequence/Shot/Asset/AssetVersion/SequenceComponent/.exr"
+        "/FileComponent/.exr",
+        "{entity.container.version.task.project.disk." + system_name + "}/"
+        "{entity.container.version.task.project.root}/tgbvfx/vfx/_publish/"
+        "image/{entity.container.version.asset.parent.parent.name}_"
+        "{entity.container.version.asset.parent.name}/"
+        "{entity.container.version.metadata.instance_name}/"
+        "{entity.container.version.asset.parent.parent.name}_"
+        "{entity.container.version.asset.parent.name}_"
+        "{entity.container.version.metadata.instance_name}_"
+        "v{entity.container.version.version}.{entity.name}"
+        "{entity.file_type}"
     )
+    template.hosts = ["nukestudio", "nuke"]
+    templates.append(template)
 
-    # Transcode mov
-    templates.append(
-        Template(
-            "Project/Sequence/Shot/Asset/AssetVersion/FileComponent/.mov",
-            "{entity.version.task.project.disk." + system_name + "}/"
-            "{entity.version.task.project.root}/tgbvfx/vfx/_publish/"
-            "movies/{entity.version.asset.parent.parent.name}_"
-            "{entity.version.asset.parent.name}/"
-            "{entity.version.metadata.video_track}/"
-            "{entity.version.asset.parent.parent.name}_"
-            "{entity.version.asset.parent.name}_"
-            "{entity.version.metadata.video_track}_"
-            "v{entity.version.version}"
-            "{entity.file_type}"
-        )
+    # MOV
+    template = Template(
+        "Project/Sequence/Shot/Asset/AssetVersion/FileComponent/.mov",
+        "{entity.version.task.project.disk." + system_name + "}/"
+        "{entity.version.task.project.root}/tgbvfx/vfx/_publish/"
+        "movies/{entity.version.asset.parent.parent.name}_"
+        "{entity.version.asset.parent.name}/"
+        "{entity.version.metadata.instance_name}/"
+        "{entity.version.asset.parent.parent.name}_"
+        "{entity.version.asset.parent.name}_"
+        "{entity.version.metadata.instance_name}_"
+        "v{entity.version.version}"
+        "{entity.file_type}"
     )
+    template.hosts = ["nukestudio"]
+    templates.append(template)
+
+    # GIZMO
+    template = Template(
+        "Project/Sequence/Shot/Asset/AssetVersion/FileComponent/.gizmo",
+        "{entity.version.task.project.disk." + system_name + "}/"
+        "{entity.version.task.project.root}/tgbvfx/vfx/_publish/"
+        "{entity.version.asset.type.short}/"
+        "{entity.version.asset.parent.parent.name}/"
+        "{entity.version.asset.parent.name}/"
+        "{entity.version.task.name}/"
+        "{entity.version.asset.parent.parent.name}_"
+        "{entity.version.asset.parent.name}_{entity.version.task.name}_"
+        "{entity.name}_v{entity.version.version}{entity.file_type}"
+    )
+    template.hosts = ["nuke"]
+    templates.append(template)
 
     # NukeStudio scene
-    templates.append(
-        Template(
-            "Project/Asset/AssetVersion/FileComponent/.hrox",
-            mount + "/editorial/nukestudio/"
-            "{entity.version.task.project.name}_v{entity.version.version}"
-            "{entity.file_type}"
-        )
+    template = Template(
+        "Project/Asset/AssetVersion/FileComponent/.hrox",
+        "{entity.version.task.project.disk." + system_name + "}/"
+        "{entity.version.task.project.root}/tgbvfx/editorial/nukestudio/"
+        "{entity.version.task.project.name}_v{entity.version.version}"
+        "{entity.file_type}"
     )
+    template.hosts = ["*", "nukestudio"]
+    templates.append(template)
 
     # Nuke scene
     templates.append(
         Template(
             "Project/Asset/AssetVersion/FileComponent/.nk",
-            mount + "/vfx/{entity.version.task.name}/nuke/scripts/"
+            "{entity.version.task.project.disk." + system_name + "}/"
+            "{entity.version.task.project.root}/tgbvfx/vfx/"
+            "{entity.version.task.name}/nuke/scripts/"
             "{entity.version.task.name}_v{entity.version.version}"
             "{entity.file_type}"
         )
     )
-    templates.append(
-        Template(
-            "Project/Sequence/Shot/Asset/AssetVersion/FileComponent/.nk",
-            mount + "/vfx/{entity.version.asset.parent.parent.name}/"
-            "{entity.version.asset.parent.name}/nuke/scripts/"
-            "{entity.version.asset.parent.parent.name}_"
-            "{entity.version.asset.parent.name}_{entity.version.task.name}_"
-            "v{entity.version.version}{entity.file_type}"
-        )
+    template = Template(
+        "Project/Sequence/Shot/Asset/AssetVersion/FileComponent/.nk",
+        "{entity.version.task.project.disk." + system_name + "}/"
+        "{entity.version.task.project.root}/tgbvfx/vfx/"
+        "{entity.version.asset.parent.parent.name}/"
+        "{entity.version.asset.parent.name}/nuke/scripts/"
+        "{entity.version.asset.parent.parent.name}_"
+        "{entity.version.asset.parent.name}_{entity.version.task.name}_"
+        "v{entity.version.version}{entity.file_type}"
     )
+    template.hosts = ["*", "nukestudio", "nuke"]
+    templates.append(template)
 
     # Maya scene
     templates.append(
         Template(
             "Project/Asset/AssetVersion/FileComponent/.mb",
-            mount + "/vfx/{entity.version.task.name}/maya/scenes/"
+            "{entity.version.task.project.disk." + system_name + "}/"
+            "{entity.version.task.project.root}/tgbvfx/vfx/"
+            "{entity.version.task.name}/maya/scenes/"
             "{entity.version.task.name}_v{entity.version.version}"
             "{entity.file_type}"
         )
@@ -407,8 +441,9 @@ def register():
     templates.append(
         Template(
             "Project/Sequence/Shot/Asset/AssetVersion/FileComponent/.mb",
-            mount + "/vfx/{entity.version.asset.parent.parent.name}/"
-            "{entity.version.asset.parent.name}/maya/scenes/"
+            "{entity.version.task.project.disk." + system_name + "}/"
+            "{entity.version.task.project.root}/tgbvfx/vfx/"
+            "{entity.version.task.name}/maya/scenes/"
             "{entity.version.asset.parent.parent.name}_"
             "{entity.version.asset.parent.name}_{entity.version.task.name}_"
             "v{entity.version.version}{entity.file_type}"
@@ -419,15 +454,18 @@ def register():
     templates.append(
         Template(
             "Project/Asset/AssetVersion/FileComponent/.hip",
-            mount + "/vfx/{entity.version.task.name}/houdini/"
-            "{entity.version.task.name}_v{entity.version.version}"
-            "{entity.file_type}"
+            "{entity.version.task.project.disk." + system_name + "}/"
+            "{entity.version.task.project.root}/tgbvfx/vfx/"
+            "{entity.version.task.name}/houdini/{entity.version.task.name}_"
+            "v{entity.version.version}{entity.file_type}"
         )
     )
     templates.append(
         Template(
             "Project/Sequence/Shot/Asset/AssetVersion/FileComponent/.hip",
-            mount + "/vfx/{entity.version.asset.parent.parent.name}/"
+            "{entity.version.task.project.disk." + system_name + "}/"
+            "{entity.version.task.project.root}/tgbvfx/vfx/"
+            "{entity.version.asset.parent.parent.name}/"
             "{entity.version.asset.parent.name}/houdini/"
             "{entity.version.asset.parent.parent.name}_"
             "{entity.version.asset.parent.name}_{entity.version.task.name}_"

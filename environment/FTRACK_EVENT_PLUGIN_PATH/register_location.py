@@ -6,18 +6,47 @@ import lucidity
 
 class Structure(ftrack_api.structure.base.Structure):
 
+    def get_host(self):
+
+        host = "*"
+
+        # Nuke
+        try:
+            import nuke
+            if "--hiero" in nuke.rawArgs or "--studio" in nuke.rawArgs:
+                raise ImportError
+            host = "nuke"
+        except ImportError:
+            pass
+
+        # NukeStudio
+        try:
+            import nuke
+            if "--studio" not in nuke.rawArgs:
+                raise ImportError
+            host = "nukestudio"
+        except ImportError:
+            pass
+
+        return host
+
     def get_resource_identifier(self, entity, context=None):
 
         templates = lucidity.discover_templates()
 
         template_name = templates[0].get_template_name(entity)
+        host = self.get_host()
         for template in templates:
-            if template_name == template.name:
-                path = os.path.abspath(template.ftrack_format(entity))
-                return path
+            if template_name == template.name and host in template.hosts:
+                return os.path.abspath(
+                    template.ftrack_format(entity, host=host)
+                )
 
-        msg = 'Could not find any templates for {0} with template name "{1}"'
-        raise ValueError(msg.format(entity, template_name))
+        msg = (
+            'Could not find any templates for {0} with template name "{1}" '
+            'and host "{2}".'
+        )
+        raise ValueError(msg.format(entity, template_name, host))
 
 
 def configure_locations(event):
