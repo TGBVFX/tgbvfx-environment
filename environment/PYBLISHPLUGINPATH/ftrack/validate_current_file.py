@@ -1,17 +1,15 @@
 import pyblish.api
 
 
-def nukestudio_save(path):
-    import hiero
-
-    hiero.ui.activeSequence().project().saveAs(path)
-
-
 class TGBFtrackRepairCurrentFile(pyblish.api.Action):
 
     label = "Repair"
     icon = "wrench"
     on = "failed"
+
+    def nukestudio_save(self, path):
+        import hiero
+        hiero.ui.activeSequence().project().saveAs(path)
 
     def process(self, context, plugin):
         from tgbvfx_environment import utils
@@ -30,7 +28,7 @@ class TGBFtrackRepairCurrentFile(pyblish.api.Action):
         )
         assert not os.path.exists(work_file), msg.format(work_file)
 
-        application_save = {"nukestudio": nukestudio_save}
+        application_save = {"nukestudio": self.nukestudio_save}
         application_save[pyblish.api.current_host()](work_file)
 
 
