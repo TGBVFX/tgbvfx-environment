@@ -103,16 +103,6 @@ class Template(lucidity.Template):
 
         The optional "host" is to specify a specific DCCs template.
         """
-
-        # Validate the entity's template name.
-        template_name = self.get_template_name(entity)
-        if template_name != self.name:
-            raise lucidity.error.FormatError(
-                'Template name "{0}" does not match entity path "{1}"'.format(
-                    template_name, self.name
-                )
-            )
-
         if host not in self.hosts:
             raise HostError(
                 'Host "{0}" does not match template hosts "{1}"'.format(
@@ -414,6 +404,20 @@ def register():
             "{entity.file_type}"
         )
     )
+    template = Template(
+        "Backdrop",
+        "{entity.version.task.project.disk." + system_name + "}/"
+        "{entity.version.task.project.root}/tgbvfx/vfx/_publish/"
+        "{entity.version.asset.type.short}/"
+        "{entity.version.asset.parent.parent.name}/"
+        "{entity.version.asset.parent.name}/"
+        "{entity.version.task.name}/"
+        "{entity.version.asset.parent.parent.name}_"
+        "{entity.version.asset.parent.name}_{entity.version.task.name}_"
+        "{entity.version.metadata.instance_name}_"
+        "{entity.name}_v{entity.version.version}{entity.file_type}"
+    )
+    templates.append(template)
     template = Template(
         "Project/Sequence/Shot/Asset/AssetVersion/FileComponent/.nk",
         "{entity.version.task.project.disk." + system_name + "}/"
