@@ -33,16 +33,18 @@ class Structure(ftrack_api.structure.base.Structure):
     def get_resource_identifier(self, entity, context=None):
 
         templates = lucidity.discover_templates()
-        metadata = entity["version"].get("metadata", None)
-        if metadata:
-            for template in templates:
-                template_name = entity["version"]["metadata"].get(
-                    "template", ""
-                )
-                if template.name == template_name:
-                    return os.path.abspath(
-                        template.ftrack_format(entity)
+
+        if hasattr(entity["version"], "get"):
+            metadata = entity["version"].get("metadata", None)
+            if metadata:
+                for template in templates:
+                    template_name = entity["version"]["metadata"].get(
+                        "template", ""
                     )
+                    if template.name == template_name:
+                        return os.path.abspath(
+                            template.ftrack_format(entity)
+                        )
 
         template_name = templates[0].get_template_name(entity)
         host = self.get_host()
