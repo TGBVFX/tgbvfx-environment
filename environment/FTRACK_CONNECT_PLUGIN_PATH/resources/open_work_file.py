@@ -11,6 +11,9 @@ class Window(QtWidgets.QDialog):
         super(Window, self).__init__(parent)
         self.setWindowTitle("Work File Loader.")
         self.setFocusPolicy(QtCore.Qt.StrongFocus)
+        self.setWindowFlags(
+            self.windowFlags() ^ QtCore.Qt.WindowStaysOnTopHint
+        )
         self.work_file = work_file
 
         # Layout
