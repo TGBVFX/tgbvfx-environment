@@ -330,11 +330,79 @@ def register():
     template.hosts = ["nukestudio", "nuke"]
     templates.append(template)
 
+    # JPG
+    template = Template(
+        "Project/Sequence/Shot/Asset/AssetVersion/SequenceComponent/.jpg",
+        "{entity.version.task.project.disk." + system_name + "}/"
+        "{entity.version.task.project.root}/tgbvfx/vfx/_publish/image/"
+        "{entity.version.asset.parent.parent.name}_"
+        "{entity.version.asset.parent.name}/"
+        "{entity.version.metadata.instance_name}/"
+        "{entity.version.asset.parent.parent.name}_"
+        "{entity.version.asset.parent.name}_"
+        "{entity.version.metadata.instance_name}_"
+        "v{entity.version.version}.%0{entity.padding}d{entity.file_type}"
+    )
+    template.hosts = ["nukestudio", "nuke"]
+    templates.append(template)
+
+    # JPEG
+    template = Template(
+        "Project/Sequence/Shot/Asset/AssetVersion/SequenceComponent/.jpeg",
+        "{entity.version.task.project.disk." + system_name + "}/"
+        "{entity.version.task.project.root}/tgbvfx/vfx/_publish/image/"
+        "{entity.version.asset.parent.parent.name}_"
+        "{entity.version.asset.parent.name}/"
+        "{entity.version.metadata.instance_name}/"
+        "{entity.version.asset.parent.parent.name}_"
+        "{entity.version.asset.parent.name}_"
+        "{entity.version.metadata.instance_name}_"
+        "v{entity.version.version}.%0{entity.padding}d{entity.file_type}"
+    )
+    template.hosts = ["nukestudio", "nuke"]
+    templates.append(template)
+
     # FileComponent templates
     # EXR
     template = Template(
         "Project/Sequence/Shot/Asset/AssetVersion/SequenceComponent/.exr"
         "/FileComponent/.exr",
+        "{entity.container.version.task.project.disk." + system_name + "}/"
+        "{entity.container.version.task.project.root}/tgbvfx/vfx/_publish/"
+        "image/{entity.container.version.asset.parent.parent.name}_"
+        "{entity.container.version.asset.parent.name}/"
+        "{entity.container.version.metadata.instance_name}/"
+        "{entity.container.version.asset.parent.parent.name}_"
+        "{entity.container.version.asset.parent.name}_"
+        "{entity.container.version.metadata.instance_name}_"
+        "v{entity.container.version.version}.{entity.name}"
+        "{entity.file_type}"
+    )
+    template.hosts = ["nukestudio", "nuke"]
+    templates.append(template)
+
+    # JPG
+    template = Template(
+        "Project/Sequence/Shot/Asset/AssetVersion/SequenceComponent/.jpg"
+        "/FileComponent/.jpg",
+        "{entity.container.version.task.project.disk." + system_name + "}/"
+        "{entity.container.version.task.project.root}/tgbvfx/vfx/_publish/"
+        "image/{entity.container.version.asset.parent.parent.name}_"
+        "{entity.container.version.asset.parent.name}/"
+        "{entity.container.version.metadata.instance_name}/"
+        "{entity.container.version.asset.parent.parent.name}_"
+        "{entity.container.version.asset.parent.name}_"
+        "{entity.container.version.metadata.instance_name}_"
+        "v{entity.container.version.version}.{entity.name}"
+        "{entity.file_type}"
+    )
+    template.hosts = ["nukestudio", "nuke"]
+    templates.append(template)
+
+    # JPEG
+    template = Template(
+        "Project/Sequence/Shot/Asset/AssetVersion/SequenceComponent/.jpeg"
+        "/FileComponent/.jpeg",
         "{entity.container.version.task.project.disk." + system_name + "}/"
         "{entity.container.version.task.project.root}/tgbvfx/vfx/_publish/"
         "image/{entity.container.version.asset.parent.parent.name}_"
