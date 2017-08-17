@@ -1,3 +1,7 @@
+class HostError(Exception):
+    '''Raise when a host does not match the template.'''
+
+
 class mock_entity(dict):
     """Mock entity for faking Ftrack entities
 

@@ -3,9 +3,7 @@ import platform
 
 import lucidity
 
-
-class HostError(Exception):
-    '''Raise when a host does not match the template.'''
+from tgbvfx_environment import utils
 
 
 class Template(lucidity.Template):
@@ -104,7 +102,7 @@ class Template(lucidity.Template):
         The optional "host" is to specify a specific DCCs template.
         """
         if host not in self.hosts:
-            raise HostError(
+            raise utils.HostError(
                 'Host "{0}" does not match template hosts "{1}"'.format(
                     host, self.hosts
                 )
