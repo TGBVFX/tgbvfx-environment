@@ -156,8 +156,12 @@ def get_task_data(event):
         ),
         work_file
     ])
+    output_file = output.replace("\\", "/").splitlines()[0]
+    if os.path.exists(output_file):
+        data["command"].append(output_file)
+    else:
+        data["command"] = ""
 
-    data["command"].append(output.replace("\\", "/").splitlines()[0])
     return data
 
 

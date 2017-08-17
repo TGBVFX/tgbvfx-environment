@@ -35,7 +35,7 @@ class Window(QtWidgets.QDialog):
         self.previous_version_button.clicked.connect(self.open_previous)
 
     def open_latest(self):
-        self.close()
+        self.deleteLater()
 
     def open_previous(self):
         ext = os.path.splitext(self.work_file)[1]
@@ -48,7 +48,11 @@ class Window(QtWidgets.QDialog):
         if path:
             self.work_file = path
 
-        self.close()
+        self.deleteLater()
+
+    def closeEvent(self, event):
+        self.work_file = ""
+        event.accept()
 
 
 QtWidgets.QApplication(sys.argv)
