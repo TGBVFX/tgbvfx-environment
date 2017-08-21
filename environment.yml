@@ -13,13 +13,13 @@ dependencies:
 - git:
   - https://github.com/tokejepsen/filelink.git@01c782e4ce8043914cc09908392747954f5284b1
   - https://bitbucket.org/thegentlemenbroncos/tgbvfx-pipeline.git@bbd35be7dcb286e7471e543c1e36f05f14faea96
-  - https://github.com/tokejepsen/pyblish-base.git@9105974c51ec23bd767a9269376442fff0f816e8
-  - https://github.com/pyblish/pyblish-qml.git@7140f6c4bfc28481e902929d9a39f7ebc8d5a24f
+  - https://github.com/pyblish/pyblish-base.git@437234e6bb59b50763a388f8d411b558f9203701
+  - https://github.com/pyblish/pyblish-qml.git@4b207e2affaf434bb0ada3715bc7e64eea1ced75
   - https://github.com/tokejepsen/pyblish-nukestudio.git@812e945a455a9e13877841436379bcd4f8fa42e3
   - https://github.com/pyblish/pyblish-ftrack.git@ad33c34bf4eea2e776554667502421bc9e5986c6
   - https://github.com/pyblish/pyblish-nuke.git@d896c2b6634c571abbbe78c15bf1baf23078d05d
   - https://github.com/pyblish/pyblish-royalrender.git@00be932cc01eb18b7456c2b54ab4ee9345fe6ebc
-  - https://github.com/bumpybox/pyblish-bumpybox.git@2e890fcf8263c4c0ee05a192570a8c7b19b9d676
+  - https://github.com/bumpybox/pyblish-bumpybox.git@6cbb32dfdc021daf644fc3b89627c1ec5b29b02a
   - https://bitbucket.org/ftrack/ftrack-python-legacy-api.git@97cb35a6ae98958f95e61a7925701d9e8eea375d
   - https://bitbucket.org/ftrack/ftrack-connect.git@d0c31457b23e41701bcf88d9baeb723de4affbc1
   - https://bitbucket.org/ftrack/ftrack-connect-maya.git@23c7ffa6ee97e8032180246a585428d09c474ea3
@@ -30,7 +30,7 @@ dependencies:
   - https://github.com/tokejepsen/ftrack-hooks.git@a3eba3bd65200fde0d78626f588b6f7f260696dd
   - https://github.com/tokejepsen/ftrack-connect-environment.git@fa51c5d0d4cc386dd124cbb6a814087583d07c3f:
     - python $REPO_PATH/environment.py
-  - https://github.com/tokejepsen/pyblish-grill-environment.git@4df1d68ed0c8c31639d4db20a82841208d713832:
+  - https://github.com/tokejepsen/pyblish-grill-environment.git@363d89ef0166cc7d55d1085ae160cc5e9212bd0e:
     - python $REPO_PATH/environment.py
   - https://github.com/tokejepsen/tgbvfx-environment.git:
     - python $REPO_PATH/environment.py
