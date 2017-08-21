@@ -13,7 +13,7 @@ dependencies:
 - git:
   - https://github.com/tokejepsen/filelink.git@01c782e4ce8043914cc09908392747954f5284b1
   - https://bitbucket.org/thegentlemenbroncos/tgbvfx-pipeline.git@bbd35be7dcb286e7471e543c1e36f05f14faea96
-  - https://github.com/pyblish/pyblish-base.git@437234e6bb59b50763a388f8d411b558f9203701
+  - https://github.com/pyblish/pyblish-base.git@af0b06b2dece4794aed486d70aef8f2141c7b2fb
   - https://github.com/pyblish/pyblish-qml.git@4b207e2affaf434bb0ada3715bc7e64eea1ced75
   - https://github.com/tokejepsen/pyblish-nukestudio.git@812e945a455a9e13877841436379bcd4f8fa42e3
   - https://github.com/pyblish/pyblish-ftrack.git@ad33c34bf4eea2e776554667502421bc9e5986c6
