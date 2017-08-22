@@ -25,6 +25,7 @@ environment["PYTHONPATH"] = [
         "pipeline",
         "maya"
     ),
+    os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "pyblish-royalrender"),
 ]
 
 # LUCIDITY_TEMPLATE_PATH
