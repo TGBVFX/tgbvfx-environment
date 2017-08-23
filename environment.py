@@ -106,6 +106,10 @@ environment["LIBRARY_PATH"] = [
     r"\\10.11.0.184\_tgbvfx\library"
 ]
 
+# STUDIO_TMP
+# Temporary dumping location for the entire studio.
+environment["STUDIO_TMP"] = [r"//10.11.0.184/_tgbvfx/temp"]
+
 # HIERO_PLUGIN_PATH
 environment["HIERO_PLUGIN_PATH"] = [
     os.path.join(
@@ -123,7 +127,8 @@ environment["NUKE_PATH"] = [
         "pyblish-nuke",
         "pyblish_nuke",
         "nuke_path"
-    )
+    ),
+    os.path.join(root, "environment", "NUKE_PATH"),
 ]
 
 # FTRACK_CONNECT_PLUGIN_PATH
