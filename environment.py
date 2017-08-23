@@ -108,7 +108,7 @@ environment["LIBRARY_PATH"] = [
 
 # STUDIO_TMP
 # Temporary dumping location for the entire studio.
-environment["STUDIO_TMP"] = [r"//10.11.0.184/_tgbvfx/temp"]
+environment["STUDIO_TMP"] = ["//10.11.0.184/_tgbvfx/temp"]
 
 # HIERO_PLUGIN_PATH
 environment["HIERO_PLUGIN_PATH"] = [
