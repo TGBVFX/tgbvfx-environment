@@ -48,6 +48,8 @@ def get_task_data(event):
         app_id = "nuke"
     if identifier.startswith("nuke_studio"):
         app_id = "nukestudio"
+        # Ignore NukeStudio until we can generate a work file.
+        return
 
     # Maya
     if identifier.startswith("maya"):
