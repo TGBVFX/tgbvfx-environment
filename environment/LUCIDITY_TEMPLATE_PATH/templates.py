@@ -101,6 +101,15 @@ class Template(lucidity.Template):
 
         The optional "host" is to specify a specific DCCs template.
         """
+        # Validate the entity's template name.
+        template_name = self.get_template_name(entity)
+        if template_name != self.name:
+            raise lucidity.error.FormatError(
+                'Template name "{0}" does not match entity path "{1}"'.format(
+                    template_name, self.name
+                )
+            )
+
         if host not in self.hosts:
             raise utils.HostError(
                 'Host "{0}" does not match template hosts "{1}"'.format(
