@@ -266,28 +266,12 @@ def get_test_paths():
     ]
 
 
-def get_valid_templates(entity, templates):
-
-    results = []
-    template_name = templates[0].get_template_name(entity)
-    try:
-        template_name = entity["metadata"]["lucidity_template_name"]
-    except KeyError:
-        pass
-
-    for template in templates:
-        if template.name == template_name:
-            results.append(template)
-
-    return results
-
-
 def assert_entity(entity, templates):
 
     msg = "Template name: \"{0}\"".format(
         templates[0].get_template_name(entity)
     )
-    assert get_valid_templates(entity, templates), msg
+    assert templates[0].get_valid_templates(entity, templates), msg
 
 
 def test():
@@ -711,7 +695,7 @@ def test():
     used_templates = []
     for entity in entities:
         assert_entity(entity, templates)
-        valid_templates = get_valid_templates(entity, templates)
+        valid_templates = templates[0].get_valid_templates(entity, templates)
         used_templates.extend(valid_templates)
 
         for template in valid_templates:
