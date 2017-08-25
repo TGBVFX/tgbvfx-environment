@@ -10,3 +10,4 @@ branches:
   - master
 env:
   - PYTHONPATH=${TRAVIS_BUILD_DIR}/environment/PYTHONPATH
+  - LUCIDITY_TEMPLATE_PATH=${TRAVIS_BUILD_DIR}/environment/LUCIDITY_TEMPLATE_PATH
