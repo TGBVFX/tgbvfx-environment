@@ -1,5 +1,7 @@
 environment:
 
+  PYTHONPATH: %APPVEYOR_BUILD_FOLDER%/environment/PYTHONPATH
+
   matrix:
 
     - PYTHON: "C:\\Python27-x64"
