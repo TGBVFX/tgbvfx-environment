@@ -1,6 +1,6 @@
 environment:
 
-  PYTHONPATH: %APPVEYOR_BUILD_FOLDER%/environment/PYTHONPATH
+  PYTHONPATH: %APPVEYOR_BUILD_FOLDER%\\environment\\PYTHONPATH
 
   matrix:
 
