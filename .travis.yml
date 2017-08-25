@@ -8,3 +8,5 @@ script: pytest
 branches:
   only:
   - master
+env:
+  - PYTHONPATH=${TRAVIS_BUILD_DIR}/environment/PYTHONPATH
