@@ -280,7 +280,7 @@ def test():
     templates = lucidity.discover_templates()
 
     project = utils.mock_entity(
-        ("disk", {"windows": "//10.11.0.184"}),
+        ("disk", {"windows": "//10.11.0.184", "unix": "//10.11.0.184"}),
         ("root", "171001_ftrack"),
         ("name", "pipeline_test"),
         entity_type="Project"
