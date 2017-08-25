@@ -1,0 +1,22 @@
+environment:
+
+  matrix:
+
+    - PYTHON: "C:\\Python27-x64"
+      PYTHON_VERSION: "2.7.x"
+      PYTHON_ARCH: "64"
+
+build: off
+
+branches:
+  only:
+    - master
+
+install:
+  - SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%
+  - pip install pytest
+  - pip install lucidity
+
+test_script:
+  # Run the project tests
+  - "%CMD_IN_ENV% pytest"
