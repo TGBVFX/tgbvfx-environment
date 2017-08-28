@@ -592,7 +592,7 @@ def test():
     sequence_component = utils.mock_entity(
         ("version", assetversion),
         ("file_type", ".exr"),
-        ("metadata", {"padding_string": "4"}),
+        ("padding", 4),
         entity_type="SequenceComponent"
     )
     entities.append(sequence_component)
@@ -628,7 +628,7 @@ def test():
     sequence_component = utils.mock_entity(
         ("version", assetversion),
         ("file_type", ".jpg"),
-        ("metadata", {"padding_string": "4"}),
+        ("padding", 4),
         entity_type="SequenceComponent"
     )
     entities.append(sequence_component)

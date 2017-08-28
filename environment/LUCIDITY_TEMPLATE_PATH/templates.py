@@ -97,22 +97,34 @@ class Template(lucidity.Template):
 
     def format(self, data):
 
+        # "version" data member needs to be convert from integer to string.
         if data.entity_type == "AssetVersion":
-            data["version_string"] = str(data["version"]).zfill(3)
+            version_string = str(data["version"]).zfill(3)
+            data["version"] = version_string
 
+        # "version" data member needs to be convert from integer to string.
         if data.entity_type == "FileComponent":
-            version = None
             if data["version"]:
-                version = data["version"]["version"]
+                version_string = str(data["version"]["version"]).zfill(3)
+                data["version"]["version"] = version_string
             else:
-                version = data["container"]["version"]["version"]
+                version_string = str(
+                    data["container"]["version"]["version"]
+                ).zfill(3)
+                data["container"]["version"]["version"] = version_string
 
-            data["version_string"] = str(version).zfill(3)
-
+        # "version" data member needs to be convert from integer to string.
         if data.entity_type == "SequenceComponent":
-            data["version_string"] = str(data["version"]["version"]).zfill(3)
+            version_string = str(data["version"]["version"]).zfill(3)
+            data["version"]["version"] = version_string
 
-        return super(Template, self).format(data)
+            # "padding" data member needs to be convert from integer to string.
+            padding_string = str(data["padding"]).zfill(2)
+            data["padding"] = padding_string
+
+        return os.path.abspath(
+            super(Template, self).format(data)
+        ).replace("\\", "/")
 
 
 def register():
@@ -352,8 +364,7 @@ def register():
             "{version.asset.type.short}/{version.asset.parent.parent.name}_"
             "{version.asset.parent.name}/{version.metadata.instance_name}/"
             "{version.asset.parent.parent.name}_{version.asset.parent.name}_"
-            "{version.metadata.instance_name}_"
-            "v{version_string}.%0{metadata.padding_string}d"
+            "{version.metadata.instance_name}_v{version.version}.%{padding}d"
             "{file_type}"
         ),
         Template(
@@ -368,8 +379,7 @@ def register():
             "{container.version.asset.parent.parent.name}_"
             "{container.version.asset.parent.name}_"
             "{container.version.metadata.instance_name}_"
-            "v{version_string}.{name}"
-            "{file_type}"
+            "v{container.version.version}.{name}{file_type}"
         )
     ])
 
@@ -382,8 +392,7 @@ def register():
             "{version.asset.type.short}/{version.asset.parent.parent.name}_"
             "{version.asset.parent.name}/{version.metadata.instance_name}/"
             "{version.asset.parent.parent.name}_{version.asset.parent.name}_"
-            "{version.metadata.instance_name}_"
-            "v{version_string}.%0{metadata.padding_string}d"
+            "{version.metadata.instance_name}_v{version.version}.%{padding}d"
             "{file_type}"
         ),
         Template(
@@ -398,7 +407,7 @@ def register():
             "{container.version.asset.parent.parent.name}_"
             "{container.version.asset.parent.name}_"
             "{container.version.metadata.instance_name}_"
-            "v{version_string}.{name}{file_type}"
+            "v{container.version.version}.{name}{file_type}"
         )
     ])
 
@@ -411,8 +420,7 @@ def register():
             "{version.asset.type.short}/{version.asset.parent.parent.name}_"
             "{version.asset.parent.name}/{version.metadata.instance_name}/"
             "{version.asset.parent.parent.name}_{version.asset.parent.name}_"
-            "{version.metadata.instance_name}_"
-            "v{version_string}{file_type}"
+            "{version.metadata.instance_name}_v{version.version}{file_type}"
         )
     )
 
@@ -425,8 +433,7 @@ def register():
             "{version.asset.type.short}/{version.asset.parent.parent.name}_"
             "{version.asset.parent.name}/{version.task.name}/"
             "{version.asset.parent.parent.name}_{version.asset.parent.name}_"
-            "{version.task.name}_{name}_v{version_string}"
-            "{file_type}"
+            "{version.task.name}_{name}_v{version.version}{file_type}"
         )
     )
 
@@ -436,8 +443,7 @@ def register():
             "Project/Asset/AssetVersion/FileComponent/.hrox",
             "{version.task.project.disk." + system_name + "}/"
             "{version.task.project.root}/tgbvfx/editorial/nukestudio/"
-            "{version.task.project.name}_v{version_string}"
-            "{file_type}"
+            "{version.task.project.name}_v{version.version}{file_type}"
         )
     )
 
@@ -447,8 +453,7 @@ def register():
             "Project/Asset/AssetVersion/FileComponent/.nk",
             "{version.task.project.disk." + system_name + "}/"
             "{version.task.project.root}/tgbvfx/vfx/{version.task.name}/nuke/"
-            "scripts/{version.task.name}_v{version_string}"
-            "{file_type}"
+            "scripts/{version.task.name}_v{version.version}{file_type}"
         ),
         Template(
             "nuke_backdrop",
@@ -458,7 +463,7 @@ def register():
             "{version.asset.parent.name}/{version.task.name}/"
             "{version.asset.parent.parent.name}_{version.asset.parent.name}_"
             "{version.task.name}_{version.metadata.instance_name}_{name}_"
-            "v{version_string}{file_type}"
+            "v{version.version}{file_type}"
         ),
         Template(
             "Project/Sequence/Shot/Asset/AssetVersion/FileComponent/.nk",
@@ -467,7 +472,7 @@ def register():
             "{version.asset.parent.parent.name}/{version.asset.parent.name}/"
             "nuke/scripts/{version.asset.parent.parent.name}_"
             "{version.asset.parent.name}_{version.task.name}_"
-            "v{version_string}{file_type}"
+            "v{version.version}{file_type}"
         )
     ])
 
@@ -477,8 +482,7 @@ def register():
             "Project/Asset/AssetVersion/FileComponent/.mb",
             "{version.task.project.disk." + system_name + "}/"
             "{version.task.project.root}/tgbvfx/vfx/{version.task.name}/maya/"
-            "scenes/{version.task.name}_v{version_string}"
-            "{file_type}"
+            "scenes/{version.task.name}_v{version.version}{file_type}"
         ),
         Template(
             "Project/Sequence/Shot/Asset/AssetVersion/FileComponent/.mb",
@@ -486,7 +490,7 @@ def register():
             "{version.task.project.root}/tgbvfx/vfx/{version.task.name}/maya/"
             "scenes/{version.asset.parent.parent.name}_"
             "{version.asset.parent.name}_{version.task.name}_"
-            "v{version_string}{file_type}"
+            "v{version.version}{file_type}"
         )
     ])
 
@@ -496,8 +500,7 @@ def register():
             "Project/Asset/AssetVersion/FileComponent/.hip",
             "{version.task.project.disk." + system_name + "}/"
             "{version.task.project.root}/tgbvfx/vfx/{version.task.name}/"
-            "houdini/{version.task.name}_v{version_string}"
-            "{file_type}"
+            "houdini/{version.task.name}_v{version.version}{file_type}"
         ),
         Template(
             "Project/Sequence/Shot/Asset/AssetVersion/FileComponent/.hip",
@@ -506,7 +509,7 @@ def register():
             "{version.asset.parent.parent.name}/{version.asset.parent.name}/"
             "houdini/{version.asset.parent.parent.name}_"
             "{version.asset.parent.name}_{version.task.name}_"
-            "v{version_string}{file_type}"
+            "v{version.version}{file_type}"
         )
     ])
 
