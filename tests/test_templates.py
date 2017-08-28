@@ -304,7 +304,7 @@ def test():
     assetversion = utils.mock_entity(
         ("asset", asset),
         ("task", task),
-        ("metadata", {"version_string": "001"}),
+        ("version", 1),
         entity_type="AssetVersion"
     )
     component = utils.mock_entity(
@@ -322,7 +322,7 @@ def test():
     assetversion = utils.mock_entity(
         ("asset", asset),
         ("task", task),
-        ("metadata", {"version_string": "001"}),
+        ("version", 1),
         entity_type="AssetVersion"
     )
     component = utils.mock_entity(
@@ -340,7 +340,7 @@ def test():
     assetversion = utils.mock_entity(
         ("asset", asset),
         ("task", task),
-        ("metadata", {"version_string": "001"}),
+        ("version", 1),
         entity_type="AssetVersion"
     )
     component = utils.mock_entity(
@@ -358,7 +358,7 @@ def test():
     assetversion = utils.mock_entity(
         ("asset", asset),
         ("task", task),
-        ("metadata", {"version_string": "001"}),
+        ("version", 1),
         entity_type="AssetVersion"
     )
     component = utils.mock_entity(
@@ -404,7 +404,7 @@ def test():
     assetversion = utils.mock_entity(
         ("asset", asset),
         ("task", task),
-        ("metadata", {"version_string": "001"}),
+        ("version", 1),
         entity_type="AssetVersion"
     )
     component = utils.mock_entity(
@@ -422,7 +422,7 @@ def test():
     assetversion = utils.mock_entity(
         ("asset", asset),
         ("task", task),
-        ("metadata", {"version_string": "001"}),
+        ("version", 1),
         entity_type="AssetVersion"
     )
     component = utils.mock_entity(
@@ -445,9 +445,8 @@ def test():
     assetversion = utils.mock_entity(
         ("asset", asset),
         ("task", task),
-        (
-            "metadata", {"version_string": "001", "instance_name": "plate001"}
-        ),
+        ("version", 1),
+        ("metadata", {"instance_name": "plate001"}),
         entity_type="AssetVersion"
     )
     component = utils.mock_entity(
@@ -465,7 +464,7 @@ def test():
     assetversion = utils.mock_entity(
         ("asset", asset),
         ("task", task),
-        ("metadata", {"version_string": "001"}),
+        ("version", 1),
         entity_type="AssetVersion"
     )
     component = utils.mock_entity(
@@ -495,7 +494,7 @@ def test():
     assetversion = utils.mock_entity(
         ("asset", asset),
         ("task", task),
-        ("metadata", {"version_string": "001"}),
+        ("version", 1),
         entity_type="AssetVersion"
     )
     entities.append(assetversion)
@@ -523,10 +522,8 @@ def test():
     assetversion = utils.mock_entity(
         ("asset", asset),
         ("task", task),
-        (
-            "metadata",
-            {"version_string": "001", "instance_name": "BackdropNode4"}
-        ),
+        ("version", 1),
+        ("metadata", {"instance_name": "BackdropNode4"}),
         entity_type="AssetVersion"
     )
     entities.append(assetversion)
@@ -563,7 +560,7 @@ def test():
     assetversion = utils.mock_entity(
         ("asset", asset),
         ("task", task),
-        ("metadata", {"version_string": "001"}),
+        ("version", 1),
         entity_type="AssetVersion"
     )
     component = utils.mock_entity(
@@ -588,10 +585,8 @@ def test():
     assetversion = utils.mock_entity(
         ("asset", asset),
         ("task", task),
-        (
-            "metadata",
-            {"version_string": "003", "instance_name": "plate_linear_aces"}
-        ),
+        ("version", 3),
+        ("metadata", {"instance_name": "plate_linear_aces"}),
         entity_type="AssetVersion"
     )
     sequence_component = utils.mock_entity(
@@ -626,10 +621,8 @@ def test():
     assetversion = utils.mock_entity(
         ("asset", asset),
         ("task", task),
-        (
-            "metadata",
-            {"version_string": "003", "instance_name": "plate_linear_aces"}
-        ),
+        ("version", 3),
+        ("metadata", {"instance_name": "plate_linear_aces"}),
         entity_type="AssetVersion"
     )
     sequence_component = utils.mock_entity(
@@ -681,7 +674,7 @@ def test():
     assetversion = utils.mock_entity(
         ("asset", asset),
         ("task", task),
-        ("metadata", {"version_string": "001"}),
+        ("version", 1),
         entity_type="AssetVersion"
     )
     component = utils.mock_entity(

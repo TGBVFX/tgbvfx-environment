@@ -95,6 +95,25 @@ class Template(lucidity.Template):
 
         return results
 
+    def format(self, data):
+
+        if data.entity_type == "AssetVersion":
+            data["version_string"] = str(data["version"]).zfill(3)
+
+        if data.entity_type == "FileComponent":
+            version = None
+            if data["version"]:
+                version = data["version"]["version"]
+            else:
+                version = data["container"]["version"]["version"]
+
+            data["version_string"] = str(version).zfill(3)
+
+        if data.entity_type == "SequenceComponent":
+            data["version_string"] = str(data["version"]["version"]).zfill(3)
+
+        return super(Template, self).format(data)
+
 
 def register():
     '''Register templates.
@@ -334,7 +353,7 @@ def register():
             "{version.asset.parent.name}/{version.metadata.instance_name}/"
             "{version.asset.parent.parent.name}_{version.asset.parent.name}_"
             "{version.metadata.instance_name}_"
-            "v{version.metadata.version_string}.%0{metadata.padding_string}d"
+            "v{version_string}.%0{metadata.padding_string}d"
             "{file_type}"
         ),
         Template(
@@ -349,7 +368,7 @@ def register():
             "{container.version.asset.parent.parent.name}_"
             "{container.version.asset.parent.name}_"
             "{container.version.metadata.instance_name}_"
-            "v{container.version.metadata.version_string}.{name}"
+            "v{version_string}.{name}"
             "{file_type}"
         )
     ])
@@ -364,7 +383,7 @@ def register():
             "{version.asset.parent.name}/{version.metadata.instance_name}/"
             "{version.asset.parent.parent.name}_{version.asset.parent.name}_"
             "{version.metadata.instance_name}_"
-            "v{version.metadata.version_string}.%0{metadata.padding_string}d"
+            "v{version_string}.%0{metadata.padding_string}d"
             "{file_type}"
         ),
         Template(
@@ -379,7 +398,7 @@ def register():
             "{container.version.asset.parent.parent.name}_"
             "{container.version.asset.parent.name}_"
             "{container.version.metadata.instance_name}_"
-            "v{container.version.metadata.version_string}.{name}{file_type}"
+            "v{version_string}.{name}{file_type}"
         )
     ])
 
@@ -393,7 +412,7 @@ def register():
             "{version.asset.parent.name}/{version.metadata.instance_name}/"
             "{version.asset.parent.parent.name}_{version.asset.parent.name}_"
             "{version.metadata.instance_name}_"
-            "v{version.metadata.version_string}{file_type}"
+            "v{version_string}{file_type}"
         )
     )
 
@@ -406,7 +425,7 @@ def register():
             "{version.asset.type.short}/{version.asset.parent.parent.name}_"
             "{version.asset.parent.name}/{version.task.name}/"
             "{version.asset.parent.parent.name}_{version.asset.parent.name}_"
-            "{version.task.name}_{name}_v{version.metadata.version_string}"
+            "{version.task.name}_{name}_v{version_string}"
             "{file_type}"
         )
     )
@@ -417,7 +436,7 @@ def register():
             "Project/Asset/AssetVersion/FileComponent/.hrox",
             "{version.task.project.disk." + system_name + "}/"
             "{version.task.project.root}/tgbvfx/editorial/nukestudio/"
-            "{version.task.project.name}_v{version.metadata.version_string}"
+            "{version.task.project.name}_v{version_string}"
             "{file_type}"
         )
     )
@@ -428,7 +447,7 @@ def register():
             "Project/Asset/AssetVersion/FileComponent/.nk",
             "{version.task.project.disk." + system_name + "}/"
             "{version.task.project.root}/tgbvfx/vfx/{version.task.name}/nuke/"
-            "scripts/{version.task.name}_v{version.metadata.version_string}"
+            "scripts/{version.task.name}_v{version_string}"
             "{file_type}"
         ),
         Template(
@@ -439,7 +458,7 @@ def register():
             "{version.asset.parent.name}/{version.task.name}/"
             "{version.asset.parent.parent.name}_{version.asset.parent.name}_"
             "{version.task.name}_{version.metadata.instance_name}_{name}_"
-            "v{version.metadata.version_string}{file_type}"
+            "v{version_string}{file_type}"
         ),
         Template(
             "Project/Sequence/Shot/Asset/AssetVersion/FileComponent/.nk",
@@ -448,7 +467,7 @@ def register():
             "{version.asset.parent.parent.name}/{version.asset.parent.name}/"
             "nuke/scripts/{version.asset.parent.parent.name}_"
             "{version.asset.parent.name}_{version.task.name}_"
-            "v{version.metadata.version_string}{file_type}"
+            "v{version_string}{file_type}"
         )
     ])
 
@@ -458,7 +477,7 @@ def register():
             "Project/Asset/AssetVersion/FileComponent/.mb",
             "{version.task.project.disk." + system_name + "}/"
             "{version.task.project.root}/tgbvfx/vfx/{version.task.name}/maya/"
-            "scenes/{version.task.name}_v{version.metadata.version_string}"
+            "scenes/{version.task.name}_v{version_string}"
             "{file_type}"
         ),
         Template(
@@ -467,7 +486,7 @@ def register():
             "{version.task.project.root}/tgbvfx/vfx/{version.task.name}/maya/"
             "scenes/{version.asset.parent.parent.name}_"
             "{version.asset.parent.name}_{version.task.name}_"
-            "v{version.metadata.version_string}{file_type}"
+            "v{version_string}{file_type}"
         )
     ])
 
@@ -477,7 +496,7 @@ def register():
             "Project/Asset/AssetVersion/FileComponent/.hip",
             "{version.task.project.disk." + system_name + "}/"
             "{version.task.project.root}/tgbvfx/vfx/{version.task.name}/"
-            "houdini/{version.task.name}_v{version.metadata.version_string}"
+            "houdini/{version.task.name}_v{version_string}"
             "{file_type}"
         ),
         Template(
@@ -487,7 +506,7 @@ def register():
             "{version.asset.parent.parent.name}/{version.asset.parent.name}/"
             "houdini/{version.asset.parent.parent.name}_"
             "{version.asset.parent.name}_{version.task.name}_"
-            "v{version.metadata.version_string}{file_type}"
+            "v{version_string}{file_type}"
         )
     ])
 
