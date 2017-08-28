@@ -1,64 +1,23 @@
-import os
-
 import ftrack_api
 import lucidity
 
 
 class Structure(ftrack_api.structure.base.Structure):
 
-    def get_host(self):
-
-        host = "*"
-
-        # Nuke
-        try:
-            import nuke
-            if "--hiero" in nuke.rawArgs or "--studio" in nuke.rawArgs:
-                raise ImportError
-            host = "nuke"
-        except ImportError:
-            pass
-
-        # NukeStudio
-        try:
-            import nuke
-            if "--studio" not in nuke.rawArgs:
-                raise ImportError
-            host = "nukestudio"
-        except ImportError:
-            pass
-
-        return host
-
     def get_resource_identifier(self, entity, context=None):
 
         templates = lucidity.discover_templates()
 
-        if hasattr(entity["version"], "get"):
-            metadata = entity["version"].get("metadata", None)
-            if metadata:
-                for template in templates:
-                    template_name = entity["version"]["metadata"].get(
-                        "template", ""
-                    )
-                    if template.name == template_name:
-                        return os.path.abspath(
-                            template.ftrack_format(entity)
-                        )
-
-        template_name = templates[0].get_template_name(entity)
-        host = self.get_host()
-        for template in templates:
-            if template_name == template.name and host in template.hosts:
-                return os.path.abspath(
-                    template.ftrack_format(entity, host=host)
-                )
+        valid_templates = templates[0].get_valid_templates(entity, templates)
+        if valid_templates:
+            return valid_templates[0].format(entity)
 
         msg = (
-            'Could not find any templates for {0} with template name "{1}" '
-            'and host "{2}".'
+            'Could not find any templates for {0} with template name "{1}".'
         )
-        raise ValueError(msg.format(entity, template_name, host))
+        raise ValueError(
+            msg.format(entity, templates[0].get_template_name(entity))
+        )
 
 
 def configure_locations(event):
