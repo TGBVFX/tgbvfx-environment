@@ -55,7 +55,9 @@ class TGBFtrackValidateCurrentFile(pyblish.api.ContextPlugin):
             pyblish.api.current_host(),
             context.data["version"]
         )
-        current_file = os.path.abspath(context.data["currentFile"])
+        current_file = os.path.abspath(
+            context.data["currentFile"]
+        ).replace("\\", "/")
 
         msg = "Current file \"{0}\" is not at expected path \"{1}\"".format(
             current_file, work_file
