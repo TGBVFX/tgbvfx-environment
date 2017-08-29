@@ -83,7 +83,7 @@ def get_task_data(event):
                 value = files.get(version, [])
                 file_path = os.path.abspath(
                     os.path.join(os.path.dirname(work_file), f)
-                )
+                ).replace("\\", "/")
                 f_head = file_path.split("v" + version)[0]
                 # Only compare against the head because user can have notations
                 # after version number.
