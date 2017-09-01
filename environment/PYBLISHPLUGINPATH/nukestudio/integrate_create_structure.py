@@ -15,8 +15,6 @@ class IntegrateCreateStructure(pyblish.api.ContextPlugin):
 
         import lucidity
 
-        from tgbvfx_environment import utils
-
         session = context.data["ftrackSession"]
         templates = lucidity.discover_templates()
 
@@ -33,8 +31,8 @@ class IntegrateCreateStructure(pyblish.api.ContextPlugin):
         for entity in list(set(entities)):
             for template in templates:
                 try:
-                    path = os.path.abspath(template.ftrack_format(entity))
-                except (lucidity.error.FormatError, utils.HostError):
+                    path = os.path.abspath(template.format(entity))
+                except lucidity.error.FormatError:
                     continue
                 else:
                     path_templates.append(
