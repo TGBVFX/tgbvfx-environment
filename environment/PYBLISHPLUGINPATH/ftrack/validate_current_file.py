@@ -39,6 +39,7 @@ class TGBFtrackValidateCurrentFile(pyblish.api.ContextPlugin):
     label = "Current File"
     actions = [TGBFtrackRepairCurrentFile]
     optional = True
+    hosts = ["nuke"]
 
     def process(self, context):
         import os

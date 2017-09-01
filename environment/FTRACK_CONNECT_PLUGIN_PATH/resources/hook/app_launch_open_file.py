@@ -6,6 +6,7 @@ import subprocess
 import ftrack
 import ftrack_api
 from tgbvfx_environment import utils
+import lucidity
 
 log = logging.getLogger(__name__)
 
@@ -30,6 +31,10 @@ def get_task_data(event):
 
     data = event["data"]
     identifier = event["data"]["application"]["identifier"]
+    session = ftrack_api.Session()
+    task = session.get(
+        "Task", event["data"]["context"]["selection"][0]["entityId"]
+    )
 
     # DJV View, files get selected by the user.
     if identifier.startswith("djvview"):
@@ -55,16 +60,24 @@ def get_task_data(event):
     if identifier.startswith("maya"):
         app_id = "maya"
 
+    # Pyblish
+    if identifier.startswith("pyblish"):
+        templates = lucidity.discover_templates()
+        template_name = templates[0].get_template_name(task["parent"])
+        for template in templates:
+            if template.name == template_name:
+                # Return first valid path. This is up to the templates
+                # definition to order what comes first.
+                return data["command"].extend(
+                    ["--path", template.format(task["parent"])]
+                )
+
     # Return if application is not recognized.
     if not app_id:
         msg = '{0} - Application is not recognized to open a file: "{1}"'
         print msg.format(__file__, identifier)
         return
 
-    session = ftrack_api.Session()
-    task = session.get(
-        "Task", event["data"]["context"]["selection"][0]["entityId"]
-    )
     work_file = utils.get_work_file(session, task, app_id, 1)
 
     # Find all work files and categorize by version.

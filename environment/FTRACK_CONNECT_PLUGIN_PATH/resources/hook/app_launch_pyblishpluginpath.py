@@ -42,9 +42,13 @@ def modify_application_launch(event):
     if identifier.startswith("maya"):
         app_id = "maya"
 
+    # Pyblish
+    if identifier.startswith("pyblish"):
+        app_id = "pyblish"
+
     # Return if application is not recognized.
     if not app_id:
-        msg = '{0} - Application is not recognized to open a file: "{1}"'
+        msg = '{0} - Application is not recognized to setup PYBLISHPATH: "{1}"'
         print msg.format(__file__, identifier)
         return
 
