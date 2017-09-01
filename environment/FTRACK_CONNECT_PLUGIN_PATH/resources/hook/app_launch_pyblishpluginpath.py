@@ -44,10 +44,8 @@ def modify_application_launch(event):
 
     # Return if application is not recognized.
     if not app_id:
-        msg = 'Application is not recognized to setup PYBLISHPLUGINPATH: "{0}"'
-        print msg.format(
-            identifier
-        )
+        msg = '{0} - Application is not recognized to open a file: "{1}"'
+        print msg.format(__file__, identifier)
         return
 
     # Get task type

@@ -57,9 +57,8 @@ def get_task_data(event):
 
     # Return if application is not recognized.
     if not app_id:
-        print 'Application is not recognized to open a file: "{0}"'.format(
-            identifier
-        )
+        msg = '{0} - Application is not recognized to open a file: "{1}"'
+        print msg.format(__file__, identifier)
         return
 
     session = ftrack_api.Session()
