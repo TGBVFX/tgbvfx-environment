@@ -1,4 +1,5 @@
 import os
+
 import psutil
 
 from conda_git_deployment import utils
@@ -147,6 +148,11 @@ environment["FTRACK_CONNECT_PLUGIN_PATH"] = [
         os.environ["CONDA_GIT_REPOSITORY"], "ftrack-hooks", "batch_create"
     ),
     os.path.join(root, "environment", "FTRACK_CONNECT_PLUGIN_PATH"),
+    os.path.join(
+        os.environ["CONDA_GIT_REPOSITORY"],
+        "pyblish-ftrack",
+        "pyblish_ftrack"
+    ),
 ]
 
 # FTRACK_EVENT_PLUGIN_PATH
