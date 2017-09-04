@@ -2,7 +2,7 @@ import pyblish.api
 
 
 class TGBFtrackExtractComponents(pyblish.api.ContextPlugin):
-    """Setting data for all components from NukeStudio."""
+    """Setting data for all components."""
 
     order = pyblish.api.ExtractorOrder
     label = "TGBVFX Components"
@@ -31,13 +31,15 @@ class TGBFtrackExtractComponentsNukeStudio(pyblish.api.InstancePlugin):
     """Setting data for all components from NukeStudio."""
 
     order = pyblish.api.ExtractorOrder
-    label = "TGBVFX Components"
+    label = "TGBVFX NukeStudio Components"
     families = ["trackItem.task"]
     hosts = ["nukestudio"]
 
     def process(self, instance):
+        families = instance.data.get("families", [])
+        families += [instance.data["family"]]
 
-        if "scene" not in instance.data["families"]:
+        if "scene" not in families:
             instance.data["component_overwrite"] = True
 
         # AssetVersion data
@@ -63,30 +65,34 @@ class TGBFtrackExtractOverwriteNukeStudio(pyblish.api.InstancePlugin):
     active = False
 
     def process(self, instance):
+        families = instance.data.get("families", [])
+        families += [instance.data["family"]]
 
-        if "scene" in instance.data["families"]:
+        if "scene" in families:
             instance.data["component_overwrite"] = True
 
 
-class TGBFtrackExtractNuke(pyblish.api.InstancePlugin):
+class TGBFtrackExtract(pyblish.api.InstancePlugin):
     """Enable overwriting image sequence components."""
 
     order = pyblish.api.ExtractorOrder
-    label = "TGBVFX Components"
+    label = "TGBVFX Detail Components"
     families = ["img", "gizmo", "lut", "backdrop"]
     hosts = ["nuke", "ftrack"]
 
     def process(self, instance):
         instance.data["component_overwrite"] = True
+        families = instance.data.get("families", [])
+        families += [instance.data["family"]]
 
-        if "img" in instance.data.get("families", []):
+        if "img" in families:
             data = instance.data.get("assetversion_data", {})
             metadata = data.get("metadata", {})
             metadata.update({"instance_name": instance.data["name"]})
             data["metadata"] = metadata
             instance.data["assetversion_data"] = data
 
-        if "backdrop" in instance.data.get("families", []):
+        if "backdrop" in families:
             data = instance.data.get("assetversion_data", {})
             metadata = data.get("metadata", {})
             metadata.update(
