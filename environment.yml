@@ -1,5 +1,8 @@
+channels:
+- menpo
 dependencies:
 - python=2.7
+- ffmpeg
 - pip
 - pip:
   - PySide
@@ -13,13 +16,13 @@ dependencies:
 - git:
   - https://github.com/tokejepsen/filelink.git@01c782e4ce8043914cc09908392747954f5284b1
   - https://bitbucket.org/thegentlemenbroncos/tgbvfx-pipeline.git@bbd35be7dcb286e7471e543c1e36f05f14faea96
-  - https://github.com/pyblish/pyblish-base.git@17e483a14cecba136f59bf262e30d1f6e9478975
+  - https://github.com/tokejepsen/pyblish-base.git@ed032482bc3f92e5b01888abee06e8813ac47a18
   - https://github.com/pyblish/pyblish-qml.git@da37f2f04dadbe2837cbcb362790e40bfcf13eda
   - https://github.com/pyblish/pyblish-nukestudio.git@225b2af344468fa43c51a14f71a512b8a317cb48
-  - https://github.com/pyblish/pyblish-ftrack.git@1f5005a56103ce37049fd7e0f6b76ae9c7c16655
+  - https://github.com/tokejepsen/pyblish-ftrack.git@ee4999f6131d0ee013577c1505ed93b3142b3938
   - https://github.com/pyblish/pyblish-nuke.git@d896c2b6634c571abbbe78c15bf1baf23078d05d
   - https://github.com/pyblish/pyblish-royalrender.git@8a8483cce79ef844b9f38c5eff42ae56b4f6a8db
-  - https://github.com/bumpybox/pyblish-bumpybox.git@70a4ae675e8f8a7d4363001134546ba24ab57f99
+  - https://github.com/bumpybox/pyblish-bumpybox.git@76faf4676fd353f8b8c0837cdad4959e64e22fab
   - https://bitbucket.org/ftrack/ftrack-python-legacy-api.git@97cb35a6ae98958f95e61a7925701d9e8eea375d
   - https://bitbucket.org/ftrack/ftrack-connect.git@d0c31457b23e41701bcf88d9baeb723de4affbc1
   - https://bitbucket.org/ftrack/ftrack-connect-maya.git@23c7ffa6ee97e8032180246a585428d09c474ea3
@@ -30,7 +33,7 @@ dependencies:
   - https://github.com/tokejepsen/ftrack-hooks.git@a0ca456508b3534ce9f813681338ba3c991cb95f
   - https://github.com/tokejepsen/ftrack-connect-environment.git@fa51c5d0d4cc386dd124cbb6a814087583d07c3f:
     - python $REPO_PATH/environment.py
-  - https://github.com/tokejepsen/pyblish-grill-environment.git@c3a46bcbce2a9953ae97bbcfe0db6afcf49709bf:
+  - https://github.com/tokejepsen/pyblish-grill-environment.git@1015ccd2eedba1d0284a80b4d3c3dfa5c3e6afe7:
     - python $REPO_PATH/environment.py
   - https://github.com/tokejepsen/tgbvfx-environment.git:
     - python $REPO_PATH/environment.py
