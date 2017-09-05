@@ -19,10 +19,10 @@ dependencies:
   - https://github.com/tokejepsen/pyblish-base.git@ed032482bc3f92e5b01888abee06e8813ac47a18
   - https://github.com/pyblish/pyblish-qml.git@da37f2f04dadbe2837cbcb362790e40bfcf13eda
   - https://github.com/pyblish/pyblish-nukestudio.git@225b2af344468fa43c51a14f71a512b8a317cb48
-  - https://github.com/tokejepsen/pyblish-ftrack.git@ee4999f6131d0ee013577c1505ed93b3142b3938
+  - https://github.com/tokejepsen/pyblish-ftrack.git@2b2ac3092010ae587c30444e5d08802c031c78ec
   - https://github.com/pyblish/pyblish-nuke.git@d896c2b6634c571abbbe78c15bf1baf23078d05d
   - https://github.com/pyblish/pyblish-royalrender.git@8a8483cce79ef844b9f38c5eff42ae56b4f6a8db
-  - https://github.com/bumpybox/pyblish-bumpybox.git@76faf4676fd353f8b8c0837cdad4959e64e22fab
+  - https://github.com/bumpybox/pyblish-bumpybox.git@0ea6197a4e0751d24277bc0884fa172822bb4d98
   - https://bitbucket.org/ftrack/ftrack-python-legacy-api.git@97cb35a6ae98958f95e61a7925701d9e8eea375d
   - https://bitbucket.org/ftrack/ftrack-connect.git@d0c31457b23e41701bcf88d9baeb723de4affbc1
   - https://bitbucket.org/ftrack/ftrack-connect-maya.git@23c7ffa6ee97e8032180246a585428d09c474ea3
