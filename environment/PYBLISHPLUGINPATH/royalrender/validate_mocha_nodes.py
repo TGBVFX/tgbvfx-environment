@@ -46,6 +46,7 @@ class TGBVFXValidateMochaNodes(pyblish.api.InstancePlugin):
     hosts = ["nuke"]
     targets = ["process.royalrender"]
     actions = [TGBVFXSelectMochaNodes]
+    optional = True
 
     def process(self, instance):
         mocha_nodes = self.get_upstream_mocha_nodes(instance[0])
