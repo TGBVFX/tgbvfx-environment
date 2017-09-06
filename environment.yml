@@ -3,6 +3,7 @@ channels:
 dependencies:
 - python=2.7
 - ffmpeg
+- setuptools=27
 - pip:
   - PySide
   - clique
