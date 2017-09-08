@@ -457,17 +457,6 @@ def register():
             "v{version.version}{file_type}"
         ),
         Template(
-            "nuke_backdrop",
-            "{version.task.project.disk." + system_name + "}/"
-            "{version.task.project.root}/tgbvfx/vfx/_publish/"
-            "{version.asset.type.short}/{version.asset.parent.parent.name}_"
-            "{version.asset.parent.name}/{version.task.name}/"
-            "{version.task.project.name}_{version.asset.parent.parent.name}_"
-            "{version.asset.parent.name}_{version.task.name}_"
-            "{version.metadata.instance_name}_{name}_v{version.version}"
-            "{file_type}"
-        ),
-        Template(
             "Project/Sequence/Shot/Asset/AssetVersion/FileComponent/.nk",
             "{version.task.project.disk." + system_name + "}/"
             "{version.task.project.root}/tgbvfx/vfx/"
@@ -475,6 +464,16 @@ def register():
             "nuke/scripts/{version.task.project.name}_"
             "{version.asset.parent.parent.name}_{version.asset.parent.name}_"
             "{version.task.name}_v{version.version}{file_type}"
+        ),
+        Template(
+            "nuke_backdrop",
+            "{version.task.project.disk." + system_name + "}/"
+            "{version.task.project.root}/tgbvfx/vfx/_publish/"
+            "{version.asset.type.short}/{version.asset.parent.parent.name}_"
+            "{version.asset.parent.name}/{version.task.name}/"
+            "{version.asset.parent.parent.name}_{version.asset.parent.name}_"
+            "{version.task.name}_{version.metadata.instance_name}_{name}_v"
+            "{version.version}{file_type}"
         )
     ])
 
