@@ -18,7 +18,7 @@ class TGBVFXEnvironmentRoyalRenderExtractSettingsNuke(api.InstancePlugin):
         submit_params = data.get("SubmitterParameter", [])
         submit_params.append("SeqDivMINComp=1~5")
         submit_params.append("SeqDivMAXComp=1~40")
-        submit_params.append("DefaultClientGroup=1~NODES_OLD")
+        submit_params.append("DefaultClientGroup=1~NODES_2D")
         data["SubmitterParameter"] = submit_params
 
         # Setting data
