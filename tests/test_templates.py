@@ -49,16 +49,16 @@ def get_test_paths():
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/editing/nuke",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/editing/nuke/scripts",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/editing/nuke/scripts/"
-        "editing_v001.nk",
+        "pipeline_test_editing_v001.nk",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/editing/houdini/"
-        "editing_v001.hip",
+        "pipeline_test_editing_v001.hip",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/editing/maya/scenes/"
-        "editing_v001.mb",
+        "pipeline_test_editing_v001.mb",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0020",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/houdini",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/houdini/"
-        "sq001_sh0010_compositing_v001.hip",
+        "pipeline_test_sq001_sh0010_compositing_v001.hip",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/nuke",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/_plates",
@@ -76,7 +76,7 @@ def get_test_paths():
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/renders",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/scenes",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/compositing/maya/scenes/"
-        "sq001_sh0010_compositing_v001.mb",
+        "pipeline_test_sq001_sh0010_compositing_v001.mb",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/source",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/temp",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/texures",
@@ -98,7 +98,7 @@ def get_test_paths():
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/nuke/renders/"
         "slapcomp",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/nuke/scripts/"
-        "sq001_sh0010_compositing_v001.nk",
+        "pipeline_test_sq001_sh0010_compositing_v001.nk",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/nuke/scripts/"
         "workspace",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0020/houdini",
@@ -139,7 +139,7 @@ def get_test_paths():
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0020/nuke/renders/"
         "slapcomp",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0020/nuke/scripts/"
-        "sq001_sh0020_compositing_v001.nk",
+        "pipeline_test_sq001_sh0020_compositing_v001.nk",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0020/nuke/scripts/"
         "workspace",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq002/sh0010",
@@ -181,7 +181,7 @@ def get_test_paths():
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq002/sh0010/nuke/renders/"
         "slapcomp",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq002/sh0010/nuke/scripts/"
-        "sq002_sh0010_editing_v001.nk",
+        "pipeline_test_sq002_sh0010_editing_v001.nk",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq002/sh0010/nuke/scripts/"
         "workspace",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE",
@@ -278,6 +278,8 @@ def test():
 
     entities = []
     templates = lucidity.discover_templates()
+
+    assert templates, "No templates discovered."
 
     project = utils.mock_entity(
         ("disk", {"windows": "//10.11.0.184", "unix": "//10.11.0.184"}),
@@ -385,8 +387,6 @@ def test():
         entity_type="Shot"
     )
     entities.append(shot)
-
-    assert_entity(shot, templates)
 
     # project/sq001/sh0010/compositing
     task = utils.mock_entity(

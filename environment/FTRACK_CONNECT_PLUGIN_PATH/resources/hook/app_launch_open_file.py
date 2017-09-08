@@ -105,6 +105,31 @@ def get_task_data(event):
             except ValueError:
                 pass
 
+    # Find work files without project name.
+    work_file_head = work_file.split("".join(version_get(work_file, "v")))[0]
+    work_file_head = work_file_head.replace(task["project"]["name"] + "_", "")
+    if os.path.exists(os.path.dirname(work_file)):
+        for f in os.listdir(os.path.dirname(work_file)):
+
+            # If the file extension doesn't match, we'll ignore the file.
+            if os.path.splitext(f)[1] != os.path.splitext(work_file)[1]:
+                continue
+
+            try:
+                version = version_get(f, "v")[1]
+                value = files.get(version, [])
+                file_path = os.path.abspath(
+                    os.path.join(os.path.dirname(work_file), f)
+                ).replace("\\", "/")
+                f_head = file_path.split("v" + version)[0]
+                # Only compare against the head because user can have notations
+                # after version number.
+                if f_head == work_file_head:
+                    value.append(file_path)
+                    files[version] = value
+            except ValueError:
+                pass
+
     # Determine highest version files
     if files:
         work_file = max(files[max(files.keys())], key=os.path.getctime)
