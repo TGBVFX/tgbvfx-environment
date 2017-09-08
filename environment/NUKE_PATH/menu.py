@@ -3,6 +3,7 @@ import os
 import nuke
 
 
+# Setup Global copy/paste
 menubar = nuke.menu('Nuke')
 menu = menubar.menu('Edit')
 
@@ -19,3 +20,6 @@ menu.addCommand(
     "ctrl+shift+v",
     index=7
 )
+
+# Setup common directories.
+nuke.addFavoriteDir("Studio Library", "//10.11.0.184/171000_TGB_Library/Stock")
