@@ -11,6 +11,10 @@ class TGBFtrackRepairCurrentFile(pyblish.api.Action):
         import hiero
         hiero.ui.activeSequence().project().saveAs(path)
 
+    def nuke_save(self, path):
+        import nuke
+        nuke.scriptSaveAs(path)
+
     def process(self, context, plugin):
         from tgbvfx_environment import utils
         import os
@@ -28,7 +32,9 @@ class TGBFtrackRepairCurrentFile(pyblish.api.Action):
         )
         assert not os.path.exists(work_file), msg.format(work_file)
 
-        application_save = {"nukestudio": self.nukestudio_save}
+        application_save = {
+            "nukestudio": self.nukestudio_save, "nuke": self.nuke_save
+        }
         application_save[pyblish.api.current_host()](work_file)
 
 
