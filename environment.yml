@@ -15,15 +15,15 @@ dependencies:
 - git:
   - https://github.com/tokejepsen/filelink.git@01c782e4ce8043914cc09908392747954f5284b1
   - https://bitbucket.org/thegentlemenbroncos/tgbvfx-pipeline.git@bbd35be7dcb286e7471e543c1e36f05f14faea96
-  - https://github.com/tokejepsen/pyblish-base.git@ed032482bc3f92e5b01888abee06e8813ac47a18
+  - https://github.com/pyblish/pyblish-base.git@477f540981433867aa219cc46cd0fa5890ecf17c
   - https://github.com/pyblish/pyblish-qml.git@da37f2f04dadbe2837cbcb362790e40bfcf13eda
   - https://github.com/pyblish/pyblish-nukestudio.git@225b2af344468fa43c51a14f71a512b8a317cb48
-  - https://github.com/tokejepsen/pyblish-ftrack.git@2b2ac3092010ae587c30444e5d08802c031c78ec
+  - https://github.com/pyblish/pyblish-ftrack.git@828f1438644698249796987ac80583d44174d699
   - https://github.com/pyblish/pyblish-nuke.git@d896c2b6634c571abbbe78c15bf1baf23078d05d
   - https://github.com/pyblish/pyblish-royalrender.git@8a8483cce79ef844b9f38c5eff42ae56b4f6a8db
-  - https://github.com/bumpybox/pyblish-bumpybox.git@0ea6197a4e0751d24277bc0884fa172822bb4d98
+  - https://github.com/bumpybox/pyblish-bumpybox.git@b9865f7a2ae02221f171212a171569227d12df7e
   - https://bitbucket.org/ftrack/ftrack-python-legacy-api.git@97cb35a6ae98958f95e61a7925701d9e8eea375d
-  - https://bitbucket.org/ftrack/ftrack-connect.git@d0c31457b23e41701bcf88d9baeb723de4affbc1
+  - https://bitbucket.org/ftrack/ftrack-connect.git@a87bad35453345d7a8d346b0a4a17a1e7ec4eafd
   - https://bitbucket.org/ftrack/ftrack-connect-maya.git@23c7ffa6ee97e8032180246a585428d09c474ea3
   - https://bitbucket.org/ftrack/ftrack-connect-nuke.git@d1b8a32bfddf71541b8ccd954198b7adda674792
   - https://bitbucket.org/ftrack/ftrack-connect-foundry.git@7cf86f01faf983c6f094dd86cda8ecdd7417cf3e
@@ -32,7 +32,7 @@ dependencies:
   - https://github.com/tokejepsen/ftrack-hooks.git@8efa355b30fb562cbf78fb9cd7dae8f0ad186919
   - https://github.com/tokejepsen/ftrack-connect-environment.git@6325d37527c0e6b44b94c518b49a1ab828d71dd1:
     - python $REPO_PATH/environment.py
-  - https://github.com/tokejepsen/pyblish-grill-environment.git@1015ccd2eedba1d0284a80b4d3c3dfa5c3e6afe7:
+  - https://github.com/tokejepsen/pyblish-grill-environment.git@b294b96bfccec4b1db2fe352300883acd86bb8a7:
     - python $REPO_PATH/environment.py
   - https://github.com/tokejepsen/tgbvfx-environment.git:
     - python $REPO_PATH/environment.py
