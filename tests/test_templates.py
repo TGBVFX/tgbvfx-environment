@@ -1,3 +1,5 @@
+import os
+
 import lucidity
 
 from tgbvfx_environment import utils
@@ -262,7 +264,9 @@ def get_test_paths():
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/scene/sq001_sh0010/"
         "plateprep/sq001_sh0010_plateprep_BackdropNode4_main_v001.nk",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/mov/sq001_sh0010/"
-        "plate001/sq001_sh0010_plate001_v001.mov"
+        "plate001/sq001_sh0010_plate001_v001.mov",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/cache/sq001_sh0010/"
+        "writegeo1/sq001_sh0010_writegeo1_v001.abc",
     ]
 
 
@@ -277,6 +281,11 @@ def assert_entity(entity, templates):
 def test():
 
     entities = []
+
+    # Test templates existence.
+    msg = "Could not find \"LUCIDITY_TEMPLATE_PATH\" in environment."
+    assert "LUCIDITY_TEMPLATE_PATH" in os.environ.keys(), msg
+
     templates = lucidity.discover_templates()
 
     assert templates, "No templates discovered."
@@ -452,6 +461,30 @@ def test():
     component = utils.mock_entity(
         ("version", assetversion),
         ("file_type", ".mov"),
+        entity_type="FileComponent"
+    )
+    entities.append(component)
+
+    # project/sq001/sh0010/compositing/.abc file
+    assettype = utils.mock_entity(
+        ("short", "cache"),
+        entity_type="Asset"
+    )
+    asset = utils.mock_entity(
+        ("parent", shot),
+        ("type", assettype),
+        entity_type="Asset"
+    )
+    assetversion = utils.mock_entity(
+        ("asset", asset),
+        ("task", task),
+        ("version", 1),
+        ("metadata", {"instance_name": "writegeo1"}),
+        entity_type="AssetVersion"
+    )
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("file_type", ".abc"),
         entity_type="FileComponent"
     )
     entities.append(component)
