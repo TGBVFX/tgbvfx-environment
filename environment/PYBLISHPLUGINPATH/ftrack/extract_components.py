@@ -77,7 +77,7 @@ class TGBFtrackExtract(pyblish.api.InstancePlugin):
 
     order = pyblish.api.ExtractorOrder
     label = "TGBVFX Detail Components"
-    families = ["img", "gizmo", "lut", "backdrop"]
+    families = ["img", "gizmo", "lut", "backdrop", "cache"]
     hosts = ["nuke", "ftrack"]
 
     def process(self, instance):
@@ -86,6 +86,13 @@ class TGBFtrackExtract(pyblish.api.InstancePlugin):
         families += [instance.data["family"]]
 
         if "img" in families:
+            data = instance.data.get("assetversion_data", {})
+            metadata = data.get("metadata", {})
+            metadata.update({"instance_name": instance.data["name"]})
+            data["metadata"] = metadata
+            instance.data["assetversion_data"] = data
+
+        if "cache" in families:
             data = instance.data.get("assetversion_data", {})
             metadata = data.get("metadata", {})
             metadata.update({"instance_name": instance.data["name"]})
