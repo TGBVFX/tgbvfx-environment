@@ -29,7 +29,12 @@ class IntegrateCreateStructure(pyblish.api.ContextPlugin):
         # Get all resolved paths and their templates.
         path_templates = []
         for entity in list(set(entities)):
+            template_name = templates[0].get_template_name(entity)
             for template in templates:
+
+                if template.name != template_name:
+                    continue
+
                 try:
                     path = os.path.abspath(template.format(entity))
                 except lucidity.error.FormatError:
