@@ -85,6 +85,10 @@ class TGBFtrackExtract(pyblish.api.InstancePlugin):
         families = instance.data.get("families", [])
         families += [instance.data["family"]]
 
+        # Omit members of sequences
+        if "collection" in instance.data.keys():
+            instance.data["pattern"] = "{head}{padding}{tail} []"
+
         if "img" in families:
             data = instance.data.get("assetversion_data", {})
             metadata = data.get("metadata", {})
