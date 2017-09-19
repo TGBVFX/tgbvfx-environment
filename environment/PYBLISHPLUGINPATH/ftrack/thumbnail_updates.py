@@ -1,7 +1,7 @@
 import pyblish.api
 
 
-class TGBFtrackIntegrateUpdateThumbnails(pyblish.api.InstancePlugin):
+class TGBFtrackUpdateThumbnails(pyblish.api.InstancePlugin):
     """Update thumbnails on task and shot in Ftrack."""
 
     order = pyblish.api.IntegratorOrder + 1
