@@ -8,6 +8,11 @@ from conda_git_deployment import utils
 root = os.path.dirname(__file__)
 environment = {}
 
+# PATH
+environment["PATH"] = [
+    os.path.join(root, "environment", "PATH")
+]
+
 # PYTHONPATH
 environment["PYTHONPATH"] = [
     os.path.join(root, "environment", "PYTHONPATH"),
