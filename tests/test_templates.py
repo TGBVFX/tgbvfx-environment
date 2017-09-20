@@ -267,13 +267,49 @@ def get_test_paths():
         "plate001/sq001_sh0010_plate001_v001.mov",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/cache/sq001_sh0010/"
         "writegeo1/sq001_sh0010_writegeo1_v001.abc",
+
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/Character/lizard/"
+        "houdini/pipeline_test_Character_lizard_lookdev_v001.hip",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/Character/lizard/maya/"
+        "scenes/pipeline_test_Character_lizard_lookdev_v001.mb",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/Character/lizard/nuke/"
+        "scripts/pipeline_test_Character_lizard_lookdev_v001.nk",
+
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/nuke_gizmo/"
+        "Character_lizard/lookdev/Group1/Group1_v001.gizmo",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/scene/"
+        "pipeline_test_lizard/lookdev/"
+        "pipeline_test_lizard_lookdev_BackdropNode1_main_v001.nk",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/cache/"
+        "Character_lizard/lookdev/WriteGeo1/WriteGeo1_v001.abc",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "Character_lizard/lookdev/Write1_v001/"
+        "Write1_v001.%04d.exr",
+
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/Environment/castle/"
+        "houdini/pipeline_test_Environment_castle_lookdev_v001.hip",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/Environment/castle/maya/"
+        "scenes/pipeline_test_Environment_castle_lookdev_v001.mb",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/Environment/castle/nuke/"
+        "scripts/pipeline_test_Environment_castle_lookdev_v001.nk",
+
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/nuke_gizmo/"
+        "Environment_castle/lookdev/Group1/Group1_v001.gizmo",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/scene/Assets_castle/"
+        "lookdev/Assets_castle_lookdev_BackdropNode1_main_v001.nk",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/cache/"
+        "Environment_castle/lookdev/WriteGeo1/WriteGeo1_v001.abc",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "Environment_castle/lookdev/Write1_v001/"
+        "Write1_v001.%04d.exr",
     ]
 
 
 def assert_entity(entity, templates):
 
-    msg = "Template name: \"{0}\"".format(
-        templates[0].get_template_name(entity)
+    msg = (
+        "No valid templates found for template name: \"{0}\", and entity: "
+        "\"{1}\"".format(templates[0].get_template_name(entity), entity)
     )
     assert templates[0].get_valid_templates(entity, templates), msg
 
@@ -376,6 +412,321 @@ def test():
         ("version", assetversion),
         ("file_type", ".mb"),
         entity_type="FileComponent"
+    )
+    entities.append(component)
+
+    # project/lizard/lookdev
+    assetbuildtype = utils.mock_entity(
+        ("name", "Character"),
+        entity_type="Type"
+    )
+    assetbuild = utils.mock_entity(
+        ("parent", project),
+        ("project", project),
+        ("name", "lizard"),
+        ("type", assetbuildtype),
+        entity_type="AssetBuild"
+    )
+    task = utils.mock_entity(
+        ("parent", assetbuild),
+        ("project", project),
+        ("name", "lookdev"),
+        entity_type="Task"
+    )
+    asset = utils.mock_entity(
+        ("parent", assetbuild),
+        entity_type="Asset"
+    )
+    assetversion = utils.mock_entity(
+        ("asset", asset),
+        ("task", task),
+        ("version", 1),
+        entity_type="AssetVersion"
+    )
+
+    # project/lizard/lookdev/.nk file
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("file_type", ".nk"),
+        entity_type="FileComponent"
+    )
+    entities.append(component)
+
+    # project/lizard/lookdev/.mb file
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("file_type", ".mb"),
+        entity_type="FileComponent"
+    )
+    entities.append(component)
+
+    # project/lizard/lookdev/.hip file
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("file_type", ".hip"),
+        entity_type="FileComponent"
+    )
+    entities.append(component)
+
+    # project/lizard/lookdev/.abc file
+    assettype = utils.mock_entity(
+        ("short", "cache"),
+        entity_type="AssetType"
+    )
+    asset = utils.mock_entity(
+        ("parent", assetbuild),
+        ("type", assettype),
+        entity_type="Asset"
+    )
+    assetversion = utils.mock_entity(
+        ("asset", asset),
+        ("task", task),
+        ("version", 1),
+        ("metadata", {"instance_name": "WriteGeo1"}),
+        entity_type="AssetVersion"
+    )
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("name", "main"),
+        ("file_type", ".abc"),
+        entity_type="FileComponent"
+    )
+    entities.append(component)
+
+    # project/lizard/lookdev/.gizmo file
+    assettype = utils.mock_entity(
+        ("short", "nuke_gizmo"),
+        entity_type="AssetType"
+    )
+    asset = utils.mock_entity(
+        ("parent", assetbuild),
+        ("type", assettype),
+        entity_type="Asset"
+    )
+    assetversion = utils.mock_entity(
+        ("asset", asset),
+        ("task", task),
+        ("version", 1),
+        ("metadata", {"instance_name": "Group1"}),
+        entity_type="AssetVersion"
+    )
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("name", "main"),
+        ("file_type", ".gizmo"),
+        entity_type="FileComponent"
+    )
+    entities.append(component)
+
+    # project/lizard/lookdev/.nk backdrop file
+    assettype = utils.mock_entity(
+        ("short", "scene"),
+        entity_type="Type"
+    )
+    asset = utils.mock_entity(
+        ("parent", assetbuild),
+        ("type", assettype),
+        entity_type="Asset"
+    )
+    assetversion = utils.mock_entity(
+        ("asset", asset),
+        ("task", task),
+        ("version", 1),
+        ("metadata", {"instance_name": "BackdropNode1"}),
+        entity_type="AssetVersion"
+    )
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("file_type", ".nk"),
+        ("name", "main"),
+        ("metadata", {"lucidity_template_name": "nuke_backdrop"}),
+        entity_type="FileComponent"
+    )
+    entities.append(component)
+
+    # project/lizard/lookdev/.exr file
+    assettype = utils.mock_entity(
+        ("short", "img"),
+        entity_type="AssetType"
+    )
+    asset = utils.mock_entity(
+        ("parent", assetbuild),
+        ("type", assettype),
+        entity_type="Asset"
+    )
+    assetversion = utils.mock_entity(
+        ("asset", asset),
+        ("task", task),
+        ("version", 1),
+        ("metadata", {"instance_name": "Write1"}),
+        entity_type="AssetVersion"
+    )
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("name", "main"),
+        ("file_type", ".exr"),
+        ("padding", 4),
+        entity_type="SequenceComponent"
+    )
+    entities.append(component)
+
+    # project/Assets/castle/lookdev
+    folder = utils.mock_entity(
+        ("parent", project),
+        ("name", "Assets"),
+        entity_type="Folder"
+    )
+    assetbuildtype = utils.mock_entity(
+        ("name", "Environment"),
+        entity_type="Type"
+    )
+    assetbuild = utils.mock_entity(
+        ("parent", folder),
+        ("project", project),
+        ("name", "castle"),
+        ("type", assetbuildtype),
+        entity_type="AssetBuild"
+    )
+    task = utils.mock_entity(
+        ("parent", assetbuild),
+        ("project", project),
+        ("name", "lookdev"),
+        entity_type="Task"
+    )
+    asset = utils.mock_entity(
+        ("parent", assetbuild),
+        entity_type="Asset"
+    )
+    assetversion = utils.mock_entity(
+        ("asset", asset),
+        ("task", task),
+        ("version", 1),
+        entity_type="AssetVersion"
+    )
+
+    # project/Assets/castle/lookdev/.hip file
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("file_type", ".hip"),
+        entity_type="FileComponent"
+    )
+    entities.append(component)
+
+    # project/Assets/castle/lookdev/.mb file
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("file_type", ".mb"),
+        entity_type="FileComponent"
+    )
+    entities.append(component)
+
+    # project/Assets/castle/lookdev/.nk file
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("file_type", ".nk"),
+        entity_type="FileComponent"
+    )
+    entities.append(component)
+
+    # project/Assets/castle/lookdev/.gizmo file
+    assettype = utils.mock_entity(
+        ("short", "nuke_gizmo"),
+        entity_type="AssetType"
+    )
+    asset = utils.mock_entity(
+        ("parent", assetbuild),
+        ("type", assettype),
+        entity_type="Asset"
+    )
+    assetversion = utils.mock_entity(
+        ("asset", asset),
+        ("task", task),
+        ("version", 1),
+        ("metadata", {"instance_name": "Group1"}),
+        entity_type="AssetVersion"
+    )
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("name", "main"),
+        ("file_type", ".gizmo"),
+        entity_type="FileComponent"
+    )
+    entities.append(component)
+
+    # project/Assets/castle/lookdev/.nk backdrop file
+    assettype = utils.mock_entity(
+        ("short", "scene"),
+        entity_type="Type"
+    )
+    asset = utils.mock_entity(
+        ("parent", assetbuild),
+        ("type", assettype),
+        entity_type="Asset"
+    )
+    assetversion = utils.mock_entity(
+        ("asset", asset),
+        ("task", task),
+        ("version", 1),
+        ("metadata", {"instance_name": "BackdropNode1"}),
+        entity_type="AssetVersion"
+    )
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("file_type", ".nk"),
+        ("name", "main"),
+        ("metadata", {"lucidity_template_name": "nuke_backdrop"}),
+        entity_type="FileComponent"
+    )
+    entities.append(component)
+
+    # project/Assets/castle/lookdev/.abc file
+    assettype = utils.mock_entity(
+        ("short", "cache"),
+        entity_type="AssetType"
+    )
+    asset = utils.mock_entity(
+        ("parent", assetbuild),
+        ("type", assettype),
+        entity_type="Asset"
+    )
+    assetversion = utils.mock_entity(
+        ("asset", asset),
+        ("task", task),
+        ("version", 1),
+        ("metadata", {"instance_name": "WriteGeo1"}),
+        entity_type="AssetVersion"
+    )
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("name", "main"),
+        ("file_type", ".abc"),
+        entity_type="FileComponent"
+    )
+    entities.append(component)
+
+    # project/Assets/castle/lookdev/.exr file
+    assettype = utils.mock_entity(
+        ("short", "img"),
+        entity_type="AssetType"
+    )
+    asset = utils.mock_entity(
+        ("parent", assetbuild),
+        ("type", assettype),
+        entity_type="Asset"
+    )
+    assetversion = utils.mock_entity(
+        ("asset", asset),
+        ("task", task),
+        ("version", 1),
+        ("metadata", {"instance_name": "Write1"}),
+        entity_type="AssetVersion"
+    )
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("name", "main"),
+        ("file_type", ".exr"),
+        ("padding", 4),
+        entity_type="SequenceComponent"
     )
     entities.append(component)
 
