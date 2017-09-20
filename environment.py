@@ -10,7 +10,43 @@ environment = {}
 
 # PATH
 environment["PATH"] = [
-    os.path.join(root, "environment", "PATH")
+    os.path.join(root, "environment", "PATH"),
+    "C:/Program Files (x86)/QuickTime/QTSystem/"
+]
+
+# LIBRARY_PATH
+environment["LIBRARY_PATH"] = [
+    "//10.11.0.184/_tgbvfx/library"
+]
+
+# STUDIO_TMP
+environment["STUDIO_TMP"] = [
+    "//10.11.0.184/_tgbvfx/temp"
+]
+
+# solidangle_LICENSE
+environment["solidangle_LICENSE"] = [
+    "5053@10.11.0.110"
+]
+
+# peregrinel_LICENSE
+environment["peregrinel_LICENSE"] = [
+    "5053@10.11.0.110"
+]
+
+# MAYA_VP2_DEVICE_OVERRIDE
+environment["MAYA_VP2_DEVICE_OVERRIDE"] = [
+    "VirtualDeviceDx11"
+]
+
+# MAYA_FORCE_DX_WARP
+environment["MAYA_FORCE_DX_WARP"] = [
+    "1"
+]
+
+# YETI_TMP
+environment["YETI_TMP"] = [
+    "//10.11.0.184/_tgbvfx/temp"
 ]
 
 # PYTHONPATH
