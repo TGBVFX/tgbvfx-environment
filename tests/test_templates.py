@@ -268,6 +268,9 @@ def get_test_paths():
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/cache/sq001_sh0010/"
         "writegeo1/sq001_sh0010_writegeo1_v001.abc",
 
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0010/"
+        "Write1/sq001_sh0010_Write1_v001.%04d.dpx",
+
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/Character/lizard/"
         "houdini/pipeline_test_Character_lizard_lookdev_v001.hip",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/Character/lizard/maya/"
@@ -285,6 +288,9 @@ def get_test_paths():
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
         "Character_lizard/lookdev/Write1_v001/"
         "Write1_v001.%04d.exr",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "Character_lizard/lookdev/Write1_v001/"
+        "Write1_v001.%04d.dpx",
 
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/Environment/castle/"
         "houdini/pipeline_test_Environment_castle_lookdev_v001.hip",
@@ -302,6 +308,9 @@ def get_test_paths():
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
         "Environment_castle/lookdev/Write1_v001/"
         "Write1_v001.%04d.exr",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "Environment_castle/lookdev/Write1_v001/"
+        "Write1_v001.%04d.dpx",
     ]
 
 
@@ -570,6 +579,16 @@ def test():
     )
     entities.append(component)
 
+    # project/lizard/lookdev/.dpx file
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("name", "main"),
+        ("file_type", ".dpx"),
+        ("padding", 4),
+        entity_type="SequenceComponent"
+    )
+    entities.append(component)
+
     # project/Assets/castle/lookdev
     folder = utils.mock_entity(
         ("parent", project),
@@ -725,6 +744,16 @@ def test():
         ("version", assetversion),
         ("name", "main"),
         ("file_type", ".exr"),
+        ("padding", 4),
+        entity_type="SequenceComponent"
+    )
+    entities.append(component)
+
+    # project/Assets/castle/lookdev/.dpx file
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("name", "main"),
+        ("file_type", ".dpx"),
         ("padding", 4),
         entity_type="SequenceComponent"
     )
@@ -920,6 +949,31 @@ def test():
         entity_type="FileComponent"
     )
     entities.append(component)
+
+    # project/sq001/sh0010/compositing/.dpx sequence
+    assettype = utils.mock_entity(
+        ("short", "img"),
+        entity_type="Type"
+    )
+    asset = utils.mock_entity(
+        ("parent", shot),
+        ("type", assettype),
+        entity_type="Asset"
+    )
+    assetversion = utils.mock_entity(
+        ("asset", asset),
+        ("task", task),
+        ("version", 1),
+        ("metadata", {"instance_name": "Write1"}),
+        entity_type="AssetVersion"
+    )
+    sequence_component = utils.mock_entity(
+        ("version", assetversion),
+        ("file_type", ".dpx"),
+        ("padding", 4),
+        entity_type="SequenceComponent"
+    )
+    entities.append(sequence_component)
 
     # project/sq001/sh0020
     shot = utils.mock_entity(
