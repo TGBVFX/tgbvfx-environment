@@ -4,5 +4,4 @@
     "MAYA_VP2_DEVICE_OVERRIDE": ["VirtualDeviceDx11"],
     "MAYA_FORCE_DX_WARP": ["1"],
     "YETI_TMP": ["//10.11.0.184/_tgbvfx/temp"],
-    "TEST_VARIABLE": ["windows_maya"]
 }
