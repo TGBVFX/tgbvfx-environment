@@ -380,7 +380,28 @@ def register():
             "{container.version.asset.parent.name}_"
             "{container.version.metadata.instance_name}_"
             "v{container.version.version}.{name}{file_type}"
-        )
+        ),
+        Template(
+            "Project/AssetBuild/Asset/AssetVersion/SequenceComponent/.exr",
+            "{version.task.project.disk." + system_name + "}/"
+            "{version.task.project.root}/tgbvfx/vfx/_publish/"
+            "{version.asset.type.short}/{version.asset.parent.type.name}_"
+            "{version.asset.parent.name}/{version.task.name}/"
+            "{version.metadata.instance_name}_v{version.version}/"
+            "{version.metadata.instance_name}_v{version.version}.%{padding}d"
+            "{file_type}"
+        ),
+        Template(
+            "Project/Folder/AssetBuild/Asset/AssetVersion/SequenceComponent/"
+            ".exr",
+            "{version.task.project.disk." + system_name + "}/"
+            "{version.task.project.root}/tgbvfx/vfx/_publish/"
+            "{version.asset.type.short}/{version.asset.parent.type.name}_"
+            "{version.asset.parent.name}/{version.task.name}/"
+            "{version.metadata.instance_name}_v{version.version}/"
+            "{version.metadata.instance_name}_v{version.version}.%{padding}d"
+            "{file_type}"
+        ),
     ])
 
     # .jpg
@@ -412,7 +433,7 @@ def register():
     ])
 
     # .abc
-    templates.append(
+    templates.extend([
         Template(
             "Project/Sequence/Shot/Asset/AssetVersion/FileComponent/.abc",
             "{version.task.project.disk." + system_name + "}/"
@@ -421,8 +442,26 @@ def register():
             "{version.asset.parent.name}/{version.metadata.instance_name}/"
             "{version.asset.parent.parent.name}_{version.asset.parent.name}_"
             "{version.metadata.instance_name}_v{version.version}{file_type}"
-        )
-    )
+        ),
+        Template(
+            "Project/AssetBuild/Asset/AssetVersion/FileComponent/.abc",
+            "{version.task.project.disk." + system_name + "}/"
+            "{version.task.project.root}/tgbvfx/vfx/_publish/"
+            "{version.asset.type.short}/{version.asset.parent.type.name}_"
+            "{version.asset.parent.name}/{version.task.name}/"
+            "{version.metadata.instance_name}/{version.metadata.instance_name}"
+            "_v{version.version}{file_type}"
+        ),
+        Template(
+            "Project/Folder/AssetBuild/Asset/AssetVersion/FileComponent/.abc",
+            "{version.task.project.disk." + system_name + "}/"
+            "{version.task.project.root}/tgbvfx/vfx/_publish/"
+            "{version.asset.type.short}/{version.asset.parent.type.name}_"
+            "{version.asset.parent.name}/{version.task.name}/"
+            "{version.metadata.instance_name}/{version.metadata.instance_name}"
+            "_v{version.version}{file_type}"
+        ),
+    ])
 
     # .mov
     templates.append(
@@ -438,7 +477,7 @@ def register():
     )
 
     # .gizmo
-    templates.append(
+    templates.extend([
         Template(
             "Project/Sequence/Shot/Asset/AssetVersion/FileComponent/.gizmo",
             "{version.task.project.disk." + system_name + "}/"
@@ -447,8 +486,26 @@ def register():
             "{version.asset.parent.name}/{version.task.name}/"
             "{version.asset.parent.parent.name}_{version.asset.parent.name}_"
             "{version.task.name}_{name}_v{version.version}{file_type}"
-        )
-    )
+        ),
+        Template(
+            "Project/AssetBuild/Asset/AssetVersion/FileComponent/.gizmo",
+            "{version.task.project.disk." + system_name + "}/"
+            "{version.task.project.root}/tgbvfx/vfx/_publish/"
+            "{version.asset.type.short}/{version.asset.parent.type.name}_"
+            "{version.asset.parent.name}/{version.task.name}/"
+            "{version.metadata.instance_name}/{version.metadata.instance_name}"
+            "_v{version.version}{file_type}"
+        ),
+        Template(
+            "Project/Folder/AssetBuild/Asset/AssetVersion/FileComponent/.gizmo",
+            "{version.task.project.disk." + system_name + "}/"
+            "{version.task.project.root}/tgbvfx/vfx/_publish/"
+            "{version.asset.type.short}/{version.asset.parent.type.name}_"
+            "{version.asset.parent.name}/{version.task.name}/"
+            "{version.metadata.instance_name}/{version.metadata.instance_name}"
+            "_v{version.version}{file_type}"
+        ),
+    ])
 
     # .hrox
     templates.append(
@@ -487,7 +544,25 @@ def register():
             "{version.asset.parent.parent.name}_{version.asset.parent.name}_"
             "{version.task.name}_{version.metadata.instance_name}_{name}_v"
             "{version.version}{file_type}"
-        )
+        ),
+        Template(
+            "Project/AssetBuild/Asset/AssetVersion/FileComponent/.nk",
+            "{version.task.project.disk." + system_name + "}/"
+            "{version.task.project.root}/tgbvfx/vfx/"
+            "{version.asset.parent.type.name}/{version.asset.parent.name}/nuke"
+            "/scripts/{version.task.project.name}_"
+            "{version.asset.parent.type.name}_{version.asset.parent.name}_"
+            "{version.task.name}_v{version.version}{file_type}"
+        ),
+        Template(
+            "Project/Folder/AssetBuild/Asset/AssetVersion/FileComponent/.nk",
+            "{version.task.project.disk." + system_name + "}/"
+            "{version.task.project.root}/tgbvfx/vfx/"
+            "{version.asset.parent.type.name}/{version.asset.parent.name}/nuke"
+            "/scripts/{version.task.project.name}_"
+            "{version.asset.parent.type.name}_{version.asset.parent.name}_"
+            "{version.task.name}_v{version.version}{file_type}"
+        ),
     ])
 
     # .mb
@@ -506,7 +581,25 @@ def register():
             "scenes/{version.task.project.name}_"
             "{version.asset.parent.parent.name}_{version.asset.parent.name}_"
             "{version.task.name}_v{version.version}{file_type}"
-        )
+        ),
+        Template(
+            "Project/AssetBuild/Asset/AssetVersion/FileComponent/.mb",
+            "{version.task.project.disk." + system_name + "}/"
+            "{version.task.project.root}/tgbvfx/vfx/"
+            "{version.asset.parent.type.name}/{version.asset.parent.name}/maya"
+            "/scenes/{version.task.project.name}_"
+            "{version.asset.parent.type.name}_{version.asset.parent.name}_"
+            "{version.task.name}_v{version.version}{file_type}"
+        ),
+        Template(
+            "Project/Folder/AssetBuild/Asset/AssetVersion/FileComponent/.mb",
+            "{version.task.project.disk." + system_name + "}/"
+            "{version.task.project.root}/tgbvfx/vfx/"
+            "{version.asset.parent.type.name}/{version.asset.parent.name}/maya"
+            "/scenes/{version.task.project.name}_"
+            "{version.asset.parent.type.name}_{version.asset.parent.name}_"
+            "{version.task.name}_v{version.version}{file_type}"
+        ),
     ])
 
     # .hip
@@ -526,7 +619,25 @@ def register():
             "houdini/{version.task.project.name}_"
             "{version.asset.parent.parent.name}_{version.asset.parent.name}_"
             "{version.task.name}_v{version.version}{file_type}"
-        )
+        ),
+        Template(
+            "Project/AssetBuild/Asset/AssetVersion/FileComponent/.hip",
+            "{version.task.project.disk." + system_name + "}/"
+            "{version.task.project.root}/tgbvfx/vfx/"
+            "{version.asset.parent.type.name}/{version.asset.parent.name}/"
+            "houdini/{version.task.project.name}_"
+            "{version.asset.parent.type.name}_{version.asset.parent.name}_"
+            "{version.task.name}_v{version.version}{file_type}"
+        ),
+        Template(
+            "Project/Folder/AssetBuild/Asset/AssetVersion/FileComponent/.hip",
+            "{version.task.project.disk." + system_name + "}/"
+            "{version.task.project.root}/tgbvfx/vfx/"
+            "{version.asset.parent.type.name}/{version.asset.parent.name}/"
+            "houdini/{version.task.project.name}_"
+            "{version.asset.parent.type.name}_{version.asset.parent.name}_"
+            "{version.task.name}_v{version.version}{file_type}"
+        ),
     ])
 
     return templates
