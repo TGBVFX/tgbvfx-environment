@@ -404,6 +404,41 @@ def register():
         ),
     ])
 
+    # .dpx
+    templates.extend([
+        Template(
+            "Project/Sequence/Shot/Asset/AssetVersion/SequenceComponent/.dpx",
+            "{version.task.project.disk." + system_name + "}/"
+            "{version.task.project.root}/tgbvfx/vfx/_publish/"
+            "{version.asset.type.short}/{version.asset.parent.parent.name}_"
+            "{version.asset.parent.name}/{version.metadata.instance_name}/"
+            "{version.asset.parent.parent.name}_{version.asset.parent.name}_"
+            "{version.metadata.instance_name}_v{version.version}.%{padding}d"
+            "{file_type}"
+        ),
+        Template(
+            "Project/AssetBuild/Asset/AssetVersion/SequenceComponent/.dpx",
+            "{version.task.project.disk." + system_name + "}/"
+            "{version.task.project.root}/tgbvfx/vfx/_publish/"
+            "{version.asset.type.short}/{version.asset.parent.type.name}_"
+            "{version.asset.parent.name}/{version.task.name}/"
+            "{version.metadata.instance_name}_v{version.version}/"
+            "{version.metadata.instance_name}_v{version.version}.%{padding}d"
+            "{file_type}"
+        ),
+        Template(
+            "Project/Folder/AssetBuild/Asset/AssetVersion/SequenceComponent/"
+            ".dpx",
+            "{version.task.project.disk." + system_name + "}/"
+            "{version.task.project.root}/tgbvfx/vfx/_publish/"
+            "{version.asset.type.short}/{version.asset.parent.type.name}_"
+            "{version.asset.parent.name}/{version.task.name}/"
+            "{version.metadata.instance_name}_v{version.version}/"
+            "{version.metadata.instance_name}_v{version.version}.%{padding}d"
+            "{file_type}"
+        ),
+    ])
+
     # .jpg
     templates.extend([
         Template(
