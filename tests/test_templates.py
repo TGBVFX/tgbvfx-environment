@@ -270,6 +270,8 @@ def get_test_paths():
 
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0010/"
         "Write1/sq001_sh0010_Write1_v001.%04d.dpx",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0010/"
+        "Write1/sq001_sh0010_Write1_v001.%04d.jpeg",
 
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/Character/lizard/"
         "houdini/pipeline_test_Character_lizard_lookdev_v001.hip",
@@ -970,6 +972,15 @@ def test():
     sequence_component = utils.mock_entity(
         ("version", assetversion),
         ("file_type", ".dpx"),
+        ("padding", 4),
+        entity_type="SequenceComponent"
+    )
+    entities.append(sequence_component)
+
+    # project/sq001/sh0010/compositing/.jpeg sequence
+    sequence_component = utils.mock_entity(
+        ("version", assetversion),
+        ("file_type", ".jpeg"),
         ("padding", 4),
         entity_type="SequenceComponent"
     )
