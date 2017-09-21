@@ -2,24 +2,26 @@ import pyblish.api as api
 
 
 class TGBVFXEnvironmentRoyalRenderExtractSettingsNuke(api.InstancePlugin):
-    """ Add studio submission settings. """
+    """Add studio submission settings.
 
-    order = api.ExtractorOrder
-    label = "Settings"
+    Offset to fetch Nuke job.
+    """
+
+    order = api.ExtractorOrder + 0.1
+    label = "Royal Render TGBVFX"
     families = ["royalrender"]
     hosts = ["nuke"]
     targets = ["process.royalrender"]
 
     def process(self, instance):
 
-        data = instance.data.get("royalrenderData", {})
+        for job in instance.data["royalrenderJobs"]:
+            if job["Software"] != "Nuke":
+                continue
 
-        # SubmitterParameter
-        submit_params = data.get("SubmitterParameter", [])
-        submit_params.append("SeqDivMINComp=1~5")
-        submit_params.append("SeqDivMAXComp=1~40")
-        submit_params.append("DefaultClientGroup=1~NODES_2D")
-        data["SubmitterParameter"] = submit_params
-
-        # Setting data
-        instance.data["royalrenderData"] = data
+            # SubmitterParameter
+            submit_params = job.get("SubmitterParameter", [])
+            submit_params.append("SeqDivMINComp=1~5")
+            submit_params.append("SeqDivMAXComp=1~40")
+            submit_params.append("DefaultClientGroup=1~NODES_2D")
+            job["SubmitterParameter"] = submit_params
