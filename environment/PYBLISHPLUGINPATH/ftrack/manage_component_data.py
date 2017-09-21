@@ -48,13 +48,9 @@ class TGBFtrackManageComponentData(pyblish.api.InstancePlugin):
                             os.remove(file_path)
 
                 for f in collection:
-                    if not os.path.exists(f):
-                        filelink.create(
-                            f,
-                            f.replace(
-                                collection.head, target_collection.head
-                            )
-                        )
+                    dst = f.replace(collection.head, target_collection.head)
+                    if not os.path.exists(dst):
+                        filelink.create(f, dst)
 
             output_path = instance.data.get("output_path", "")
             if output_path:
