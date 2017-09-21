@@ -73,5 +73,5 @@ class TGBFtrackManageComponentData(pyblish.api.InstancePlugin):
                     if os.path.exists(resource_identifier):
                         os.remove(resource_identifier)
 
-                if not os.path.exists(output_path):
+                if not os.path.exists(resource_identifier):
                     self.manage_data(output_path, resource_identifier)
