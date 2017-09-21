@@ -10,8 +10,8 @@ environment = {}
 
 # PATH
 environment["PATH"] = [
-    os.path.join(root, "environment", "PATH"),
-    "C:/Program Files (x86)/QuickTime/QTSystem/"
+    "//10.11.0.184/_tgbvfx/_bin/ffmpeg/v2.7",
+    "C:/Program Files (x86)/QuickTime/QTSystem/",
 ]
 
 # LIBRARY_PATH
