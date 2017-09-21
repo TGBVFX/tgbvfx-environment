@@ -1,4 +1,5 @@
 import os
+import shutil
 
 import pyblish.api
 import filelink
@@ -11,6 +12,19 @@ class TGBFtrackManageComponentData(pyblish.api.InstancePlugin):
     order = pyblish.api.IntegratorOrder + 1
     label = "Manage Data"
     families = ["ftrack"]
+
+    def manage_data(self, src, dst):
+        try:
+            filelink.create(src, dst)
+        except WindowsError as e:
+            if e.winerror == 17:
+                self.log.warning(
+                    "File linking failed due to: \"{0}\". "
+                    "Resorting to copying instead.".format(e)
+                )
+                shutil.copy(src, dst)
+            else:
+                raise e
 
     def process(self, instance):
 
@@ -50,7 +64,7 @@ class TGBFtrackManageComponentData(pyblish.api.InstancePlugin):
                 for f in collection:
                     dst = f.replace(collection.head, target_collection.head)
                     if not os.path.exists(dst):
-                        filelink.create(f, dst)
+                        self.manage_data(f, dst)
 
             output_path = instance.data.get("output_path", "")
             if output_path:
@@ -60,4 +74,4 @@ class TGBFtrackManageComponentData(pyblish.api.InstancePlugin):
                         os.remove(resource_identifier)
 
                 if not os.path.exists(output_path):
-                    filelink.create(output_path, resource_identifier)
+                    self.manage_data(output_path, resource_identifier)
