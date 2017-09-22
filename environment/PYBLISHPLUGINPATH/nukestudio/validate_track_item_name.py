@@ -9,15 +9,13 @@ class ValidateTrackItemName(pyblish.api.InstancePlugin):
 
     order = pyblish.api.ValidatorOrder
     label = "Task Item Name"
-    families = ["trackItem"]
+    families = ["trackItem", "ftrack"]
+    match = pyblish.api.Exact
     optional = True
     hosts = ["nukestudio"]
 
     def process(self, instance):
         import re
-
-        if instance.data["family"] != "trackItem":
-            return
 
         pattern = r"sq[0-9]{4}--sh[0-9]{4}"
 
