@@ -85,9 +85,12 @@ class TGBFtrackExtract(pyblish.api.InstancePlugin):
         families = instance.data.get("families", [])
         families += [instance.data["family"]]
 
-        # Omit members of sequences
+        # Only commiting first and last frame to optimize calls to Ftrack.
+        # Need first and last for later importing with ftrack-connect-nuke.
         if "collection" in instance.data.keys():
-            instance.data["pattern"] = "{head}{padding}{tail} []"
+            indexes = instance.data["collection"].indexes
+            ranges = "[{0},{1}]".format(min(indexes), max(indexes))
+            instance.data["pattern"] = "{head}{padding}{tail} " + ranges
 
         if "img" in families:
             data = instance.data.get("assetversion_data", {})
