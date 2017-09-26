@@ -53,16 +53,14 @@ class TGBFtrackManageComponentData(pyblish.api.InstancePlugin):
                     pattern="{head}{padding}{tail}"
                 )
 
-                # Delete existing files if overwriting.
-                if data.get("component_overwrite", False):
-                    path = os.path.dirname(target_collection.head)
-                    for f in os.listdir(path):
-                        file_path = os.path.join(path, f).replace("\\", "/")
-                        if target_collection.match(file_path):
-                            os.remove(file_path)
-
                 for f in collection:
                     dst = f.replace(collection.head, target_collection.head)
+
+                    # Delete existing files if overwriting.
+                    if data.get("component_overwrite", False):
+                        if os.path.exists(dst):
+                            os.remove(dst)
+
                     if not os.path.exists(dst):
                         self.manage_data(f, dst)
 
