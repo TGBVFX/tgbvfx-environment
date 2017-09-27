@@ -1,5 +1,4 @@
 {
     "LIBRARY_PATH": ["//10.11.0.184/_tgbvfx/library"],
-    "STUDIO_TMP": ["//10.11.0.184/_tgbvfx/temp"],
-    "PATH": ["//10.11.0.184/_tgbvfx/_bin/ffmpeg/v2.7"]
+    "STUDIO_TMP": ["//10.11.0.184/_tgbvfx/temp"]
 }
