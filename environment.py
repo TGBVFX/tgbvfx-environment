@@ -80,6 +80,11 @@ environment["NUKE_PATH"] = [
         "nuke_path"
     ),
     os.path.join(root, "environment", "NUKE_PATH"),
+    os.path.join(
+        os.environ["CONDA_GIT_REPOSITORY"],
+        "Cryptomatte",
+        "nuke"
+    ),
 ]
 
 # FTRACK_CONNECT_PLUGIN_PATH
