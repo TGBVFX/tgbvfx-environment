@@ -392,6 +392,20 @@ def register():
             "{file_type}"
         ),
         Template(
+            "Project/AssetBuild/Asset/AssetVersion/SequenceComponent/.exr/"
+            "FileComponent/.exr",
+            "{container.version.task.project.disk." + system_name + "}/"
+            "{container.version.task.project.root}/tgbvfx/vfx/_publish/"
+            "{container.version.asset.type.short}/"
+            "{container.version.asset.parent.type.name}_"
+            "{container.version.asset.parent.name}/"
+            "{container.version.task.name}/"
+            "{container.version.metadata.instance_name}_"
+            "v{container.version.version}/"
+            "{container.version.metadata.instance_name}_"
+            "v{container.version.version}.{name}{file_type}"
+        ),
+        Template(
             "Project/Folder/AssetBuild/Asset/AssetVersion/SequenceComponent/"
             ".exr",
             "{version.task.project.disk." + system_name + "}/"
@@ -401,6 +415,20 @@ def register():
             "{version.metadata.instance_name}_v{version.version}/"
             "{version.metadata.instance_name}_v{version.version}.%{padding}d"
             "{file_type}"
+        ),
+        Template(
+            "Project/Folder/AssetBuild/Asset/AssetVersion/SequenceComponent/"
+            ".exr/FileComponent/.exr",
+            "{container.version.task.project.disk." + system_name + "}/"
+            "{container.version.task.project.root}/tgbvfx/vfx/_publish/"
+            "{container.version.asset.type.short}/"
+            "{container.version.asset.parent.type.name}_"
+            "{container.version.asset.parent.name}/"
+            "{container.version.task.name}/"
+            "{container.version.metadata.instance_name}_"
+            "v{container.version.version}/"
+            "{container.version.metadata.instance_name}_"
+            "v{container.version.version}.{name}{file_type}"
         ),
     ])
 
@@ -427,6 +455,20 @@ def register():
             "{file_type}"
         ),
         Template(
+            "Project/AssetBuild/Asset/AssetVersion/SequenceComponent/.dpx/"
+            "FileComponent/.dpx",
+            "{container.version.task.project.disk." + system_name + "}/"
+            "{container.version.task.project.root}/tgbvfx/vfx/_publish/"
+            "{container.version.asset.type.short}/"
+            "{container.version.asset.parent.type.name}_"
+            "{container.version.asset.parent.name}/"
+            "{container.version.task.name}/"
+            "{container.version.metadata.instance_name}_"
+            "v{container.version.version}/"
+            "{container.version.metadata.instance_name}_"
+            "v{container.version.version}.{name}{file_type}"
+        ),
+        Template(
             "Project/Folder/AssetBuild/Asset/AssetVersion/SequenceComponent/"
             ".dpx",
             "{version.task.project.disk." + system_name + "}/"
@@ -436,6 +478,20 @@ def register():
             "{version.metadata.instance_name}_v{version.version}/"
             "{version.metadata.instance_name}_v{version.version}.%{padding}d"
             "{file_type}"
+        ),
+        Template(
+            "Project/Folder/AssetBuild/Asset/AssetVersion/SequenceComponent/"
+            ".dpx/FileComponent/.dpx",
+            "{container.version.task.project.disk." + system_name + "}/"
+            "{container.version.task.project.root}/tgbvfx/vfx/_publish/"
+            "{container.version.asset.type.short}/"
+            "{container.version.asset.parent.type.name}_"
+            "{container.version.asset.parent.name}/"
+            "{container.version.task.name}/"
+            "{container.version.metadata.instance_name}_"
+            "v{container.version.version}/"
+            "{container.version.metadata.instance_name}_"
+            "v{container.version.version}.{name}{file_type}"
         ),
     ])
 

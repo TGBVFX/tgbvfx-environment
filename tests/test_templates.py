@@ -294,7 +294,13 @@ def get_test_paths():
         "Write1_v001.%04d.exr",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
         "Character_lizard/lookdev/Write1_v001/"
+        "Write1_v001.1001.exr",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "Character_lizard/lookdev/Write1_v001/"
         "Write1_v001.%04d.dpx",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "Character_lizard/lookdev/Write1_v001/"
+        "Write1_v001.1001.dpx",
 
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/Environment/castle/"
         "houdini/pipeline_test_Environment_castle_lookdev_v001.hip",
@@ -314,7 +320,13 @@ def get_test_paths():
         "Write1_v001.%04d.exr",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
         "Environment_castle/lookdev/Write1_v001/"
+        "Write1_v001.1001.exr",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "Environment_castle/lookdev/Write1_v001/"
         "Write1_v001.%04d.dpx",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "Environment_castle/lookdev/Write1_v001/"
+        "Write1_v001.1001.dpx",
     ]
 
 
@@ -574,24 +586,42 @@ def test():
         ("metadata", {"instance_name": "Write1"}),
         entity_type="AssetVersion"
     )
-    component = utils.mock_entity(
+    sequence_component = utils.mock_entity(
         ("version", assetversion),
         ("name", "main"),
         ("file_type", ".exr"),
         ("padding", 4),
         entity_type="SequenceComponent"
     )
-    entities.append(component)
+    entities.append(sequence_component)
+
+    file_component = utils.mock_entity(
+        ("version", None),
+        ("container", sequence_component),
+        ("file_type", ".exr"),
+        ("name", "1001"),
+        entity_type="FileComponent"
+    )
+    entities.append(file_component)
 
     # project/lizard/lookdev/.dpx file
-    component = utils.mock_entity(
+    sequence_component = utils.mock_entity(
         ("version", assetversion),
         ("name", "main"),
         ("file_type", ".dpx"),
         ("padding", 4),
         entity_type="SequenceComponent"
     )
-    entities.append(component)
+    entities.append(sequence_component)
+
+    file_component = utils.mock_entity(
+        ("version", None),
+        ("container", sequence_component),
+        ("file_type", ".dpx"),
+        ("name", "1001"),
+        entity_type="FileComponent"
+    )
+    entities.append(file_component)
 
     # project/Assets/castle/lookdev
     folder = utils.mock_entity(
@@ -744,24 +774,42 @@ def test():
         ("metadata", {"instance_name": "Write1"}),
         entity_type="AssetVersion"
     )
-    component = utils.mock_entity(
+    sequence_component = utils.mock_entity(
         ("version", assetversion),
         ("name", "main"),
         ("file_type", ".exr"),
         ("padding", 4),
         entity_type="SequenceComponent"
     )
-    entities.append(component)
+    entities.append(sequence_component)
+
+    file_component = utils.mock_entity(
+        ("version", None),
+        ("container", sequence_component),
+        ("file_type", ".exr"),
+        ("name", "1001"),
+        entity_type="FileComponent"
+    )
+    entities.append(file_component)
 
     # project/Assets/castle/lookdev/.dpx file
-    component = utils.mock_entity(
+    sequence_component = utils.mock_entity(
         ("version", assetversion),
         ("name", "main"),
         ("file_type", ".dpx"),
         ("padding", 4),
         entity_type="SequenceComponent"
     )
-    entities.append(component)
+    entities.append(sequence_component)
+
+    file_component = utils.mock_entity(
+        ("version", None),
+        ("container", sequence_component),
+        ("file_type", ".dpx"),
+        ("name", "1001"),
+        entity_type="FileComponent"
+    )
+    entities.append(file_component)
 
     # project/sq001
     sequence = utils.mock_entity(
