@@ -87,6 +87,11 @@ environment["NUKE_PATH"] = [
     ),
 ]
 
+# REVIEW_PRESETS
+environment["REVIEW_PRESETS"] = [
+    os.path.join(root, "environment", "REVIEW_PRESETS"),
+]
+
 # FTRACK_CONNECT_PLUGIN_PATH
 environment["FTRACK_CONNECT_PLUGIN_PATH"] = [
     os.path.join(
@@ -105,6 +110,9 @@ environment["FTRACK_CONNECT_PLUGIN_PATH"] = [
         os.environ["CONDA_GIT_REPOSITORY"],
         "ftrack-hooks",
         "dynamic_environment"
+    ),
+    os.path.join(
+        os.environ["CONDA_GIT_REPOSITORY"], "ftrack-hooks", "process_review"
     ),
     os.path.join(root, "environment", "FTRACK_CONNECT_PLUGIN_PATH"),
     os.path.join(
