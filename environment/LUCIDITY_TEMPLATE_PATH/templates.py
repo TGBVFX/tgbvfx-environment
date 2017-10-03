@@ -355,201 +355,104 @@ def register():
         ),
     ])
 
-    # .exr
-    templates.extend([
-        Template(
-            "Project/Sequence/Shot/Asset/AssetVersion/SequenceComponent/.exr",
-            "{version.task.project.disk." + system_name + "}/"
-            "{version.task.project.root}/tgbvfx/vfx/_publish/"
-            "{version.asset.type.short}/{version.asset.parent.parent.name}_"
-            "{version.asset.parent.name}/{version.metadata.instance_name}/"
-            "{version.asset.parent.parent.name}_{version.asset.parent.name}_"
-            "{version.metadata.instance_name}_v{version.version}.%{padding}d"
-            "{file_type}"
-        ),
-        Template(
-            "Project/Sequence/Shot/Asset/AssetVersion/SequenceComponent/.exr"
-            "/FileComponent/.exr",
-            "{container.version.task.project.disk." + system_name + "}/"
-            "{container.version.task.project.root}/tgbvfx/vfx/_publish/"
-            "{container.version.asset.type.short}/"
-            "{container.version.asset.parent.parent.name}_"
-            "{container.version.asset.parent.name}/"
-            "{container.version.metadata.instance_name}/"
-            "{container.version.asset.parent.parent.name}_"
-            "{container.version.asset.parent.name}_"
-            "{container.version.metadata.instance_name}_"
-            "v{container.version.version}.{name}{file_type}"
-        ),
-        Template(
-            "Project/AssetBuild/Asset/AssetVersion/SequenceComponent/.exr",
-            "{version.task.project.disk." + system_name + "}/"
-            "{version.task.project.root}/tgbvfx/vfx/_publish/"
-            "{version.asset.type.short}/{version.asset.parent.type.name}_"
-            "{version.asset.parent.name}/{version.task.name}/"
-            "{version.metadata.instance_name}_v{version.version}/"
-            "{version.metadata.instance_name}_v{version.version}.%{padding}d"
-            "{file_type}"
-        ),
-        Template(
-            "Project/AssetBuild/Asset/AssetVersion/SequenceComponent/.exr/"
-            "FileComponent/.exr",
-            "{container.version.task.project.disk." + system_name + "}/"
-            "{container.version.task.project.root}/tgbvfx/vfx/_publish/"
-            "{container.version.asset.type.short}/"
-            "{container.version.asset.parent.type.name}_"
-            "{container.version.asset.parent.name}/"
-            "{container.version.task.name}/"
-            "{container.version.metadata.instance_name}_"
-            "v{container.version.version}/"
-            "{container.version.metadata.instance_name}_"
-            "v{container.version.version}.{name}{file_type}"
-        ),
-        Template(
-            "Project/Folder/AssetBuild/Asset/AssetVersion/SequenceComponent/"
-            ".exr",
-            "{version.task.project.disk." + system_name + "}/"
-            "{version.task.project.root}/tgbvfx/vfx/_publish/"
-            "{version.asset.type.short}/{version.asset.parent.type.name}_"
-            "{version.asset.parent.name}/{version.task.name}/"
-            "{version.metadata.instance_name}_v{version.version}/"
-            "{version.metadata.instance_name}_v{version.version}.%{padding}d"
-            "{file_type}"
-        ),
-        Template(
-            "Project/Folder/AssetBuild/Asset/AssetVersion/SequenceComponent/"
-            ".exr/FileComponent/.exr",
-            "{container.version.task.project.disk." + system_name + "}/"
-            "{container.version.task.project.root}/tgbvfx/vfx/_publish/"
-            "{container.version.asset.type.short}/"
-            "{container.version.asset.parent.type.name}_"
-            "{container.version.asset.parent.name}/"
-            "{container.version.task.name}/"
-            "{container.version.metadata.instance_name}_"
-            "v{container.version.version}/"
-            "{container.version.metadata.instance_name}_"
-            "v{container.version.version}.{name}{file_type}"
-        ),
-    ])
+    # Image file templates
+    extensions = [".exr", ".dpx", ".jpg", ".jpeg", ".hdr"]
 
-    # .dpx
-    templates.extend([
-        Template(
-            "Project/Sequence/Shot/Asset/AssetVersion/SequenceComponent/.dpx",
-            "{version.task.project.disk." + system_name + "}/"
-            "{version.task.project.root}/tgbvfx/vfx/_publish/"
-            "{version.asset.type.short}/{version.asset.parent.parent.name}_"
-            "{version.asset.parent.name}/{version.metadata.instance_name}/"
-            "{version.asset.parent.parent.name}_{version.asset.parent.name}_"
-            "{version.metadata.instance_name}_v{version.version}.%{padding}d"
-            "{file_type}"
-        ),
-        Template(
-            "Project/AssetBuild/Asset/AssetVersion/SequenceComponent/.dpx",
-            "{version.task.project.disk." + system_name + "}/"
-            "{version.task.project.root}/tgbvfx/vfx/_publish/"
-            "{version.asset.type.short}/{version.asset.parent.type.name}_"
-            "{version.asset.parent.name}/{version.task.name}/"
-            "{version.metadata.instance_name}_v{version.version}/"
-            "{version.metadata.instance_name}_v{version.version}.%{padding}d"
-            "{file_type}"
-        ),
-        Template(
-            "Project/AssetBuild/Asset/AssetVersion/SequenceComponent/.dpx/"
-            "FileComponent/.dpx",
-            "{container.version.task.project.disk." + system_name + "}/"
-            "{container.version.task.project.root}/tgbvfx/vfx/_publish/"
-            "{container.version.asset.type.short}/"
-            "{container.version.asset.parent.type.name}_"
-            "{container.version.asset.parent.name}/"
-            "{container.version.task.name}/"
-            "{container.version.metadata.instance_name}_"
-            "v{container.version.version}/"
-            "{container.version.metadata.instance_name}_"
-            "v{container.version.version}.{name}{file_type}"
-        ),
-        Template(
-            "Project/Folder/AssetBuild/Asset/AssetVersion/SequenceComponent/"
-            ".dpx",
-            "{version.task.project.disk." + system_name + "}/"
-            "{version.task.project.root}/tgbvfx/vfx/_publish/"
-            "{version.asset.type.short}/{version.asset.parent.type.name}_"
-            "{version.asset.parent.name}/{version.task.name}/"
-            "{version.metadata.instance_name}_v{version.version}/"
-            "{version.metadata.instance_name}_v{version.version}.%{padding}d"
-            "{file_type}"
-        ),
-        Template(
-            "Project/Folder/AssetBuild/Asset/AssetVersion/SequenceComponent/"
-            ".dpx/FileComponent/.dpx",
-            "{container.version.task.project.disk." + system_name + "}/"
-            "{container.version.task.project.root}/tgbvfx/vfx/_publish/"
-            "{container.version.asset.type.short}/"
-            "{container.version.asset.parent.type.name}_"
-            "{container.version.asset.parent.name}/"
-            "{container.version.task.name}/"
-            "{container.version.metadata.instance_name}_"
-            "v{container.version.version}/"
-            "{container.version.metadata.instance_name}_"
-            "v{container.version.version}.{name}{file_type}"
-        ),
-    ])
+    # SequenceComponent Sequence/Shot
+    pattern = (
+        "{version.task.project.disk." + system_name + "}/"
+        "{version.task.project.root}/"
+        "tgbvfx/"
+        "vfx/"
+        "_publish/"
+        "{version.asset.type.short}/"
+        "{version.asset.parent.parent.name}_{version.asset.parent.name}/"
+        "{version.asset.parent.parent.name}_{version.asset.parent.name}_"
+        "{version.metadata.instance_name}_v{version.version}/"
+        "{version.asset.parent.parent.name}_{version.asset.parent.name}_"
+        "{version.metadata.instance_name}_v{version.version}.%{padding}d"
+        "{file_type}"
+    )
+    name = (
+        "Project/Sequence/Shot/Asset/AssetVersion/SequenceComponent/{0}"
+    )
+    for ext in extensions:
+        templates.append(Template(name.format(ext), pattern))
 
-    # .jpg
-    templates.extend([
-        Template(
-            "Project/Sequence/Shot/Asset/AssetVersion/SequenceComponent/.jpg",
-            "{version.task.project.disk." + system_name + "}/"
-            "{version.task.project.root}/tgbvfx/vfx/_publish/"
-            "{version.asset.type.short}/{version.asset.parent.parent.name}_"
-            "{version.asset.parent.name}/{version.metadata.instance_name}/"
-            "{version.asset.parent.parent.name}_{version.asset.parent.name}_"
-            "{version.metadata.instance_name}_v{version.version}.%{padding}d"
-            "{file_type}"
-        ),
-        Template(
-            "Project/Sequence/Shot/Asset/AssetVersion/SequenceComponent/.jpg"
-            "/FileComponent/.jpg",
-            "{container.version.task.project.disk." + system_name + "}/"
-            "{container.version.task.project.root}/tgbvfx/vfx/_publish/"
-            "{container.version.asset.type.short}/"
-            "{container.version.asset.parent.parent.name}_"
-            "{container.version.asset.parent.name}/"
-            "{container.version.metadata.instance_name}/"
-            "{container.version.asset.parent.parent.name}_"
-            "{container.version.asset.parent.name}_"
-            "{container.version.metadata.instance_name}_"
-            "v{container.version.version}.{name}{file_type}"
-        )
-    ])
+    # SequenceComponent AssetBuild and Folder/AssetBuild
+    pattern = (
+        "{version.task.project.disk." + system_name + "}/"
+        "{version.task.project.root}/"
+        "tgbvfx/"
+        "vfx/"
+        "_publish/"
+        "{version.asset.type.short}/"
+        "{version.asset.parent.type.name}_{version.asset.parent.name}/"
+        "{version.task.name}/"
+        "{version.metadata.instance_name}_v{version.version}/"
+        "{version.metadata.instance_name}_v{version.version}.%{padding}d"
+        "{file_type}"
+    )
+    names = [
+        "Project/AssetBuild/Asset/AssetVersion/SequenceComponent/{0}",
+        "Project/Folder/AssetBuild/Asset/AssetVersion/SequenceComponent/{0}",
+    ]
+    for ext in extensions:
+        for name in names:
+            templates.append(Template(name.format(ext), pattern))
 
-    # .jpeg
-    templates.extend([
-        Template(
-            "Project/Sequence/Shot/Asset/AssetVersion/SequenceComponent/.jpeg",
-            "{version.task.project.disk." + system_name + "}/"
-            "{version.task.project.root}/tgbvfx/vfx/_publish/"
-            "{version.asset.type.short}/{version.asset.parent.parent.name}_"
-            "{version.asset.parent.name}/{version.metadata.instance_name}/"
-            "{version.asset.parent.parent.name}_{version.asset.parent.name}_"
-            "{version.metadata.instance_name}_v{version.version}.%{padding}d"
-            "{file_type}"
-        ),
-    ])
+    # FileComponent Sequence/Shot
+    pattern = (
+        "{container.version.task.project.disk." + system_name + "}/"
+        "{container.version.task.project.root}/"
+        "tgbvfx/"
+        "vfx/"
+        "_publish/"
+        "{container.version.asset.type.short}/"
+        "{container.version.asset.parent.parent.name}_"
+        "{container.version.asset.parent.name}/"
+        "{container.version.asset.parent.parent.name}_"
+        "{container.version.asset.parent.name}_"
+        "{container.version.metadata.instance_name}_"
+        "v{container.version.version}/"
+        "{container.version.asset.parent.parent.name}_"
+        "{container.version.asset.parent.name}_"
+        "{container.version.metadata.instance_name}_"
+        "v{container.version.version}.{name}{file_type}"
+    )
+    names = [
+        "Project/Sequence/Shot/Asset/AssetVersion/SequenceComponent/{0}"
+        "/FileComponent/{0}",
+    ]
+    for ext in extensions:
+        for name in names:
+            templates.append(Template(name.format(ext), pattern))
 
-    # .hdr
-    templates.extend([
-        Template(
-            "Project/Sequence/Shot/Asset/AssetVersion/SequenceComponent/.hdr",
-            "{version.task.project.disk." + system_name + "}/"
-            "{version.task.project.root}/tgbvfx/vfx/_publish/"
-            "{version.asset.type.short}/{version.asset.parent.parent.name}_"
-            "{version.asset.parent.name}/{version.metadata.instance_name}/"
-            "{version.asset.parent.parent.name}_{version.asset.parent.name}_"
-            "{version.metadata.instance_name}_v{version.version}.%{padding}d"
-            "{file_type}"
-        ),
-    ])
+    # FileComponent AssetBuild Folder/AssetBuild
+    pattern = (
+        "{container.version.task.project.disk." + system_name + "}/"
+        "{container.version.task.project.root}/"
+        "tgbvfx/"
+        "vfx/"
+        "_publish/"
+        "{container.version.asset.type.short}/"
+        "{container.version.asset.parent.type.name}_"
+        "{container.version.asset.parent.name}/"
+        "{container.version.task.name}/"
+        "{container.version.metadata.instance_name}_"
+        "v{container.version.version}/"
+        "{container.version.metadata.instance_name}_"
+        "v{container.version.version}.{name}{file_type}"
+    )
+    names = [
+        "Project/AssetBuild/Asset/AssetVersion/SequenceComponent/{0}/"
+        "FileComponent/{0}",
+        "Project/Folder/AssetBuild/Asset/AssetVersion/SequenceComponent/"
+        "{0}/FileComponent/{0}",
+    ]
+    for ext in extensions:
+        for name in names:
+            templates.append(Template(name.format(ext), pattern))
 
     # .abc
     templates.extend([
@@ -616,7 +519,8 @@ def register():
             "_v{version.version}{file_type}"
         ),
         Template(
-            "Project/Folder/AssetBuild/Asset/AssetVersion/FileComponent/.gizmo",
+            "Project/Folder/AssetBuild/Asset/AssetVersion/FileComponent/"
+            ".gizmo",
             "{version.task.project.disk." + system_name + "}/"
             "{version.task.project.root}/tgbvfx/vfx/_publish/"
             "{version.asset.type.short}/{version.asset.parent.type.name}_"

@@ -245,13 +245,17 @@ def get_test_paths():
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/scene",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0020",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0020/"
-        "plate_linear_aces/sq001_sh0020_plate_linear_aces_v003.%04d.exr",
+        "sq001_sh0020_plate_linear_aces_v003/"
+        "sq001_sh0020_plate_linear_aces_v003.%04d.exr",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0020/"
-        "plate_linear_aces/sq001_sh0020_plate_linear_aces_v003.1001.exr",
+        "sq001_sh0020_plate_linear_aces_v003/"
+        "sq001_sh0020_plate_linear_aces_v003.1001.exr",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0020/"
-        "plate_linear_aces/sq001_sh0020_plate_linear_aces_v003.%04d.jpg",
+        "sq001_sh0020_plate_linear_aces_v003/"
+        "sq001_sh0020_plate_linear_aces_v003.%04d.jpg",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0020/"
-        "plate_linear_aces/sq001_sh0020_plate_linear_aces_v003.1001.jpg",
+        "sq001_sh0020_plate_linear_aces_v003/"
+        "sq001_sh0020_plate_linear_aces_v003.1001.jpg",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/nuke_gizmo/"
         "sq001_sh0010",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/nuke_gizmo/"
@@ -269,11 +273,17 @@ def get_test_paths():
         "writegeo1/sq001_sh0010_writegeo1_v001.abc",
 
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0010/"
-        "Write1/sq001_sh0010_Write1_v001.%04d.dpx",
+        "sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.%04d.dpx",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0010/"
-        "Write1/sq001_sh0010_Write1_v001.%04d.jpeg",
+        "sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.1001.dpx",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0010/"
-        "Write1/sq001_sh0010_Write1_v001.%04d.hdr",
+        "sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.%04d.jpeg",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0010/"
+        "sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.1001.jpeg",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0010/"
+        "sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.%04d.hdr",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0010/"
+        "sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.1001.hdr",
 
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/Character/lizard/"
         "houdini/pipeline_test_Character_lizard_lookdev_v001.hip",
@@ -301,6 +311,24 @@ def get_test_paths():
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
         "Character_lizard/lookdev/Write1_v001/"
         "Write1_v001.1001.dpx",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "Character_lizard/lookdev/Write1_v001/"
+        "Write1_v001.%04d.jpeg",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "Character_lizard/lookdev/Write1_v001/"
+        "Write1_v001.1001.jpeg",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "Character_lizard/lookdev/Write1_v001/"
+        "Write1_v001.%04d.jpg",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "Character_lizard/lookdev/Write1_v001/"
+        "Write1_v001.1001.jpg",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "Character_lizard/lookdev/Write1_v001/"
+        "Write1_v001.%04d.hdr",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "Character_lizard/lookdev/Write1_v001/"
+        "Write1_v001.1001.hdr",
 
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/Environment/castle/"
         "houdini/pipeline_test_Environment_castle_lookdev_v001.hip",
@@ -327,6 +355,24 @@ def get_test_paths():
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
         "Environment_castle/lookdev/Write1_v001/"
         "Write1_v001.1001.dpx",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "Environment_castle/lookdev/Write1_v001/"
+        "Write1_v001.%04d.jpeg",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "Environment_castle/lookdev/Write1_v001/"
+        "Write1_v001.1001.jpeg",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "Environment_castle/lookdev/Write1_v001/"
+        "Write1_v001.%04d.jpg",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "Environment_castle/lookdev/Write1_v001/"
+        "Write1_v001.1001.jpg",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "Environment_castle/lookdev/Write1_v001/"
+        "Write1_v001.%04d.hdr",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "Environment_castle/lookdev/Write1_v001/"
+        "Write1_v001.1001.hdr",
     ]
 
 
@@ -623,6 +669,63 @@ def test():
     )
     entities.append(file_component)
 
+    # project/lizard/lookdev/.jpg file
+    sequence_component = utils.mock_entity(
+        ("version", assetversion),
+        ("name", "main"),
+        ("file_type", ".jpg"),
+        ("padding", 4),
+        entity_type="SequenceComponent"
+    )
+    entities.append(sequence_component)
+
+    file_component = utils.mock_entity(
+        ("version", None),
+        ("container", sequence_component),
+        ("file_type", ".jpg"),
+        ("name", "1001"),
+        entity_type="FileComponent"
+    )
+    entities.append(file_component)
+
+    # project/lizard/lookdev/.jpeg file
+    sequence_component = utils.mock_entity(
+        ("version", assetversion),
+        ("name", "main"),
+        ("file_type", ".jpeg"),
+        ("padding", 4),
+        entity_type="SequenceComponent"
+    )
+    entities.append(sequence_component)
+
+    file_component = utils.mock_entity(
+        ("version", None),
+        ("container", sequence_component),
+        ("file_type", ".jpeg"),
+        ("name", "1001"),
+        entity_type="FileComponent"
+    )
+    entities.append(file_component)
+
+    # project/lizard/lookdev/.hdr file
+    sequence_component = utils.mock_entity(
+        ("version", assetversion),
+        ("name", "main"),
+        ("file_type", ".hdr"),
+        ("padding", 4),
+        entity_type="SequenceComponent"
+    )
+    entities.append(sequence_component)
+
+    file_component = utils.mock_entity(
+        ("version", None),
+        ("container", sequence_component),
+        ("file_type", ".hdr"),
+        ("name", "1001"),
+        entity_type="FileComponent"
+    )
+    entities.append(file_component)
+
     # project/Assets/castle/lookdev
     folder = utils.mock_entity(
         ("parent", project),
@@ -806,6 +909,63 @@ def test():
         ("version", None),
         ("container", sequence_component),
         ("file_type", ".dpx"),
+        ("name", "1001"),
+        entity_type="FileComponent"
+    )
+    entities.append(file_component)
+
+    # project/Assets/castle/lookdev/.jpeg file
+    sequence_component = utils.mock_entity(
+        ("version", assetversion),
+        ("name", "main"),
+        ("file_type", ".jpeg"),
+        ("padding", 4),
+        entity_type="SequenceComponent"
+    )
+    entities.append(sequence_component)
+
+    file_component = utils.mock_entity(
+        ("version", None),
+        ("container", sequence_component),
+        ("file_type", ".jpeg"),
+        ("name", "1001"),
+        entity_type="FileComponent"
+    )
+    entities.append(file_component)
+
+    # project/Assets/castle/lookdev/.jpg file
+    sequence_component = utils.mock_entity(
+        ("version", assetversion),
+        ("name", "main"),
+        ("file_type", ".jpg"),
+        ("padding", 4),
+        entity_type="SequenceComponent"
+    )
+    entities.append(sequence_component)
+
+    file_component = utils.mock_entity(
+        ("version", None),
+        ("container", sequence_component),
+        ("file_type", ".jpg"),
+        ("name", "1001"),
+        entity_type="FileComponent"
+    )
+    entities.append(file_component)
+
+    # project/Assets/castle/lookdev/.hdr file
+    sequence_component = utils.mock_entity(
+        ("version", assetversion),
+        ("name", "main"),
+        ("file_type", ".hdr"),
+        ("padding", 4),
+        entity_type="SequenceComponent"
+    )
+    entities.append(sequence_component)
+
+    file_component = utils.mock_entity(
+        ("version", None),
+        ("container", sequence_component),
+        ("file_type", ".hdr"),
         ("name", "1001"),
         entity_type="FileComponent"
     )
@@ -1027,6 +1187,15 @@ def test():
     )
     entities.append(sequence_component)
 
+    file_component = utils.mock_entity(
+        ("version", None),
+        ("container", sequence_component),
+        ("file_type", ".dpx"),
+        ("name", "1001"),
+        entity_type="FileComponent"
+    )
+    entities.append(file_component)
+
     # project/sq001/sh0010/compositing/.jpeg sequence
     sequence_component = utils.mock_entity(
         ("version", assetversion),
@@ -1036,6 +1205,15 @@ def test():
     )
     entities.append(sequence_component)
 
+    file_component = utils.mock_entity(
+        ("version", None),
+        ("container", sequence_component),
+        ("file_type", ".jpeg"),
+        ("name", "1001"),
+        entity_type="FileComponent"
+    )
+    entities.append(file_component)
+
     # project/sq001/sh0010/compositing/.hdr sequence
     sequence_component = utils.mock_entity(
         ("version", assetversion),
@@ -1044,6 +1222,15 @@ def test():
         entity_type="SequenceComponent"
     )
     entities.append(sequence_component)
+
+    file_component = utils.mock_entity(
+        ("version", None),
+        ("container", sequence_component),
+        ("file_type", ".hdr"),
+        ("name", "1001"),
+        entity_type="FileComponent"
+    )
+    entities.append(file_component)
 
     # project/sq001/sh0020
     shot = utils.mock_entity(
