@@ -73,11 +73,11 @@ class TGBFtrackExtractOverwriteNukeStudio(pyblish.api.InstancePlugin):
 
 
 class TGBFtrackExtract(pyblish.api.InstancePlugin):
-    """Enable overwriting image sequence components."""
+    """Detailed component data."""
 
     order = pyblish.api.ExtractorOrder
     label = "TGBVFX Detail Components"
-    families = ["img", "gizmo", "lut", "backdrop", "cache"]
+    families = ["img", "gizmo", "lut", "backdrop", "cache", "mov"]
     hosts = ["nuke", "ftrack"]
 
     def process(self, instance):
@@ -93,6 +93,13 @@ class TGBFtrackExtract(pyblish.api.InstancePlugin):
             instance.data["pattern"] = "{head}{padding}{tail} " + ranges
 
         if "img" in families:
+            data = instance.data.get("assetversion_data", {})
+            metadata = data.get("metadata", {})
+            metadata.update({"instance_name": instance.data["name"]})
+            data["metadata"] = metadata
+            instance.data["assetversion_data"] = data
+
+        if "mov" in families:
             data = instance.data.get("assetversion_data", {})
             metadata = data.get("metadata", {})
             metadata.update({"instance_name": instance.data["name"]})
