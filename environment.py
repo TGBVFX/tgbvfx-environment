@@ -87,6 +87,9 @@ environment["NUKE_PATH"] = [
     ),
 ]
 
+# PYBLISH_HOTKEY
+environment["PYBLISH_HOTKEY"] = ["Ctrl+Alt+P"]
+
 # REVIEW_PRESETS
 environment["REVIEW_PRESETS"] = [
     os.path.join(root, "environment", "REVIEW_PRESETS"),
