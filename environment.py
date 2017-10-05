@@ -30,26 +30,6 @@ environment["LUCIDITY_TEMPLATE_PATH"] = [
     os.path.join(root, "environment", "LUCIDITY_TEMPLATE_PATH"),
 ]
 
-# MAYA_MODULE_PATH
-environment["MAYA_MODULE_PATH"] = [
-    os.path.join(
-        os.environ["CONDA_GIT_REPOSITORY"],
-        "tgbvfx-pipeline",
-        "pipeline",
-        "maya",
-        "modules",
-        "assetSystem"
-    ),
-    os.path.join(
-        os.environ["CONDA_GIT_REPOSITORY"],
-        "tgbvfx-pipeline",
-        "pipeline",
-        "maya",
-        "modules",
-        "sceneGraph"
-    ),
-]
-
 # XBMLANGPATH
 environment["XBMLANGPATH"] = [
     os.path.join(

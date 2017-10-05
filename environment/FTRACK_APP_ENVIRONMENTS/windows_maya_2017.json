@@ -1,6 +1,8 @@
 {
     "MAYA_MODULE_PATH": [
         "//10.11.0.184/_tgbvfx/_bin/maya/yeti/2.2.1_2017",
-        "//10.11.0.184/_tgbvfx/_bin/maya/vray/3.6001_2017"
+        "//10.11.0.184/_tgbvfx/_bin/maya/vray/3.6001_2017",
+        "//10.11.0.184/_tgbvfx/_bin/maya/sceneGraph/1.0.2_2017",
+        "//10.11.0.184/_tgbvfx/_bin/maya/assetSystem/1.0.0_2017"
     ]
 }
