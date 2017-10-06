@@ -77,7 +77,7 @@ def get_test_paths():
         "outputScenes",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/renders",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/scenes",
-        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/compositing/maya/scenes/"
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/scenes/"
         "pipeline_test_sq001_sh0010_compositing_v001.mb",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/source",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/temp",
