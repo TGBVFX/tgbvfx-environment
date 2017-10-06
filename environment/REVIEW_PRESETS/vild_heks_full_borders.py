@@ -11,7 +11,7 @@ args = [
     "ffmpeg", "-y",
     "-i", src,
     "-vf", "drawbox=c=black:t=148:x=-t:w=iw+(t*2)",
-    "-crf", "0",
+    "-crf", "18",
     dst
 ]
 
