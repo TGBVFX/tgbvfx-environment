@@ -600,8 +600,9 @@ def register():
         Template(
             "Project/Sequence/Shot/Asset/AssetVersion/FileComponent/.mb",
             "{version.task.project.disk." + system_name + "}/"
-            "{version.task.project.root}/tgbvfx/vfx/{version.task.name}/maya/"
-            "scenes/{version.task.project.name}_"
+            "{version.task.project.root}/tgbvfx/vfx/"
+            "{version.asset.parent.parent.name}/{version.asset.parent.name}/"
+            "maya/scenes/{version.task.project.name}_"
             "{version.asset.parent.parent.name}_{version.asset.parent.name}_"
             "{version.task.name}_v{version.version}{file_type}"
         ),
