@@ -14,7 +14,7 @@ dependencies:
   - psutil
 - git:
   - https://github.com/Psyop/Cryptomatte.git
-  - https://github.com/tokejepsen/filelink.git@01c782e4ce8043914cc09908392747954f5284b1
+  - https://github.com/tokejepsen/filelink.git
   - https://bitbucket.org/thegentlemenbroncos/tgbvfx-pipeline.git@bbd35be7dcb286e7471e543c1e36f05f14faea96
   - https://github.com/pyblish/pyblish-base.git@477f540981433867aa219cc46cd0fa5890ecf17c
   - https://github.com/pyblish/pyblish-qml.git@2a91bae3785b22a826d3826264eac375f186ed35
