@@ -76,6 +76,7 @@ def modify_application_launch(event):
     )
 
     environment["PYBLISHPLUGINPATH"] = [
+        environment_plugins_dir,
         os.path.join(environment_plugins_dir, "ftrack"),
         os.path.join(environment_plugins_dir, "royalrender"),
         os.path.join(environment_plugins_dir, app_id),
