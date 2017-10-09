@@ -9,6 +9,11 @@ def modify_launch(event):
     task = session.get(
         "Task", event["data"]["context"]["selection"][0]["entityId"]
     )
+
+    # Only operate on "Not Started" and "Pending Changes"
+    if task["status"]["name"] not in ["Not Started", "Pending Changes"]:
+        return
+
     status = session.query("Status where name is \"In Progress\"").one()
     task["status"] = status
     session.commit()
