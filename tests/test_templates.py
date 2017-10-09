@@ -285,93 +285,93 @@ def get_test_paths():
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0010/"
         "sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.1001.hdr",
 
-        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/Character/lizard/"
-        "houdini/pipeline_test_Character_lizard_lookdev_v001.hip",
-        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/Character/lizard/maya/"
-        "scenes/pipeline_test_Character_lizard_lookdev_v001.mb",
-        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/Character/lizard/nuke/"
-        "scripts/pipeline_test_Character_lizard_lookdev_v001.nk",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/"
+        "houdini/pipeline_test_lizard_lookdev_v001.hip",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
+        "scenes/pipeline_test_lizard_lookdev_v001.mb",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/nuke/"
+        "scripts/pipeline_test_lizard_lookdev_v001.nk",
 
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/nuke_gizmo/"
-        "Character_lizard/lookdev/Group1/Group1_v001.gizmo",
+        "lizard/lookdev/Group1/Group1_v001.gizmo",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/scene/"
         "pipeline_test_lizard/lookdev/"
         "pipeline_test_lizard_lookdev_BackdropNode1_main_v001.nk",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/cache/"
-        "Character_lizard/lookdev/WriteGeo1/WriteGeo1_v001.abc",
+        "lizard/lookdev/WriteGeo1/WriteGeo1_v001.abc",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
-        "Character_lizard/lookdev/Write1_v001/"
+        "lizard/lookdev/Write1_v001/"
         "Write1_v001.%04d.exr",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
-        "Character_lizard/lookdev/Write1_v001/"
+        "lizard/lookdev/Write1_v001/"
         "Write1_v001.1001.exr",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
-        "Character_lizard/lookdev/Write1_v001/"
+        "lizard/lookdev/Write1_v001/"
         "Write1_v001.%04d.dpx",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
-        "Character_lizard/lookdev/Write1_v001/"
+        "lizard/lookdev/Write1_v001/"
         "Write1_v001.1001.dpx",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
-        "Character_lizard/lookdev/Write1_v001/"
+        "lizard/lookdev/Write1_v001/"
         "Write1_v001.%04d.jpeg",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
-        "Character_lizard/lookdev/Write1_v001/"
+        "lizard/lookdev/Write1_v001/"
         "Write1_v001.1001.jpeg",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
-        "Character_lizard/lookdev/Write1_v001/"
+        "lizard/lookdev/Write1_v001/"
         "Write1_v001.%04d.jpg",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
-        "Character_lizard/lookdev/Write1_v001/"
+        "lizard/lookdev/Write1_v001/"
         "Write1_v001.1001.jpg",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
-        "Character_lizard/lookdev/Write1_v001/"
+        "lizard/lookdev/Write1_v001/"
         "Write1_v001.%04d.hdr",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
-        "Character_lizard/lookdev/Write1_v001/"
+        "lizard/lookdev/Write1_v001/"
         "Write1_v001.1001.hdr",
 
-        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/Environment/castle/"
-        "houdini/pipeline_test_Environment_castle_lookdev_v001.hip",
-        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/Environment/castle/maya/"
-        "scenes/pipeline_test_Environment_castle_lookdev_v001.mb",
-        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/Environment/castle/nuke/"
-        "scripts/pipeline_test_Environment_castle_lookdev_v001.nk",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/"
+        "houdini/pipeline_test_castle_lookdev_v001.hip",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
+        "scenes/pipeline_test_castle_lookdev_v001.mb",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/nuke/"
+        "scripts/pipeline_test_castle_lookdev_v001.nk",
 
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/nuke_gizmo/"
-        "Environment_castle/lookdev/Group1/Group1_v001.gizmo",
+        "castle/lookdev/Group1/Group1_v001.gizmo",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/scene/Assets_castle/"
         "lookdev/Assets_castle_lookdev_BackdropNode1_main_v001.nk",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/cache/"
-        "Environment_castle/lookdev/WriteGeo1/WriteGeo1_v001.abc",
+        "castle/lookdev/WriteGeo1/WriteGeo1_v001.abc",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
-        "Environment_castle/lookdev/Write1_v001/"
+        "castle/lookdev/Write1_v001/"
         "Write1_v001.%04d.exr",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
-        "Environment_castle/lookdev/Write1_v001/"
+        "castle/lookdev/Write1_v001/"
         "Write1_v001.1001.exr",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
-        "Environment_castle/lookdev/Write1_v001/"
+        "castle/lookdev/Write1_v001/"
         "Write1_v001.%04d.dpx",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
-        "Environment_castle/lookdev/Write1_v001/"
+        "castle/lookdev/Write1_v001/"
         "Write1_v001.1001.dpx",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
-        "Environment_castle/lookdev/Write1_v001/"
+        "castle/lookdev/Write1_v001/"
         "Write1_v001.%04d.jpeg",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
-        "Environment_castle/lookdev/Write1_v001/"
+        "castle/lookdev/Write1_v001/"
         "Write1_v001.1001.jpeg",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
-        "Environment_castle/lookdev/Write1_v001/"
+        "castle/lookdev/Write1_v001/"
         "Write1_v001.%04d.jpg",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
-        "Environment_castle/lookdev/Write1_v001/"
+        "castle/lookdev/Write1_v001/"
         "Write1_v001.1001.jpg",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
-        "Environment_castle/lookdev/Write1_v001/"
+        "castle/lookdev/Write1_v001/"
         "Write1_v001.%04d.hdr",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
-        "Environment_castle/lookdev/Write1_v001/"
+        "castle/lookdev/Write1_v001/"
         "Write1_v001.1001.hdr",
     ]
 
