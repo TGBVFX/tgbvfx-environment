@@ -58,6 +58,8 @@ def get_test_paths():
         "pipeline_test_editing_v001.mb",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0020",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/3dsmax",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/mari",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/houdini",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/houdini/"
         "pipeline_test_sq001_sh0010_compositing_v001.hip",
@@ -81,7 +83,7 @@ def get_test_paths():
         "pipeline_test_sq001_sh0010_compositing_v001.mb",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/source",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/temp",
-        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/texures",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/textures",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/caches/"
         "arnold",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/"
@@ -105,6 +107,8 @@ def get_test_paths():
         "workspace",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0020/houdini",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0020/maya",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0020/3dsmax",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0020/mari",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0020/nuke",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0020/_plates",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0020/_references",
@@ -122,7 +126,7 @@ def get_test_paths():
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0020/maya/scenes",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0020/maya/source",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0020/maya/temp",
-        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0020/maya/texures",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0020/maya/textures",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0020/maya/caches/"
         "arnold",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0020/maya/"
@@ -145,6 +149,8 @@ def get_test_paths():
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0020/nuke/scripts/"
         "workspace",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq002/sh0010",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq002/sh0010/3dsmax",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq002/sh0010/mari",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq002/sh0010/houdini",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq002/sh0010/maya",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq002/sh0010/nuke",
@@ -164,7 +170,7 @@ def get_test_paths():
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq002/sh0010/maya/scenes",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq002/sh0010/maya/source",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq002/sh0010/maya/temp",
-        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq002/sh0010/maya/texures",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq002/sh0010/maya/textures",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq002/sh0010/maya/caches/"
         "arnold",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq002/sh0010/maya/"
@@ -285,6 +291,59 @@ def get_test_paths():
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0010/"
         "sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.1001.hdr",
 
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/3dsmax",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/mari",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/"
+        "_references",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/_plates",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/houdini",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/houdini/geo",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/houdini/render",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/houdini/temp",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/houdini/_in",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/houdini/_out",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
+        "workspace.mel",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
+        "caches",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
+        "outputScenes",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
+        "renders",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
+        "scenes",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
+        "source",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
+        "temp",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
+        "textures",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
+        "caches/arnold",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
+        "outputScenes/cacheScenes",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
+        "outputScenes/dynamicScenes",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
+        "outputScenes/renderScenes",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/nuke",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/nuke/"
+        "renders",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/nuke/"
+        "renderScripts",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/nuke/"
+        "scripts",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/nuke/"
+        "scripts/workspace",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/nuke/"
+        "temp",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/nuke/"
+        "renders/comp",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/nuke/"
+        "renders/slapcomp",
+
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/"
         "houdini/pipeline_test_lizard_lookdev_v001.hip",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
@@ -329,6 +388,65 @@ def get_test_paths():
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
         "lizard/lookdev/Write1_v001/"
         "Write1_v001.1001.hdr",
+
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/3dsmax",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/mari",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/"
+        "_references",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/"
+        "_plates",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/houdini",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/houdini/"
+        "geo",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/houdini/"
+        "render",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/houdini/"
+        "temp",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/houdini/"
+        "_in",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/houdini/"
+        "_out",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/maya",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
+        "workspace.mel",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
+        "caches",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
+        "outputScenes",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
+        "renders",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
+        "scenes",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
+        "source",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
+        "temp",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
+        "textures",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
+        "caches/arnold",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
+        "outputScenes/cacheScenes",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
+        "outputScenes/dynamicScenes",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
+        "outputScenes/renderScenes",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/nuke",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/nuke/"
+        "renders",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/nuke/"
+        "renderScripts",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/nuke/"
+        "scripts",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/nuke/"
+        "scripts/workspace",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/nuke/"
+        "temp",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/nuke/"
+        "renders/comp",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/nuke/"
+        "renders/slapcomp",
 
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/"
         "houdini/pipeline_test_castle_lookdev_v001.hip",
@@ -498,6 +616,8 @@ def test():
         ("type", assetbuildtype),
         entity_type="AssetBuild"
     )
+    entities.append(assetbuild)
+
     task = utils.mock_entity(
         ("parent", assetbuild),
         ("project", project),
@@ -743,6 +863,8 @@ def test():
         ("type", assetbuildtype),
         entity_type="AssetBuild"
     )
+    entities.append(assetbuild)
+
     task = utils.mock_entity(
         ("parent", assetbuild),
         ("project", project),
