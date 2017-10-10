@@ -277,52 +277,109 @@ def register():
         ),
     ])
 
-    # Project/Sequence/Shot level templates
+    # Work directories
+    directories = [
+        "{0}",
+        "{0}/_plates",
+        "{0}/_references",
+        "{0}/3dsmax",
+        "{0}/mari",
+        "{0}/houdini",
+        "{0}/houdini/_in",
+        "{0}/houdini/_out",
+        "{0}/houdini/geo",
+        "{0}/houdini/render",
+        "{0}/houdini/temp",
+        "{0}/maya",
+        "{0}/maya/caches",
+        "{0}/maya/caches/arnold",
+        "{0}/maya/outputScenes",
+        "{0}/maya/outputScenes/cacheScenes",
+        "{0}/maya/outputScenes/dynamicScenes",
+        "{0}/maya/outputScenes/renderScenes",
+        "{0}/maya/renders",
+        "{0}/maya/scenes",
+        "{0}/maya/source",
+        "{0}/maya/temp",
+        "{0}/maya/textures",
+        "{0}/nuke",
+        "{0}/nuke/renders",
+        "{0}/nuke/renders/comp",
+        "{0}/nuke/renders/slapcomp",
+        "{0}/nuke/renderScripts",
+        "{0}/nuke/scripts",
+        "{0}/nuke/scripts/workspace",
+        "{0}/nuke/temp",
+    ]
+
+    # Project/Sequence/Shot directories
     mount = (
-        "{project.disk." + system_name + "}/{project.root}/"
-        "tgbvfx/vfx/{parent.name}/{name}"
+        "{project.disk." + system_name + "}/"
+        "{project.root}/"
+        "tgbvfx/"
+        "vfx/"
+        "{parent.name}/"
+        "{name}"
     )
-    templates.extend([
-        Template("Project/Sequence/Shot", mount),
-        Template("Project/Sequence/Shot", mount + "/_plates"),
-        Template("Project/Sequence/Shot", mount + "/_references"),
-        Template("Project/Sequence/Shot", mount + "/houdini"),
-        Template("Project/Sequence/Shot", mount + "/houdini/_in"),
-        Template("Project/Sequence/Shot", mount + "/houdini/_out"),
-        Template("Project/Sequence/Shot", mount + "/houdini/geo"),
-        Template("Project/Sequence/Shot", mount + "/houdini/render"),
-        Template("Project/Sequence/Shot", mount + "/houdini/temp"),
-        Template("Project/Sequence/Shot", mount + "/maya"),
-        Template("Project/Sequence/Shot", mount + "/maya/caches"),
-        Template("Project/Sequence/Shot", mount + "/maya/caches/arnold"),
-        Template("Project/Sequence/Shot", mount + "/maya/outputScenes"),
-        Template(
-            "Project/Sequence/Shot", mount + "/maya/outputScenes/cacheScenes"
-        ),
-        Template(
-            "Project/Sequence/Shot", mount + "/maya/outputScenes/dynamicScenes"
-        ),
-        Template(
-            "Project/Sequence/Shot", mount + "/maya/outputScenes/renderScenes"
-        ),
-        Template("Project/Sequence/Shot", mount + "/maya/renders"),
-        Template("Project/Sequence/Shot", mount + "/maya/scenes"),
-        Template("Project/Sequence/Shot", mount + "/maya/source"),
-        Template("Project/Sequence/Shot", mount + "/maya/temp"),
-        Template("Project/Sequence/Shot", mount + "/maya/texures"),
-        Template("Project/Sequence/Shot", mount + "/nuke"),
-        Template("Project/Sequence/Shot", mount + "/nuke/renders"),
-        Template("Project/Sequence/Shot", mount + "/nuke/renders/comp"),
-        Template("Project/Sequence/Shot", mount + "/nuke/renders/slapcomp"),
-        Template("Project/Sequence/Shot", mount + "/nuke/renderScripts"),
-        Template("Project/Sequence/Shot", mount + "/nuke/scripts"),
-        Template("Project/Sequence/Shot", mount + "/nuke/scripts/workspace"),
-        Template("Project/Sequence/Shot", mount + "/nuke/temp"),
-    ])
+    for directory in directories:
+        templates.append(
+            Template("Project/Sequence/Shot", directory.format(mount))
+        )
+
+    # Project/AssetBuild and Project/Folder/AssetBuild
+    mount = (
+        "{project.disk." + system_name + "}/"
+        "{project.root}/"
+        "tgbvfx/"
+        "vfx/"
+        "_dev/"
+        "{name}"
+    )
+    for directory in directories:
+        templates.append(
+            Template("Project/AssetBuild", directory.format(mount))
+        )
+        templates.append(
+            Template("Project/Folder/AssetBuild", directory.format(mount))
+        )
 
     # Project/Sequence/Shot level auxiliary files
+    mount = (
+        "{project.disk." + system_name + "}/"
+        "{project.root}/"
+        "tgbvfx/"
+        "vfx/"
+        "{parent.name}/"
+        "{name}"
+    )
     template = Template(
         "Project/Sequence/Shot", mount + "/maya/workspace.mel"
+    )
+    template.source = os.path.join(
+        os.path.dirname(__file__), "workspace.mel"
+    )
+    templates.append(template)
+
+    # Project/AssetBuild and Project/Folder/AssetBuild level auxiliary files
+    mount = (
+        "{project.disk." + system_name + "}/"
+        "{project.root}/"
+        "tgbvfx/"
+        "vfx/"
+        "_dev/"
+        "{name}"
+    )
+
+    template = Template(
+        "Project/AssetBuild", mount + "/maya/workspace.mel"
+    )
+    template.source = os.path.join(
+        os.path.dirname(__file__), "workspace.mel"
+    )
+    templates.append(template)
+
+    template = Template(
+        "Project/Folder/AssetBuild", mount + "/maya/workspace.mel"
     )
     template.source = os.path.join(
         os.path.dirname(__file__), "workspace.mel"
