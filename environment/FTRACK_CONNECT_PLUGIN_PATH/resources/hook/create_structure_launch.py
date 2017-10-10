@@ -1,4 +1,5 @@
 import os
+import shutil
 
 import ftrack_api
 from ftrack_connect.session import get_shared_session
@@ -10,27 +11,37 @@ def modify_launch(event):
 
     session = get_shared_session()
     templates = lucidity.discover_templates()
-    for item in event["data"]["selection"]:
-        entity = session.get(item[0], item[1])
-        for link in entity["link"]:
+    entity = session.get(
+        "Task", event["data"]["context"]["selection"][0]["entityId"]
+    )
+    for link in entity["link"]:
 
-            entity = session.get(link["type"], link["id"])
+        entity = session.get(link["type"], link["id"])
+        valid_templates = templates[0].get_valid_templates(
+            entity, templates
+        )
 
-            for template in templates:
+        for template in valid_templates:
 
-                try:
-                    path = os.path.abspath(
-                        template.ftrack_format(entity)
-                    ).replace("\\", "/")
-                except lucidity.error.FormatError:
+            try:
+                path = os.path.abspath(
+                    template.format(entity)
+                ).replace("\\", "/")
+            except lucidity.error.FormatError:
+                continue
+            else:
+
+                if os.path.exists(path):
                     continue
-                else:
-                    if hasattr(template, "source"):
-                        event["data"]["files"].append((template.source, path))
-                    else:
-                        event["data"]["directories"].append(path)
 
-    return event
+                if hasattr(template, "source"):
+                    print "Copying \"{0}\" to \"{1}\"".format(
+                        template.source, path
+                    )
+                    shutil.copy(template.source, path)
+                else:
+                    print "Creating \"{0}\"".format(path)
+                    os.makedirs(path)
 
 
 def register(session, **kw):
@@ -44,4 +55,5 @@ def register(session, **kw):
         return
 
     # Register the event handler
-    session.event_hub.subscribe('topic=create_structure.launch', modify_launch)
+    subscription = "topic=ftrack.connect.application.launch"
+    session.event_hub.subscribe(subscription, modify_launch)
