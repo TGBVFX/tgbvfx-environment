@@ -14,13 +14,6 @@ environment["PYTHONPATH"] = [
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "pyblish-bumpybox"),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "pyblish-nukestudio"),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "ftrack-hooks"),
-    os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "tgbvfx-pipeline"),
-    os.path.join(
-        os.environ["CONDA_GIT_REPOSITORY"],
-        "tgbvfx-pipeline",
-        "pipeline",
-        "maya"
-    ),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "pyblish-royalrender"),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "filelink"),
 ]
@@ -32,13 +25,7 @@ environment["LUCIDITY_TEMPLATE_PATH"] = [
 
 # XBMLANGPATH
 environment["XBMLANGPATH"] = [
-    os.path.join(
-        os.environ["CONDA_GIT_REPOSITORY"],
-        "tgbvfx-pipeline",
-        "pipeline",
-        "maya",
-        "icons"
-    )
+    os.path.join(root, "environment", "XBMLANGPATH")
 ]
 
 # HIERO_PLUGIN_PATH
