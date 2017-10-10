@@ -15,7 +15,7 @@ class Window(QtWidgets.QDialog):
         body = QtWidgets.QVBoxLayout(self)
 
         label = QtWidgets.QLabel(
-            "Pipeline out of data. Please restart your pipeline."
+            "Pipeline out of date. Please restart your pipeline."
         )
         body.addWidget(label)
 
