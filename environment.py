@@ -24,6 +24,11 @@ environment["LUCIDITY_TEMPLATE_PATH"] = [
     os.path.join(root, "environment", "LUCIDITY_TEMPLATE_PATH"),
 ]
 
+# MAYA_SCRIPT_PATH
+environment["MAYA_SCRIPT_PATH"] = [
+    os.path.join(root, "environment", "MAYA_SCRIPT_PATH")
+]
+
 # XBMLANGPATH
 environment["XBMLANGPATH"] = [
     os.path.join(root, "environment", "XBMLANGPATH")

@@ -29,6 +29,15 @@ def create():
         command="import studiolibrary;studiolibrary.main()"
     )
 
+    mayaM.shelfButton(
+        parent=shelf,
+        image='aweControlPicker.png',
+        annotation='aweControlPicker',
+        label='aweControlPicker',
+        command="source \"aweControlPicker.mel\";aweControlPicker;",
+        sourceType="mel"
+    )
+
     mayaM.shelfTabLayout(gShelfTopLevel, edit=True, selectTab=shelfName)
 
     # TGBVFX shelf
