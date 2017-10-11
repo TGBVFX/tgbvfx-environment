@@ -46,8 +46,8 @@ def callback(event):
                 # Description
                 items.append(
                     {
-                        "value": "## Please select which version(s) you want to"
-                        " send for \"Internal Review\".",
+                        "value": "## Please select which version(s) you want "
+                        "to send for \"Internal Review\".",
                         "type": "label"
                     }
                 )
