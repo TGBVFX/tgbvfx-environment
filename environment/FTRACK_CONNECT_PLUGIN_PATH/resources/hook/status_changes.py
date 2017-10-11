@@ -14,6 +14,9 @@ def callback(event):
         if entity_data["action"] != "update":
             continue
 
+        if "keys" not in entity_data:
+            continue
+
         if "statusid" not in entity_data["keys"]:
             continue
 
