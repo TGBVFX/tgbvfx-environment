@@ -14,7 +14,6 @@ dependencies:
   - psutil
 - git:
   - https://github.com/Psyop/Cryptomatte.git@c5954c1bc99d253df817ba70bcb701a106dfefaf
-  - https://bitbucket.org/thegentlemenbroncos/tgbvfx-pipeline.git@bbd35be7dcb286e7471e543c1e36f05f14faea96
   - https://github.com/tokejepsen/filelink.git@01c782e4ce8043914cc09908392747954f5284b1
   - https://github.com/pyblish/pyblish-base.git@477f540981433867aa219cc46cd0fa5890ecf17c
   - https://github.com/pyblish/pyblish-qml.git@2a91bae3785b22a826d3826264eac375f186ed35
@@ -22,7 +21,7 @@ dependencies:
   - https://github.com/pyblish/pyblish-ftrack.git@ff2a1f273920f2e94588fd5f93da38b6f221d8c6
   - https://github.com/pyblish/pyblish-nuke.git@0007b00a3e209010045e77f3b6bbbc9e38cb8ca0
   - https://github.com/pyblish/pyblish-royalrender.git@d7c83ee8c49295f9a514cd3917f7323bd54b18ea
-  - https://github.com/bumpybox/pyblish-bumpybox.git@ff8142cb3ad35b1da208c513a10c0d35e2dd2912
+  - https://github.com/bumpybox/pyblish-bumpybox.git@53f34c5e5bd3237b200f9d88e30d2556ce43563b
   - https://bitbucket.org/ftrack/ftrack-python-legacy-api.git@97cb35a6ae98958f95e61a7925701d9e8eea375d
   - https://bitbucket.org/ftrack/ftrack-connect.git@f2d816b4f2910dd6713f18ecb1c79a83ae50c778
   - https://bitbucket.org/ftrack/ftrack-connect-maya.git@23c7ffa6ee97e8032180246a585428d09c474ea3
