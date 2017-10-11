@@ -10,7 +10,8 @@ dependencies:
   - pyperclip
   - arrow
   - riffle
-  - git+https://github.com/pyqt/python-qt5.git#python-qt5
+  - https://github.com/pyqt/python-qt5/archive/0.3.0.zip
+  - https://bitbucket.org/ftrack/qtext/get/0.2.0.zip
   - psutil
 - git:
   - https://github.com/Psyop/Cryptomatte.git@c5954c1bc99d253df817ba70bcb701a106dfefaf
@@ -21,10 +22,10 @@ dependencies:
   - https://github.com/pyblish/pyblish-ftrack.git@ff2a1f273920f2e94588fd5f93da38b6f221d8c6
   - https://github.com/pyblish/pyblish-nuke.git@0007b00a3e209010045e77f3b6bbbc9e38cb8ca0
   - https://github.com/pyblish/pyblish-royalrender.git@d7c83ee8c49295f9a514cd3917f7323bd54b18ea
-  - https://github.com/bumpybox/pyblish-bumpybox.git@53f34c5e5bd3237b200f9d88e30d2556ce43563b
+  - https://github.com/bumpybox/pyblish-bumpybox.git@93084afb9f7fe84cb8a98b610e812bbde95b32aa
   - https://bitbucket.org/ftrack/ftrack-python-legacy-api.git@97cb35a6ae98958f95e61a7925701d9e8eea375d
   - https://bitbucket.org/ftrack/ftrack-connect.git@f2d816b4f2910dd6713f18ecb1c79a83ae50c778
-  - https://bitbucket.org/ftrack/ftrack-connect-maya.git@23c7ffa6ee97e8032180246a585428d09c474ea3
+  - https://bitbucket.org/ftrack/ftrack-connect-maya.git@b8be453b91765347a6e1c49ee79827c71b65bb18
   - https://bitbucket.org/ftrack/ftrack-connect-nuke.git@d1b8a32bfddf71541b8ccd954198b7adda674792
   - https://bitbucket.org/ftrack/ftrack-connect-foundry.git@7cf86f01faf983c6f094dd86cda8ecdd7417cf3e
   - https://bitbucket.org/ftrack/ftrack-connect-rv.git@a1810c5309312c3aa4aa7855beeda44ee798c279
