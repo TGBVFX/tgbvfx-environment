@@ -23,9 +23,6 @@ def create():
         image='studiolibrary_logo.png',
         label='Studio Library',
         annotation='Studio Library',
-        imageOverlayLabel='Studio Library',
-        overlayLabelColor=[1, 1, 1],
-        overlayLabelBackColor=[0, 0, 0, 1],
         command="import studiolibrary;studiolibrary.main()"
     )
 
@@ -36,6 +33,23 @@ def create():
         label='aweControlPicker',
         command="source \"aweControlPicker.mel\";aweControlPicker;",
         sourceType="mel"
+    )
+
+    mayaM.shelfButton(
+        parent=shelf,
+        image='tweenMachine.png',
+        annotation='tweenMachine',
+        label='tweenMachine',
+        command="source \"tweenMachine.mel\";tweenMachine;",
+        sourceType="mel"
+    )
+
+    mayaM.shelfButton(
+        parent=shelf,
+        image='pm_attach.xpm',
+        annotation='ZV Parent Master',
+        label='ZV Parent Master',
+        command="import ZvParentMaster;ZvParentMaster.ZvParentMaster()",
     )
 
     mayaM.shelfTabLayout(gShelfTopLevel, edit=True, selectTab=shelfName)
