@@ -128,6 +128,9 @@ def callback(event):
 
 def action_launch(event):
 
+    if "values" not in event["data"]:
+        return
+
     session = get_shared_session()
     status = session.query("Status where name is \"Internal Review\"").one()
     for key, value in event["data"]["values"].iteritems():
