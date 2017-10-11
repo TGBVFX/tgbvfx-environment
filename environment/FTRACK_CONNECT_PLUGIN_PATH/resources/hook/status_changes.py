@@ -43,6 +43,22 @@ def callback(event):
             if new_status["name"] == "Internal Review":
                 items = []
 
+                # Description
+                items.append(
+                    {
+                        "value": "## Please select which version(s) you want to"
+                        " send for \"Internal Review\".",
+                        "type": "label"
+                    }
+                )
+                items.append(
+                    {
+                        "value": "## The current selection are version(s) that"
+                        " are in \"In Progress\".",
+                        "type": "label"
+                    }
+                )
+
                 assetversions = session.query(
                     "select asset.name, version, id from AssetVersion where "
                     "task.id is \"{0}\" and status.name is "
