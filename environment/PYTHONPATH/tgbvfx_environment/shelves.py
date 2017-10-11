@@ -2,11 +2,36 @@ import maya.cmds as mayaM
 import maya.mel as melM
 
 
-def createShelves():
-    tgbvfx()
+def create():
 
+    # TGBVFX_ANIMATION shelf
+    shelfName = 'TGBVFX_ANIMATION'
+    if mayaM.shelfLayout(shelfName, exists=True):
+        mayaM.deleteUI(shelfName)
 
-def tgbvfx():
+    melM.eval('global string $gShelfTopLevel')
+    gShelfTopLevel = melM.eval('$temp = $gShelfTopLevel')
+    if gShelfTopLevel:
+        shelf = mayaM.shelfLayout(
+            shelfName, parent=gShelfTopLevel, style='iconOnly'
+        )
+    else:
+        shelf = mayaM.shelfLayout(shelfName, style='iconOnly')
+
+    mayaM.shelfButton(
+        parent=shelf,
+        image='studiolibrary_logo.png',
+        label='Studio Library',
+        annotation='Studio Library',
+        imageOverlayLabel='Studio Library',
+        overlayLabelColor=[1, 1, 1],
+        overlayLabelBackColor=[0, 0, 0, 1],
+        command="import studiolibrary;studiolibrary.main()"
+    )
+
+    mayaM.shelfTabLayout(gShelfTopLevel, edit=True, selectTab=shelfName)
+
+    # TGBVFX shelf
     shelfName = 'TGBVFX'
     if mayaM.shelfLayout(shelfName, exists=True):
         mayaM.deleteUI(shelfName)
@@ -25,8 +50,8 @@ def tgbvfx():
         image='reloadShelf.png',
         label='Reload Shelf',
         annotation='Reload Shelf',
-        command='mayaUtilsM.executeDeferred("import pipeline.maya'
-        '.scripts.shelf as shelfM;reload(shelfM);shelfM.tgbvfx()")'
+        command='mayaUtilsM.executeDeferred("import tgbvfx_environment.shelves'
+        ' as shelves;reload(shelves);shelves.create()")'
     )
 
     mayaM.shelfButton(
