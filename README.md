@@ -1,5 +1,7 @@
 # tgbvfx-environment
 
+
+
 To get started with the pipeline, execute ```\\10.11.0.184\171000_TGB_Library\pipeline\startup.bat```. This will install the pipeline on your machine. The initial installation may take a little while.
 
 Once the installation is finished, you should be presented with the Ftrack-connect application.
