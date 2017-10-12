@@ -2,6 +2,7 @@ import os
 import re
 import logging
 import subprocess
+import shutil
 
 import ftrack
 import ftrack_api
@@ -186,6 +187,25 @@ def get_task_data(event):
                 work_file
             ])
 
+    # Get latest version from Ftrack publishes
+    versions = session.query(
+        "select version from AssetVersion where task.id is \"{0}\" and "
+        "asset.type.short is \"scene\"".format(task["id"])
+    )
+
+    latest_version = 1
+    for v in versions:
+        if latest_version < int(v["version"]):
+            latest_version = int(v["version"])
+
+    # Create latest version from work file if they are different versions
+    latest_file = utils.get_work_file(session, task, app_id, latest_version)
+
+    if not os.path.exists(latest_file):
+        shutil.copy(work_file, latest_file)
+        work_file = latest_file
+
+    # Ask user what to open
     output = subprocess.check_output([
         "python",
         os.path.abspath(
@@ -196,6 +216,8 @@ def get_task_data(event):
         work_file
     ])
     output_file = output.replace("\\", "/").splitlines()[0]
+
+    # Only add the work file to the command if the user didn't cancel
     if os.path.exists(output_file):
         data["command"].append(output_file)
     else:
