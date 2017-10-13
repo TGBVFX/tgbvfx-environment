@@ -20,7 +20,7 @@ def create():
 
     mayaM.shelfButton(
         parent=shelf,
-        image='studiolibrary_logo.png',
+        image='studio_library.png',
         label='Studio Library',
         annotation='Studio Library',
         command="import studiolibrary;studiolibrary.main()"
@@ -37,7 +37,7 @@ def create():
 
     mayaM.shelfButton(
         parent=shelf,
-        image='tweenMachine.png',
+        image='tween_machine.png',
         annotation='tweenMachine',
         label='tweenMachine',
         command="source \"tweenMachine.mel\";tweenMachine;",
@@ -46,7 +46,7 @@ def create():
 
     mayaM.shelfButton(
         parent=shelf,
-        image='pm_attach.xpm',
+        image='zv_parent_master.png',
         annotation='ZV Parent Master',
         label='ZV Parent Master',
         command="import ZvParentMaster;ZvParentMaster.ZvParentMaster()",
