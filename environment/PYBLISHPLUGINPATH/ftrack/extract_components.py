@@ -78,7 +78,7 @@ class TGBFtrackExtract(pyblish.api.InstancePlugin):
     order = pyblish.api.ExtractorOrder
     label = "TGBVFX Detail Components"
     families = ["img", "gizmo", "lut", "backdrop", "cache", "mov"]
-    hosts = ["nuke", "ftrack"]
+    hosts = ["maya", "nuke", "ftrack"]
 
     def process(self, instance):
         instance.data["component_overwrite"] = True

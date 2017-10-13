@@ -12,11 +12,20 @@ environment = {}
 environment["PYTHONPATH"] = [
     os.path.join(root, "environment", "PYTHONPATH"),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"]),  # studiolibrary
+    os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "pyblish-maya"),
+    os.path.join(
+        os.environ["CONDA_GIT_REPOSITORY"],
+        "pyblish-maya",
+        "pyblish_maya",
+        "pythonpath"
+    ),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "pyblish-bumpybox"),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "pyblish-nukestudio"),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "ftrack-hooks"),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "pyblish-royalrender"),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "filelink"),
+    os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "maya-capture"),
+
 ]
 
 # LUCIDITY_TEMPLATE_PATH

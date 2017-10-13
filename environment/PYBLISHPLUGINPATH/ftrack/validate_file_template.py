@@ -7,7 +7,6 @@ class TGBFtrackValidateFileTemplate(pyblish.api.InstancePlugin):
     order = pyblish.api.ValidatorOrder
     label = "File Template"
     optional = True
-    families = ["output"]
 
     def process(self, instance):
         import os

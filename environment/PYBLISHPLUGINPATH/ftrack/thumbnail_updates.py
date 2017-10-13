@@ -6,7 +6,7 @@ class TGBFtrackUpdateThumbnails(pyblish.api.InstancePlugin):
 
     order = pyblish.api.IntegratorOrder + 1
     label = "Update Task and Shot thumbnail."
-    families = ["img"]
+    families = ["img", "mov"]
 
     def process(self, instance):
 
