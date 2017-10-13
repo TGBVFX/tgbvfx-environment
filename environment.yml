@@ -10,9 +10,8 @@ dependencies:
   - pyperclip
   - arrow
   - riffle
-  - https://github.com/pyqt/python-qt5/archive/0.3.0.zip
-  - https://bitbucket.org/ftrack/qtext/get/0.2.0.zip
   - psutil
+  - https://bitbucket.org/ftrack/qtext/get/0.2.0.zip
 - git:
   - https://github.com/krathjen/studiolibrary.git@1160218ef92e963e015c629a6bbbde8e30d4a459
   - https://github.com/Psyop/Cryptomatte.git@c5954c1bc99d253df817ba70bcb701a106dfefaf
