@@ -1,4 +1,7 @@
 import os
+import requests
+import subprocess
+import sys
 
 import psutil
 
@@ -7,6 +10,42 @@ from conda_git_deployment import utils
 
 root = os.path.dirname(__file__)
 environment = {}
+
+
+def download_file(url, path):
+    r = requests.get(url, stream=True)
+    with open(path, 'wb') as f:
+        for chunk in r.iter_content(chunk_size=1024):
+            if chunk:
+                f.write(chunk)
+    if os.path.exists(path):
+        return True
+    else:
+        return False
+
+
+def install_from_url(url, name):
+
+    zip_path = os.path.join(root, "zips")
+
+    if not os.path.exists(zip_path):
+        os.makedirs(zip_path)
+
+    path = os.path.join(root, "zips", name + ".zip")
+
+    if not os.path.exists(path):
+        download_file(url, path)
+
+    subprocess.call(["pip", "install", path])
+
+
+# Install python-qt5
+try:
+    __import__("PyQt5")
+except ImportError:
+    install_from_url(
+        "https://github.com/pyqt/python-qt5/archive/0.3.0.zip", "python-qt5"
+    )
 
 # PYTHONPATH
 environment["PYTHONPATH"] = [
