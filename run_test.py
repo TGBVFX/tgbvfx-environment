@@ -8,12 +8,16 @@ path = os.path.abspath(
 )
 sys.path.append(path)
 
-path = os.path.join(
-    os.path.dirname(__file__), "environment", "LUCIDITY_TEMPLATE_PATH"
+path = os.path.abspath(
+    os.path.join(
+        os.path.dirname(__file__), "environment", "LUCIDITY_TEMPLATE_PATH"
+    )
 )
 os.environ["LUCIDITY_TEMPLATE_PATH"] = path
 
 subprocess.call(["pip", "install", "pytest"])
 
 import pytest
-pytest.main()
+pytest.main(
+    [os.path.abspath(os.path.join(os.path.dirname(__file__), "tests"))]
+)
