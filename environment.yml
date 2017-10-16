@@ -13,7 +13,7 @@ dependencies:
   - psutil
   - https://bitbucket.org/ftrack/qtext/get/0.2.0.zip
 - git:
-  - https://github.com/krathjen/studiolibrary.git@1160218ef92e963e015c629a6bbbde8e30d4a459
+  - https://github.com/krathjen/studiolibrary.git@d43da5b4129f0ead96daf1df0a9e3e725df50e9c
   - https://github.com/Psyop/Cryptomatte.git@c5954c1bc99d253df817ba70bcb701a106dfefaf
   - https://github.com/tokejepsen/filelink.git@01c782e4ce8043914cc09908392747954f5284b1
   - https://github.com/pyblish/pyblish-base.git@477f540981433867aa219cc46cd0fa5890ecf17c
