@@ -28,18 +28,14 @@ def get_work_file(session, task, application, version):
             extension = key
 
     # Faking an Ftrack component for the location structure.
-    asset = mock_entity(("parent", task["parent"]), entity_type="Asset")
-    assetversion = mock_entity(
+    entity = mock_entity(
+        ("parent", task["parent"]),
+        ("project", task["project"]),
         ("version", version),
-        ("task", task),
-        ("asset", asset),
-        entity_type="AssetVersion"
-    )
-    component = mock_entity(
-        ("version", assetversion),
         ("file_type", extension),
-        entity_type="FileComponent"
+        ("name", task["name"]),
+        entity_type="Task"
     )
 
     location = session.pick_location()
-    return location.structure.get_resource_identifier(component)
+    return location.structure.get_resource_identifier(entity)
