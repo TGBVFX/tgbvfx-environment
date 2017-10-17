@@ -77,7 +77,7 @@ class TGBFtrackExtract(pyblish.api.InstancePlugin):
 
     order = pyblish.api.ExtractorOrder
     label = "TGBVFX Detail Components"
-    families = ["img", "gizmo", "lut", "backdrop", "cache", "mov"]
+    families = ["img", "gizmo", "lut", "scene", "cache", "mov"]
     hosts = ["maya", "nuke", "ftrack"]
 
     def process(self, instance):
@@ -86,41 +86,15 @@ class TGBFtrackExtract(pyblish.api.InstancePlugin):
         families += [instance.data["family"]]
 
         # Only commiting first and last frame to optimize calls to Ftrack.
-        # Need first and last for later importing with ftrack-connect-nuke.
+        # Need first and last for later importing with Ftrack Importer.
         if "collection" in instance.data.keys():
             indexes = instance.data["collection"].indexes
             ranges = "[{0},{1}]".format(min(indexes), max(indexes))
             instance.data["pattern"] = "{head}{padding}{tail} " + ranges
 
-        if "img" in families:
+        if len(list(set(self.families) & set(families))) == 1:
             data = instance.data.get("assetversion_data", {})
             metadata = data.get("metadata", {})
             metadata.update({"instance_name": instance.data["name"]})
-            data["metadata"] = metadata
-            instance.data["assetversion_data"] = data
-
-        if "mov" in families:
-            data = instance.data.get("assetversion_data", {})
-            metadata = data.get("metadata", {})
-            metadata.update({"instance_name": instance.data["name"]})
-            data["metadata"] = metadata
-            instance.data["assetversion_data"] = data
-
-        if "cache" in families:
-            data = instance.data.get("assetversion_data", {})
-            metadata = data.get("metadata", {})
-            metadata.update({"instance_name": instance.data["name"]})
-            data["metadata"] = metadata
-            instance.data["assetversion_data"] = data
-
-        if "backdrop" in families:
-            data = instance.data.get("assetversion_data", {})
-            metadata = data.get("metadata", {})
-            metadata.update(
-                {
-                    "template": "Backdrop",
-                    "instance_name": instance.data["name"]
-                }
-            )
             data["metadata"] = metadata
             instance.data["assetversion_data"] = data
