@@ -184,6 +184,7 @@ def get_test_paths():
         "lizard/lookdev/set1_mayaAscii/set1_mayaAscii_v001.ma",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/mov/lizard/"
         "lookdev/Write1/Write1_v001.mov",
+
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
         "lizard/lookdev/Write1_v001/"
         "Write1_v001.%04d.exr",
@@ -393,6 +394,10 @@ def get_test_paths():
         "compositing/write1/write1_v001.mov",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/cache/sq001/sh0010/"
         "compositing/writegeo1/writegeo1_v001.abc",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/camera/sq001_sh0010/"
+        "standard/0001/camera.abc",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/asset/writegeo1/"
+        "model/sq001_sh0010/0001/model.abc",
 
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0010/"
         "sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.%04d.exr",
@@ -1119,6 +1124,7 @@ def test_project_sq001_sh0010_compositing():
         ("file_type", ".mov"),
         entity_type="FileComponent"
     )
+    assert_entity(component)
     entities.append(component)
 
     # project/sq001/sh0010/compositing/.abc file
@@ -1143,6 +1149,56 @@ def test_project_sq001_sh0010_compositing():
         ("file_type", ".abc"),
         entity_type="FileComponent"
     )
+    assert_entity(component)
+    entities.append(component)
+
+    # project/sq001/sh0010/compositing/.abc camera file
+    assettype = utils.mock_entity(
+        ("short", "camera"),
+        entity_type="Asset"
+    )
+    asset = utils.mock_entity(
+        ("parent", shot),
+        ("type", assettype),
+        entity_type="Asset"
+    )
+    assetversion = utils.mock_entity(
+        ("asset", asset),
+        ("task", task),
+        ("version", 1),
+        entity_type="AssetVersion"
+    )
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("file_type", ".abc"),
+        entity_type="FileComponent"
+    )
+    assert_entity(component)
+    entities.append(component)
+
+    # project/sq001/sh0010/compositing/.abc model file
+    assettype = utils.mock_entity(
+        ("short", "model"),
+        entity_type="Asset"
+    )
+    asset = utils.mock_entity(
+        ("parent", shot),
+        ("type", assettype),
+        entity_type="Asset"
+    )
+    assetversion = utils.mock_entity(
+        ("asset", asset),
+        ("task", task),
+        ("version", 1),
+        ("metadata", {"instance_name": "writegeo1"}),
+        entity_type="AssetVersion"
+    )
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("file_type", ".abc"),
+        entity_type="FileComponent"
+    )
+    assert_entity(component)
     entities.append(component)
 
     # project/sq001/sh0010/compositing/.mb file
