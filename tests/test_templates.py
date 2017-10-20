@@ -186,6 +186,8 @@ def get_test_paths():
         "lizard/lookdev/set1_mayaAscii/set1_mayaAscii_v001.ma",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/mov/lizard/"
         "lookdev/Write1/Write1_v001.mov",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/lizard/"
+        "lookdev/Write1/Write1_v001.psd",
 
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
         "lizard/lookdev/Write1_v001/"
@@ -300,6 +302,8 @@ def get_test_paths():
         "castle/lookdev/set1_mayaAscii/set1_mayaAscii_v001.ma",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/mov/castle/lookdev/"
         "Write1/Write1_v001.mov",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/castle/lookdev/"
+        "Write1/Write1_v001.psd",
 
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
         "castle/lookdev/Write1_v001/"
@@ -396,6 +400,8 @@ def get_test_paths():
         "sh0010/compositing/Group1/Group1_v001.gizmo",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/mov/sq001/sh0010/"
         "compositing/write1/write1_v001.mov",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/sq001/sh0010/"
+        "compositing/write1/write1_v001.psd",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/cache/sq001/sh0010/"
         "compositing/writegeo1/writegeo1_v001.abc",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/cache/sq001/sh0010/"
@@ -738,6 +744,32 @@ def test_project_lizard_lookdev():
     assert_entity(component)
     entities.append(component)
 
+    # project/lizard/lookdev/.psd
+    assettype = utils.mock_entity(
+        ("short", "img"),
+        entity_type="AssetType"
+    )
+    asset = utils.mock_entity(
+        ("parent", assetbuild),
+        ("type", assettype),
+        entity_type="Asset"
+    )
+    assetversion = utils.mock_entity(
+        ("asset", asset),
+        ("task", task),
+        ("version", 1),
+        ("metadata", {"instance_name": "Write1"}),
+        entity_type="AssetVersion"
+    )
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("name", "main"),
+        ("file_type", ".psd"),
+        entity_type="FileComponent"
+    )
+    assert_entity(component)
+    entities.append(component)
+
     # project/lizard/lookdev imagefiles
     for ext in get_imagefile_extensions():
         assettype = utils.mock_entity(
@@ -1008,6 +1040,32 @@ def test_project_assets_castle_lookdev():
     assert_entity(component)
     entities.append(component)
 
+    # project/assets/castle/lookdev/.psd
+    assettype = utils.mock_entity(
+        ("short", "img"),
+        entity_type="AssetType"
+    )
+    asset = utils.mock_entity(
+        ("parent", assetbuild),
+        ("type", assettype),
+        entity_type="Asset"
+    )
+    assetversion = utils.mock_entity(
+        ("asset", asset),
+        ("task", task),
+        ("version", 1),
+        ("metadata", {"instance_name": "Write1"}),
+        entity_type="AssetVersion"
+    )
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("name", "main"),
+        ("file_type", ".psd"),
+        entity_type="FileComponent"
+    )
+    assert_entity(component)
+    entities.append(component)
+
     # project/assets/castle/lookdev imagefiles
     for ext in get_imagefile_extensions():
         assettype = utils.mock_entity(
@@ -1180,6 +1238,31 @@ def test_project_sq001_sh0010_compositing():
     component = utils.mock_entity(
         ("version", assetversion),
         ("file_type", ".mov"),
+        entity_type="FileComponent"
+    )
+    assert_entity(component)
+    entities.append(component)
+
+    # project/sq001/sh0010/compositing/.psd file
+    assettype = utils.mock_entity(
+        ("short", "img"),
+        entity_type="Asset"
+    )
+    asset = utils.mock_entity(
+        ("parent", shot),
+        ("type", assettype),
+        entity_type="Asset"
+    )
+    assetversion = utils.mock_entity(
+        ("asset", asset),
+        ("task", task),
+        ("version", 1),
+        ("metadata", {"instance_name": "write1"}),
+        entity_type="AssetVersion"
+    )
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("file_type", ".psd"),
         entity_type="FileComponent"
     )
     assert_entity(component)

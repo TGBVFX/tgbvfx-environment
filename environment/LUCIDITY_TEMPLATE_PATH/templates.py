@@ -680,6 +680,54 @@ def register():
         ),
     ])
 
+    # .psd
+    templates.extend([
+        Template(
+            "Project/AssetBuild/Asset/img/AssetVersion/FileComponent/.psd",
+            "{version.task.project.disk." + system_name + "}/"
+            "{version.task.project.root}/"
+            "tgbvfx/"
+            "vfx/"
+            "_publish/"
+            "{version.asset.type.short}/"
+            "{version.task.parent.name}/"
+            "{version.task.name}/"
+            "{version.metadata.instance_name}/"
+            "{version.metadata.instance_name}_v{version.metadata.pad_3}"
+            "{file_type}"
+        ),
+        Template(
+            "Project/Folder/AssetBuild/Asset/img/AssetVersion/FileComponent/"
+            ".psd",
+            "{version.task.project.disk." + system_name + "}/"
+            "{version.task.project.root}/"
+            "tgbvfx/"
+            "vfx/"
+            "_publish/"
+            "{version.asset.type.short}/"
+            "{version.task.parent.name}/"
+            "{version.task.name}/"
+            "{version.metadata.instance_name}/"
+            "{version.metadata.instance_name}_v{version.metadata.pad_3}"
+            "{file_type}"
+        ),
+        Template(
+            "Project/Sequence/Shot/Asset/img/AssetVersion/FileComponent/.psd",
+            "{version.task.project.disk." + system_name + "}/"
+            "{version.task.project.root}/"
+            "tgbvfx/"
+            "vfx/"
+            "_publish/"
+            "{version.asset.type.short}/"
+            "{version.asset.parent.parent.name}/"
+            "{version.asset.parent.name}/"
+            "{version.task.name}/"
+            "{version.metadata.instance_name}/"
+            "{version.metadata.instance_name}_v{version.metadata.pad_3}"
+            "{file_type}"
+        ),
+    ])
+
     # .gizmo
     templates.extend([
         Template(
