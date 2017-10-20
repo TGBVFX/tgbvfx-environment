@@ -1,4 +1,7 @@
+import os
+
 import pyblish.api
+from tgbvfx_environment import utils
 
 
 class TGBFtrackExtractComponents(pyblish.api.ContextPlugin):
@@ -82,6 +85,16 @@ class TGBFtrackExtract(pyblish.api.InstancePlugin):
     ]
     hosts = ["maya", "nuke", "ftrack"]
 
+    def recursive_available_version(self, component, location):
+
+        path = location.structure.get_resource_identifier(component)
+
+        if os.path.exists(path):
+            component["version"]["version"] += 1
+            return self.recursive_available_version(component, location)
+        else:
+            return component["version"]["version"]
+
     def process(self, instance):
         instance.data["component_overwrite"] = True
         families = instance.data.get("families", [])
@@ -104,8 +117,37 @@ class TGBFtrackExtract(pyblish.api.InstancePlugin):
         if "camera" in families or "geometry" in families:
             # Ensure never to overwrite
             instance.data["component_overwrite"] = False
-            # Ensure a new version is created every time
-            instance.data["version"] = 0
+            # Version starts from context version
+            version = instance.context.data["version"]
+            # Check for next available version on disk
+            assettype = utils.mock_entity(
+                ("short", list(set(self.families) & set(families))[0]),
+                entity_type="Asset"
+            )
+            asset = utils.mock_entity(
+                ("parent", instance.context.data["ftrackTask"]["parent"]),
+                ("type", assettype),
+                entity_type="Asset"
+            )
+            assetversion = utils.mock_entity(
+                ("asset", asset),
+                ("task", instance.context.data["ftrackTask"]),
+                ("version", version),
+                entity_type="AssetVersion"
+            )
+            component = utils.mock_entity(
+                ("version", assetversion),
+                (
+                    "file_type",
+                    os.path.splitext(instance.data["output_path"])[1]
+                ),
+                entity_type="FileComponent"
+            )
+
+            location = instance.context.data["ftrackSession"].pick_location()
+            instance.data["version"] = self.recursive_available_version(
+                component, location
+            )
 
         if "geometry" in families:
             instance.data["assettype_data"] = {"short": "model"}
