@@ -683,7 +683,7 @@ def register():
     # .psd
     templates.extend([
         Template(
-            "Project/AssetBuild/Asset/img/AssetVersion/FileComponent/.psd",
+            "Project/AssetBuild/Asset/scene/AssetVersion/FileComponent/.psd",
             "{version.task.project.disk." + system_name + "}/"
             "{version.task.project.root}/"
             "tgbvfx/"
@@ -697,7 +697,7 @@ def register():
             "{file_type}"
         ),
         Template(
-            "Project/Folder/AssetBuild/Asset/img/AssetVersion/FileComponent/"
+            "Project/Folder/AssetBuild/Asset/scene/AssetVersion/FileComponent/"
             ".psd",
             "{version.task.project.disk." + system_name + "}/"
             "{version.task.project.root}/"
@@ -712,7 +712,8 @@ def register():
             "{file_type}"
         ),
         Template(
-            "Project/Sequence/Shot/Asset/img/AssetVersion/FileComponent/.psd",
+            "Project/Sequence/Shot/Asset/scene/AssetVersion/FileComponent/"
+            ".psd",
             "{version.task.project.disk." + system_name + "}/"
             "{version.task.project.root}/"
             "tgbvfx/"

@@ -186,7 +186,7 @@ def get_test_paths():
         "lizard/lookdev/set1_mayaAscii/set1_mayaAscii_v001.ma",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/mov/lizard/"
         "lookdev/Write1/Write1_v001.mov",
-        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/lizard/"
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/scene/lizard/"
         "lookdev/Write1/Write1_v001.psd",
 
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
@@ -302,7 +302,7 @@ def get_test_paths():
         "castle/lookdev/set1_mayaAscii/set1_mayaAscii_v001.ma",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/mov/castle/lookdev/"
         "Write1/Write1_v001.mov",
-        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/castle/lookdev/"
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/scene/castle/lookdev/"
         "Write1/Write1_v001.psd",
 
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/"
@@ -400,7 +400,7 @@ def get_test_paths():
         "sh0010/compositing/Group1/Group1_v001.gizmo",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/mov/sq001/sh0010/"
         "compositing/write1/write1_v001.mov",
-        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/sq001/sh0010/"
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/scene/sq001/sh0010/"
         "compositing/write1/write1_v001.psd",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/cache/sq001/sh0010/"
         "compositing/writegeo1/writegeo1_v001.abc",
@@ -746,7 +746,7 @@ def test_project_lizard_lookdev():
 
     # project/lizard/lookdev/.psd
     assettype = utils.mock_entity(
-        ("short", "img"),
+        ("short", "scene"),
         entity_type="AssetType"
     )
     asset = utils.mock_entity(
@@ -1042,7 +1042,7 @@ def test_project_assets_castle_lookdev():
 
     # project/assets/castle/lookdev/.psd
     assettype = utils.mock_entity(
-        ("short", "img"),
+        ("short", "scene"),
         entity_type="AssetType"
     )
     asset = utils.mock_entity(
@@ -1245,7 +1245,7 @@ def test_project_sq001_sh0010_compositing():
 
     # project/sq001/sh0010/compositing/.psd file
     assettype = utils.mock_entity(
-        ("short", "img"),
+        ("short", "scene"),
         entity_type="Asset"
     )
     asset = utils.mock_entity(
