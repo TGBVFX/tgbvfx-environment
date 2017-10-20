@@ -178,6 +178,8 @@ def get_test_paths():
         "BackdropNode1/BackdropNode1_v001.nk",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/cache/"
         "lizard/lookdev/WriteGeo1/WriteGeo1_v001.abc",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/cache/"
+        "lizard/lookdev/WriteGeo1/WriteGeo1_v001.fbx",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/scene/"
         "lizard/lookdev/set1_mayaBinary/set1_mayaBinary_v001.mb",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/scene/"
@@ -290,6 +292,8 @@ def get_test_paths():
         "BackdropNode1/BackdropNode1_v001.nk",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/cache/"
         "castle/lookdev/WriteGeo1/WriteGeo1_v001.abc",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/cache/"
+        "castle/lookdev/WriteGeo1/WriteGeo1_v001.fbx",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/scene/"
         "castle/lookdev/set1_mayaBinary/set1_mayaBinary_v001.mb",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/scene/"
@@ -394,6 +398,8 @@ def get_test_paths():
         "compositing/write1/write1_v001.mov",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/cache/sq001/sh0010/"
         "compositing/writegeo1/writegeo1_v001.abc",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/cache/sq001/sh0010/"
+        "compositing/writegeo1/writegeo1_v001.fbx",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/camera/sq001_sh0010/"
         "standard/0001/camera.abc",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/asset/writegeo1/"
@@ -623,6 +629,32 @@ def test_project_lizard_lookdev():
         ("version", assetversion),
         ("name", "main"),
         ("file_type", ".abc"),
+        entity_type="FileComponent"
+    )
+    assert_entity(component)
+    entities.append(component)
+
+    # project/lizard/lookdev/.fbx
+    assettype = utils.mock_entity(
+        ("short", "cache"),
+        entity_type="AssetType"
+    )
+    asset = utils.mock_entity(
+        ("parent", assetbuild),
+        ("type", assettype),
+        entity_type="Asset"
+    )
+    assetversion = utils.mock_entity(
+        ("asset", asset),
+        ("task", task),
+        ("version", 1),
+        ("metadata", {"instance_name": "WriteGeo1"}),
+        entity_type="AssetVersion"
+    )
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("name", "main"),
+        ("file_type", ".fbx"),
         entity_type="FileComponent"
     )
     assert_entity(component)
@@ -867,6 +899,32 @@ def test_project_assets_castle_lookdev():
         ("version", assetversion),
         ("name", "main"),
         ("file_type", ".abc"),
+        entity_type="FileComponent"
+    )
+    assert_entity(component)
+    entities.append(component)
+
+    # project/assets/castle/lookdev/.fbx
+    assettype = utils.mock_entity(
+        ("short", "cache"),
+        entity_type="AssetType"
+    )
+    asset = utils.mock_entity(
+        ("parent", assetbuild),
+        ("type", assettype),
+        entity_type="Asset"
+    )
+    assetversion = utils.mock_entity(
+        ("asset", asset),
+        ("task", task),
+        ("version", 1),
+        ("metadata", {"instance_name": "WriteGeo1"}),
+        entity_type="AssetVersion"
+    )
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("name", "main"),
+        ("file_type", ".fbx"),
         entity_type="FileComponent"
     )
     assert_entity(component)
@@ -1147,6 +1205,31 @@ def test_project_sq001_sh0010_compositing():
     component = utils.mock_entity(
         ("version", assetversion),
         ("file_type", ".abc"),
+        entity_type="FileComponent"
+    )
+    assert_entity(component)
+    entities.append(component)
+
+    # project/sq001/sh0010/compositing/.fbx file
+    assettype = utils.mock_entity(
+        ("short", "cache"),
+        entity_type="Asset"
+    )
+    asset = utils.mock_entity(
+        ("parent", shot),
+        ("type", assettype),
+        entity_type="Asset"
+    )
+    assetversion = utils.mock_entity(
+        ("asset", asset),
+        ("task", task),
+        ("version", 1),
+        ("metadata", {"instance_name": "writegeo1"}),
+        entity_type="AssetVersion"
+    )
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("file_type", ".fbx"),
         entity_type="FileComponent"
     )
     assert_entity(component)
