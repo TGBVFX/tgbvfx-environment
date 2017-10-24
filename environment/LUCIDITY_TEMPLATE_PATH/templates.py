@@ -110,27 +110,26 @@ class Template(lucidity.Template):
 
         # "version" data member needs to be convert from integer to string.
         if data.entity_type == "FileComponent":
-            if data["version"]:
-                metadata = data["version"].get("metadata", {})
-                version_string = str(data["version"]["version"]).zfill(3)
-                metadata["pad_3"] = version_string
-                version_string = str(data["version"]["version"]).zfill(4)
-                metadata["pad_4"] = version_string
-                data["version"]["metadata"] = metadata
-            else:
-                version_string = str(
-                    data["container"]["version"]["version"]
-                ).zfill(3)
-                data["container"]["version"]["version"] = version_string
+            metadata = data.get("metadata", {})
+
+            try:
+                version = data["version"]["version"]
+            except:
+                version = data["container"]["version"]["version"]
+
+            metadata["pad_3"] = str(version).zfill(3)
+            metadata["pad_4"] = str(version).zfill(4)
+
+            data["metadata"] = metadata
 
         # "version" data member needs to be convert from integer to string.
         if data.entity_type == "SequenceComponent":
-            metadata = data["version"].get("metadata", {})
+            metadata = data.get("metadata", {})
             version_string = str(data["version"]["version"]).zfill(3)
             metadata["pad_3"] = version_string
             version_string = str(data["version"]["version"]).zfill(4)
             metadata["pad_4"] = version_string
-            data["version"]["metadata"] = metadata
+            data["metadata"] = metadata
 
             # "padding" data member needs to be convert from integer to string.
             padding_string = str(data["padding"]).zfill(2)
@@ -417,9 +416,9 @@ def register():
         "{version.asset.type.short}/"
         "{version.asset.parent.parent.name}_{version.asset.parent.name}/"
         "{version.asset.parent.parent.name}_{version.asset.parent.name}_"
-        "{version.metadata.instance_name}_v{version.metadata.pad_3}/"
+        "{version.metadata.instance_name}_v{metadata.pad_3}/"
         "{version.asset.parent.parent.name}_{version.asset.parent.name}_"
-        "{version.metadata.instance_name}_v{version.metadata.pad_3}"
+        "{version.metadata.instance_name}_v{metadata.pad_3}"
         ".%{padding}d{file_type}"
     )
     name = (
@@ -438,8 +437,8 @@ def register():
         "{version.asset.type.short}/"
         "{version.asset.parent.name}/"
         "{version.task.name}/"
-        "{version.metadata.instance_name}_v{version.metadata.pad_3}/"
-        "{version.metadata.instance_name}_v{version.metadata.pad_3}"
+        "{version.metadata.instance_name}_v{metadata.pad_3}/"
+        "{version.metadata.instance_name}_v{metadata.pad_3}"
         ".%{padding}d{file_type}"
     )
     names = [
@@ -464,11 +463,11 @@ def register():
         "{container.version.asset.parent.parent.name}_"
         "{container.version.asset.parent.name}_"
         "{container.version.metadata.instance_name}_"
-        "v{container.version.metadata.pad_3}/"
+        "v{metadata.pad_3}/"
         "{container.version.asset.parent.parent.name}_"
         "{container.version.asset.parent.name}_"
         "{container.version.metadata.instance_name}_"
-        "v{container.version.metadata.pad_3}.{name}{file_type}"
+        "v{metadata.pad_3}.{name}{file_type}"
     )
     names = [
         "Project/Sequence/Shot/Asset/img/AssetVersion/SequenceComponent/{0}"
@@ -489,9 +488,9 @@ def register():
         "{container.version.asset.parent.name}/"
         "{container.version.task.name}/"
         "{container.version.metadata.instance_name}_"
-        "v{container.version.metadata.pad_3}/"
+        "v{metadata.pad_3}/"
         "{container.version.metadata.instance_name}_"
-        "v{container.version.metadata.pad_3}.{name}{file_type}"
+        "v{metadata.pad_3}.{name}{file_type}"
     )
     names = [
         "Project/AssetBuild/Asset/img/AssetVersion/SequenceComponent/{0}/"
@@ -516,7 +515,7 @@ def register():
             "{version.asset.parent.name}/"
             "{version.task.name}/"
             "{version.metadata.instance_name}/"
-            "{version.metadata.instance_name}_v{version.metadata.pad_3}"
+            "{version.metadata.instance_name}_v{metadata.pad_3}"
             "{file_type}"
         ),
         Template(
@@ -531,7 +530,7 @@ def register():
             "{version.asset.parent.name}/"
             "{version.task.name}/"
             "{version.metadata.instance_name}/"
-            "{version.metadata.instance_name}_v{version.metadata.pad_3}"
+            "{version.metadata.instance_name}_v{metadata.pad_3}"
             "{file_type}"
         ),
         Template(
@@ -547,7 +546,7 @@ def register():
             "{version.asset.parent.name}/"
             "{version.task.name}/"
             "{version.metadata.instance_name}/"
-            "{version.metadata.instance_name}_v{version.metadata.pad_3}"
+            "{version.metadata.instance_name}_v{metadata.pad_3}"
             "{file_type}"
         ),
 
@@ -562,7 +561,7 @@ def register():
             "{version.asset.type.short}/"
             "{version.asset.parent.parent.name}_{version.asset.parent.name}/"
             "standard/"
-            "{version.metadata.pad_4}/"
+            "{metadata.pad_4}/"
             "{version.asset.type.short}{file_type}"
         ),
 
@@ -578,7 +577,7 @@ def register():
             "{version.metadata.instance_name}/"
             "{version.asset.type.short}/"
             "{version.asset.parent.parent.name}_{version.asset.parent.name}/"
-            "{version.metadata.pad_4}/"
+            "{metadata.pad_4}/"
             "{version.asset.type.short}{file_type}"
         ),
     ])
@@ -596,7 +595,7 @@ def register():
             "{version.asset.parent.name}/"
             "{version.task.name}/"
             "{version.metadata.instance_name}/"
-            "{version.metadata.instance_name}_v{version.metadata.pad_3}"
+            "{version.metadata.instance_name}_v{metadata.pad_3}"
             "{file_type}"
         ),
         Template(
@@ -611,7 +610,7 @@ def register():
             "{version.asset.parent.name}/"
             "{version.task.name}/"
             "{version.metadata.instance_name}/"
-            "{version.metadata.instance_name}_v{version.metadata.pad_3}"
+            "{version.metadata.instance_name}_v{metadata.pad_3}"
             "{file_type}"
         ),
         Template(
@@ -627,7 +626,7 @@ def register():
             "{version.asset.parent.name}/"
             "{version.task.name}/"
             "{version.metadata.instance_name}/"
-            "{version.metadata.instance_name}_v{version.metadata.pad_3}"
+            "{version.metadata.instance_name}_v{metadata.pad_3}"
             "{file_type}"
         ),
     ])
@@ -645,7 +644,7 @@ def register():
             "{version.task.parent.name}/"
             "{version.task.name}/"
             "{version.metadata.instance_name}/"
-            "{version.metadata.instance_name}_v{version.metadata.pad_3}"
+            "{version.metadata.instance_name}_v{metadata.pad_3}"
             "{file_type}"
         ),
         Template(
@@ -660,7 +659,7 @@ def register():
             "{version.task.parent.name}/"
             "{version.task.name}/"
             "{version.metadata.instance_name}/"
-            "{version.metadata.instance_name}_v{version.metadata.pad_3}"
+            "{version.metadata.instance_name}_v{metadata.pad_3}"
             "{file_type}"
         ),
         Template(
@@ -675,7 +674,7 @@ def register():
             "{version.asset.parent.name}/"
             "{version.task.name}/"
             "{version.metadata.instance_name}/"
-            "{version.metadata.instance_name}_v{version.metadata.pad_3}"
+            "{version.metadata.instance_name}_v{metadata.pad_3}"
             "{file_type}"
         ),
     ])
@@ -693,7 +692,7 @@ def register():
             "{version.task.parent.name}/"
             "{version.task.name}/"
             "{version.metadata.instance_name}/"
-            "{version.metadata.instance_name}_v{version.metadata.pad_3}"
+            "{version.metadata.instance_name}_v{metadata.pad_3}"
             "{file_type}"
         ),
         Template(
@@ -708,7 +707,7 @@ def register():
             "{version.task.parent.name}/"
             "{version.task.name}/"
             "{version.metadata.instance_name}/"
-            "{version.metadata.instance_name}_v{version.metadata.pad_3}"
+            "{version.metadata.instance_name}_v{metadata.pad_3}"
             "{file_type}"
         ),
         Template(
@@ -724,7 +723,7 @@ def register():
             "{version.asset.parent.name}/"
             "{version.task.name}/"
             "{version.metadata.instance_name}/"
-            "{version.metadata.instance_name}_v{version.metadata.pad_3}"
+            "{version.metadata.instance_name}_v{metadata.pad_3}"
             "{file_type}"
         ),
     ])
@@ -743,7 +742,7 @@ def register():
             "{version.asset.parent.name}/"
             "{version.task.name}/"
             "{version.metadata.instance_name}/"
-            "{version.metadata.instance_name}_v{version.metadata.pad_3}"
+            "{version.metadata.instance_name}_v{metadata.pad_3}"
             "{file_type}"
         ),
         Template(
@@ -758,7 +757,7 @@ def register():
             "{version.asset.parent.name}/"
             "{version.task.name}/"
             "{version.metadata.instance_name}/"
-            "{version.metadata.instance_name}_v{version.metadata.pad_3}"
+            "{version.metadata.instance_name}_v{metadata.pad_3}"
             "{file_type}"
         ),
         Template(
@@ -774,7 +773,7 @@ def register():
             "{version.asset.parent.name}/"
             "{version.task.name}/"
             "{version.metadata.instance_name}/"
-            "{version.metadata.instance_name}_v{version.metadata.pad_3}"
+            "{version.metadata.instance_name}_v{metadata.pad_3}"
             "{file_type}"
         ),
     ])
@@ -792,7 +791,7 @@ def register():
             "{version.task.parent.name}/"
             "{version.task.name}/"
             "{version.metadata.instance_name}/"
-            "{version.metadata.instance_name}_v{version.metadata.pad_3}"
+            "{version.metadata.instance_name}_v{metadata.pad_3}"
             "{file_type}"
         ),
         Template(
@@ -807,7 +806,7 @@ def register():
             "{version.task.parent.name}/"
             "{version.task.name}/"
             "{version.metadata.instance_name}/"
-            "{version.metadata.instance_name}_v{version.metadata.pad_3}"
+            "{version.metadata.instance_name}_v{metadata.pad_3}"
             "{file_type}"
         ),
         Template(
@@ -822,7 +821,7 @@ def register():
             "{version.asset.parent.name}/"
             "{version.task.name}/"
             "{version.metadata.instance_name}/"
-            "{version.metadata.instance_name}_v{version.metadata.pad_3}"
+            "{version.metadata.instance_name}_v{metadata.pad_3}"
             "{file_type}"
         ),
     ])
@@ -840,7 +839,7 @@ def register():
             "{version.task.parent.name}/"
             "{version.task.name}/"
             "{version.metadata.instance_name}/"
-            "{version.metadata.instance_name}_v{version.metadata.pad_3}"
+            "{version.metadata.instance_name}_v{metadata.pad_3}"
             "{file_type}"
         ),
         Template(
@@ -855,7 +854,7 @@ def register():
             "{version.task.parent.name}/"
             "{version.task.name}/"
             "{version.metadata.instance_name}/"
-            "{version.metadata.instance_name}_v{version.metadata.pad_3}"
+            "{version.metadata.instance_name}_v{metadata.pad_3}"
             "{file_type}"
         ),
         Template(
@@ -870,7 +869,7 @@ def register():
             "{version.asset.parent.name}/"
             "{version.task.name}/"
             "{version.metadata.instance_name}/"
-            "{version.metadata.instance_name}_v{version.metadata.pad_3}"
+            "{version.metadata.instance_name}_v{metadata.pad_3}"
             "{file_type}"
         ),
     ])
@@ -888,7 +887,8 @@ def register():
             "{version.task.parent.name}/"
             "{version.task.name}/"
             "{version.metadata.instance_name}/"
-            "{version.metadata.instance_name}_v{version.metadata.pad_3}{file_type}"
+            "{version.metadata.instance_name}_v{metadata.pad_3}"
+            "{file_type}"
         ),
         Template(
             "Project/Folder/AssetBuild/Asset/scene/AssetVersion/FileComponent/"
@@ -902,7 +902,8 @@ def register():
             "{version.task.parent.name}/"
             "{version.task.name}/"
             "{version.metadata.instance_name}/"
-            "{version.metadata.instance_name}_v{version.metadata.pad_3}{file_type}"
+            "{version.metadata.instance_name}_v{metadata.pad_3}"
+            "{file_type}"
         ),
         Template(
             "Project/Sequence/Shot/Asset/scene/AssetVersion/FileComponent/.ma",
@@ -916,7 +917,8 @@ def register():
             "{version.asset.parent.name}/"
             "{version.task.name}/"
             "{version.metadata.instance_name}/"
-            "{version.metadata.instance_name}_v{version.metadata.pad_3}{file_type}"
+            "{version.metadata.instance_name}_v{metadata.pad_3}"
+            "{file_type}"
         ),
     ])
 
