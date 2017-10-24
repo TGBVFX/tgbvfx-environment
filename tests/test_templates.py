@@ -431,6 +431,100 @@ def get_test_paths():
         "sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.%04d.hdr",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0010/"
         "sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.1001.hdr",
+
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001",
+
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/_plates",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/_references",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/3dsmax",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/mari",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/houdini",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/houdini/_in",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/houdini/_out",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/houdini/geo",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/houdini/"
+        "render",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/houdini/temp",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/caches",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/"
+        "caches/arnold",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/"
+        "outputScenes",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/"
+        "outputScenes/cacheScenes",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/"
+        "outputScenes/dynamicScenes",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/"
+        "outputScenes/renderScenes",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/renders",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/scenes",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/source",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/temp",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/"
+        "textures",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/nuke",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/nuke/renders",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/nuke/"
+        "renders/comp",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/nuke/"
+        "renders/slapcomp",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/nuke/"
+        "renderScripts",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/nuke/scripts",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/nuke/scripts/"
+        "workspace",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/nuke/temp",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/"
+        "workspace.mel",
+
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/nukestudio"
+        "/pipeline_test_sq001_sh0010_compositing_v001.hrox",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/nuke"
+        "/scripts/pipeline_test_sq001_sh0010_compositing_v001.nk",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya"
+        "/scenes/pipeline_test_sq001_sh0010_compositing_v001.mb",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/houdini"
+        "/pipeline_test_sq001_sh0010_compositing_v001.hip",
+
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/nuke_gizmo/RND/sq001"
+        "/sh0010/compositing/Group1/Group1_v001.gizmo",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/scene/RND/sq001"
+        "/sh0010/compositing/BackdropNode1/BackdropNode1_v001.nk",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/mov/RND/sq001"
+        "/sh0010/compositing/write1/write1_v001.mov",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/scene/RND/sq001"
+        "/sh0010/compositing/write1/write1_v001.psd",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/cache/RND/sq001"
+        "/sh0010/compositing/writegeo1/writegeo1_v001.abc",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/cache/RND/sq001"
+        "/sh0010/compositing/writegeo1/writegeo1_v001.fbx",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/scene/RND/sq001"
+        "/sh0010/compositing/set1_mayaBinary/set1_mayaBinary_v001.mb",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/scene/RND/sq001"
+        "/sh0010/compositing/set1_mayaAscii/set1_mayaAscii_v001.ma",
+
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/RND/sq001_sh0010"
+        "/sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.%04d.exr",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/RND/sq001_sh0010"
+        "/sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.1001.exr",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/RND/sq001_sh0010"
+        "/sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.%04d.dpx",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/RND/sq001_sh0010"
+        "/sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.1001.dpx",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/RND/sq001_sh0010"
+        "/sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.%04d.jpeg",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/RND/sq001_sh0010"
+        "/sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.1001.jpeg",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/RND/sq001_sh0010"
+        "/sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.%04d.jpg",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/RND/sq001_sh0010"
+        "/sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.1001.jpg",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/RND/sq001_sh0010"
+        "/sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.%04d.hdr",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/img/RND/sq001_sh0010"
+        "/sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.1001.hdr",
     ]
 
 
@@ -1460,6 +1554,300 @@ def test_project_sq001_sh0010_compositing():
     return entities
 
 
+def test_project_folder_sequence_shot_task():
+
+    entities = []
+
+    project = test_project()
+    folder = utils.mock_entity(
+        ("parent", project),
+        ("name", "RND"),
+        entity_type="Folder"
+    )
+    sequence = utils.mock_entity(
+        ("parent", folder),
+        ("project", project),
+        ("name", "sq001"),
+        entity_type="Sequence"
+    )
+    assert_entity(sequence)
+    entities.append(sequence)
+    shot = utils.mock_entity(
+        ("parent", sequence),
+        ("project", project),
+        ("name", "sh0010"),
+        entity_type="Shot"
+    )
+    assert_entity(shot)
+    entities.append(shot)
+
+    # project/sq001/sh0010/compositing workfiles
+    for ext in get_workfile_extensions():
+        entity = utils.mock_entity(
+            ("parent", shot),
+            ("project", project),
+            ("version", 1),
+            ("file_type", ext),
+            ("name", "compositing"),
+            entity_type="Task"
+        )
+        assert_entity(entity)
+        entities.append(entity)
+
+    # project/sq001/sh0010/compositing
+    task = utils.mock_entity(
+        ("parent", shot),
+        ("project", project),
+        ("version", 1),
+        ("name", "compositing"),
+        entity_type="Task"
+    )
+
+    # project/sq001/sh0010/compositing/.gizmo
+    assettype = utils.mock_entity(
+        ("short", "nuke_gizmo"),
+        entity_type="AssetType"
+    )
+    asset = utils.mock_entity(
+        ("parent", shot),
+        ("type", assettype),
+        entity_type="Asset"
+    )
+    assetversion = utils.mock_entity(
+        ("asset", asset),
+        ("task", task),
+        ("version", 1),
+        ("metadata", {"instance_name": "Group1"}),
+        entity_type="AssetVersion"
+    )
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("name", "main"),
+        ("file_type", ".gizmo"),
+        entity_type="FileComponent"
+    )
+    assert_entity(component)
+    entities.append(component)
+
+    # project/sq001/sh0010/compositing/.nk file
+    assettype = utils.mock_entity(
+        ("short", "scene"),
+        entity_type="Asset"
+    )
+    asset = utils.mock_entity(
+        ("parent", shot),
+        ("type", assettype),
+        entity_type="Asset"
+    )
+    assetversion = utils.mock_entity(
+        ("asset", asset),
+        ("task", task),
+        ("version", 1),
+        ("metadata", {"instance_name": "BackdropNode1"}),
+        entity_type="AssetVersion"
+    )
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("name", "main"),
+        ("file_type", ".nk"),
+        entity_type="FileComponent"
+    )
+    assert_entity(component)
+    entities.append(component)
+
+    # project/sq001/sh0010/compositing/.mov file
+    assettype = utils.mock_entity(
+        ("short", "mov"),
+        entity_type="Asset"
+    )
+    asset = utils.mock_entity(
+        ("parent", shot),
+        ("type", assettype),
+        entity_type="Asset"
+    )
+    assetversion = utils.mock_entity(
+        ("asset", asset),
+        ("task", task),
+        ("version", 1),
+        ("metadata", {"instance_name": "write1"}),
+        entity_type="AssetVersion"
+    )
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("file_type", ".mov"),
+        entity_type="FileComponent"
+    )
+    assert_entity(component)
+    entities.append(component)
+
+    # project/sq001/sh0010/compositing/.psd file
+    assettype = utils.mock_entity(
+        ("short", "scene"),
+        entity_type="Asset"
+    )
+    asset = utils.mock_entity(
+        ("parent", shot),
+        ("type", assettype),
+        entity_type="Asset"
+    )
+    assetversion = utils.mock_entity(
+        ("asset", asset),
+        ("task", task),
+        ("version", 1),
+        ("metadata", {"instance_name": "write1"}),
+        entity_type="AssetVersion"
+    )
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("file_type", ".psd"),
+        entity_type="FileComponent"
+    )
+    assert_entity(component)
+    entities.append(component)
+
+    # project/sq001/sh0010/compositing/.abc file
+    assettype = utils.mock_entity(
+        ("short", "cache"),
+        entity_type="Asset"
+    )
+    asset = utils.mock_entity(
+        ("parent", shot),
+        ("type", assettype),
+        entity_type="Asset"
+    )
+    assetversion = utils.mock_entity(
+        ("asset", asset),
+        ("task", task),
+        ("version", 1),
+        ("metadata", {"instance_name": "writegeo1"}),
+        entity_type="AssetVersion"
+    )
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("file_type", ".abc"),
+        entity_type="FileComponent"
+    )
+    assert_entity(component)
+    entities.append(component)
+
+    # project/sq001/sh0010/compositing/.fbx file
+    assettype = utils.mock_entity(
+        ("short", "cache"),
+        entity_type="Asset"
+    )
+    asset = utils.mock_entity(
+        ("parent", shot),
+        ("type", assettype),
+        entity_type="Asset"
+    )
+    assetversion = utils.mock_entity(
+        ("asset", asset),
+        ("task", task),
+        ("version", 1),
+        ("metadata", {"instance_name": "writegeo1"}),
+        entity_type="AssetVersion"
+    )
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("file_type", ".fbx"),
+        entity_type="FileComponent"
+    )
+    assert_entity(component)
+    entities.append(component)
+
+    # project/sq001/sh0010/compositing/.mb file
+    assettype = utils.mock_entity(
+        ("short", "scene"),
+        entity_type="Asset"
+    )
+    asset = utils.mock_entity(
+        ("parent", shot),
+        ("type", assettype),
+        entity_type="Asset"
+    )
+    assetversion = utils.mock_entity(
+        ("asset", asset),
+        ("task", task),
+        ("version", 1),
+        ("metadata", {"instance_name": "set1_mayaBinary"}),
+        entity_type="AssetVersion"
+    )
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("name", "main"),
+        ("file_type", ".mb"),
+        entity_type="FileComponent"
+    )
+    assert_entity(component)
+    entities.append(component)
+
+    # project/sq001/sh0010/compositing/.ma file
+    assettype = utils.mock_entity(
+        ("short", "scene"),
+        entity_type="Asset"
+    )
+    asset = utils.mock_entity(
+        ("parent", shot),
+        ("type", assettype),
+        entity_type="Asset"
+    )
+    assetversion = utils.mock_entity(
+        ("asset", asset),
+        ("task", task),
+        ("version", 1),
+        ("metadata", {"instance_name": "set1_mayaAscii"}),
+        entity_type="AssetVersion"
+    )
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("name", "main"),
+        ("file_type", ".ma"),
+        entity_type="FileComponent"
+    )
+    assert_entity(component)
+    entities.append(component)
+
+    # project/sq001/sh0010/compositing imagefiles
+    for ext in get_imagefile_extensions():
+        assettype = utils.mock_entity(
+            ("short", "img"),
+            entity_type="AssetType"
+        )
+        asset = utils.mock_entity(
+            ("parent", shot),
+            ("type", assettype),
+            entity_type="Asset"
+        )
+        assetversion = utils.mock_entity(
+            ("asset", asset),
+            ("task", task),
+            ("version", 1),
+            ("metadata", {"instance_name": "Write1"}),
+            entity_type="AssetVersion"
+        )
+        sequence_component = utils.mock_entity(
+            ("version", assetversion),
+            ("name", "main"),
+            ("file_type", ext),
+            ("padding", 4),
+            entity_type="SequenceComponent"
+        )
+        assert_entity(sequence_component)
+        entities.append(sequence_component)
+
+        file_component = utils.mock_entity(
+            ("version", None),
+            ("container", sequence_component),
+            ("file_type", ext),
+            ("name", "1001"),
+            entity_type="FileComponent"
+        )
+        assert_entity(file_component)
+        entities.append(file_component)
+
+    return entities
+
+
 def get_entities():
     entities = []
     entities.append(test_project())
@@ -1469,6 +1857,7 @@ def get_entities():
     entities.append(test_project_sq001())
     entities.append(test_project_sq001_sh0010())
     entities.extend(test_project_sq001_sh0010_compositing())
+    entities.extend(test_project_folder_sequence_shot_task())
     return entities
 
 
