@@ -1,3 +1,4 @@
 {
-    "PATH": ["C:/Program Files (x86)/QuickTime/QTSystem/"]
+    "PATH": ["C:/Program Files (x86)/QuickTime/QTSystem/"],
+    "NUKE_PATH": ["//10.11.0.184/RoyalRender8/nuke"]
 }
