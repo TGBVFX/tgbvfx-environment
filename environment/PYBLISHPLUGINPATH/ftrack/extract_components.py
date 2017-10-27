@@ -114,6 +114,12 @@ class TGBFtrackExtract(pyblish.api.InstancePlugin):
             data["metadata"] = metadata
             instance.data["assetversion_data"] = data
 
+        if "geometry" in families:
+            instance.data["assettype_data"] = {"short": "model"}
+
+        if "camera" in families:
+            instance.data["assettype_data"] = {"short": "camera"}
+
         if "camera" in families or "geometry" in families:
             # Ensure never to overwrite
             instance.data["component_overwrite"] = False
@@ -121,7 +127,7 @@ class TGBFtrackExtract(pyblish.api.InstancePlugin):
             version = instance.context.data["version"]
             # Check for next available version on disk
             assettype = utils.mock_entity(
-                ("short", list(set(self.families) & set(families))[0]),
+                ("short", instance.data["assettype_data"]["short"]),
                 entity_type="Asset"
             )
             asset = utils.mock_entity(
@@ -133,6 +139,7 @@ class TGBFtrackExtract(pyblish.api.InstancePlugin):
                 ("asset", asset),
                 ("task", instance.context.data["ftrackTask"]),
                 ("version", version),
+                ("metadata", {"instance_name": instance.data["name"]}),
                 entity_type="AssetVersion"
             )
             component = utils.mock_entity(
@@ -148,6 +155,3 @@ class TGBFtrackExtract(pyblish.api.InstancePlugin):
             instance.data["version"] = self.recursive_available_version(
                 component, location
             )
-
-        if "geometry" in families:
-            instance.data["assettype_data"] = {"short": "model"}
