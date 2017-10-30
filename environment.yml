@@ -21,7 +21,7 @@ dependencies:
   - https://github.com/pyblish/pyblish-qml.git@7e86c446c8d196527bd7a5d47a0a5f8d5683287b
   - https://github.com/pyblish/pyblish-nukestudio.git@225b2af344468fa43c51a14f71a512b8a317cb48
   - https://github.com/pyblish/pyblish-ftrack.git@f14fca7981d6e64767815f1ad75c094e8e906153
-  - https://github.com/pyblish/pyblish-nuke.git@bfb513668746b74d026fffd1913b64e4431c30a8
+  - https://github.com/pyblish/pyblish-nuke.git@0007b00a3e209010045e77f3b6bbbc9e38cb8ca0
   - https://github.com/pyblish/pyblish-maya.git@a68781285c7e47bb332922870bba461d70fef009
   - https://github.com/pyblish/pyblish-royalrender.git@460f6d90bafa274648f75f14bc13de5520c2aeb2
   - https://github.com/bumpybox/pyblish-bumpybox.git@f530d20c618c7da51c91a2bcfdeb40787d120076
