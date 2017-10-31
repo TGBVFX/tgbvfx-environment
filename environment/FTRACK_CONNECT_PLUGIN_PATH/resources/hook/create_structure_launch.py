@@ -30,16 +30,15 @@ def modify_launch(event):
             except lucidity.error.FormatError:
                 continue
             else:
-
-                if os.path.exists(path):
-                    continue
-
                 if hasattr(template, "source"):
                     print "Copying \"{0}\" to \"{1}\"".format(
                         template.source, path
                     )
                     shutil.copy(template.source, path)
                 else:
+                    if os.path.exists(path):
+                        continue
+
                     print "Creating \"{0}\"".format(path)
                     os.makedirs(path)
 
