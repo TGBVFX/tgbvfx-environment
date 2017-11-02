@@ -6,17 +6,10 @@ from ftrack_connect.session import get_shared_session
 import lucidity
 
 
-def modify_launch(event):
-    """Return each entities in the selection in data dictionaries."""
+def inject_paths(event, entities):
 
-    session = get_shared_session()
     templates = lucidity.discover_templates()
-    entity = session.get(
-        "Task", event["data"]["context"]["selection"][0]["entityId"]
-    )
-    for link in entity["link"]:
-
-        entity = session.get(link["type"], link["id"])
+    for entity in entities:
         valid_templates = templates[0].get_valid_templates(
             entity, templates
         )
@@ -31,16 +24,40 @@ def modify_launch(event):
                 continue
             else:
                 if hasattr(template, "source"):
-                    print "Copying \"{0}\" to \"{1}\"".format(
-                        template.source, path
-                    )
-                    shutil.copy(template.source, path)
+                    event["data"]["files"].append((template.source, path))
                 else:
                     if os.path.exists(path):
                         continue
 
-                    print "Creating \"{0}\"".format(path)
-                    os.makedirs(path)
+                    event["data"]["directories"].append(path)
+
+    return event
+
+
+def application_launch(event):
+    """Return each entities in the selection in data dictionaries."""
+
+    session = get_shared_session()
+    entity = session.get(
+        "Task", event["data"]["context"]["selection"][0]["entityId"]
+    )
+    entities = []
+    for link in entity["link"]:
+        entities.append(session.get(link["type"], link["id"]))
+
+    event = inject_paths(event, entities)
+
+    for src, dst in event["data"]["files"]:
+        print "Copying \"{0}\" to \"{1}\"".format(src, dst)
+        shutil.copy(src, dst)
+
+    for path in event["data"]["directories"]:
+        os.makedirs(path)
+
+
+def structure_launch(event):
+
+    return inject_paths(event, event["data"].get("entities", []))
 
 
 def register(session, **kw):
@@ -55,4 +72,7 @@ def register(session, **kw):
 
     # Register the event handler
     subscription = "topic=ftrack.connect.application.launch"
-    session.event_hub.subscribe(subscription, modify_launch)
+    session.event_hub.subscribe(subscription, application_launch)
+
+    subscription = "topic=create_structure.launch"
+    session.event_hub.subscribe(subscription, structure_launch)
