@@ -9,6 +9,8 @@ import lucidity
 def inject_paths(event, entities):
 
     templates = lucidity.discover_templates()
+    event["data"]["files"] = []
+    event["data"]["directories"] = []
     for entity in entities:
         valid_templates = templates[0].get_valid_templates(
             entity, templates
