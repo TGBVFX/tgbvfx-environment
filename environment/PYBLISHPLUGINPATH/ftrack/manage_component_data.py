@@ -137,6 +137,7 @@ class TGBFtrackManageComponentData(pyblish.api.InstancePlugin):
     def manage_data(self, src, dst):
         try:
             filelink.create(src, dst)
+            self.log.debug("Linking: \"{0}\" to \"{1}\"".format(src, dst))
         except WindowsError as e:
             if e.winerror == 17:
                 self.log.warning(
@@ -178,8 +179,8 @@ class TGBFtrackManageComponentData(pyblish.api.InstancePlugin):
                     dst = f.replace(collection.head, target_collection.head)
 
                     # If the files are the same, continue
-                    if samefile(f, dst):
-                        self.log.warning(
+                    if os.path.exists(dst) and samefile(f, dst):
+                        self.log.debug(
                             "\"{0}\" is the same as \"{1}\". "
                             "Skipping...".format(f, dst)
                         )
@@ -197,8 +198,9 @@ class TGBFtrackManageComponentData(pyblish.api.InstancePlugin):
             if output_path:
 
                 # If the files are the same, continue
-                if samefile(output_path, resource_identifier):
-                    self.log.warning(
+                if (os.path.exists(resource_identifier) and
+                   samefile(output_path, resource_identifier)):
+                    self.log.debug(
                         "\"{0}\" is the same as \"{1}\". "
                         "Skipping...".format(output_path, resource_identifier)
                     )
