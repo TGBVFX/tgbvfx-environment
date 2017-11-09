@@ -56,7 +56,19 @@ class ValidatePluginNodes(pyblish.api.InstancePlugin):
 
     def get_upstream_plugin_nodes(self, node, class_prefixes):
         nodes = []
-        for node in self.recurse_dependencies(node):
+
+        dependencies = []
+
+        # Dirty hack to circumvent max recursion issue in Nuke.
+        try:
+            dependencies = self.recurse_dependencies(node)
+        except RuntimeError as e:
+            if e.message == "maximum recursion depth exceeded":
+                self.log.warning(e.message)
+            else:
+                raise
+
+        for node in dependencies:
             for prefix in class_prefixes:
                 if node.Class().startswith(prefix):
                     nodes.append(node)
