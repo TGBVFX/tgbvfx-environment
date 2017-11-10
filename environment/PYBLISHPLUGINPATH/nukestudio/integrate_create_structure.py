@@ -23,6 +23,10 @@ class IntegrateCreateStructure(pyblish.api.ContextPlugin):
         for instance in context:
             if "ftrackEntity" not in instance.data["families"]:
                 continue
+
+            if not instance.data.get("entity"):
+                continue
+
             for item in instance.data["entity"]["link"]:
                 entities.append(session.get(item["type"], item["id"]))
 
