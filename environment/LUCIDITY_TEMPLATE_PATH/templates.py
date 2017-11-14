@@ -824,6 +824,25 @@ def register():
         ),
     ])
 
+    # .R3D
+    templates.extend([
+        Template(
+            "Project/Sequence/Shot/Asset/mov/AssetVersion/FileComponent/.R3D",
+            "{version.task.project.disk." + system_name + "}/"
+            "{version.task.project.root}/"
+            "tgbvfx/"
+            "vfx/"
+            "_publish/"
+            "{version.asset.type.short}/"
+            "{version.asset.parent.parent.name}/"
+            "{version.asset.parent.name}/"
+            "{version.task.name}/"
+            "{version.metadata.instance_name}/"
+            "{version.metadata.instance_name}_v{metadata.pad_3}"
+            "{file_type}"
+        ),
+    ])
+
     # .psd
     templates.extend([
         Template(
