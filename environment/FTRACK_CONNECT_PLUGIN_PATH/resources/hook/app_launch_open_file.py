@@ -193,7 +193,7 @@ def get_task_data(event):
         "asset.type.short is \"scene\"".format(task["id"])
     )
 
-    latest_version = 1
+    latest_version = int(version_get(work_file, "v")[1])
     for v in versions:
         if latest_version < int(v["version"]):
             latest_version = int(v["version"])
