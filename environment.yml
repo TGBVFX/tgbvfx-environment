@@ -35,7 +35,7 @@ dependencies:
   - https://github.com/bumpybox/ftrack-hooks.git@199563fee5b8d5cf83d3270185697eb5c1e6fab6
   - https://github.com/tokejepsen/ftrack-connect-environment.git@33f413990809081b478fcae2d655e8f79e9b3dd0:
     - python $REPO_PATH/environment.py
-  - https://github.com/tokejepsen/pyblish-grill-environment.git@d15886d5581771523a59b3d927edc31dd12f3f94:
+  - https://github.com/tokejepsen/pyblish-grill-environment.git@871d5d26a5a01a8973e62ffbbbd42dda2e7d0aee:
     - python $REPO_PATH/environment.py
   - https://github.com/tokejepsen/tgbvfx-environment.git:
     - python $REPO_PATH/environment.py
