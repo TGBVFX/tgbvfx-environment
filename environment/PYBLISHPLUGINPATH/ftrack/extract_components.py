@@ -29,7 +29,7 @@ class TGBFtrackExtractComponents(pyblish.api.ContextPlugin):
             component_data.update({"name": "main"})
             instance.data["component_data"] = component_data
 
-
+'''
 class TGBFtrackExtractComponentsNukeStudio(pyblish.api.InstancePlugin):
     """Setting data for all components from NukeStudio."""
 
@@ -55,7 +55,7 @@ class TGBFtrackExtractComponentsNukeStudio(pyblish.api.InstancePlugin):
         data["metadata"] = metadata
 
         instance.data["assetversion_data"] = data
-
+'''
 
 class TGBFtrackExtractOverwriteNukeStudio(pyblish.api.InstancePlugin):
     """Option to overwrite Nuke scripts."""
@@ -78,12 +78,12 @@ class TGBFtrackExtractOverwriteNukeStudio(pyblish.api.InstancePlugin):
 class TGBFtrackExtract(pyblish.api.InstancePlugin):
     """Detailed component data."""
 
-    order = pyblish.api.ExtractorOrder
+    order = pyblish.api.ExtractorOrder + 0.1
     label = "TGBVFX Detail Components"
     families = [
         "img", "gizmo", "lut", "scene", "cache", "mov", "camera", "geometry"
     ]
-    hosts = ["maya", "nuke", "ftrack"]
+    hosts = ["maya", "nuke", "ftrack", "nukestudio"]
 
     def recursive_available_version(self, component, location):
 
