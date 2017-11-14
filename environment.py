@@ -111,6 +111,9 @@ environment["NUKE_PATH"] = [
 # PYBLISH_HOTKEY
 environment["PYBLISH_HOTKEY"] = ["Ctrl+Alt+P"]
 
+# PYBLISH_QML_MODAL
+environment["PYBLISH_QML_MODAL"] = ["True"]
+
 # REVIEW_PRESETS
 environment["REVIEW_PRESETS"] = [
     os.path.join(root, "environment", "REVIEW_PRESETS"),
