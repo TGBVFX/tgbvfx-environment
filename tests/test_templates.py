@@ -400,6 +400,8 @@ def get_test_paths():
         "sh0010/compositing/Group1/Group1_v001.gizmo",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/mov/sq001/sh0010/"
         "compositing/write1/write1_v001.mov",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/mov/sq001/sh0010/"
+        "compositing/write1/write1_v001.R3D",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/scene/sq001/sh0010/"
         "compositing/write1/write1_v001.psd",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/cache/sq001/sh0010/"
@@ -1332,6 +1334,31 @@ def test_project_sq001_sh0010_compositing():
     component = utils.mock_entity(
         ("version", assetversion),
         ("file_type", ".mov"),
+        entity_type="FileComponent"
+    )
+    assert_entity(component)
+    entities.append(component)
+
+    # project/sq001/sh0010/compositing/.mov file
+    assettype = utils.mock_entity(
+        ("short", "mov"),
+        entity_type="Asset"
+    )
+    asset = utils.mock_entity(
+        ("parent", shot),
+        ("type", assettype),
+        entity_type="Asset"
+    )
+    assetversion = utils.mock_entity(
+        ("asset", asset),
+        ("task", task),
+        ("version", 1),
+        ("metadata", {"instance_name": "write1"}),
+        entity_type="AssetVersion"
+    )
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("file_type", ".R3D"),
         entity_type="FileComponent"
     )
     assert_entity(component)
