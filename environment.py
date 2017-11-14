@@ -89,7 +89,8 @@ environment["HIERO_PLUGIN_PATH"] = [
         "pyblish-nukestudio",
         "pyblish_nukestudio",
         "hiero_plugin_path"
-    )
+    ),
+    os.path.join(root, "environment", "HIERO_PLUGIN_PATH")
 ]
 
 # NUKE_PATH
