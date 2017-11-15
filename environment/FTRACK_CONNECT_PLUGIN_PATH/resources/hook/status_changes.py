@@ -81,7 +81,7 @@ def callback(event):
                         {
                             "label": "",
                             "name": assetversion["id"],
-                            "value": True,
+                            "value": False,
                             "type": "boolean"
                         }
                     )
