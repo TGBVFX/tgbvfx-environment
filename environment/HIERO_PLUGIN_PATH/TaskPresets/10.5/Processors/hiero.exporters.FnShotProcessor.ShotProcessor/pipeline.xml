@@ -1,5 +1,5 @@
 <root presetname="pipeline" tasktype="hiero.exporters.FnShotProcessor.ShotProcessor">
-    <startFrameIndex valuetype="int">1000</startFrameIndex>
+    <startFrameIndex valuetype="int">991</startFrameIndex>
     <exportRoot valuetype="str">//10.11.0.184/171001_ftrack/tgbvfx/editorial/nukestudio/workspace/</exportRoot>
     <versionIndex valuetype="int">1</versionIndex>
     <cutUseHandles valuetype="bool">True</cutUseHandles>
@@ -65,13 +65,15 @@
             <SequenceItem valuetype="str">{shot}/editorial.%04d.{ext}</SequenceItem>
             <SequenceItem valuetype="hiero.exporters.FnTranscodeExporter.TranscodePreset">
                 <root presetname="hiero.exporters.FnTranscodeExporter.TranscodeExporter" tasktype="hiero.exporters.FnTranscodeExporter.TranscodeExporter">
-                    <burninDataEnabled valuetype="bool">False</burninDataEnabled>
-                    <readAllLinesForExport valuetype="bool">False</readAllLinesForExport>
-                    <additionalNodesEnabled valuetype="bool">False</additionalNodesEnabled>
-                    <deleteAudio valuetype="bool">True</deleteAudio>
                     <colourspace valuetype="str">default</colourspace>
-                    <useSingleSocket valuetype="bool">False</useSingleSocket>
                     <file_type valuetype="unicode">exr</file_type>
+                    <readAllLinesForExport valuetype="bool">False</readAllLinesForExport>
+                    <channels valuetype="str">all</channels>
+                    <deleteAudio valuetype="bool">True</deleteAudio>
+                    <burninDataEnabled valuetype="bool">False</burninDataEnabled>
+                    <useSingleSocket valuetype="bool">False</useSingleSocket>
+                    <additionalNodesEnabled valuetype="bool">False</additionalNodesEnabled>
+                    <additionalNodesData valuetype="list" />
                     <dpx valuetype="dict">
                         <datatype valuetype="str">8 bit</datatype>
                         <transfer valuetype="str">(auto detect)</transfer>
@@ -79,7 +81,6 @@
                         <fill valuetype="bool">False</fill>
                     </dpx>
                     <includeEffects valuetype="bool">True</includeEffects>
-                    <channels valuetype="str">all</channels>
                     <burninData valuetype="dict">
                         <burnIn_bottomRight valuetype="NoneType">None</burnIn_bottomRight>
                         <burnIn_topLeft valuetype="NoneType">None</burnIn_topLeft>
@@ -93,7 +94,7 @@
                     </burninData>
                     <exr valuetype="dict">
                         <compression valuetype="str">Zip (16 scanline)</compression>
-                        <datatype valuetype="str">32 bit float</datatype>
+                        <datatype valuetype="str">16 bit half</datatype>
                         <noprefix valuetype="bool">False</noprefix>
                         <write_full_layer_names valuetype="bool">False</write_full_layer_names>
                         <standard_layer_name_format valuetype="bool">False</standard_layer_name_format>
@@ -113,7 +114,6 @@
                     </reformat>
                     <keepNukeScript valuetype="bool">False</keepNukeScript>
                     <method valuetype="str">Blend</method>
-                    <additionalNodesData valuetype="list" />
                 </root>
             </SequenceItem>
         </SequenceItem>
@@ -127,14 +127,12 @@
                     <annotationsPreCompPaths valuetype="list" />
                     <channels valuetype="str">rgb</channels>
                     <includeAudio valuetype="bool">False</includeAudio>
-                    <readPaths valuetype="list">
-                        <SequenceItem valuetype="unicode">{shot}/editorial_raw.%04d.{fileext}</SequenceItem>
-                    </readPaths>
+                    <readPaths valuetype="list" />
                     <connectTracks valuetype="bool">False</connectTracks>
                     <useSingleSocket valuetype="bool">False</useSingleSocket>
                     <collateSequence valuetype="bool">False</collateSequence>
                     <additionalNodesData valuetype="list" />
-                    <collateShotNames valuetype="bool">False</collateShotNames>
+                    <collateShotNames valuetype="bool">True</collateShotNames>
                     <includeEffects valuetype="bool">True</includeEffects>
                     <writePaths valuetype="list">
                         <SequenceItem valuetype="str">{shot}/editorial_raw.%04d.{fileext}</SequenceItem>
@@ -196,5 +194,5 @@
     <includeRetimes valuetype="bool">False</includeRetimes>
     <startFrameSource valuetype="str">Custom</startFrameSource>
     <cutLength valuetype="bool">True</cutLength>
-    <cutHandles valuetype="int">1</cutHandles>
+    <cutHandles valuetype="int">10</cutHandles>
 </root>
