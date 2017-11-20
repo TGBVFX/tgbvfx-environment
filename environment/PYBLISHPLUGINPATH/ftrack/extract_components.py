@@ -29,33 +29,6 @@ class TGBFtrackExtractComponents(pyblish.api.ContextPlugin):
             component_data.update({"name": "main"})
             instance.data["component_data"] = component_data
 
-'''
-class TGBFtrackExtractComponentsNukeStudio(pyblish.api.InstancePlugin):
-    """Setting data for all components from NukeStudio."""
-
-    order = pyblish.api.ExtractorOrder
-    label = "TGBVFX NukeStudio Components"
-    families = ["trackItem.task"]
-    hosts = ["nukestudio"]
-
-    def process(self, instance):
-        families = instance.data.get("families", [])
-        families += [instance.data["family"]]
-
-        if "scene" not in families:
-            instance.data["component_overwrite"] = True
-
-        # AssetVersion data
-        data = instance.data.get("assetversion_data", {})
-
-        metadata = data.get("metadata", {})
-        video_track = instance.data["parent"].data["item"].parent()
-        metadata.update({"instance_name": video_track.name()})
-
-        data["metadata"] = metadata
-
-        instance.data["assetversion_data"] = data
-'''
 
 class TGBFtrackExtractOverwriteNukeStudio(pyblish.api.InstancePlugin):
     """Option to overwrite Nuke scripts."""
