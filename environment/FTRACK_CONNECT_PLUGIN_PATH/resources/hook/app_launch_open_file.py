@@ -61,18 +61,6 @@ def get_task_data(event):
     if identifier.startswith("maya"):
         app_id = "maya"
 
-    # Pyblish
-    if identifier.startswith("pyblish"):
-        templates = lucidity.discover_templates()
-        template_name = templates[0].get_template_name(task["parent"])
-        for template in templates:
-            if template.name == template_name:
-                # Return first valid path. This is up to the templates
-                # definition to order what comes first.
-                return data["command"].extend(
-                    ["--path", template.format(task["parent"])]
-                )
-
     # Return if application is not recognized.
     if not app_id:
         msg = '{0} - Application is not recognized to open a file: "{1}"'
