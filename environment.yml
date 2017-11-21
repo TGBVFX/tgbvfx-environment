@@ -30,7 +30,7 @@ dependencies:
   - https://bitbucket.org/ftrack/ftrack-connect-maya.git@b8be453b91765347a6e1c49ee79827c71b65bb18
   - https://bitbucket.org/tokejepsen/ftrack-connect-nuke.git@229d0c3217653714e72dcbf1fd365850eddf6cf3
   - https://bitbucket.org/ftrack/ftrack-connect-foundry.git@7cf86f01faf983c6f094dd86cda8ecdd7417cf3e
-  - https://bitbucket.org/tokejepsen/ftrack-connect-rv.git@1dc4ae2de8526c0ba603dc44eb24bf550d14be16
+  - https://bitbucket.org/tokejepsen/ftrack-connect-rv.git@6f113a118b0c5c15809c461c5d1c793892701224
   - https://bitbucket.org/ftrack/ftrack-connect-nuke-studio.git@d97733435037c54a7d091df3f4ecafef11d41b03
   - https://github.com/bumpybox/ftrack-hooks.git@199563fee5b8d5cf83d3270185697eb5c1e6fab6
   - https://github.com/tokejepsen/ftrack-connect-environment.git@33f413990809081b478fcae2d655e8f79e9b3dd0:
