@@ -49,12 +49,16 @@ def application_launch(event):
 
     event = inject_paths(event, entities)
 
-    for src, dst in event["data"]["files"]:
-        print "Copying \"{0}\" to \"{1}\"".format(src, dst)
-        shutil.copy(src, dst)
-
     for path in event["data"]["directories"]:
         os.makedirs(path)
+
+    for src, dst in event["data"]["files"]:
+        print "Copying \"{0}\" to \"{1}\"".format(src, dst)
+
+        if not os.path.exists(os.path.dirname(dst)):
+            os.makedirs(os.path.dirname(dst))
+
+        shutil.copy(src, dst)
 
 
 def structure_launch(event):
