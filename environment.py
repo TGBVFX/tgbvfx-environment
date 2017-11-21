@@ -1,7 +1,6 @@
 import os
 import requests
 import subprocess
-import sys
 
 import psutil
 
@@ -60,11 +59,11 @@ environment["PYTHONPATH"] = [
     ),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "pyblish-bumpybox"),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "pyblish-nukestudio"),
+    os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "pyblish-nukeassist"),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "ftrack-hooks"),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "pyblish-royalrender"),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "filelink"),
     os.path.join(os.environ["CONDA_GIT_REPOSITORY"], "maya-capture"),
-
 ]
 
 # LUCIDITY_TEMPLATE_PATH
@@ -99,6 +98,12 @@ environment["NUKE_PATH"] = [
         os.environ["CONDA_GIT_REPOSITORY"],
         "pyblish-nuke",
         "pyblish_nuke",
+        "nuke_path"
+    ),
+    os.path.join(
+        os.environ["CONDA_GIT_REPOSITORY"],
+        "pyblish-nukeassist",
+        "pyblish_nukeassist",
         "nuke_path"
     ),
     os.path.join(root, "environment", "NUKE_PATH"),
