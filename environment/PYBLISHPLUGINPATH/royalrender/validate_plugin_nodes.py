@@ -49,7 +49,7 @@ class ValidatePluginNodes(pyblish.api.InstancePlugin):
 
     order = pyblish.api.ValidatorOrder
     families = ["royalrender"]
-    hosts = ["nuke"]
+    hosts = ["nuke", "nukeassist"]
     targets = ["process.royalrender"]
     actions = [TGBVFXSelectPluginNodes]
     optional = True

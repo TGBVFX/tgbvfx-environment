@@ -45,7 +45,7 @@ class TGBFtrackValidateCurrentFile(pyblish.api.ContextPlugin):
     label = "Current File"
     actions = [TGBFtrackRepairCurrentFile]
     optional = True
-    hosts = ["nuke"]
+    hosts = ["nuke", "nukeassist"]
 
     def process(self, context):
         import os
@@ -59,7 +59,7 @@ class TGBFtrackValidateCurrentFile(pyblish.api.ContextPlugin):
         work_file = utils.get_work_file(
             context.data["ftrackSession"],
             context.data["ftrackTask"],
-            pyblish.api.current_host(),
+            "nuke",
             context.data["version"]
         )
         current_file = os.path.abspath(

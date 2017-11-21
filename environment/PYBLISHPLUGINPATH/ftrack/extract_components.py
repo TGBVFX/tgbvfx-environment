@@ -56,7 +56,7 @@ class TGBFtrackExtract(pyblish.api.InstancePlugin):
     families = [
         "img", "gizmo", "lut", "scene", "cache", "mov", "camera", "geometry"
     ]
-    hosts = ["maya", "nuke", "ftrack", "nukestudio"]
+    hosts = ["maya", "nuke", "nukeassist", "ftrack", "nukestudio"]
 
     def recursive_available_version(self, component, location):
 
