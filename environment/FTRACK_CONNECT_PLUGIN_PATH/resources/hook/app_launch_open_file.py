@@ -7,7 +7,6 @@ import shutil
 import ftrack
 import ftrack_api
 from tgbvfx_environment import utils
-import lucidity
 
 log = logging.getLogger(__name__)
 
