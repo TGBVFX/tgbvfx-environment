@@ -206,6 +206,9 @@ def get_task_data(event):
 
     # Only add the work file to the command if the user didn't cancel
     if os.path.exists(output_file):
+        if app_id == "maya":
+            data["command"].append("-file")
+
         data["command"].append(output_file)
     else:
         data["command"] = ""
