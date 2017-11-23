@@ -17,6 +17,10 @@ class TGBFtrackValidateFileTemplate(pyblish.api.InstancePlugin):
         if "source" == instance.data["family"]:
             return
 
+        # Ignore review instance
+        if "review" == instance.data["family"]:
+            return
+
         # Ignore NukeStudio for now
         if pyblish.api.current_host() == "nukestudio":
             return

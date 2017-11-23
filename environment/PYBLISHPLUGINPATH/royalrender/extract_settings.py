@@ -10,7 +10,7 @@ class TGBVFXEnvironmentRoyalRenderExtractSettingsNuke(api.InstancePlugin):
     order = api.ExtractorOrder + 0.1
     label = "Royal Render TGBVFX"
     families = ["royalrender"]
-    hosts = ["nuke"]
+    hosts = ["nuke", "nukeassist"]
     targets = ["process.royalrender"]
 
     def process(self, instance):
