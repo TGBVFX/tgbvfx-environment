@@ -1,6 +1,7 @@
 import os
 import requests
 import subprocess
+import zipfile
 
 import psutil
 
@@ -45,6 +46,28 @@ except ImportError:
     install_from_url(
         "https://github.com/pyqt/python-qt5/archive/0.3.0.zip", "python-qt5"
     )
+
+# Install DJV
+zip_path = os.path.join(root, "zips")
+
+if not os.path.exists(zip_path):
+    os.makedirs(zip_path)
+
+path = os.path.join(root, "zips", "djv" + ".zip")
+
+if not os.path.exists(path):
+    url = "https://downloads.sourceforge.net/project/djv/djv-stable/1.1.0/"
+    url += "djv-1.1.0-Windows-64.zip"
+    download_file(url, path)
+
+zip_ref = zipfile.ZipFile(path, "r")
+zip_ref.extractall(os.path.join(root, "zips"))
+zip_ref.close()
+
+# PATH
+environment["PATH"] = [
+    os.path.join(root, "zips", "djv-1.1.0-Windows-64", "bin"),
+]
 
 # PYTHONPATH
 environment["PYTHONPATH"] = [
