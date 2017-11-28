@@ -29,7 +29,7 @@ dependencies:
   - https://bitbucket.org/ftrack/ftrack-python-legacy-api.git@97cb35a6ae98958f95e61a7925701d9e8eea375d
   - https://bitbucket.org/ftrack/ftrack-connect.git@f2d816b4f2910dd6713f18ecb1c79a83ae50c778
   - https://bitbucket.org/ftrack/ftrack-connect-maya.git@b8be453b91765347a6e1c49ee79827c71b65bb18
-  - https://bitbucket.org/tokejepsen/ftrack-connect-nuke.git@229d0c3217653714e72dcbf1fd365850eddf6cf3
+  - https://bitbucket.org/ftrack/ftrack-connect-nuke.git@229d0c3217653714e72dcbf1fd365850eddf6cf3
   - https://bitbucket.org/ftrack/ftrack-connect-foundry.git@7cf86f01faf983c6f094dd86cda8ecdd7417cf3e
   - https://bitbucket.org/tokejepsen/ftrack-connect-rv.git@6f113a118b0c5c15809c461c5d1c793892701224
   - https://bitbucket.org/ftrack/ftrack-connect-nuke-studio.git@d97733435037c54a7d091df3f4ecafef11d41b03
