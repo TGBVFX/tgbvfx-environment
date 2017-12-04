@@ -18,7 +18,7 @@ dependencies:
   - https://github.com/Psyop/Cryptomatte.git@c5954c1bc99d253df817ba70bcb701a106dfefaf
   - https://github.com/tokejepsen/filelink.git@01c782e4ce8043914cc09908392747954f5284b1
   - https://github.com/pyblish/pyblish-base.git@d5b1da1f840846398a18098cbed8d0f6d7a6a153
-  - https://github.com/pyblish/pyblish-qml.git@b18e9b408704bc1097abbd7207fd765588ebc4b3
+  - https://github.com/pyblish/pyblish-qml.git@e80a9050a558f0a596b8e755896499e35d00d952
   - https://github.com/pyblish/pyblish-nukestudio.git@225b2af344468fa43c51a14f71a512b8a317cb48
   - https://github.com/pyblish/pyblish-ftrack.git@f14fca7981d6e64767815f1ad75c094e8e906153
   - https://github.com/pyblish/pyblish-nuke.git@5073788302663035c306d5c72e50efafda23186e
@@ -36,7 +36,7 @@ dependencies:
   - https://github.com/bumpybox/ftrack-hooks.git@199563fee5b8d5cf83d3270185697eb5c1e6fab6
   - https://github.com/tokejepsen/ftrack-connect-environment.git@007cf3f87a455fe08cf3f7bb279c42f925b18941:
     - python $REPO_PATH/environment.py
-  - https://github.com/tokejepsen/pyblish-grill-environment.git@d9393a194ede04502dc9c02f6eadaf9d0e5bc22e:
+  - https://github.com/tokejepsen/pyblish-grill-environment.git@72be7543179e92414a76ea2a83e40feeff37a474:
     - python $REPO_PATH/environment.py
   - https://github.com/tokejepsen/tgbvfx-environment.git:
     - python $REPO_PATH/environment.py
