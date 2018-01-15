@@ -72,33 +72,3 @@ class TGBVFXValidateMochaNodes(pyblish.api.InstancePlugin):
             "these nodes: {0}".format(plugin_nodes)
         )
         assert not plugin_nodes, msg
-
-
-class TGBVFXValidateNeatVideoNodes(pyblish.api.InstancePlugin):
-    """Validate that there are no Neat Video nodes in the script."""
-
-    label = "Neat Video Nodes"
-    order = pyblish.api.ValidatorOrder
-    families = ["royalrender"]
-    hosts = ["nuke", "nukeassist"]
-    targets = ["process.royalrender"]
-    actions = [TGBVFXSelectPluginNodes]
-    optional = True
-
-    def get_plugin_nodes(self):
-        plugin_nodes = []
-        class_prefixes = ["OFXcom.absoft.neatvideo"]
-        for node in nuke.allNodes():
-            if node.Class() in class_prefixes:
-                plugin_nodes.append(node)
-
-        return plugin_nodes
-
-    def process(self, instance):
-        plugin_nodes = self.get_plugin_nodes()
-
-        msg = (
-            "Neat Video nodes found in the script. RoyalRender does not "
-            "support these nodes: {0}".format(plugin_nodes)
-        )
-        assert not plugin_nodes, msg
