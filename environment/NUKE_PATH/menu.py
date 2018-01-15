@@ -1,4 +1,6 @@
 import os
+import shutil
+import datetime
 
 import nuke
 
@@ -23,3 +25,28 @@ menu.addCommand(
 
 # Setup common directories.
 nuke.addFavoriteDir("Studio Library", "//10.11.0.184/171000_TGB_Library/Stock")
+
+
+# Backup Nuke script on save.
+def on_script_save():
+    source = nuke.root().name()
+    target = os.path.abspath(
+        os.path.join(
+            source,
+            "..",
+            "workspace",
+            "backup",
+            "{0}_{1}.nk".format(
+                os.path.basename(os.path.splitext(source)[0]),
+                datetime.datetime.now().strftime("%Y%m%d%H%M%S")
+            )
+        )
+    )
+
+    if not os.path.exists(os.path.dirname(target)):
+        os.makedirs(os.path.dirname(target))
+
+    shutil.copy(source, target)
+
+
+nuke.addOnScriptSave(on_script_save)
