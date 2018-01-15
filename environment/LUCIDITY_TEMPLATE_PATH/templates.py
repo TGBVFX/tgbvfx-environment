@@ -206,6 +206,13 @@ def register():
         Template("Project", mount + "/vfx/_dev/_ASSET_TEMPLATE"),
         Template("Project", mount + "/vfx/_dev/_ASSET_TEMPLATE/_references"),
         Template("Project", mount + "/vfx/_dev/_ASSET_TEMPLATE/3dsmax"),
+        Template("Project", mount + "/vfx/_dev/_ASSET_TEMPLATE/photoshop"),
+        Template(
+            "Project", mount + "/vfx/_dev/_ASSET_TEMPLATE/photoshop/files"
+        ),
+        Template(
+            "Project", mount + "/vfx/_dev/_ASSET_TEMPLATE/photoshop/rendered"
+        ),
         Template("Project", mount + "/vfx/_dev/_ASSET_TEMPLATE/houdini"),
         Template("Project", mount + "/vfx/_dev/_ASSET_TEMPLATE/houdini/_in"),
         Template("Project", mount + "/vfx/_dev/_ASSET_TEMPLATE/houdini/_out"),
@@ -309,6 +316,9 @@ def register():
         "{0}",
         "{0}/_plates",
         "{0}/_references",
+        "{0}/photoshop",
+        "{0}/photoshop/files",
+        "{0}/photoshop/rendered",
         "{0}/3dsmax",
         "{0}/mari",
         "{0}/houdini",

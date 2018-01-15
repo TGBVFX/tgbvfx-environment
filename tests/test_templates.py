@@ -44,6 +44,12 @@ def get_test_paths():
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/3dsmax",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/"
+        "photoshop",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/"
+        "photoshop/files",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/"
+        "photoshop/rendered",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/houdini",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/mari",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/maya",
@@ -116,12 +122,19 @@ def get_test_paths():
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/"
         "_references",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/_plates",
+
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/photoshop",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/photoshop/files",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/photoshop/"
+        "rendered",
+
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/houdini",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/houdini/geo",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/houdini/render",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/houdini/temp",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/houdini/_in",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/houdini/_out",
+
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
         "workspace.mel",
@@ -147,6 +160,7 @@ def get_test_paths():
         "outputScenes/dynamicScenes",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
         "outputScenes/renderScenes",
+
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/nuke",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/nuke/"
         "renders",
@@ -227,6 +241,12 @@ def get_test_paths():
         "_references",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/"
         "_plates",
+
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/photoshop",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/photoshop/files",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/photoshop/"
+        "rendered",
+
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/houdini",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/houdini/"
         "geo",
@@ -238,6 +258,7 @@ def get_test_paths():
         "_in",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/houdini/"
         "_out",
+
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/maya",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
         "workspace.mel",
@@ -263,6 +284,7 @@ def get_test_paths():
         "outputScenes/dynamicScenes",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
         "outputScenes/renderScenes",
+
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/nuke",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/castle/nuke/"
         "renders",
@@ -341,16 +363,22 @@ def get_test_paths():
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/3dsmax",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/mari",
-        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/houdini",
-        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya",
-        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/nuke",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/_plates",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/_references",
+
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/photoshop",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/photoshop/files",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/photoshop/"
+        "rendered",
+
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/houdini",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/houdini/geo",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/houdini/render",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/houdini/temp",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/houdini/_in",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/houdini/_out",
+
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/"
         "workspace.mel",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/caches",
@@ -369,6 +397,8 @@ def get_test_paths():
         "outputScenes/dynamicScenes",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/"
         "outputScenes/renderScenes",
+
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/nuke",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/nuke/renders",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/nuke/"
         "renderScripts",
@@ -441,6 +471,13 @@ def get_test_paths():
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/_references",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/3dsmax",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/mari",
+
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/photoshop",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/photoshop/"
+        "files",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/photoshop/"
+        "rendered",
+
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/houdini",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/houdini/_in",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/houdini/_out",
@@ -448,6 +485,7 @@ def get_test_paths():
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/houdini/"
         "render",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/houdini/temp",
+
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/caches",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/"
@@ -466,6 +504,7 @@ def get_test_paths():
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/temp",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/"
         "textures",
+
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/nuke",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/nuke/renders",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/nuke/"
