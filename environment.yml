@@ -34,7 +34,7 @@ dependencies:
   - https://bitbucket.org/ftrack/ftrack-connect-foundry.git@7cf86f01faf983c6f094dd86cda8ecdd7417cf3e
   - https://bitbucket.org/tokejepsen/ftrack-connect-rv.git@6f113a118b0c5c15809c461c5d1c793892701224
   - https://bitbucket.org/ftrack/ftrack-connect-nuke-studio.git@d97733435037c54a7d091df3f4ecafef11d41b03
-  - https://github.com/bumpybox/ftrack-hooks.git@199563fee5b8d5cf83d3270185697eb5c1e6fab6
+  - https://github.com/tokejepsen/ftrack-hooks.git@2a1d6268cb8eb019412f4da7ae39035ed4d1824b
   - https://github.com/tokejepsen/ftrack-connect-environment.git@007cf3f87a455fe08cf3f7bb279c42f925b18941:
     - python $REPO_PATH/environment.py
   - https://github.com/tokejepsen/pyblish-grill-environment.git@862f207f0b15aef470bbb901450b3b25a495abcd:
