@@ -23,12 +23,8 @@ class TGBVFXSelectPluginNodes(pyblish.api.Action):
 
         nodes_to_select = []
         for instance in instances:
-            cls_instance = ValidatePluginNodes()
-            nodes_to_select.extend(
-                cls_instance.get_upstream_plugin_nodes(
-                    instance[0], instance.data["class_prefixes"]
-                )
-            )
+            cls_instance = plugin()
+            nodes_to_select.extend(cls_instance.get_plugin_nodes())
 
         # Deselect all nodes.
         for node in nuke.allNodes():
@@ -44,9 +40,10 @@ class TGBVFXSelectPluginNodes(pyblish.api.Action):
         nuke.zoom(3, [xC, yC])
 
 
-class ValidatePluginNodes(pyblish.api.InstancePlugin):
-    """Superclass for validating plugins nodes."""
+class TGBVFXValidateMochaNodes(pyblish.api.InstancePlugin):
+    """Validate that there are no Mocha nodes in the script."""
 
+    label = "Mocha Nodes"
     order = pyblish.api.ValidatorOrder
     families = ["royalrender"]
     hosts = ["nuke", "nukeassist"]
@@ -54,76 +51,54 @@ class ValidatePluginNodes(pyblish.api.InstancePlugin):
     actions = [TGBVFXSelectPluginNodes]
     optional = True
 
-    def get_upstream_plugin_nodes(self, node, class_prefixes):
-        nodes = []
+    def get_plugin_nodes(self):
+        plugin_nodes = []
+        class_prefixes = [
+            "OFXcom.borisfx.ofx.mochapro",
+            "OFXcom.borisfx.ofx.mochavr",
+            "OFXcom.borisfx.ofx.mochavr_v1"
+        ]
+        for node in nuke.allNodes():
+            if node.Class() in class_prefixes:
+                plugin_nodes.append(node)
 
-        dependencies = []
-
-        # Dirty hack to circumvent max recursion issue in Nuke.
-        try:
-            dependencies = self.recurse_dependencies(node)
-        except RuntimeError as e:
-            if e.message == "maximum recursion depth exceeded":
-                self.log.warning(e.message)
-            else:
-                raise
-
-        for node in dependencies:
-            for prefix in class_prefixes:
-                if node.Class().startswith(prefix):
-                    nodes.append(node)
-
-        return nodes
-
-    def recurse_dependencies(self, node):
-        dependencies = []
-        dependency_nodes = node.dependencies()
-        dependencies.extend(dependency_nodes)
-        for dependant in dependency_nodes:
-            dependencies.extend(self.recurse_dependencies(dependant))
-
-        return dependencies
-
-
-class TGBVFXValidateMochaNodes(ValidatePluginNodes):
-    """Validate that there are no Mocha nodes upstream."""
-
-    label = "Mocha Nodes"
+        return plugin_nodes
 
     def process(self, instance):
-        class_prefixes = [
-            "OFXcom.borisfx.ofx.mochapro", "OFXcom.borisfx.ofx.mochavr"
-        ]
-        instance.data["class_prefixes"] = class_prefixes
-        nodes = self.get_upstream_plugin_nodes(
-            instance[0], class_prefixes
-        )
+        plugin_nodes = self.get_plugin_nodes()
 
         msg = (
-            "Mocha nodes found in upstream. RoyalRender does not support these"
-            " nodes."
+            "Mocha nodes found in the script. RoyalRender does not support "
+            "these nodes: {0}".format(plugin_nodes)
         )
-        assert not nodes, msg
+        assert not plugin_nodes, msg
 
 
-class TGBVFXValidateNeatVideoNodes(ValidatePluginNodes):
-    """Validate that there are no Neat Video nodes upstream."""
+class TGBVFXValidateNeatVideoNodes(pyblish.api.InstancePlugin):
+    """Validate that there are no Neat Video nodes in the script."""
 
     label = "Neat Video Nodes"
+    order = pyblish.api.ValidatorOrder
+    families = ["royalrender"]
+    hosts = ["nuke", "nukeassist"]
+    targets = ["process.royalrender"]
+    actions = [TGBVFXSelectPluginNodes]
+    optional = True
+
+    def get_plugin_nodes(self):
+        plugin_nodes = []
+        class_prefixes = ["OFXcom.absoft.neatvideo"]
+        for node in nuke.allNodes():
+            if node.Class() in class_prefixes:
+                plugin_nodes.append(node)
+
+        return plugin_nodes
 
     def process(self, instance):
-        class_prefixes = ["OFXcom.absoft.neatvideo"]
-        nodes = self.get_upstream_plugin_nodes(
-            instance[0], class_prefixes
-        )
-        instance.data["class_prefixes"] = class_prefixes
-        active_nodes = False
-        for node in nodes:
-            if not node["disable"].getValue():
-                active_nodes = True
+        plugin_nodes = self.get_plugin_nodes()
 
         msg = (
-            "Neat Video nodes found in upstream. RoyalRender does not support "
-            "these nodes."
+            "Neat Video nodes found in the script. RoyalRender does not "
+            "support these nodes: {0}".format(plugin_nodes)
         )
-        assert not active_nodes, msg
+        assert not plugin_nodes, msg
