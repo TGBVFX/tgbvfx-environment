@@ -30,6 +30,10 @@ nuke.addFavoriteDir("Studio Library", "//10.11.0.184/171000_TGB_Library/Stock")
 # Backup Nuke script on save.
 def on_script_save():
     source = nuke.root().name()
+
+    if not os.path.exists(source):
+        return
+
     target = os.path.abspath(
         os.path.join(
             source,
