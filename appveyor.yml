@@ -1,30 +1,13 @@
 environment:
 
-  PYTHONPATH: "%APPVEYOR_BUILD_FOLDER%\\environment\\PYTHONPATH"
-  LUCIDITY_TEMPLATE_PATH: "%APPVEYOR_BUILD_FOLDER%\\environment\\LUCIDITY_TEMPLATE_PATH"
-
   matrix:
 
     - PYTHON: "C:\\Python27-x64"
       PYTHON_VERSION: "2.7.x"
       PYTHON_ARCH: "64"
 
-build: off
+version: 2018.1.17.1
 
-branches:
-  only:
-    - master
-
-only_commits:
-  files:
-    - tests/*
-    - environment/LUCIDITY_TEMPLATE_PATH/*
-
-install:
-  - SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%
-  - pip install pytest
-  - pip install lucidity
-
-test_script:
-  # Run the project tests
-  - "%CMD_IN_ENV% pytest"
+build_script:
+  # Build the compiled extension
+  - "%CMD_IN_ENV% python build_deployment.py"
