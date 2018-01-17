@@ -8,6 +8,10 @@ environment:
 
 version: 2018.1.17.1
 
+install:
+  - SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%
+  - pip install requests
+
 build_script:
   # Build the compiled extension
   - "%CMD_IN_ENV% python build_deployment.py"
