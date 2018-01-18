@@ -1,4 +1,11 @@
+version: 2018.1.18.2
+
+skip_tags: true
+
 environment:
+
+  PYTHONPATH: "%APPVEYOR_BUILD_FOLDER%\\environment\\PYTHONPATH"
+  LUCIDITY_TEMPLATE_PATH: "%APPVEYOR_BUILD_FOLDER%\\environment\\LUCIDITY_TEMPLATE_PATH"
 
   matrix:
 
@@ -6,17 +13,19 @@ environment:
       PYTHON_VERSION: "2.7.x"
       PYTHON_ARCH: "64"
 
-version: 2018.1.18.1
-
 install:
   - SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%
   - pip install requests
+  - pip install pytest
+  - pip install lucidity
 
-build_script:
-  # Build the compiled extension
+build: off
+
+test_script:
+  - "%CMD_IN_ENV% pytest"
+
+before_deploy:
   - "%CMD_IN_ENV% python build_deployment.py"
-
-skip_tags: true
 
 artifacts:
 - path: deployment.zip
