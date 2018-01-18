@@ -23,4 +23,4 @@ deploy:
   provider: GitHub
   auth_token:
     secure: p92hCI4Yd3AZAEBAIci9g9ZDNnHZcP+h+fD22lxAhXkO890Hc1Ajg16iFPArrMtc
-  artifact: deployment.zip
+  artifact: "%APPVEYOR_BUILD_FOLDER%\\deployment.zip
