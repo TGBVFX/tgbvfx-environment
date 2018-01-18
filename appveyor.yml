@@ -18,9 +18,13 @@ build_script:
 
 skip_tags: true
 
+artifacts:
+- path: deployment.zip
+  name: deployment
+
 deploy:
   description: AppVeyor Deployment
   provider: GitHub
   auth_token:
     secure: p92hCI4Yd3AZAEBAIci9g9ZDNnHZcP+h+fD22lxAhXkO890Hc1Ajg16iFPArrMtc
-  artifact: .\deployment.zip
+  artifact: deployment
