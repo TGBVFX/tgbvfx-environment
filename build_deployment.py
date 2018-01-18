@@ -43,7 +43,7 @@ def create_deployment(temp_directory):
             "deployment"
         )
     )
-
+    """
     # Installing the environment
     subprocess.call(
         [
@@ -56,7 +56,7 @@ def create_deployment(temp_directory):
             os.path.join(root, "environment.yml")
         ]
     )
-
+    """
     # Exporting the deployment
     subprocess.call(
         [
