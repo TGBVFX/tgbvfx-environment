@@ -15,3 +15,10 @@ install:
 build_script:
   # Build the compiled extension
   - "%CMD_IN_ENV% python build_deployment.py"
+
+deploy:
+  description: AppVeyor Deployment
+  provider: GitHub
+  auth_token:
+    secure: p92hCI4Yd3AZAEBAIci9g9ZDNnHZcP+h+fD22lxAhXkO890Hc1Ajg16iFPArrMtc
+  artifact: \deployment.zip
