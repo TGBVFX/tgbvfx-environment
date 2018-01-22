@@ -24,21 +24,26 @@ def download_file(url, path):
 
 
 # Install DJV
-zip_path = os.path.join(root, "zips")
+root = os.path.dirname(__file__)
+applications_path = os.path.join(root, "applications")
+application_path = os.path.join(applications_path, "djv-1.1.0-Windows-64")
 
-if not os.path.exists(zip_path):
-    os.makedirs(zip_path)
+if not os.path.exists(applications_path):
+    os.makedirs(applications_path)
 
-path = os.path.join(root, "zips", "djv" + ".zip")
+path = os.path.join(applications_path, "djv.zip")
 
-if not os.path.exists(path):
+if not os.path.exists(application_path) and not os.path.exists(path):
+    print "Installing DJV..."
     url = "https://downloads.sourceforge.net/project/djv/djv-stable/1.1.0/"
     url += "djv-1.1.0-Windows-64.zip"
     download_file(url, path)
 
-zip_ref = zipfile.ZipFile(path, "r")
-zip_ref.extractall(os.path.join(root, "zips"))
-zip_ref.close()
+    zip_ref = zipfile.ZipFile(path, "r")
+    zip_ref.extractall(applications_path)
+    zip_ref.close()
+
+    os.remove(path)
 
 # PATH
 environment["PATH"] = [
