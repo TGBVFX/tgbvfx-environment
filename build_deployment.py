@@ -57,6 +57,61 @@ def create_deployment(temp_directory):
         ]
     )
 
+    # Run environment setups
+    os.environ["CONDA_SKIP_COMMANDS"] = "True"
+    os.environ["CONDA_GIT_REPOSITORY"] = os.path.join(
+        temp_directory,
+        "deployment",
+        "repositories",
+    )
+    subprocess.call(
+        [
+            os.path.join(
+                temp_directory,
+                "deployment",
+                "startup.bat"
+            ),
+            "&",
+            "activate",
+            "tgbvfx-environment",
+            "&",
+            "python",
+            os.path.join(
+                temp_directory,
+                "deployment",
+                "repositories",
+                "tgbvfx-environment",
+                "tgbvfx-environment",
+                "environment_setup.py"
+            )
+        ]
+    )
+
+    subprocess.call(
+        [
+            os.path.join(
+                temp_directory,
+                "deployment",
+                "startup.bat"
+            ),
+            "--environment",
+            os.path.join(root, "environment.yml"),
+            "&",
+            "activate",
+            "tgbvfx-environment",
+            "&",
+            "python",
+            os.path.join(
+                temp_directory,
+                "deployment",
+                "repositories",
+                "tgbvfx-environment",
+                "ftrack-connect-environment",
+                "environment_setup.py"
+            )
+        ]
+    )
+
     # Exporting the deployment
     subprocess.call(
         [
