@@ -25,11 +25,6 @@ build_script:
 test_script:
   - "%CMD_IN_ENV% python run_tests.py"
 
-# Need to create the deployment.zip just after tests, because the artifacts
-# get collected after tests and before deployment.
-after_test:
-  - "%CMD_IN_ENV% python run_deployment.py"
-
 artifacts:
 - path: deployment.zip
   name: deployment
