@@ -1,9 +1,7 @@
 import os
 import requests
 import zipfile
-import tempfile
 import subprocess
-import shutil
 import stat
 
 
@@ -19,27 +17,41 @@ def download_file(url, path):
         return False
 
 
-def create_deployment(temp_directory):
+def on_rm_error(func, path, exc_info):
+    # path contains the path of the file that couldn't be removed
+    # let's just assume that it's read-only and unlink it.
+    os.chmod(path, stat.S_IWRITE)
+    os.unlink(path)
+
+
+def main():
+    os.environ["CONDA_ATTACHED"] = "True"
+
     root = os.path.abspath(os.path.join(__file__, ".."))
 
+    # Create build directory
+    build_directory = os.path.join(os.path.expanduser("~"), "build")
+    if not os.path.exists(build_directory):
+        os.makedirs(build_directory)
+
     # Download conda-git-deployment
-    path = os.path.join(temp_directory, "deployment.zip")
+    path = os.path.join(build_directory, "deployment.zip")
     download_file(
         "https://github.com/tokejepsen/conda-git-deployment/archive/"
         "relocatable_environments.zip",
         path
     )
     zip_file = zipfile.ZipFile(path)
-    zip_file.extractall(temp_directory)
+    zip_file.extractall(build_directory)
 
     # Rename unzipped content
     os.rename(
         os.path.join(
-            temp_directory,
+            build_directory,
             "conda-git-deployment-relocatable_environments"
         ),
         os.path.join(
-            temp_directory,
+            build_directory,
             "deployment"
         )
     )
@@ -48,7 +60,7 @@ def create_deployment(temp_directory):
     subprocess.call(
         [
             os.path.join(
-                temp_directory,
+                build_directory,
                 "deployment",
                 "startup.bat"
             ),
@@ -60,14 +72,14 @@ def create_deployment(temp_directory):
     # Run environment setups
     os.environ["CONDA_SKIP_COMMANDS"] = "True"
     os.environ["CONDA_GIT_REPOSITORY"] = os.path.join(
-        temp_directory,
+        build_directory,
         "deployment",
         "repositories",
     )
     subprocess.call(
         [
             os.path.join(
-                temp_directory,
+                build_directory,
                 "deployment",
                 "startup.bat"
             ),
@@ -77,7 +89,7 @@ def create_deployment(temp_directory):
             "&",
             "python",
             os.path.join(
-                temp_directory,
+                build_directory,
                 "deployment",
                 "repositories",
                 "tgbvfx-environment",
@@ -90,7 +102,7 @@ def create_deployment(temp_directory):
     subprocess.call(
         [
             os.path.join(
-                temp_directory,
+                build_directory,
                 "deployment",
                 "startup.bat"
             ),
@@ -102,7 +114,7 @@ def create_deployment(temp_directory):
             "&",
             "python",
             os.path.join(
-                temp_directory,
+                build_directory,
                 "deployment",
                 "repositories",
                 "tgbvfx-environment",
@@ -111,59 +123,6 @@ def create_deployment(temp_directory):
             )
         ]
     )
-
-    # Exporting the deployment
-    subprocess.call(
-        [
-            os.path.join(
-                temp_directory,
-                "deployment",
-                "startup.bat"
-            ),
-            "--export-deployment",
-            "--environment",
-            os.path.join(root, "environment.yml")
-        ]
-    )
-
-
-def on_rm_error(func, path, exc_info):
-    # path contains the path of the file that couldn't be removed
-    # let's just assume that it's read-only and unlink it.
-    os.chmod(path, stat.S_IWRITE)
-    os.unlink(path)
-
-
-def main():
-    os.environ["CONDA_ATTACHED"] = "True"
-
-    # Temporary folder needs to be in user directory to avoid long paths that
-    # won't zip
-    directory = tempfile.mkdtemp()
-    os.rmdir(directory)
-    temp_directory = os.path.join(
-        os.path.expanduser("~"), os.path.basename(directory)
-    )
-    os.makedirs(temp_directory)
-
-    try:
-        create_deployment(temp_directory)
-
-        shutil.copy(
-            os.path.join(
-                temp_directory,
-                "deployment",
-                "deployment.zip"
-            ),
-            os.path.join(
-                os.path.dirname(__file__),
-                "deployment.zip"
-            )
-        )
-    except Exception as e:
-        print("Creating deployment failed: {0}".format(e))
-    finally:
-        shutil.rmtree(temp_directory, onerror=on_rm_error)
 
 
 if __name__ == "__main__":
