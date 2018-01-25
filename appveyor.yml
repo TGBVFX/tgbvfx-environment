@@ -19,13 +19,14 @@ install:
   - pip install pytest
   - pip install lucidity
 
-build: off
+build_script:
+  - "%CMD_IN_ENV% python run_build.py"
 
 test_script:
-  - "%CMD_IN_ENV% pytest"
+  - "%CMD_IN_ENV% python run_tests.py"
 
-after_test:
-  - "%CMD_IN_ENV% python build_deployment.py"
+before_deploy:
+  - "%CMD_IN_ENV% python run_deployment.py"
 
 artifacts:
 - path: deployment.zip
