@@ -3,7 +3,7 @@ import os
 import psutil
 
 from conda_git_deployment import utils
-import applications
+import environment_setup
 
 
 root = os.path.dirname(__file__)
@@ -166,5 +166,5 @@ def main():
 
 
 if __name__ == "__main__":
-    applications.install_djv()
+    environment_setup.install_djv()
     main()
