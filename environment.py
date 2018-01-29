@@ -93,6 +93,9 @@ def main():
     # PYBLISH_QML_MODAL
     environment["PYBLISH_QML_MODAL"] = ["True"]
 
+    # PYBLISH_QML_MODAL
+    environment["PYBLISH_ALLOW_DUPLICATE_PLUGIN_NAMES"] = ["True"]
+
     # REVIEW_PRESETS
     environment["REVIEW_PRESETS"] = [
         os.path.join(root, "environment", "REVIEW_PRESETS"),
