@@ -24,7 +24,7 @@ menu.addCommand(
 )
 
 # Setup common directories.
-nuke.addFavoriteDir("Studio Library", "//10.11.0.184/171000_TGB_Library/Stock")
+nuke.addFavoriteDir("Studio Library", "//ACT3-TGBVFX-SAN/171000_TGB_Library/Stock")
 
 
 # Backup Nuke script on save.

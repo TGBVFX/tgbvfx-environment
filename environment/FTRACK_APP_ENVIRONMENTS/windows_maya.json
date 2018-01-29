@@ -1,6 +1,6 @@
 {
     "solidangle_LICENSE": ["5053@10.11.0.110"],
-    "YETI_TMP": ["//10.11.0.184/_tgbvfx/temp"],
+    "YETI_TMP": ["//ACT3-TGBVFX-SAN/_tgbvfx/temp"],
     "PATH": ["C:/Program Files (x86)/QuickTime/QTSystem/"],
-    "PYTHONPATH": ["//10.11.0.184/_tgbvfx/_bin/maya/maya-alembic-export"]
+    "PYTHONPATH": ["//ACT3-TGBVFX-SAN/_tgbvfx/_bin/maya/maya-alembic-export"]
 }

@@ -3,7 +3,7 @@
 
 # tgbvfx-environment
 
-To get started with the pipeline, execute ```\\10.11.0.184\171000_TGB_Library\pipeline\startup.bat```. This will install the pipeline on your machine. The initial installation may take a little while.
+To get started with the pipeline, execute ```\\ACT3-TGBVFX-SAN\171000_TGB_Library\pipeline\startup.bat```. This will install the pipeline on your machine. The initial installation may take a little while.
 
 Once the installation is finished, you should be presented with the Ftrack-connect application.
 
@@ -36,7 +36,7 @@ To publish from NukeStudio you'll first have to create the project in Ftrack.
 
 Go to ```Projects > Create new project```, enter the name and specify the ```Workflow``` as "VFX".
 
-Once created go to the project's info by selecting the project in the hierarchy and go to ```Info```. Here specify the ```Disk``` as **Root**, and the ```Project folder```. The **Root** disk refers to the storage IP ```\\10.11.0.184``` and the ```Project folder``` refers to the folder at the **Root** disk, so with a ```Project folder``` of **171001_ftrack** will give you a project path **\\\10.11.0.184\171001_ftrack**.
+Once created go to the project's info by selecting the project in the hierarchy and go to ```Info```. Here specify the ```Disk``` as **Root**, and the ```Project folder```. The **Root** disk refers to the storage IP ```\\ACT3-TGBVFX-SAN``` and the ```Project folder``` refers to the folder at the **Root** disk, so with a ```Project folder``` of **171001_ftrack** will give you a project path **\\\ACT3-TGBVFX-SAN\171001_ftrack**.
 
 Its recommended to having an "Editing" task directly under the project, so you project overview should look something like this:
 
