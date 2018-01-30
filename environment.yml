@@ -40,7 +40,7 @@ dependencies:
     - python $REPO_PATH/environment.py
   - https://github.com/tokejepsen/pyblish-grill-environment.git@7385c7ff0aeac400b3c6af0fdf9e63151d3ed434:
     - python $REPO_PATH/environment.py
-  - https://github.com/tokejepsen/tgbvfx-environment.git:
+  - https://github.com/TGBVFX/tgbvfx-environment.git:
     - python $REPO_PATH/environment.py
     - python -m ftrack_connect
 name: tgbvfx-environment
