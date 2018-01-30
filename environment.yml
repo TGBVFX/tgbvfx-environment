@@ -13,6 +13,7 @@ dependencies:
   - psutil==5.4.1
   - https://bitbucket.org/ftrack/qtext/get/0.2.0.zip
   - https://github.com/pyqt/python-qt5/archive/0.3.0.zip
+  - setuptools==36.4
 - git:
   - https://github.com/abstractfactory/maya-capture.git@ef390f4664ac395d384854abfee7a093896bf8c4
   - https://github.com/krathjen/studiolibrary.git@d43da5b4129f0ead96daf1df0a9e3e725df50e9c
