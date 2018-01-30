@@ -371,6 +371,20 @@ def get_test_paths():
 
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001",
 
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/nuke/scripts/"
+        "pipeline_test_sq001_compositing_v001.nk",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/nukestudio/"
+        "pipeline_test_sq001_compositing_v001.hrox",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/maya/scenes/"
+        "pipeline_test_sq001_compositing_v001.mb",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/houdini/"
+        "pipeline_test_sq001_compositing_v001.hip",
+
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/lut/sq001/"
+        "compositing/Group1/Group1_v001.gizmo",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/nuke_gizmo/sq001/"
+        "compositing/Group1/Group1_v001.gizmo",
+
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/3dsmax",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/sq001/sh0010/mari",

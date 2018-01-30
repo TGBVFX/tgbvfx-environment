@@ -952,6 +952,21 @@ def register():
             "{file_type}"
         ),
         Template(
+            "Project/Sequence/Asset/nuke_gizmo/AssetVersion/"
+            "FileComponent/.gizmo",
+            "{version.task.project.disk." + system_name + "}/"
+            "{version.task.project.root}/"
+            "tgbvfx/"
+            "vfx/"
+            "_publish/"
+            "{version.asset.type.short}/"
+            "{version.asset.parent.name}/"
+            "{version.task.name}/"
+            "{version.metadata.instance_name}/"
+            "{version.metadata.instance_name}_v{metadata.pad_3}"
+            "{file_type}"
+        ),
+        Template(
             "Project/Sequence/Shot/Asset/nuke_gizmo/AssetVersion/"
             "FileComponent/.gizmo",
             "{version.task.project.disk." + system_name + "}/"
@@ -1018,6 +1033,21 @@ def register():
         ),
         Template(
             "Project/Folder/AssetBuild/Asset/lut/AssetVersion/"
+            "FileComponent/.gizmo",
+            "{version.task.project.disk." + system_name + "}/"
+            "{version.task.project.root}/"
+            "tgbvfx/"
+            "vfx/"
+            "_publish/"
+            "{version.asset.type.short}/"
+            "{version.asset.parent.name}/"
+            "{version.task.name}/"
+            "{version.metadata.instance_name}/"
+            "{version.metadata.instance_name}_v{metadata.pad_3}"
+            "{file_type}"
+        ),
+        Template(
+            "Project/Sequence/Asset/lut/AssetVersion/"
             "FileComponent/.gizmo",
             "{version.task.project.disk." + system_name + "}/"
             "{version.task.project.root}/"
@@ -1397,6 +1427,53 @@ def register():
             "{parent.name}/"
             "houdini/"
             "{project.name}_{parent.name}_{name}_v{version}{file_type}"
+        ),
+
+        Template(
+            "Project/Sequence/Task/.hrox",
+            "{project.disk." + system_name + "}/"
+            "{project.root}/"
+            "tgbvfx/"
+            "vfx/"
+            "{parent.name}/"
+            "nukestudio/"
+            "{parent.parent.name}_{parent.name}_{name}_"
+            "v{version}{file_type}"
+        ),
+        Template(
+            "Project/Sequence/Task/.nk",
+            "{project.disk." + system_name + "}/"
+            "{project.root}/"
+            "tgbvfx/"
+            "vfx/"
+            "{parent.name}/"
+            "nuke/"
+            "scripts/"
+            "{parent.parent.name}_{parent.name}_{name}_"
+            "v{version}{file_type}"
+        ),
+        Template(
+            "Project/Sequence/Task/.mb",
+            "{project.disk." + system_name + "}/"
+            "{project.root}/"
+            "tgbvfx/"
+            "vfx/"
+            "{parent.name}/"
+            "maya/"
+            "scenes/"
+            "{parent.parent.name}_{parent.name}_{name}_"
+            "v{version}{file_type}"
+        ),
+        Template(
+            "Project/Sequence/Task/.hip",
+            "{project.disk." + system_name + "}/"
+            "{project.root}/"
+            "tgbvfx/"
+            "vfx/"
+            "{parent.name}/"
+            "houdini/"
+            "{parent.parent.name}_{parent.name}_{name}_"
+            "v{version}{file_type}"
         ),
 
         Template(
