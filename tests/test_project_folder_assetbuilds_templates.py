@@ -91,6 +91,31 @@ def get_project_folder_assetbuild_files():
     )
     entities.append(component)
 
+    # project/assets/castle/lookdev/lut
+    assettype = utils.mock_entity(
+        ("short", "lut"),
+        entity_type="AssetType"
+    )
+    asset = utils.mock_entity(
+        ("parent", get_project_folder_assetbuild()),
+        ("type", assettype),
+        entity_type="Asset"
+    )
+    assetversion = utils.mock_entity(
+        ("asset", asset),
+        ("task", get_project_folder_assetbuild_task()),
+        ("version", 1),
+        ("metadata", {"instance_name": "Group1"}),
+        entity_type="AssetVersion"
+    )
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("name", "main"),
+        ("file_type", ".gizmo"),
+        entity_type="FileComponent"
+    )
+    entities.append(component)
+
     # project/assets/castle/lookdev/.nk
     assettype = utils.mock_entity(
         ("short", "scene"),

@@ -51,11 +51,43 @@ def test_project_task_workfiles():
         lib.assert_entity(entity)
 
 
+def get_project_task_files():
+    entities = []
+
+    # project/sq001/sh0010/compositing/.gizmo
+    assettype = utils.mock_entity(
+        ("short", "lut"),
+        entity_type="AssetType"
+    )
+    asset = utils.mock_entity(
+        ("parent", get_project()),
+        ("type", assettype),
+        entity_type="Asset"
+    )
+    assetversion = utils.mock_entity(
+        ("asset", asset),
+        ("task", get_project_task()),
+        ("version", 1),
+        ("metadata", {"instance_name": "Group1"}),
+        entity_type="AssetVersion"
+    )
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("name", "main"),
+        ("file_type", ".gizmo"),
+        entity_type="FileComponent"
+    )
+    entities.append(component)
+
+    return entities
+
+
 def get_entities():
     entities = []
 
     entities.append(get_project())
     entities.append(get_project_task())
     entities.extend(get_project_task_workfiles())
+    entities.extend(get_project_task_files())
 
     return entities

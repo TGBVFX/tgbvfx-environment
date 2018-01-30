@@ -120,10 +120,20 @@ def get_test_paths():
         "//ACT3-TGBVFX-SAN/171001_ftrack/tgbvfx/vfx/editing/maya/scenes/"
         "pipeline_test_editing_v001.mb",
 
+<<<<<<< HEAD
         "//ACT3-TGBVFX-SAN/171001_ftrack/tgbvfx/vfx/_dev/lizard",
         "//ACT3-TGBVFX-SAN/171001_ftrack/tgbvfx/vfx/_dev/lizard/3dsmax",
         "//ACT3-TGBVFX-SAN/171001_ftrack/tgbvfx/vfx/_dev/lizard/mari",
         "//ACT3-TGBVFX-SAN/171001_ftrack/tgbvfx/vfx/_dev/lizard/"
+=======
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/lut/editing/Group1/"
+        "Group1_v001.gizmo",
+
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/3dsmax",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/mari",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/"
+>>>>>>> master
         "_references",
         "//ACT3-TGBVFX-SAN/171001_ftrack/tgbvfx/vfx/_dev/lizard/_plates",
 
@@ -192,7 +202,13 @@ def get_test_paths():
 
         "//ACT3-TGBVFX-SAN/171001_ftrack/tgbvfx/vfx/_publish/nuke_gizmo/"
         "lizard/lookdev/Group1/Group1_v001.gizmo",
+<<<<<<< HEAD
         "//ACT3-TGBVFX-SAN/171001_ftrack/tgbvfx/vfx/_publish/scene/lizard/lookdev/"
+=======
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/lut/"
+        "lizard/lookdev/Group1/Group1_v001.gizmo",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/scene/lizard/lookdev/"
+>>>>>>> master
         "BackdropNode1/BackdropNode1_v001.nk",
         "//ACT3-TGBVFX-SAN/171001_ftrack/tgbvfx/vfx/_publish/cache/"
         "lizard/lookdev/WriteGeo1/WriteGeo1_v001.abc",
@@ -316,7 +332,13 @@ def get_test_paths():
 
         "//ACT3-TGBVFX-SAN/171001_ftrack/tgbvfx/vfx/_publish/nuke_gizmo/"
         "castle/lookdev/Group1/Group1_v001.gizmo",
+<<<<<<< HEAD
         "//ACT3-TGBVFX-SAN/171001_ftrack/tgbvfx/vfx/_publish/scene/castle/lookdev/"
+=======
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/lut/castle/lookdev/"
+        "Group1/Group1_v001.gizmo",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/scene/castle/lookdev/"
+>>>>>>> master
         "BackdropNode1/BackdropNode1_v001.nk",
         "//ACT3-TGBVFX-SAN/171001_ftrack/tgbvfx/vfx/_publish/cache/"
         "castle/lookdev/WriteGeo1/WriteGeo1_v001.abc",
@@ -432,7 +454,13 @@ def get_test_paths():
         "compositing/set1_mayaAscii/set1_mayaAscii_v001.ma",
         "//ACT3-TGBVFX-SAN/171001_ftrack/tgbvfx/vfx/_publish/nuke_gizmo/sq001/"
         "sh0010/compositing/Group1/Group1_v001.gizmo",
+<<<<<<< HEAD
         "//ACT3-TGBVFX-SAN/171001_ftrack/tgbvfx/vfx/_publish/mov/sq001/sh0010/"
+=======
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/lut/sq001/"
+        "sh0010/compositing/Group1/Group1_v001.gizmo",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/mov/sq001/sh0010/"
+>>>>>>> master
         "compositing/write1/write1_v001.mov",
         "//ACT3-TGBVFX-SAN/171001_ftrack/tgbvfx/vfx/_publish/mov/sq001/sh0010/"
         "compositing/write1/write1_v001.R3D",
@@ -535,7 +563,13 @@ def get_test_paths():
 
         "//ACT3-TGBVFX-SAN/171001_ftrack/tgbvfx/vfx/_publish/nuke_gizmo/RND/sq001"
         "/sh0010/compositing/Group1/Group1_v001.gizmo",
+<<<<<<< HEAD
         "//ACT3-TGBVFX-SAN/171001_ftrack/tgbvfx/vfx/_publish/scene/RND/sq001"
+=======
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/lut/RND/sq001"
+        "/sh0010/compositing/Group1/Group1_v001.gizmo",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/scene/RND/sq001"
+>>>>>>> master
         "/sh0010/compositing/BackdropNode1/BackdropNode1_v001.nk",
         "//ACT3-TGBVFX-SAN/171001_ftrack/tgbvfx/vfx/_publish/mov/RND/sq001"
         "/sh0010/compositing/write1/write1_v001.mov",

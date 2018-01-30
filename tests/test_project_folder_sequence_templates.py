@@ -92,6 +92,31 @@ def get_project_folder_sequence_shot_task_files():
     )
     entities.append(component)
 
+    # project/sq001/sh0010/compositing/lut
+    assettype = utils.mock_entity(
+        ("short", "lut"),
+        entity_type="AssetType"
+    )
+    asset = utils.mock_entity(
+        ("parent", get_project_folder_sequence_shot()),
+        ("type", assettype),
+        entity_type="Asset"
+    )
+    assetversion = utils.mock_entity(
+        ("asset", asset),
+        ("task", get_project_folder_sequence_shot_task()),
+        ("version", 1),
+        ("metadata", {"instance_name": "Group1"}),
+        entity_type="AssetVersion"
+    )
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("name", "main"),
+        ("file_type", ".gizmo"),
+        entity_type="FileComponent"
+    )
+    entities.append(component)
+
     # project/sq001/sh0010/compositing/.nk file
     assettype = utils.mock_entity(
         ("short", "scene"),
