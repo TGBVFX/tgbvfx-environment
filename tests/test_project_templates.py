@@ -4,7 +4,7 @@ import lib
 
 def get_project():
     return utils.mock_entity(
-        ("disk", {"windows": "//ACT3-TGBVFX-SAN", "unix": "//ACT3-TGBVFX-SAN"}),
+        ("disk", {"windows": "//10.10.200.18", "unix": "//10.10.200.18"}),
         ("root", "171001_ftrack"),
         ("name", "pipeline_test"),
         entity_type="Project"

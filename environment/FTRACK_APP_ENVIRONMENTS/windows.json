@@ -1,5 +1,5 @@
 {
 	"peregrinel_LICENSE": ["5053@10.11.0.110"],
-    "LIBRARY_PATH": ["//ACT3-TGBVFX-SAN/_tgbvfx/library"],
-    "STUDIO_TMP": ["//ACT3-TGBVFX-SAN/_tgbvfx/temp"]
+    "LIBRARY_PATH": ["//10.10.200.18/_tgbvfx/library"],
+    "STUDIO_TMP": ["//10.10.200.18/_tgbvfx/temp"]
 }
