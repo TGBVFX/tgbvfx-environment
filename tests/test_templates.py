@@ -120,6 +120,9 @@ def get_test_paths():
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/editing/maya/scenes/"
         "pipeline_test_editing_v001.mb",
 
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/lut/editing/Group1/"
+        "Group1_v001.gizmo",
+
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/3dsmax",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_dev/lizard/mari",
@@ -191,6 +194,8 @@ def get_test_paths():
         "scripts/pipeline_test_lizard_lookdev_v001.nk",
 
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/nuke_gizmo/"
+        "lizard/lookdev/Group1/Group1_v001.gizmo",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/lut/"
         "lizard/lookdev/Group1/Group1_v001.gizmo",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/scene/lizard/lookdev/"
         "BackdropNode1/BackdropNode1_v001.nk",
@@ -316,6 +321,8 @@ def get_test_paths():
 
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/nuke_gizmo/"
         "castle/lookdev/Group1/Group1_v001.gizmo",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/lut/castle/lookdev/"
+        "Group1/Group1_v001.gizmo",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/scene/castle/lookdev/"
         "BackdropNode1/BackdropNode1_v001.nk",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/cache/"
@@ -432,6 +439,8 @@ def get_test_paths():
         "compositing/set1_mayaAscii/set1_mayaAscii_v001.ma",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/nuke_gizmo/sq001/"
         "sh0010/compositing/Group1/Group1_v001.gizmo",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/lut/sq001/"
+        "sh0010/compositing/Group1/Group1_v001.gizmo",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/mov/sq001/sh0010/"
         "compositing/write1/write1_v001.mov",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/mov/sq001/sh0010/"
@@ -534,6 +543,8 @@ def get_test_paths():
         "/pipeline_test_sq001_sh0010_compositing_v001.hip",
 
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/nuke_gizmo/RND/sq001"
+        "/sh0010/compositing/Group1/Group1_v001.gizmo",
+        "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/lut/RND/sq001"
         "/sh0010/compositing/Group1/Group1_v001.gizmo",
         "//10.11.0.184/171001_ftrack/tgbvfx/vfx/_publish/scene/RND/sq001"
         "/sh0010/compositing/BackdropNode1/BackdropNode1_v001.nk",
