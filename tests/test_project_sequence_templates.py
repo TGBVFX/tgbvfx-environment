@@ -16,6 +16,92 @@ def test_project_sequence():
     lib.assert_entity(get_project_sequence())
 
 
+def get_project_sequence_task():
+    return utils.mock_entity(
+        ("parent", get_project_sequence()),
+        ("project", tpt.get_project()),
+        ("version", 1),
+        ("name", "compositing"),
+        entity_type="Task"
+    )
+
+
+def get_project_sequence_task_workfiles():
+    entities = []
+    for ext in lib.get_workfile_extensions():
+        entity = utils.mock_entity(
+            ("parent", get_project_sequence()),
+            ("project", tpt.get_project()),
+            ("version", 1),
+            ("file_type", ext),
+            ("name", "compositing"),
+            entity_type="Task"
+        )
+        entities.append(entity)
+    return entities
+
+
+def test_project_sequence_task_workfiles():
+    for entity in get_project_sequence_task_workfiles():
+        lib.assert_entity(entity)
+
+
+def get_project_sequence_task_files():
+    entities = []
+
+    # project/sq001/compositing/lut
+    assettype = utils.mock_entity(
+        ("short", "lut"),
+        entity_type="AssetType"
+    )
+    asset = utils.mock_entity(
+        ("parent", get_project_sequence()),
+        ("type", assettype),
+        entity_type="Asset"
+    )
+    assetversion = utils.mock_entity(
+        ("asset", asset),
+        ("task", get_project_sequence_task()),
+        ("version", 1),
+        ("metadata", {"instance_name": "Group1"}),
+        entity_type="AssetVersion"
+    )
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("name", "main"),
+        ("file_type", ".gizmo"),
+        entity_type="FileComponent"
+    )
+    entities.append(component)
+
+    # project/sq001/compositing/.gizmo
+    assettype = utils.mock_entity(
+        ("short", "nuke_gizmo"),
+        entity_type="AssetType"
+    )
+    asset = utils.mock_entity(
+        ("parent", get_project_sequence()),
+        ("type", assettype),
+        entity_type="Asset"
+    )
+    assetversion = utils.mock_entity(
+        ("asset", asset),
+        ("task", get_project_sequence_task()),
+        ("version", 1),
+        ("metadata", {"instance_name": "Group1"}),
+        entity_type="AssetVersion"
+    )
+    component = utils.mock_entity(
+        ("version", assetversion),
+        ("name", "main"),
+        ("file_type", ".gizmo"),
+        entity_type="FileComponent"
+    )
+    entities.append(component)
+
+    return entities
+
+
 def get_project_sequence_shot():
     return utils.mock_entity(
         ("parent", get_project_sequence()),
@@ -413,6 +499,8 @@ def get_entities():
     entities = []
 
     entities.append(get_project_sequence())
+    entities.extend(get_project_sequence_task_workfiles())
+    entities.extend(get_project_sequence_task_files())
     entities.append(get_project_sequence_shot())
     entities.extend(get_project_sequence_shot_task_files())
     entities.extend(get_project_sequence_shot_task_workfiles())

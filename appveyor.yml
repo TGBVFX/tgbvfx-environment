@@ -1,4 +1,4 @@
-version: 2018.1.30.2
+version: 2018.1.31.2
 
 skip_tags: true
 
@@ -33,5 +33,5 @@ deploy:
   description: AppVeyor Deployment
   provider: GitHub
   auth_token:
-    secure: p92hCI4Yd3AZAEBAIci9g9ZDNnHZcP+h+fD22lxAhXkO890Hc1Ajg16iFPArrMtc
+    secure: ED38se1p0rp80uiNevgyn9peC7xLkHUztDjnyGhIfHe4zJavshbzHUFLHFSkVPMq
   artifact: deployment
