@@ -1,9 +1,35 @@
 import os
 from datetime import datetime
+import subprocess
+import shutil
 
 from github import Github
 
 
+# Build deployment zip
+build_directory = os.path.join(os.path.expanduser("~"), "build")
+subprocess.call(
+    [
+        os.path.join(build_directory, "deployment", "startup.bat"),
+        "--export-deployment",
+        "--environment",
+        os.path.abspath(os.path.join(__file__, "..", "environment.yml"))
+    ]
+)
+
+shutil.copy(
+    os.path.join(
+        build_directory,
+        "deployment",
+        "deployment.zip"
+    ),
+    os.path.join(
+        os.path.dirname(__file__),
+        "deployment.zip"
+    )
+)
+
+# Create GitHub release
 g = Github(os.environ["GITHUB_TOKEN"])
 
 repository = None
