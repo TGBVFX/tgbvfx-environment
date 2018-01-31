@@ -6,30 +6,7 @@ import shutil
 from github import Github
 
 
-# Build deployment zip
-build_directory = os.path.join(os.path.expanduser("~"), "build")
-subprocess.call(
-    [
-        os.path.join(build_directory, "deployment", "startup.bat"),
-        "--export-deployment",
-        "--environment",
-        os.path.abspath(os.path.join(__file__, "..", "environment.yml"))
-    ]
-)
-
-shutil.copy(
-    os.path.join(
-        build_directory,
-        "deployment",
-        "deployment.zip"
-    ),
-    os.path.join(
-        os.path.dirname(__file__),
-        "deployment.zip"
-    )
-)
-
-# Create GitHub release
+# Create GitHub release title
 g = Github(os.environ["GITHUB_TOKEN"])
 
 repository = None
@@ -55,6 +32,30 @@ while True:
     else:
         break
 
+# Build deployment zip
+build_directory = os.path.join(os.path.expanduser("~"), "build")
+subprocess.call(
+    [
+        os.path.join(build_directory, "deployment", "startup.bat"),
+        "--export-deployment",
+        "--environment",
+        os.path.abspath(os.path.join(__file__, "..", "environment.yml"))
+    ]
+)
+
+shutil.copy(
+    os.path.join(
+        build_directory,
+        "deployment",
+        "deployment.zip"
+    ),
+    os.path.join(
+        os.path.dirname(__file__),
+        "{0}.zip".format(release_title)
+    )
+)
+
+# Create GitHub release
 print "Creating release \"{0}\"".format(release_title)
 
 release = repository.create_git_tag_and_release(
@@ -68,7 +69,13 @@ release = repository.create_git_tag_and_release(
 
 print "Uploading deployment.zip..."
 
-release.upload_asset(
-    os.path.abspath(os.path.join(__file__, "..", "deployment.zip")),
-    label=release_title
-)
+# Currently a bare try/except because the upload errors out falsely
+# https://github.com/PyGithub/PyGithub/issues/693
+try:
+    release.upload_asset(
+        os.path.abspath(
+            os.path.join(__file__, "..", "{0}.zip".format(release_title))
+        )
+    )
+except:
+    pass
