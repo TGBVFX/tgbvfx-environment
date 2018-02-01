@@ -3,7 +3,6 @@ import requests
 import zipfile
 import subprocess
 import stat
-import shutil
 
 
 def download_file(url, path):
@@ -123,27 +122,6 @@ def main():
                 "environment_setup.py"
             )
         ]
-    )
-
-    subprocess.call(
-        [
-            os.path.join(build_directory, "deployment", "startup.bat"),
-            "--export-deployment",
-            "--environment",
-            os.path.abspath(os.path.join(__file__, "..", "environment.yml"))
-        ]
-    )
-
-    shutil.copy(
-        os.path.join(
-            build_directory,
-            "deployment",
-            "deployment.zip"
-        ),
-        os.path.join(
-            os.path.dirname(__file__),
-            "deployment.zip"
-        )
     )
 
 
