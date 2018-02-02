@@ -93,6 +93,9 @@ class FindAndReplace(ftrack.Action):
             }, {
                 'label': 'Custom attribute',
                 'value': 'custom_attribute'
+            },{
+                'label': 'Main file path',
+                'value': 'main_file_path'
             }]
 
             return {
