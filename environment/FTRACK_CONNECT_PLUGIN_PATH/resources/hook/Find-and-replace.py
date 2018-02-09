@@ -61,7 +61,7 @@ class FindAndReplace(ftrack.Action):
     identifier = 'com.ftrack.find-and-replace'  # Unique identifier for your action.
 
     #: Action label.
-    label = 'Find and replace'  # Action label which the user will see in the interface.
+    label = 'Find it and replace it'  # Action label which the user will see in the interface.
 
     def launch(self, event):
         '''Callback method for action.'''
