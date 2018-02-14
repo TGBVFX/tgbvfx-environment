@@ -20,14 +20,14 @@ dependencies:
   - https://github.com/Psyop/Cryptomatte.git@c5954c1bc99d253df817ba70bcb701a106dfefaf
   - https://github.com/tokejepsen/filelink.git@01c782e4ce8043914cc09908392747954f5284b1
   - https://github.com/pyblish/pyblish-base.git@5f2661097dfb7c4a6dffa20e5d251b4d5beeb660
-  - https://github.com/pyblish/pyblish-qml.git@1a35024c7aeccae858146cce62202d2b43b8c826
+  - https://github.com/pyblish/pyblish-qml.git@927ce409f9e9219cb3fa244d52a48ecb71c841e6
   - https://github.com/pyblish/pyblish-nukestudio.git@225b2af344468fa43c51a14f71a512b8a317cb48
   - https://github.com/pyblish/pyblish-ftrack.git@f14fca7981d6e64767815f1ad75c094e8e906153
   - https://github.com/pyblish/pyblish-nuke.git@5073788302663035c306d5c72e50efafda23186e
   - https://github.com/pyblish/pyblish-nukeassist.git@c1bf4080d8c5b79c1c5c2f14bb41bc4c9a749490
   - https://github.com/pyblish/pyblish-maya.git@a68781285c7e47bb332922870bba461d70fef009
   - https://github.com/pyblish/pyblish-royalrender.git@460f6d90bafa274648f75f14bc13de5520c2aeb2
-  - https://github.com/bumpybox/pyblish-bumpybox.git@255586f5d3f4868c49441e30ad97fa95ba24f510
+  - https://github.com/bumpybox/pyblish-bumpybox.git@205bd2e253d15b21737904dc8265bed5cf540a38
   - https://bitbucket.org/ftrack/ftrack-python-legacy-api.git@97cb35a6ae98958f95e61a7925701d9e8eea375d
   - https://bitbucket.org/ftrack/ftrack-connect.git@f2d816b4f2910dd6713f18ecb1c79a83ae50c778
   - https://bitbucket.org/ftrack/ftrack-connect-maya.git@b8be453b91765347a6e1c49ee79827c71b65bb18
