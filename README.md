@@ -1,6 +1,5 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/c7m59nneopj0g2vh?svg=true)](https://ci.appveyor.com/project/borkthestork/tgbvfx-environment)
 
-
 # tgbvfx-environment
 
 To get started with the pipeline, execute ```\\10.11.0.184\171000_TGB_Library\pipeline\startup.bat```. This will install the pipeline on your machine. The initial installation may take a little while.
