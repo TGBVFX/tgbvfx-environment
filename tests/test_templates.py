@@ -11,589 +11,589 @@ import test_project_folder_sequence_templates as tpfst
 
 def get_test_paths():
     return [
-        "//10.10.200.18/171001_ftrack/tgbvfx",
-        "//10.10.200.18/171001_ftrack/tgbvfx/editorial",
-        "//10.10.200.18/171001_ftrack/tgbvfx/io",
-        "//10.10.200.18/171001_ftrack/tgbvfx/preproduction",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx",
-        "//10.10.200.18/171001_ftrack/tgbvfx/editorial/aaf",
-        "//10.10.200.18/171001_ftrack/tgbvfx/editorial/audio",
-        "//10.10.200.18/171001_ftrack/tgbvfx/editorial/edl",
-        "//10.10.200.18/171001_ftrack/tgbvfx/editorial/footage",
-        "//10.10.200.18/171001_ftrack/tgbvfx/editorial/nukestudio",
-        "//10.10.200.18/171001_ftrack/tgbvfx/editorial/omf",
-        "//10.10.200.18/171001_ftrack/tgbvfx/editorial/qt_offline",
-        "//10.10.200.18/171001_ftrack/tgbvfx/editorial/xml",
-        "//10.10.200.18/171001_ftrack/tgbvfx/editorial/nukestudio/workspace",
-        "//10.10.200.18/171001_ftrack/tgbvfx/io/client",
-        "//10.10.200.18/171001_ftrack/tgbvfx/io/graphics",
-        "//10.10.200.18/171001_ftrack/tgbvfx/io/outsource",
-        "//10.10.200.18/171001_ftrack/tgbvfx/io/references",
-        "//10.10.200.18/171001_ftrack/tgbvfx/io/setdata",
-        "//10.10.200.18/171001_ftrack/tgbvfx/io/sourcefootage",
-        "//10.10.200.18/171001_ftrack/tgbvfx/io/transcodedfootage",
-        "//10.10.200.18/171001_ftrack/tgbvfx/io/client/from_client",
-        "//10.10.200.18/171001_ftrack/tgbvfx/io/client/to_client",
-        "//10.10.200.18/171001_ftrack/tgbvfx/io/outsource/company",
-        "//10.10.200.18/171001_ftrack/tgbvfx/io/outsource/company/from_broncos",
-        "//10.10.200.18/171001_ftrack/tgbvfx/io/outsource/company/to_broncos",
-        "//10.10.200.18/171001_ftrack/tgbvfx/io/setdata/grids",
-        "//10.10.200.18/171001_ftrack/tgbvfx/io/setdata/HDRs",
-        "//10.10.200.18/171001_ftrack/tgbvfx/io/setdata/measurements",
-        "//10.10.200.18/171001_ftrack/tgbvfx/io/setdata/references",
-        "//10.10.200.18/171001_ftrack/tgbvfx/preproduction/moodboards",
-        "//10.10.200.18/171001_ftrack/tgbvfx/preproduction/scripts",
-        "//10.10.200.18/171001_ftrack/tgbvfx/preproduction/storyboards",
-        "//10.10.200.18/171001_ftrack/tgbvfx/preproduction/treatments",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/3dsmax",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/"
+        "//10.10.200.11/171001_ftrack/tgbvfx",
+        "//10.10.200.11/171001_ftrack/tgbvfx/editorial",
+        "//10.10.200.11/171001_ftrack/tgbvfx/io",
+        "//10.10.200.11/171001_ftrack/tgbvfx/preproduction",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx",
+        "//10.10.200.11/171001_ftrack/tgbvfx/editorial/aaf",
+        "//10.10.200.11/171001_ftrack/tgbvfx/editorial/audio",
+        "//10.10.200.11/171001_ftrack/tgbvfx/editorial/edl",
+        "//10.10.200.11/171001_ftrack/tgbvfx/editorial/footage",
+        "//10.10.200.11/171001_ftrack/tgbvfx/editorial/nukestudio",
+        "//10.10.200.11/171001_ftrack/tgbvfx/editorial/omf",
+        "//10.10.200.11/171001_ftrack/tgbvfx/editorial/qt_offline",
+        "//10.10.200.11/171001_ftrack/tgbvfx/editorial/xml",
+        "//10.10.200.11/171001_ftrack/tgbvfx/editorial/nukestudio/workspace",
+        "//10.10.200.11/171001_ftrack/tgbvfx/io/client",
+        "//10.10.200.11/171001_ftrack/tgbvfx/io/graphics",
+        "//10.10.200.11/171001_ftrack/tgbvfx/io/outsource",
+        "//10.10.200.11/171001_ftrack/tgbvfx/io/references",
+        "//10.10.200.11/171001_ftrack/tgbvfx/io/setdata",
+        "//10.10.200.11/171001_ftrack/tgbvfx/io/sourcefootage",
+        "//10.10.200.11/171001_ftrack/tgbvfx/io/transcodedfootage",
+        "//10.10.200.11/171001_ftrack/tgbvfx/io/client/from_client",
+        "//10.10.200.11/171001_ftrack/tgbvfx/io/client/to_client",
+        "//10.10.200.11/171001_ftrack/tgbvfx/io/outsource/company",
+        "//10.10.200.11/171001_ftrack/tgbvfx/io/outsource/company/from_broncos",
+        "//10.10.200.11/171001_ftrack/tgbvfx/io/outsource/company/to_broncos",
+        "//10.10.200.11/171001_ftrack/tgbvfx/io/setdata/grids",
+        "//10.10.200.11/171001_ftrack/tgbvfx/io/setdata/HDRs",
+        "//10.10.200.11/171001_ftrack/tgbvfx/io/setdata/measurements",
+        "//10.10.200.11/171001_ftrack/tgbvfx/io/setdata/references",
+        "//10.10.200.11/171001_ftrack/tgbvfx/preproduction/moodboards",
+        "//10.10.200.11/171001_ftrack/tgbvfx/preproduction/scripts",
+        "//10.10.200.11/171001_ftrack/tgbvfx/preproduction/storyboards",
+        "//10.10.200.11/171001_ftrack/tgbvfx/preproduction/treatments",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/3dsmax",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/"
         "photoshop",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/"
         "photoshop/files",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/"
         "photoshop/rendered",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/houdini",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/mari",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/maya",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/nuke",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/houdini",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/mari",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/maya",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/nuke",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/"
         "_references",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/houdini/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/houdini/"
         "geo",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/houdini/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/houdini/"
         "render",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/houdini/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/houdini/"
         "temp",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/houdini/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/houdini/"
         "_in",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/houdini/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/houdini/"
         "_out",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/maya/"
         "workspace.mel",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/maya/"
         "caches",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/maya/"
         "outputScenes",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/maya/"
         "renders",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/maya/"
         "scenes",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/maya/"
         "source",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/maya/"
         "temp",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/maya/"
         "textures",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/maya/"
         "caches/arnold",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/maya/"
         "outputScenes/cacheScenes",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/maya/"
         "outputScenes/dynamicScenes",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/maya/"
         "outputScenes/renderScenes",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/nuke/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/nuke/"
         "renders",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/nuke/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/nuke/"
         "renderScripts",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/nuke/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/nuke/"
         "scripts",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/nuke/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/nuke/"
         "temp",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/nuke/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/nuke/"
         "renders/comp",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/nuke/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/_ASSET_TEMPLATE/nuke/"
         "renders/slapcomp",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/editing",
-        "//10.10.200.18/171001_ftrack/tgbvfx/editorial/nukestudio/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/editing",
+        "//10.10.200.11/171001_ftrack/tgbvfx/editorial/nukestudio/"
         "pipeline_test_v001.hrox",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/editing/nuke",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/editing/nuke/scripts",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/editing/nuke/scripts/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/editing/nuke",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/editing/nuke/scripts",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/editing/nuke/scripts/"
         "pipeline_test_editing_v001.nk",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/editing/houdini/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/editing/houdini/"
         "pipeline_test_editing_v001.hip",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/editing/maya/scenes/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/editing/maya/scenes/"
         "pipeline_test_editing_v001.mb",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/lut/editing/Group1/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/lut/editing/Group1/"
         "Group1_v001.gizmo",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/3dsmax",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/mari",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/3dsmax",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/mari",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/"
         "_references",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/_plates",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/_plates",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/photoshop",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/photoshop/files",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/photoshop/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/photoshop",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/photoshop/files",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/photoshop/"
         "rendered",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/houdini",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/houdini/geo",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/houdini/render",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/houdini/temp",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/houdini/_in",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/houdini/_out",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/houdini",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/houdini/geo",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/houdini/render",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/houdini/temp",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/houdini/_in",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/houdini/_out",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
         "workspace.mel",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
         "caches",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
         "outputScenes",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
         "renders",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
         "scenes",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
         "source",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
         "temp",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
         "textures",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
         "caches/arnold",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
         "outputScenes/cacheScenes",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
         "outputScenes/dynamicScenes",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
         "outputScenes/renderScenes",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/nuke",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/nuke/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/nuke",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/nuke/"
         "renders",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/nuke/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/nuke/"
         "renderScripts",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/nuke/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/nuke/"
         "scripts",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/nuke/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/nuke/"
         "scripts/workspace",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/nuke/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/nuke/"
         "temp",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/nuke/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/nuke/"
         "renders/comp",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/nuke/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/nuke/"
         "renders/slapcomp",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/nukestudio/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/nukestudio/"
         "pipeline_test_lizard_lookdev_v001.hrox",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/"
         "houdini/pipeline_test_lizard_lookdev_v001.hip",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/maya/"
         "scenes/pipeline_test_lizard_lookdev_v001.mb",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/lizard/nuke/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/lizard/nuke/"
         "scripts/pipeline_test_lizard_lookdev_v001.nk",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/nuke_gizmo/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/nuke_gizmo/"
         "lizard/lookdev/Group1/Group1_v001.gizmo",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/lut/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/lut/"
         "lizard/lookdev/Group1/Group1_v001.gizmo",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/scene/lizard/lookdev/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/scene/lizard/lookdev/"
         "BackdropNode1/BackdropNode1_v001.nk",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/cache/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/cache/"
         "lizard/lookdev/WriteGeo1/WriteGeo1_v001.abc",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/cache/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/cache/"
         "lizard/lookdev/WriteGeo1/WriteGeo1_v001.fbx",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/scene/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/scene/"
         "lizard/lookdev/set1_mayaBinary/set1_mayaBinary_v001.mb",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/scene/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/scene/"
         "lizard/lookdev/set1_mayaAscii/set1_mayaAscii_v001.ma",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/mov/lizard/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/mov/lizard/"
         "lookdev/Write1/Write1_v001.mov",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/scene/lizard/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/scene/lizard/"
         "lookdev/Write1/Write1_v001.psd",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/"
         "lizard/lookdev/Write1_v001/"
         "Write1_v001.%04d.exr",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/"
         "lizard/lookdev/Write1_v001/"
         "Write1_v001.1001.exr",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/"
         "lizard/lookdev/Write1_v001/"
         "Write1_v001.%04d.dpx",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/"
         "lizard/lookdev/Write1_v001/"
         "Write1_v001.1001.dpx",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/"
         "lizard/lookdev/Write1_v001/"
         "Write1_v001.%04d.jpeg",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/"
         "lizard/lookdev/Write1_v001/"
         "Write1_v001.1001.jpeg",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/"
         "lizard/lookdev/Write1_v001/"
         "Write1_v001.%04d.jpg",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/"
         "lizard/lookdev/Write1_v001/"
         "Write1_v001.1001.jpg",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/"
         "lizard/lookdev/Write1_v001/"
         "Write1_v001.%04d.hdr",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/"
         "lizard/lookdev/Write1_v001/"
         "Write1_v001.1001.hdr",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/3dsmax",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/mari",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/3dsmax",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/mari",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/"
         "_references",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/"
         "_plates",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/photoshop",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/photoshop/files",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/photoshop/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/photoshop",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/photoshop/files",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/photoshop/"
         "rendered",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/houdini",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/houdini/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/houdini",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/houdini/"
         "geo",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/houdini/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/houdini/"
         "render",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/houdini/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/houdini/"
         "temp",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/houdini/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/houdini/"
         "_in",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/houdini/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/houdini/"
         "_out",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/maya",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/maya",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
         "workspace.mel",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
         "caches",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
         "outputScenes",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
         "renders",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
         "scenes",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
         "source",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
         "temp",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
         "textures",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
         "caches/arnold",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
         "outputScenes/cacheScenes",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
         "outputScenes/dynamicScenes",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
         "outputScenes/renderScenes",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/nuke",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/nuke/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/nuke",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/nuke/"
         "renders",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/nuke/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/nuke/"
         "renderScripts",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/nuke/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/nuke/"
         "scripts",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/nuke/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/nuke/"
         "scripts/workspace",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/nuke/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/nuke/"
         "temp",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/nuke/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/nuke/"
         "renders/comp",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/nuke/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/nuke/"
         "renders/slapcomp",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/"
         "houdini/pipeline_test_castle_lookdev_v001.hip",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/maya/"
         "scenes/pipeline_test_castle_lookdev_v001.mb",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/nuke/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/nuke/"
         "scripts/pipeline_test_castle_lookdev_v001.nk",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_dev/castle/nukestudio/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_dev/castle/nukestudio/"
         "pipeline_test_castle_lookdev_v001.hrox",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/nuke_gizmo/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/nuke_gizmo/"
         "castle/lookdev/Group1/Group1_v001.gizmo",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/lut/castle/lookdev/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/lut/castle/lookdev/"
         "Group1/Group1_v001.gizmo",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/scene/castle/lookdev/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/scene/castle/lookdev/"
         "BackdropNode1/BackdropNode1_v001.nk",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/cache/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/cache/"
         "castle/lookdev/WriteGeo1/WriteGeo1_v001.abc",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/cache/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/cache/"
         "castle/lookdev/WriteGeo1/WriteGeo1_v001.fbx",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/scene/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/scene/"
         "castle/lookdev/set1_mayaBinary/set1_mayaBinary_v001.mb",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/scene/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/scene/"
         "castle/lookdev/set1_mayaAscii/set1_mayaAscii_v001.ma",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/mov/castle/lookdev/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/mov/castle/lookdev/"
         "Write1/Write1_v001.mov",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/scene/castle/lookdev/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/scene/castle/lookdev/"
         "Write1/Write1_v001.psd",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/"
         "castle/lookdev/Write1_v001/"
         "Write1_v001.%04d.exr",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/"
         "castle/lookdev/Write1_v001/"
         "Write1_v001.1001.exr",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/"
         "castle/lookdev/Write1_v001/"
         "Write1_v001.%04d.dpx",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/"
         "castle/lookdev/Write1_v001/"
         "Write1_v001.1001.dpx",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/"
         "castle/lookdev/Write1_v001/"
         "Write1_v001.%04d.jpeg",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/"
         "castle/lookdev/Write1_v001/"
         "Write1_v001.1001.jpeg",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/"
         "castle/lookdev/Write1_v001/"
         "Write1_v001.%04d.jpg",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/"
         "castle/lookdev/Write1_v001/"
         "Write1_v001.1001.jpg",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/"
         "castle/lookdev/Write1_v001/"
         "Write1_v001.%04d.hdr",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/"
         "castle/lookdev/Write1_v001/"
         "Write1_v001.1001.hdr",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/nuke/scripts/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/nuke/scripts/"
         "pipeline_test_sq001_compositing_v001.nk",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/nukestudio/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/nukestudio/"
         "pipeline_test_sq001_compositing_v001.hrox",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/maya/scenes/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/maya/scenes/"
         "pipeline_test_sq001_compositing_v001.mb",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/houdini/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/houdini/"
         "pipeline_test_sq001_compositing_v001.hip",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/lut/sq001/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/lut/sq001/"
         "compositing/Group1/Group1_v001.gizmo",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/nuke_gizmo/sq001/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/nuke_gizmo/sq001/"
         "compositing/Group1/Group1_v001.gizmo",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/3dsmax",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/mari",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/_plates",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/_references",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/3dsmax",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/mari",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/_plates",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/_references",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/photoshop",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/photoshop/files",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/photoshop/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/photoshop",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/photoshop/files",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/photoshop/"
         "rendered",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/houdini",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/houdini/geo",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/houdini/render",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/houdini/temp",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/houdini/_in",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/houdini/_out",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/houdini",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/houdini/geo",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/houdini/render",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/houdini/temp",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/houdini/_in",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/houdini/_out",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/"
         "workspace.mel",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/caches",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/caches",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/"
         "outputScenes",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/renders",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/scenes",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/source",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/temp",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/textures",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/caches/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/renders",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/scenes",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/source",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/temp",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/textures",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/caches/"
         "arnold",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/"
         "outputScenes/cacheScenes",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/"
         "outputScenes/dynamicScenes",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/"
         "outputScenes/renderScenes",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/nuke",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/nuke/renders",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/nuke/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/nuke",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/nuke/renders",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/nuke/"
         "renderScripts",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/nuke/scripts",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/nuke/temp",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/nuke/renders/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/nuke/scripts",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/nuke/temp",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/nuke/renders/"
         "comp",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/nuke/renders/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/nuke/renders/"
         "slapcomp",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/nuke/scripts/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/nuke/scripts/"
         "workspace",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/houdini/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/houdini/"
         "pipeline_test_sq001_sh0010_compositing_v001.hip",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/nuke/scripts/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/nuke/scripts/"
         "pipeline_test_sq001_sh0010_compositing_v001.nk",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/scenes/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/maya/scenes/"
         "pipeline_test_sq001_sh0010_compositing_v001.mb",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/sq001/sh0010/nukestudio/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/sq001/sh0010/nukestudio/"
         "pipeline_test_sq001_sh0010_compositing_v001.hrox",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/scene/sq001/sh0010/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/scene/sq001/sh0010/"
         "compositing/BackdropNode1/BackdropNode1_v001.nk",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/scene/sq001/sh0010/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/scene/sq001/sh0010/"
         "compositing/set1_mayaBinary/set1_mayaBinary_v001.mb",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/scene/sq001/sh0010/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/scene/sq001/sh0010/"
         "compositing/set1_mayaAscii/set1_mayaAscii_v001.ma",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/nuke_gizmo/sq001/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/nuke_gizmo/sq001/"
         "sh0010/compositing/Group1/Group1_v001.gizmo",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/lut/sq001/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/lut/sq001/"
         "sh0010/compositing/Group1/Group1_v001.gizmo",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/mov/sq001/sh0010/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/mov/sq001/sh0010/"
         "compositing/write1/write1_v001.mov",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/mov/sq001/sh0010/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/mov/sq001/sh0010/"
         "compositing/write1/write1_v001.R3D",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/scene/sq001/sh0010/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/scene/sq001/sh0010/"
         "compositing/write1/write1_v001.psd",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/cache/sq001/sh0010/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/cache/sq001/sh0010/"
         "compositing/writegeo1/writegeo1_v001.abc",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/cache/sq001/sh0010/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/cache/sq001/sh0010/"
         "compositing/writegeo1/writegeo1_v001.fbx",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/camera/sq001_sh0010/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/camera/sq001_sh0010/"
         "standard/0001/camera.abc",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/asset/writegeo1/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/asset/writegeo1/"
         "model/sq001_sh0010/0001/model.abc",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0010/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0010/"
         "sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.%04d.exr",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0010/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0010/"
         "sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.1001.exr",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0010/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0010/"
         "sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.%04d.dpx",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0010/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0010/"
         "sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.1001.dpx",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0010/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0010/"
         "sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.%04d.jpeg",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0010/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0010/"
         "sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.1001.jpeg",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0010/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0010/"
         "sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.%04d.jpg",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0010/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0010/"
         "sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.1001.jpg",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0010/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0010/"
         "sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.%04d.hdr",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0010/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/sq001_sh0010/"
         "sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.1001.hdr",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/_plates",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/_references",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/3dsmax",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/mari",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/_plates",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/_references",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/3dsmax",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/mari",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/photoshop",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/photoshop/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/photoshop",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/photoshop/"
         "files",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/photoshop/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/photoshop/"
         "rendered",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/houdini",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/houdini/_in",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/houdini/_out",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/houdini/geo",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/houdini/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/houdini",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/houdini/_in",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/houdini/_out",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/houdini/geo",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/houdini/"
         "render",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/houdini/temp",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/houdini/temp",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/caches",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/caches",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/"
         "caches/arnold",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/"
         "outputScenes",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/"
         "outputScenes/cacheScenes",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/"
         "outputScenes/dynamicScenes",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/"
         "outputScenes/renderScenes",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/renders",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/scenes",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/source",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/temp",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/renders",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/scenes",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/source",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/temp",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/"
         "textures",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/nuke",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/nuke/renders",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/nuke/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/nuke",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/nuke/renders",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/nuke/"
         "renders/comp",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/nuke/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/nuke/"
         "renders/slapcomp",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/nuke/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/nuke/"
         "renderScripts",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/nuke/scripts",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/nuke/scripts/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/nuke/scripts",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/nuke/scripts/"
         "workspace",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/nuke/temp",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/nuke/temp",
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya/"
         "workspace.mel",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/nukestudio"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/nukestudio"
         "/pipeline_test_sq001_sh0010_compositing_v001.hrox",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/nuke"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/nuke"
         "/scripts/pipeline_test_sq001_sh0010_compositing_v001.nk",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/maya"
         "/scenes/pipeline_test_sq001_sh0010_compositing_v001.mb",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/houdini"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/RND/sq001/sh0010/houdini"
         "/pipeline_test_sq001_sh0010_compositing_v001.hip",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/nuke_gizmo/RND/sq001"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/nuke_gizmo/RND/sq001"
         "/sh0010/compositing/Group1/Group1_v001.gizmo",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/lut/RND/sq001"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/lut/RND/sq001"
         "/sh0010/compositing/Group1/Group1_v001.gizmo",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/scene/RND/sq001"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/scene/RND/sq001"
         "/sh0010/compositing/BackdropNode1/BackdropNode1_v001.nk",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/mov/RND/sq001"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/mov/RND/sq001"
         "/sh0010/compositing/write1/write1_v001.mov",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/scene/RND/sq001"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/scene/RND/sq001"
         "/sh0010/compositing/write1/write1_v001.psd",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/cache/RND/sq001"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/cache/RND/sq001"
         "/sh0010/compositing/writegeo1/writegeo1_v001.abc",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/cache/RND/sq001"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/cache/RND/sq001"
         "/sh0010/compositing/writegeo1/writegeo1_v001.fbx",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/scene/RND/sq001"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/scene/RND/sq001"
         "/sh0010/compositing/set1_mayaBinary/set1_mayaBinary_v001.mb",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/scene/RND/sq001"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/scene/RND/sq001"
         "/sh0010/compositing/set1_mayaAscii/set1_mayaAscii_v001.ma",
 
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/RND/sq001_sh0010"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/RND/sq001_sh0010"
         "/sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.%04d.exr",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/RND/sq001_sh0010"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/RND/sq001_sh0010"
         "/sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.1001.exr",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/RND/sq001_sh0010"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/RND/sq001_sh0010"
         "/sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.%04d.dpx",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/RND/sq001_sh0010"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/RND/sq001_sh0010"
         "/sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.1001.dpx",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/RND/sq001_sh0010"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/RND/sq001_sh0010"
         "/sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.%04d.jpeg",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/RND/sq001_sh0010"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/RND/sq001_sh0010"
         "/sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.1001.jpeg",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/RND/sq001_sh0010"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/RND/sq001_sh0010"
         "/sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.%04d.jpg",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/RND/sq001_sh0010"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/RND/sq001_sh0010"
         "/sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.1001.jpg",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/RND/sq001_sh0010"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/RND/sq001_sh0010"
         "/sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.%04d.hdr",
-        "//10.10.200.18/171001_ftrack/tgbvfx/vfx/_publish/img/RND/sq001_sh0010"
+        "//10.10.200.11/171001_ftrack/tgbvfx/vfx/_publish/img/RND/sq001_sh0010"
         "/sq001_sh0010_Write1_v001/sq001_sh0010_Write1_v001.1001.hdr",
     ]
 
