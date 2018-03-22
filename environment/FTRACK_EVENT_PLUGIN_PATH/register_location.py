@@ -10,7 +10,12 @@ class Structure(ftrack_api.structure.base.Structure):
 
         valid_templates = templates[0].get_valid_templates(entity, templates)
         if valid_templates:
-            return valid_templates[0].format(entity)
+            path = valid_templates[0].format(entity)
+
+            # Server transition from "10.11.0.184" to "10.10.200.11"
+            path.replace("\\\\10.11.0.184\\", "\\\\10.10.200.11\\")
+
+            return path
 
         msg = (
             'Could not find any templates for {0} with template name "{1}".'
