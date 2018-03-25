@@ -11,10 +11,6 @@ class Structure(ftrack_api.structure.base.Structure):
         valid_templates = templates[0].get_valid_templates(entity, templates)
         if valid_templates:
             path = valid_templates[0].format(entity)
-
-            # Server transition from "10.11.0.184" to "10.10.200.11"
-            path.replace("\\\\10.11.0.184\\", "\\\\10.10.200.11\\")
-
             return path
 
         msg = (
@@ -23,6 +19,20 @@ class Structure(ftrack_api.structure.base.Structure):
         raise ValueError(
             msg.format(entity, templates[0].get_template_name(entity))
         )
+
+
+class ResourceIdentifierTransformer(object):
+
+    def __init__(self, session):
+        self.session = session
+        super(ResourceIdentifierTransformer, self).__init__()
+
+    def encode(self, resource_identifier, context=None):
+        return resource_identifier
+
+    def decode(self, resource_identifier, context=None):
+        # Server transition from "10.11.0.184" to "10.10.200.11"
+        return resource_identifier.replace("10.11.0.184", "10.10.200.11")
 
 
 def configure_locations(event):
@@ -35,6 +45,9 @@ def configure_locations(event):
     location.accessor = ftrack_api.accessor.disk.DiskAccessor(prefix="")
     location.structure = Structure()
     location.priority = 50
+    location.resource_identifier_transformer = ResourceIdentifierTransformer(
+        session
+    )
     ftrack_api.mixin(
         location,
         ftrack_api.entity.location.UnmanagedLocationMixin,
