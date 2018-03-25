@@ -1,6 +1,6 @@
 <root presetname="pipeline" tasktype="hiero.exporters.FnShotProcessor.ShotProcessor">
     <startFrameIndex valuetype="int">991</startFrameIndex>
-    <exportRoot valuetype="str">//10.11.0.184/171001_ftrack/tgbvfx/editorial/nukestudio/workspace/</exportRoot>
+    <exportRoot valuetype="str">//10.10.200.11/171001_ftrack/tgbvfx/editorial/nukestudio/workspace/</exportRoot>
     <versionIndex valuetype="int">1</versionIndex>
     <cutUseHandles valuetype="bool">True</cutUseHandles>
     <versionPadding valuetype="int">3</versionPadding>

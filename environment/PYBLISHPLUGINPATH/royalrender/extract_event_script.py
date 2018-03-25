@@ -28,7 +28,7 @@ class TGBVFXEnvironmentRoyalRenderExtractEventScript(api.InstancePlugin):
         # Check if event script is local
         if event_script_path.lower().startswith("c"):
             network_path = (
-                "//10.11.0.184/171000_TGB_Library/pipeline/repositories/"
+                "//10.10.200.11/171000_TGB_Library/pipeline/repositories/"
                 "tgbvfx-environment/tgbvfx-environment/environment/"
                 "PYBLISHPLUGINPATH/royalrender/event_script/event_script.py"
             )
@@ -41,7 +41,7 @@ class TGBVFXEnvironmentRoyalRenderExtractEventScript(api.InstancePlugin):
         # Check if pythonpath is local
         if pythonpath.lower().startswith("c"):
             network_path = (
-                "//10.11.0.184/171000_TGB_Library/pipeline/repositories/"
+                "//10.10.200.11/171000_TGB_Library/pipeline/repositories/"
                 "tgbvfx-environment/tgbvfx-environment/environment/"
                 "PYBLISHPLUGINPATH/royalrender/PYTHONPATH"
             )
