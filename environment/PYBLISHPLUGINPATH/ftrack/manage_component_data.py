@@ -19,14 +19,11 @@ class TGBFtrackManageComponentData(pyblish.api.InstancePlugin):
             filelink.create(src, dst)
             self.log.debug("Linking: \"{0}\" to \"{1}\"".format(src, dst))
         except WindowsError as e:
-            if e.winerror == 17:
-                self.log.warning(
-                    "File linking failed due to: \"{0}\". "
-                    "Resorting to copying instead.".format(e)
-                )
-                shutil.copy(src, dst)
-            else:
-                raise e
+            self.log.warning(
+                "File linking failed due to: \"{0}\". "
+                "Resorting to copying instead.".format(e)
+            )
+            shutil.copy(src, dst)
 
     def process(self, instance):
 
