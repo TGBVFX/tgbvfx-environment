@@ -3,7 +3,6 @@ import shutil
 import filecmp
 
 import pyblish.api
-import filelink
 import clique
 
 
@@ -15,15 +14,8 @@ class TGBFtrackManageComponentData(pyblish.api.InstancePlugin):
     families = ["ftrack"]
 
     def manage_data(self, src, dst):
-        try:
-            filelink.create(src, dst)
-            self.log.debug("Linking: \"{0}\" to \"{1}\"".format(src, dst))
-        except WindowsError as e:
-            self.log.warning(
-                "File linking failed due to: \"{0}\". "
-                "Resorting to copying instead.".format(e)
-            )
-            shutil.copy(src, dst)
+        self.log.debug("Moving \"{0}\" to \"{1}\"".format(src, dst))
+        shutil.move(src, dst)
 
     def process(self, instance):
 
