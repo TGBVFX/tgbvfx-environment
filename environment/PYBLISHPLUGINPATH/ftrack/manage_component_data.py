@@ -12,10 +12,17 @@ class TGBFtrackManageComponentData(pyblish.api.InstancePlugin):
     order = pyblish.api.IntegratorOrder + 1
     label = "Manage Data"
     families = ["ftrack"]
-
+        
     def manage_data(self, src, dst):
-        self.log.debug("Moving \"{0}\" to \"{1}\"".format(src, dst))
-        shutil.move(src, dst)
+        try:
+            self.log.debug("Moving \"{0}\" to \"{1}\"".format(src, dst))
+            shutil.move(src, dst)
+        except Exception as e:
+            self.log.warning(
+                "File moving failed due to: \"{0}\". "
+                "Resorting to copying instead.".format(e)
+            )
+            shutil.copy(src, dst)
 
     def process(self, instance):
 
